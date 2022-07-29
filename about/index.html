@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!--pjax：防止跳转页面音乐暂停-->
+    <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"xinyi127.cn","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":"true  //复制代码按钮","show_result":"true //复制成功进行提示","style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#00FFFF","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="版本说明： hexo 6.2.0 next 7.8.0 node 16.15.0   ¶版本：1.2.2 日期: 2022.7.29 [内容优化]  添加说说页面额外刷新代码。解决因 Artitalk 与 pjax 不兼容，导致每次访问说说需要额外刷新一次的问题。   ¶版本：1.2.1 日期: 2022.7.18 [内容优化]  完全重构相册实现方式，实现瀑布流式相册，支持二级相册，支持加密访">
+<meta property="og:type" content="website">
+<meta property="og:title" content="更新日志">
+<meta property="og:url" content="http://xinyi127.cn/about/index.html">
+<meta property="og:site_name" content="&lt;font color&#x3D;&quot;#FFFAFA&quot;&gt;❤梧桐苑&lt;&#x2F;font&gt;">
+<meta property="og:description" content="版本说明： hexo 6.2.0 next 7.8.0 node 16.15.0   ¶版本：1.2.2 日期: 2022.7.29 [内容优化]  添加说说页面额外刷新代码。解决因 Artitalk 与 pjax 不兼容，导致每次访问说说需要额外刷新一次的问题。   ¶版本：1.2.1 日期: 2022.7.18 [内容优化]  完全重构相册实现方式，实现瀑布流式相册，支持二级相册，支持加密访">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-05-24T11:35:42.000Z">
+<meta property="article:modified_time" content="2022-07-29T09:25:48.694Z">
+<meta property="article:author" content="心意">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://xinyi127.cn/about/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>更新日志 | <font color="#FFFAFA">❤梧桐苑</font>
+</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title"><font color="#FFFAFA">❤梧桐苑</font></h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i><i class="fa fa-university" aria-hidden="true"></i> 首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i><i class="fa fa-briefcase" aria-hidden="true"></i> 归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i><i class="fa fa-th-list" aria-hidden="true"></i> 分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i><i class="fa fa-tags" aria-hidden="true"></i> 标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i><i class="fa fa-calendar" aria-hidden="true"></i> 更新日志</a>
+
+  </li>
+        <li class="menu-item menu-item-artitalk">
+
+    <a href="/Artitalk/" rel="section"><i class="paper-plane fa-fw"></i><i class="fa fa-paper-plane" aria-hidden="true"></i> 说说</a>
+
+  </li>
+        <li class="menu-item menu-item-gallery">
+
+    <a href="/gallery/" rel="section"><i class="fas fa-camera-retro fa-fw"></i>相册</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="download fa-fw"></i><i class="fa fa-link" aria-hidden="true"></i> 资源</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+  
+  
+
+          <div class="content page posts-expand">
+            
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">更新日志
+</h1>
+
+<div class="post-meta">
+  
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <blockquote>
+<p>版本说明：</p>
+<p>hexo 6.2.0<br>
+next 7.8.0<br>
+node 16.15.0</p>
+</blockquote>
+<hr>
+<h4 id="版本：1-2-2-日期-2022-7-29"><a class="header-anchor" href="#版本：1-2-2-日期-2022-7-29">¶</a>版本：1.2.2 日期: 2022.7.29</h4>
+<p><strong>[内容优化]</strong></p>
+<ul>
+<li>添加说说页面额外刷新代码。解决因 <code>Artitalk</code> 与 <code>pjax</code> 不兼容，导致每次访问说说需要额外刷新一次的问题。</li>
+</ul>
+<hr>
+<h4 id="版本：1-2-1-日期-2022-7-18"><a class="header-anchor" href="#版本：1-2-1-日期-2022-7-18">¶</a>版本：1.2.1 日期: 2022.7.18</h4>
+<p><strong>[内容优化]</strong></p>
+<ul>
+<li>完全重构相册实现方式，实现瀑布流式相册，支持二级相册，支持加密访问。</li>
+</ul>
+<p><strong>[内容调整]</strong></p>
+<ul>
+<li>降低网站背景图片清晰度（由 <code>3.02M</code> 压缩至 <code>503K</code> ），调整网站背景图片路径为图床URL。</li>
+<li>调整侧边栏背景图片路径为图床URL。</li>
+</ul>
+<hr>
+<h4 id="版本：1-2-0-日期：2022-7-14"><a class="header-anchor" href="#版本：1-2-0-日期：2022-7-14">¶</a>版本：1.2.0 日期：2022.7.14</h4>
+<p><strong>[内容调整]</strong></p>
+<p><strong>[内容调整]</strong></p>
+<ul>
+<li>调整网站背景图片，当前为 <code>&quot;D:\Blog\themes\next\source\images\background6.png&quot;</code> 。</li>
+<li>调整侧边栏背景图片，当前为 <code>&quot;D:\Blog\themes\next\source\images\background8.png&quot;</code> 。</li>
+<li>调整网站名字颜色为雪，颜色码： <code> #FFFAFA</code> 。</li>
+<li>超链接显示颜色为纯黑，颜色码： <code>  #000000</code> 。鼠标移动到链接上时颜色为深橙色，颜色码： <code> #FF8C00</code>。</li>
+<li>调整备案号颜色为雪，颜色码： <code> #FFFAFA</code> 。</li>
+<li>调整侧边栏个性签名颜色为苍白的紫罗兰红色，颜色码： <code> #DB7093</code> 。</li>
+<li>调整评论默认头像为： <code>robohash</code> 。</li>
+<li>调整评论栏透明度为 <code>0.9</code> 。</li>
+</ul>
+<p><strong>[内容优化]</strong></p>
+<ul>
+<li>新增打赏功能。</li>
+<li>新增书签功能，关闭页面或者单击书签时将保存当前页面阅读进度。当前书签颜色为青色，颜色码： <code> #00FFFF</code> 。</li>
+</ul>
+<hr>
+<h4 id="版本：1-1-6-日期：2022-7-13"><a class="header-anchor" href="#版本：1-1-6-日期：2022-7-13">¶</a>版本：1.1.6 日期：2022.7.13</h4>
+<p><strong>[内容调整]</strong></p>
+<ul>
+<li>开启说说的功能后，顶部阅读条无法正常显示，考虑到已经有阅读进度百分比显示，关闭顶部阅读进度条。</li>
+</ul>
+<p><strong>[内容优化]</strong></p>
+<ul>
+<li>新增说说功能，基于 <code>Artitalk</code> 实现，支持在线发布。</li>
+</ul>
+<hr>
+<h4 id="版本：1-1-5-日期：2022-7-12"><a class="header-anchor" href="#版本：1-1-5-日期：2022-7-12">¶</a>版本：1.1.5 日期：2022.7.12</h4>
+<p><strong>[内容调整]</strong></p>
+<ul>
+<li>调整本地搜索框透明度为 0.9。</li>
+</ul>
+<p><strong>[内容优化]</strong></p>
+<ul>
+<li>新增显示阅读进度条功能。</li>
+</ul>
+<hr>
+<h4 id="版本：1-1-4-日期：2022-7-11"><a class="header-anchor" href="#版本：1-1-4-日期：2022-7-11">¶</a>版本：1.1.4 日期：2022.7.11</h4>
+<p><strong>[内容调整]</strong></p>
+<ul>
+<li>调整头像图片，当前为 <code>&quot;D:\Blog\themes\next\source\images\avatar.png&quot;</code> ，考虑到头像的限制，取消头像随光标旋转功能。</li>
+</ul>
+<p><strong>[内容优化]</strong></p>
+<ul>
+<li>新增菜单栏中相册分类（目前仅供参考，功能将在后续版本持续完善）。</li>
+<li>新增支持图片点击放大，放大后可关闭功能。</li>
+<li>新增本文内所有图片缩略图预览功能。</li>
+<li>新增本文内所有图片幻灯片方式放映功能。</li>
+</ul>
+<hr>
+<h4 id="版本：1-1-3-日期：2022-7-9"><a class="header-anchor" href="#版本：1-1-3-日期：2022-7-9">¶</a>版本：1.1.3 日期：2022.7.9</h4>
+<p><strong>[内容调整]</strong></p>
+<ul>
+<li>调整网站背景图片，当前为 <code>&quot;D:\Blog\themes\next\source\images\background5.png&quot;</code> 。</li>
+</ul>
+<hr>
+<h4 id="版本：1-1-2-日期：2022-7-6"><a class="header-anchor" href="#版本：1-1-2-日期：2022-7-6">¶</a>版本：1.1.2 日期：2022.7.6</h4>
+<p><strong>[内容调整]</strong></p>
+<ul>
+<li>取消过去文章中一律使用半角符号的写作风格，今后的写作风格将向 <a target="_blank" rel="noopener" href="https://keatonlao.gitee.io/a-study-note-for-markdown/document-style/">Markdown 写作规范</a> 靠拢。</li>
+<li>调整过去更新日志中 <code>1.0.0</code> 到 <code>1.1.1</code> 的符号使用风格。</li>
+</ul>
+<hr>
+<h4 id="版本：1-1-1-日期：2022-6-19"><a class="header-anchor" href="#版本：1-1-1-日期：2022-6-19">¶</a>版本：1.1.1 日期：2022.6.19</h4>
+<p><strong>[内容调整]</strong></p>
+<ul>
+<li>调整代码块背景颜色为 <code>night</code> 。</li>
+<li>调整网站动态背景：由 <code>JavaScript 3D library canvas_lines</code> 风格改为 <code>canvas nest</code>  风格。</li>
+</ul>
+<p><strong>[内容优化]</strong></p>
+<ul>
+<li>新增文章代码块一键复制功能。</li>
+<li>新增音乐播放器功能，支持全局播放，默认关闭。</li>
+</ul>
+<hr>
+<h4 id="版本：1-1-0-日期：2022-6-18"><a class="header-anchor" href="#版本：1-1-0-日期：2022-6-18">¶</a>版本：1.1.0 日期：2022.6.18</h4>
+<p><strong>[内容调整]</strong></p>
+<ul>
+<li>调整侧边栏链接和个性签名颜色使其适应背景图片。</li>
+</ul>
+<p><strong>[内容优化]</strong></p>
+<ul>
+<li>新增 文章末尾致谢 ： <code>-------------本文结束 ❤ 感谢您的阅读-------------- </code> 。</li>
+<li>新增头像随鼠标旋转功能。</li>
+<li>新增侧边栏背景。</li>
+</ul>
+<hr>
+<h4 id="版本：1-0-9-日期：2022-6-15"><a class="header-anchor" href="#版本：1-0-9-日期：2022-6-15">¶</a>版本：1.0.9 日期：2022.6.15</h4>
+<p><strong>[内容优化]</strong></p>
+<ul>
+<li>为了更突出更新日志的定位，今后将取消在更新日志中记录所发布的文章，相应的记录功能将在后续版本中随日历功能上线，日志中过去已经记录的 <code>发布文章</code> 将会保留。</li>
+</ul>
+<hr>
+<h4 id="版本：1-0-8-日期：2022-6-12"><a class="header-anchor" href="#版本：1-0-8-日期：2022-6-12">¶</a>版本：1.0.8* 日期：2022.6.12</h4>
+<p><strong>[内容调整]</strong></p>
+<ul>
+<li>发布文章： <a href="https://xinyi127.cn/2022/06/12/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9C%9F%E6%9C%AB%E9%A2%84%E4%B9%A0/"><em>数据库期末预习</em></a></li>
+</ul>
+<hr>
+<h4 id="版本：1-0-8-日期：2022-6-7"><a class="header-anchor" href="#版本：1-0-8-日期：2022-6-7">¶</a>版本：1.0.8 日期：2022.6.7</h4>
+<p><strong>[内容优化]</strong></p>
+<ul>
+<li>新增支持LaTeX公式功能。</li>
+</ul>
+<p><strong>[内容调整]</strong></p>
+<ul>
+<li>发布文章： <a href="https://xinyi127.cn/2022/06/07/%E8%AE%BE%E7%BD%AEhexo%E5%8D%9A%E5%AE%A2%E6%94%AF%E6%8C%81LaTeX%E5%85%AC%E5%BC%8F/"><em>设置博客支持LaTeX公式</em></a></li>
+<li>发布文章： <a href="https://xinyi127.cn/2022/06/07/%E6%96%B0%E6%89%8B%E6%9C%BA%E5%88%B0%E4%BA%86,-%E7%BA%AA%E5%BF%B5%E4%B8%80%E4%B8%8B/"><em>新手机到了, 纪念一下</em></a></li>
+<li>调整文章名：由 <em>记录创建博客过程中一些问题</em>  改为 <a href="https://xinyi127.cn/2022/06/07/%E8%AE%BE%E7%BD%AEhexo%E5%8D%9A%E5%AE%A2%E6%94%AF%E6%8C%81LaTeX%E5%85%AC%E5%BC%8F/"><em>hexo博客的一些问题</em></a>，并增加相关内容。</li>
+</ul>
+<hr>
+<h4 id="版本：1-0-7-日期：2022-6-6"><a class="header-anchor" href="#版本：1-0-7-日期：2022-6-6">¶</a>版本：1.0.7* 日期：2022.6.6</h4>
+<p><strong>[内容调整]</strong></p>
+<ul>
+<li>调整部分文章概述，在此感谢<u>姐姐</u>的纠正。</li>
+<li>发布文章：<a href="https://xinyi127.cn/2022/06/06/Is-Bigger-Smarter%E9%A2%98%E8%A7%A3/"><em>Is Bigger Smarter?题解</em></a></li>
+</ul>
+<hr>
+<h4 id="版本：1-0-7-日期：2022-6-5"><a class="header-anchor" href="#版本：1-0-7-日期：2022-6-5">¶</a>版本：1.0.7 日期：2022.6.5</h4>
+<p><strong>[内容优化]</strong></p>
+<ul>
+<li>将CSDN往期23篇文章迁移到梧桐轩： <a target="_blank" rel="noopener" href="http://rczkr10rm.hn-bkt.clouddn.com/hexo%E5%8D%9A%E5%AE%A2%2F2022.6.5%E6%97%A5%E6%9B%B4%E6%96%B0%E6%96%87%E7%AB%A0.xlsx">23篇文章目录</a></li>
+</ul>
+<p><strong>[内容调整]</strong></p>
+<ul>
+<li>通过图床功能实现文章中点击链接下载文件。</li>
+<li>将主页菜单栏中 <code>关于</code> 的图标由咖啡 <code>fa-coffee</code> 调整为日历 <code>fa-calendar</code> 。</li>
+</ul>
+<hr>
+<h4 id="版本：1-0-6-日期：2022-6-4"><a class="header-anchor" href="#版本：1-0-6-日期：2022-6-4">¶</a>版本：1.0.6  日期：2022.6.4</h4>
+<p><strong>[内容优化]</strong></p>
+<ul>
+<li>新增支持网站本地搜索功能。</li>
+<li>新增侧边栏社交链接：github、邮箱、CSDN和AcWing。</li>
+</ul>
+<p><strong>[内容调整]</strong></p>
+<ul>
+<li>将置顶图标由皇冠调整为图钉。</li>
+<li>主页文章更新为阴影效果。</li>
+<li>为主页菜单栏添加图标。</li>
+<li>调整侧边栏签名为： <code>像珍惜礼物一样，珍惜今天</code> 。</li>
+</ul>
+<hr>
+<h4 id="版本：1-0-5-日期：2022-6-3"><a class="header-anchor" href="#版本：1-0-5-日期：2022-6-3">¶</a>版本：1.0.5  日期：2022.6.3</h4>
+<p><strong>[内容优化]</strong></p>
+<ul>
+<li>发布文章： <a href="https://xinyi127.cn/2022/06/03/%E7%AD%94%E7%96%91%E6%B1%87%E6%80%BB_%E8%87%AA%E7%94%A8/"><em>教训&amp;心得&amp;疑惑</em></a></li>
+<li>发布文章： <a href="https://xinyi127.cn/2022/06/03/%E6%89%BE%E7%B4%A0%E6%95%B0&amp;%E6%89%BE%E7%BA%A6%E6%95%B0(%E5%94%AF%E4%B8%80%E5%88%86%E8%A7%A3%E5%AE%9A%E7%90%86)/"><em>找素数&amp;找约数(唯一分解定理)</em></a></li>
+<li>新增文章置顶功能。</li>
+</ul>
+<p><strong>[内容调整]</strong></p>
+<ul>
+<li>将现有文章添加标签和分类。</li>
+<li>实现部分文章私有化，需要密码访问。</li>
+</ul>
+<hr>
+<h4 id="版本：1-0-4-日期：2022-6-2"><a class="header-anchor" href="#版本：1-0-4-日期：2022-6-2">¶</a>版本：1.0.4  日期：2022.6.2</h4>
+<p><strong>[内容优化]</strong></p>
+<ul>
+<li>域名完成ICP备案并将备案码布署到网站底部。</li>
+<li>发布文章： <a href="https://xinyi127.cn/2022/05/31/%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97+%E8%AE%B0%E5%BD%95%E8%B7%AF%E5%BE%84+%E4%BC%98%E5%8C%96%E7%89%88%E6%9C%AC/"><em>最长上升子序列+记录路径+优化版本</em></a></li>
+<li>发布文章： <a href="https://xinyi127.cn/2022/05/31/%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BC%98%E5%8C%96%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/"><em>二进制优化完全背包问题</em></a></li>
+<li>新增鼠标点击烟花特效。</li>
+<li>新增 <code>JavaScript 3D library</code> 风格动态背景。</li>
+<li>新增侧边栏头像。</li>
+<li>设置文章内链接为淡绿色（颜色码： <code>#90EE90</code> ），鼠标移动到链接上方时，链接颜色变为适中的碧绿色（颜色码： <code>#00FA9A</code> ）。</li>
+<li>网站底部增加显示站点总字数和总阅读时长。</li>
+<li>新增访问量统计功能。</li>
+<li>新增左下角显示当前浏览百分比。</li>
+</ul>
+<p><strong>[内容调整]</strong></p>
+<ul>
+<li>为现有文章添加预览功能。</li>
+<li>为现有文章添加显示文章字数和阅读时长功能。</li>
+<li>为现有文章末尾添加版权说明。</li>
+<li>隐藏网站底部 <code>powered By Hexo</code> 。</li>
+<li>网站正式确定名字： <u>梧桐轩</u></li>
+<li>调整侧边栏签名为： <u>醉后不知天在水，满船清梦压星河。</u></li>
+</ul>
+<hr>
+<h4 id="版本：1-0-0-日期：2022-5-23"><a class="header-anchor" href="#版本：1-0-0-日期：2022-5-23">¶</a>版本：1.0.0  日期：2022.5.23</h4>
+<p><strong>[内容优化]</strong></p>
+<ul>
+<li>网站正式搭建好。</li>
+<li>发布文章： <a href="https://xinyi127.cn/2022/05/23/hello-world/">Hello World</a></li>
+</ul>
+
+      </div>
+      
+      
+      
+    </div>
+    
+
+    
+    
+    
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%EF%BC%9A1-2-2-%E6%97%A5%E6%9C%9F-2022-7-29"><span class="nav-number">1.</span> <span class="nav-text">版本：1.2.2 日期: 2022.7.29</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%EF%BC%9A1-2-1-%E6%97%A5%E6%9C%9F-2022-7-18"><span class="nav-number">2.</span> <span class="nav-text">版本：1.2.1 日期: 2022.7.18</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%EF%BC%9A1-2-0-%E6%97%A5%E6%9C%9F%EF%BC%9A2022-7-14"><span class="nav-number">3.</span> <span class="nav-text">版本：1.2.0 日期：2022.7.14</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%EF%BC%9A1-1-6-%E6%97%A5%E6%9C%9F%EF%BC%9A2022-7-13"><span class="nav-number">4.</span> <span class="nav-text">版本：1.1.6 日期：2022.7.13</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%EF%BC%9A1-1-5-%E6%97%A5%E6%9C%9F%EF%BC%9A2022-7-12"><span class="nav-number">5.</span> <span class="nav-text">版本：1.1.5 日期：2022.7.12</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%EF%BC%9A1-1-4-%E6%97%A5%E6%9C%9F%EF%BC%9A2022-7-11"><span class="nav-number">6.</span> <span class="nav-text">版本：1.1.4 日期：2022.7.11</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%EF%BC%9A1-1-3-%E6%97%A5%E6%9C%9F%EF%BC%9A2022-7-9"><span class="nav-number">7.</span> <span class="nav-text">版本：1.1.3 日期：2022.7.9</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%EF%BC%9A1-1-2-%E6%97%A5%E6%9C%9F%EF%BC%9A2022-7-6"><span class="nav-number">8.</span> <span class="nav-text">版本：1.1.2 日期：2022.7.6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%EF%BC%9A1-1-1-%E6%97%A5%E6%9C%9F%EF%BC%9A2022-6-19"><span class="nav-number">9.</span> <span class="nav-text">版本：1.1.1 日期：2022.6.19</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%EF%BC%9A1-1-0-%E6%97%A5%E6%9C%9F%EF%BC%9A2022-6-18"><span class="nav-number">10.</span> <span class="nav-text">版本：1.1.0 日期：2022.6.18</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%EF%BC%9A1-0-9-%E6%97%A5%E6%9C%9F%EF%BC%9A2022-6-15"><span class="nav-number">11.</span> <span class="nav-text">版本：1.0.9 日期：2022.6.15</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%EF%BC%9A1-0-8-%E6%97%A5%E6%9C%9F%EF%BC%9A2022-6-12"><span class="nav-number">12.</span> <span class="nav-text">版本：1.0.8* 日期：2022.6.12</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%EF%BC%9A1-0-8-%E6%97%A5%E6%9C%9F%EF%BC%9A2022-6-7"><span class="nav-number">13.</span> <span class="nav-text">版本：1.0.8 日期：2022.6.7</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%EF%BC%9A1-0-7-%E6%97%A5%E6%9C%9F%EF%BC%9A2022-6-6"><span class="nav-number">14.</span> <span class="nav-text">版本：1.0.7* 日期：2022.6.6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%EF%BC%9A1-0-7-%E6%97%A5%E6%9C%9F%EF%BC%9A2022-6-5"><span class="nav-number">15.</span> <span class="nav-text">版本：1.0.7 日期：2022.6.5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%EF%BC%9A1-0-6-%E6%97%A5%E6%9C%9F%EF%BC%9A2022-6-4"><span class="nav-number">16.</span> <span class="nav-text">版本：1.0.6  日期：2022.6.4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%EF%BC%9A1-0-5-%E6%97%A5%E6%9C%9F%EF%BC%9A2022-6-3"><span class="nav-number">17.</span> <span class="nav-text">版本：1.0.5  日期：2022.6.3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%EF%BC%9A1-0-4-%E6%97%A5%E6%9C%9F%EF%BC%9A2022-6-2"><span class="nav-number">18.</span> <span class="nav-text">版本：1.0.4  日期：2022.6.2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%EF%BC%9A1-0-0-%E6%97%A5%E6%9C%9F%EF%BC%9A2022-5-23"><span class="nav-number">19.</span> <span class="nav-text">版本：1.0.0  日期：2022.5.23</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="心意"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">心意</p>
+  <div class="site-description" itemprop="description"><font color="#DB7093">像珍惜礼物一样，珍惜今天。</font></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xinyi127" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xinyi127" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1224179212@qq.com" title="E-Mail → mailto:1224179212@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/jhgjhg225?type=blog" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;jhgjhg225?type&#x3D;blog" rel="noopener" target="_blank"><i class="codiepie fa-fw"></i>CSDN</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.acwing.com/user/myspace/index/111921/" title="AcWing → https:&#x2F;&#x2F;www.acwing.com&#x2F;user&#x2F;myspace&#x2F;index&#x2F;111921&#x2F;" rel="noopener" target="_blank"><i class=" fa-fw"></i>AcWing</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+
+<!-- require APlayer -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<!-- require MetingJS-->
+
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
+<!--网易云playlist外链地址-->   
+<meting-js
+    server="netease"
+    type="playlist" 
+    id="7496223401"
+    mini="false"
+    fixed="false"
+    list-folded="true"
+    autoplay="false"
+    volume="0.4"
+    theme="#FADFA3"
+    order="random"
+    loop="all"
+    preload="auto"
+    mutex="true">
+</meting-js>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank"><font color="#FFFAFA">鲁ICP备2022018291号-1</font> </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">心意</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">238k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:36</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+-->
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共238k字</span>
+</div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+
+// 说说额外刷新
+    $(document).ready(function () {
+
+    if(location.href.indexOf("#reloaded")==-1){
+        location.href=location.href+"#reloaded";
+        location.reload();
+    }
+}）
+// 在这后面可以加入程序的其他代码  
+
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+
+  
+     <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+     <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+     <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'fYGYazVwbVLy8cEqJqIcUCcO-MdYXbMMI',
+      appKey     : 'hhEw2wKtOfkSDCmpAlPAO7g3',
+      placeholder: "交流促进成长，欢迎分享你的苹果。昵称、邮箱和网址非必填哦，可直接评论~",
+      avatar     : 'robohash',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : 'https://fygyazvw.api.lncldglobal.com'
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>

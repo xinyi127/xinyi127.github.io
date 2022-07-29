@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!--pjax：防止跳转页面音乐暂停-->
+    <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"xinyi127.cn","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":"true  //复制代码按钮","show_result":"true //复制成功进行提示","style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#00FFFF","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="说人话, 重实战, 一步入天象! 就喜欢这种不讲道理的及格.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象期末预习大纲">
+<meta property="og:url" content="http://xinyi127.cn/2022/06/21/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%9C%9F%E6%9C%AB%E9%A2%84%E4%B9%A0%E5%A4%A7%E7%BA%B2/index.html">
+<meta property="og:site_name" content="&lt;font color&#x3D;&quot;#FFFAFA&quot;&gt;❤梧桐苑&lt;&#x2F;font&gt;">
+<meta property="og:description" content="说人话, 重实战, 一步入天象! 就喜欢这种不讲道理的及格.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-21T13:53:13.148Z">
+<meta property="article:modified_time" content="2022-06-22T13:07:27.058Z">
+<meta property="article:author" content="心意">
+<meta property="article:tag" content="c++">
+<meta property="article:tag" content="面向对象程序设计">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://xinyi127.cn/2022/06/21/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%9C%9F%E6%9C%AB%E9%A2%84%E4%B9%A0%E5%A4%A7%E7%BA%B2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>面向对象期末预习大纲 | <font color="#FFFAFA">❤梧桐苑</font></title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title"><font color="#FFFAFA">❤梧桐苑</font></h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i><i class="fa fa-university" aria-hidden="true"></i> 首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i><i class="fa fa-briefcase" aria-hidden="true"></i> 归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i><i class="fa fa-th-list" aria-hidden="true"></i> 分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i><i class="fa fa-tags" aria-hidden="true"></i> 标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i><i class="fa fa-calendar" aria-hidden="true"></i> 更新日志</a>
+
+  </li>
+        <li class="menu-item menu-item-artitalk">
+
+    <a href="/Artitalk/" rel="section"><i class="paper-plane fa-fw"></i><i class="fa fa-paper-plane" aria-hidden="true"></i> 说说</a>
+
+  </li>
+        <li class="menu-item menu-item-gallery">
+
+    <a href="/gallery/" rel="section"><i class="fas fa-camera-retro fa-fw"></i>相册</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="download fa-fw"></i><i class="fa fa-link" aria-hidden="true"></i> 资源</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xinyi127.cn/2022/06/21/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%9C%9F%E6%9C%AB%E9%A2%84%E4%B9%A0%E5%A4%A7%E7%BA%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="心意">
+      <meta itemprop="description" content="<font color="#DB7093">像珍惜礼物一样，珍惜今天。</font>">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="<font color="#FFFAFA">❤梧桐苑</font>">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          面向对象期末预习大纲
+        </h1>
+
+        <div class="post-meta">
+
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-06-21 21:53:13" itemprop="dateCreated datePublished" datetime="2022-06-21T21:53:13+08:00">2022-06-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-06-22 21:07:27" itemprop="dateModified" datetime="2022-06-22T21:07:27+08:00">2022-06-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">期末复习</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/06/21/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%9C%9F%E6%9C%AB%E9%A2%84%E4%B9%A0%E5%A4%A7%E7%BA%B2/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/06/21/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%9C%9F%E6%9C%AB%E9%A2%84%E4%B9%A0%E5%A4%A7%E7%BA%B2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>14k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>13 分钟</span>
+            </span>
+            <div class="post-description">说人话, 重实战, 一步入天象! 就喜欢这种不讲道理的及格.</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="复习大纲："><a class="header-anchor" href="#复习大纲：">¶</a>复习大纲：</h3>
+<h4 id="1-用代码说明在标准C-中如何进行输入输出，并解释各语句的含义是什么？"><a class="header-anchor" href="#1-用代码说明在标准C-中如何进行输入输出，并解释各语句的含义是什么？">¶</a>1.用代码说明在标准C++中如何进行输入输出，并解释各语句的含义是什么？</h4>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cout&lt;&lt;<span class="string">&quot;hello!&quot;</span>&lt;&lt;<span class="string">&quot;world&quot;</span>;</span><br><span class="line">cin&gt;&gt;a&gt;&gt;b;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在输入时，从键盘输入的数据先放在键盘缓冲区中，当按回车键时，<strong>键盘缓冲区中的数据输入到程序中的输入缓冲区，形成<code>cin</code>流</strong>，然后用流提取运算符“<code>&gt;&gt;</code>”从输入缓冲区中提取数据送给程序中的有关变量。</li>
+<li>当用**<code>cout</code>和流插入运算符“<code>&lt;&lt;</code>”向显示器输出数据时，先将这些数据送到程序中的输出缓冲区保存，直到缓冲区满了或遇到<code>endl</code>，就将缓冲区中的全部数据送到显示器显示出来。**</li>
+</ul>
+<h4 id="2-阐述C＋＋中函数三种调用方式的实现机制、特点及其实参、形参格式，最好用代码说明。试比较三种方式的执行效率。（提示：传址、传值、引用传递）"><a class="header-anchor" href="#2-阐述C＋＋中函数三种调用方式的实现机制、特点及其实参、形参格式，最好用代码说明。试比较三种方式的执行效率。（提示：传址、传值、引用传递）">¶</a>2.阐述<code>C＋＋</code>中函数三种调用方式的实现机制、特点及其实参、形参格式，最好用代码说明。试比较三种方式的执行效率。（提示：传址、传值、引用传递）</h4>
+<ul>
+<li>这里所说的执行效率，是指在被调用的函数体内执行时的效率。 因为<strong>传值调用时，当值被传到函数体内，临时对象生成以后，所有的执行任务都是通过直接寻址的方式执行的</strong>，而<strong>指针和大多数情况下的引用则是以间接寻址的方式执行的</strong>，所以实际的执行效率会比传值调用要低。如果函数体内对参数传过来的变量进行操作比较频繁，执行总次数又多的情况下，传址调用和大多数情况下的引用参数传递会造成比较明显的执行效率损失。</li>
+<li>总结：<strong>传值调用后，函数体内的对象通过直接寻址方式执行，而传址和引用调用则是通过间接寻址方式执行，执行效率不如传值调用，但具体的执行效率要具体来看，我们推荐大部分传递优先采用引用传递。</strong></li>
+</ul>
+<h4 id="3-什么是内联函数？为什么要使用内联函数？"><a class="header-anchor" href="#3-什么是内联函数？为什么要使用内联函数？">¶</a><strong>3.什么是内联函数？为什么要使用内联函数？</strong></h4>
+<ul>
+<li>在编译时将所调用函数的代码直接嵌入到主调函数中。</li>
+<li>实现代码的重用，提高开发效率。</li>
+</ul>
+<h4 id="4-什么是类的前向声明？使用类的前向声明时，要注意什么？"><a class="header-anchor" href="#4-什么是类的前向声明？使用类的前向声明时，要注意什么？">¶</a>4.什么是类的前向声明？使用类的前向声明时，要注意什么？</h4>
+<ul>
+<li>引用未定义的类之前，声明该类。</li>
+<li>在没有定义完整的类之前，不能使用这个类创建对象。</li>
+</ul>
+<h4 id="5-什么是先验条件-Precondition-，什么是后置条件-Postcondition-？"><a class="header-anchor" href="#5-什么是先验条件-Precondition-，什么是后置条件-Postcondition-？">¶</a>5.什么是先验条件(<code>Precondition</code>)，什么是后置条件(<code>Postcondition</code>)？</h4>
+<ul>
+<li>**先验条件是在执行某段代码或正式规范操作之前必须始终为真的条件或谓词。**比如输入一个时间必须小于24。</li>
+<li>**后置条件是在执行某段代码或正式规范操作之后必须始终为真的条件或谓词。**比如计算输入数字的平方根程序可能具有结果为数字的后置条件，且其平方等于输入。</li>
+</ul>
+<h4 id="6-什么是名称空间-namespace-？它的主要作用是什么？要使用一个名称空间中声明的标识符，方式有哪些？"><a class="header-anchor" href="#6-什么是名称空间-namespace-？它的主要作用是什么？要使用一个名称空间中声明的标识符，方式有哪些？">¶</a>6.什么是名称空间(<code>namespace</code>)？它的主要作用是什么？要使用一个名称空间中声明的标识符，方式有哪些？</h4>
+<ul>
+<li>
+<p><strong>名字空间实质上是一种作用域。<strong>名字空间是一种描述逻辑分组的机制，是为了</strong>解决<code>C++</code>中的变量、函数命名冲突</strong>而服务的。</p>
+</li>
+<li>
+<p><strong>直接指定标识符</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line">std::cout &lt;&lt; <span class="string">&quot;hello!!&quot;</span>&lt;&lt; std::endl;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>使用using关键字</strong>进行声明</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> std::cout;</span><br><span class="line"><span class="keyword">using</span> std::endl;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>最方便的就是<strong>使用指令<code>using namespace std;</code></strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="7-什么是重载-Overloading-，解释并举例说明？能否根据返回值不同，对函数进行重载，为什么？"><a class="header-anchor" href="#7-什么是重载-Overloading-，解释并举例说明？能否根据返回值不同，对函数进行重载，为什么？">¶</a>7.什么是重载(<code>Overloading</code>)，解释并举例说明？能否根据返回值不同，对函数进行重载，为什么？</h4>
+<ul>
+<li>
+<p><code>C++</code><strong>允许用同一函数名定义多个函数，这些函数的参数个数和参数类型不同。</strong></p>
+<p><code>int max(int a，int b, int c);</code></p>
+<p><code>double max(double a，double b，double c);</code></p>
+<p><code>long  max(long a，long b，long c);</code></p>
+</li>
+<li>
+<p><strong>不能根据返回值不同进行重载。</strong></p>
+<p>因为调用时不能指定类型信息，编译器不知道你要调用哪个函数。</p>
+</li>
+</ul>
+<h4 id="8-如何防止一个头文件被多重包含？举例说明。"><a class="header-anchor" href="#8-如何防止一个头文件被多重包含？举例说明。">¶</a>8.如何防止一个头文件被多重包含？举例说明。</h4>
+<ul>
+<li>
+<p>如果<code>a.h</code>和<code>b.h</code>都包含了一个头文件<code>x.h</code>。那么<code>x.h</code>在此也同样被包含了两次，只不过它的形式不是那么明显而已。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;a.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;b.h&quot;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>可以<strong>使用条件编译。</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> _X_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> _X_H</span></span><br><span class="line">..<span class="comment">//(头文件内容)</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>当头文件第一次被包含时，它被正常处理，符号<code>_X_H</code>被定义为1。如果头文件被再次包含，通过条件编译，它的内容被忽略。</p>
+</li>
+</ul>
+<h4 id="9-dynamic-cast的作用是什么？试举例说明。"><a class="header-anchor" href="#9-dynamic-cast的作用是什么？试举例说明。">¶</a>9.<code>dynamic-cast</code>的作用是什么？试举例说明。</h4>
+<ul>
+<li>
+<p><code>dynamic_cast &lt; Type-id &gt; ( expression )</code> <strong>该运算符把expression转换为type-id类型</strong>，并且可以在运行期间检测类型转换是否安全。<code>dynamic_cast</code>要求转型的目的类型必须是指针或者引用。将基类指针转换为派生类指针，将基类引用转换为派生类引用；</p>
+</li>
+<li>
+<p>转换是有条件的</p>
+<p>如果指针（或引用）所指对象的实际类型与转换的目的类型兼容，则转换成功进行；</p>
+<p><strong>否则</strong>如执行的是指针类型的转换，则得到空指针；如执行的是引用类型的转换，则抛出异常。</p>
+</li>
+</ul>
+<h4 id="10-叙述面向对象编程的特点是什么？-提示：封装、继承、多态。"><a class="header-anchor" href="#10-叙述面向对象编程的特点是什么？-提示：封装、继承、多态。">¶</a>10.叙述面向对象编程的特点是什么？(提示：封装、继承、多态。)</h4>
+<ul>
+<li>
+<p>对比面向过程具有<strong>抽象、封装、继承和多态</strong>的特点。</p>
+<p>封装是将抽象得到的数据和行为相结合，形成了一个有机整体，使得一部分成员充当类与外部的接口，而将其他成员隐藏了起来达到了对成员访问权限的合理控制，使得不同类之间的影响最小，加强数据安全，简化编程。</p>
+<p>继承允许在保持原有类特性的基础上，进行更具体、更详细的说明，能够很好反映出特殊概念和一般概念之间的关系，是代码复用的基础机制。</p>
+<p>多态使得一段程序能够具有处理多种类型对象的能力，相同的消息在不同的对象下会有不同的动作，增强了编程的灵活性。</p>
+</li>
+</ul>
+<h4 id="11-什么是封装？其作用是什么？"><a class="header-anchor" href="#11-什么是封装？其作用是什么？">¶</a>11.什么是封装？其作用是什么？</h4>
+<ul>
+<li>
+<p><strong>封装就是将抽象得到的数据和行为（或功能）相结合，形成一个有机的整体</strong>，也就是将数据与操作数据的函数代码进行有机结合，形成类。</p>
+</li>
+<li>
+<p>作用：<strong>使一部分成员充当类与外部的接口，而将其他成员隐藏起来</strong>，这样就达到了对成员访问权限的合理控制，使不同类之间的相互影响减少到最低限度，进而保护数据增强数据的安全性和简化程序编写工作。</p>
+</li>
+</ul>
+<h4 id="12-什么是类？通常一个类中，包含什么样的内容？定义一个类的语法是什么，试举例说明。"><a class="header-anchor" href="#12-什么是类？通常一个类中，包含什么样的内容？定义一个类的语法是什么，试举例说明。">¶</a>12.什么是类？通常一个类中，包含什么样的内容？定义一个类的语法是什么，试举例说明。</h4>
+<ul>
+<li>类是逻辑上相关的函数与数据的封装，描述了所创建对象共同的属性和方法。</li>
+<li>类中声明或定义的变量和函数称为成员，类的成员包括数据成员和函数成员，数据成员描述问题的属性，函数成员描述问题的行为。</li>
+</ul>
+<h4 id="13-什么是对象？什么是类？类与对象的关系是什么？"><a class="header-anchor" href="#13-什么是对象？什么是类？类与对象的关系是什么？">¶</a>13.什么是对象？什么是类？类与对象的关系是什么？</h4>
+<ul>
+<li>类是逻辑上相关的函数与数据的封装，它是对问题的抽象描述。</li>
+<li>对象是类的某一特定实体。</li>
+<li>类对象的关系：类是对象的抽象，而对象是类的具体实例。类是抽象的，不占用内存，而对象是具体的，占用存储空间。类是用于创建对象的蓝图，它是一个定义包括在特定类型的对象中的方法和变量的软件模板。</li>
+</ul>
+<h4 id="14-类中的成员可以用public-protected-private分别进行修饰，这三种成员在什么情况下是可以被访问的？类中没有用public-protected-private修饰的成员，其可访问性是什么，结构体中没有用public-protected-private修饰的成员，其可访问性是什么？"><a class="header-anchor" href="#14-类中的成员可以用public-protected-private分别进行修饰，这三种成员在什么情况下是可以被访问的？类中没有用public-protected-private修饰的成员，其可访问性是什么，结构体中没有用public-protected-private修饰的成员，其可访问性是什么？">¶</a>14.类中的成员可以用<code>public</code> / <code>protected</code> / <code>private</code>分别进行修饰，这三种成员在什么情况下是可以被访问的？类中没有用<code>public</code> / <code>protected</code> / <code>private</code>修饰的成员，其可访问性是什么，结构体中没有用<code>public</code> / <code>protected</code> / <code>private</code>修饰的成员，其可访问性是什么？</h4>
+<ul>
+<li><code>public</code>修饰的成员可以在任何地方被访问</li>
+<li><code>private</code>修饰的成员只能由该类中的函数、其友元函数访问；不能被任何其他访问，该类对象也不能访问。</li>
+<li><code>protected</code>修饰的成员可以被该类中函数、子类函数、友元函数访问；但不能被该类对象访问。</li>
+<li>类的默认为<code>private</code>，<code>struct</code>默认为<code>public</code>。</li>
+</ul>
+<h4 id="15-什么是类作用域-Class-scope-、文件作用域-file-scope-、函数作用域（function-scope）？"><a class="header-anchor" href="#15-什么是类作用域-Class-scope-、文件作用域-file-scope-、函数作用域（function-scope）？">¶</a>15.什么是类作用域(<code>Class scope</code>)、文件作用域(<code>file scope</code>)、函数作用域（<code>function scope</code>）？</h4>
+<ul>
+<li>类作用域：类是有名成员的集合，类X的成员m具有类作用域，对成员m的访问方式有如下三种：
+<ul>
+<li>如果X的成员函数中没有声明同名的局部作用域标识符，那么可以直接使用成员m</li>
+<li>通过表达式<code>x.m</code>或<code>X::m</code>(访问静态成员)</li>
+<li>通过<code>ptr-&gt;m</code>，其中<code>ptr</code>为指向X类的一个对象的指针</li>
+</ul>
+</li>
+<li>文件作用域：
+<ul>
+<li>在函数外部声明的变量只在当前文件范围内（包括文件内所有定义的函数）可用</li>
+<li>在其他文件不可用。要使变量具有文件作用域，必须在变量的声明前加<code>static</code>关键字。</li>
+<li>当多个源文件链接成一个程序时，<code>static</code>可以避免一个文件中的全局变量与其它文件中的变量同名而发生冲突。</li>
+</ul>
+</li>
+<li>函数作用域：指在函数定义或者复合语句中，从标识符的定义点开始到函数或者一对花括号之间的程序段。
+<ul>
+<li>在同一个局部作用域内不能出现相同名字的两个局部变量（包括形参）。</li>
+<li>一个函数内的复合语句又是一个局部作用域，也就是在函数内有某个变量时，复合语句中可以有另外一个同名字的变量。</li>
+</ul>
+</li>
+</ul>
+<h4 id="16-什么是this指针，其作用是什么？"><a class="header-anchor" href="#16-什么是this指针，其作用是什么？">¶</a>16.什么是<code>this</code>指针，其作用是什么？</h4>
+<ul>
+<li><code>this</code>指针是一个隐含于每一个成员函数中的特殊指针。它是一个指向正在被该成员函数操作的对象，也就是要操作该成员函数的对象。通过this指针可以访问当前对象的所有成员。</li>
+</ul>
+<h4 id="17-在一个类中，为什么静态成员函数（-static-member-function-）中不能使用-this-指针？"><a class="header-anchor" href="#17-在一个类中，为什么静态成员函数（-static-member-function-）中不能使用-this-指针？">¶</a>17.在一个类中，为什么静态成员函数（ <code>static member function</code> ）中不能使用 <code>this</code> 指针？</h4>
+<ul>
+<li>静态成员函数并不是针对某个类的实例对象，而是属于整个类的，为所有的对象实例所共有。他在作用域的范围内是全局的，独立于类的对象之外的。他只对类内部的静态成员变量做操作。当实例化一个类的对象时候，里面不存在静态成员的。<code>this</code>指针是相当于一个类的实例的指针，<code>this</code>是用来操作对象实例的内容的，既然静态成员函数和变量都是独立于类的实例对象之外的，他就不能用<code>this</code>指针。也不能操作非静态成员。</li>
+</ul>
+<h4 id="18-什么是构造函数？构造函数有返回值吗？构造函数如何命名？构造函数可以重载吗？什么是缺省构造函数-default-constructor-？什么情况下，类中会有缺省构造函数？"><a class="header-anchor" href="#18-什么是构造函数？构造函数有返回值吗？构造函数如何命名？构造函数可以重载吗？什么是缺省构造函数-default-constructor-？什么情况下，类中会有缺省构造函数？">¶</a>18.什么是构造函数？构造函数有返回值吗？构造函数如何命名？构造函数可以重载吗？什么是缺省构造函数(<code>default constructor</code>)？什么情况下，类中会有缺省构造函数？</h4>
+<ul>
+<li>构造函数主要用来在创建对象时初始化对象， 即为对象成员变量赋初始值。</li>
+<li>构造函数没有返回值。</li>
+<li>构造函数是一个与其所在的类同名的函数。</li>
+<li>构造函数可以重载。但是, 每个构造函数必须有不同的函数签名。</li>
+<li>如果构造函数没有参数，或者构造函数的所有参数都有默认值，就可以称其为缺省构造函数。一个类中，只能有一个缺省构造函数。</li>
+<li>当没有定义构造函数或者定义的构造函数没有参数时，类中会有缺省构造函数。</li>
+</ul>
+<h4 id="19-构造函数的作用是什么？什么时候会被调用？构造函数的执行顺序是什么（父类与子类的构造函数、类自身与其数据成员的构造函数）？"><a class="header-anchor" href="#19-构造函数的作用是什么？什么时候会被调用？构造函数的执行顺序是什么（父类与子类的构造函数、类自身与其数据成员的构造函数）？">¶</a>19.构造函数的作用是什么？什么时候会被调用？构造函数的执行顺序是什么（父类与子类的构造函数、类自身与其数据成员的构造函数）？</h4>
+<ul>
+<li>构造函数主要用来在创建对象时初始化对象， 即为对象成员变量赋初始值。</li>
+<li>当类被创建时，自动调用。</li>
+<li>执行构造函数的顺序：
+<ul>
+<li>1.父类的构造函数</li>
+<li>2.数据成员的初始化（成员中有类，执行该类的构造函数）</li>
+<li>3.子类的构造函数</li>
+</ul>
+</li>
+</ul>
+<h4 id="20-为什么拷贝构造函数（copy-constructor）的参数必须是按引用传递-by-reference-而不能是按值传递-by-value-？"><a class="header-anchor" href="#20-为什么拷贝构造函数（copy-constructor）的参数必须是按引用传递-by-reference-而不能是按值传递-by-value-？">¶</a>20.为什么拷贝构造函数（<code>copy constructor</code>）的参数必须是按引用传递(<code>by reference</code>)而不能是按值传递(<code>by value</code>)？</h4>
+<ul>
+<li>无限递归调用：当一个对象需要以值方式传递时编译器会生成代码调用它的拷贝构造函数以生成一个复本。如果类 <code>A</code>的拷贝构造函数是以值方式传递一个类 <code>A</code> 对象作为参数的话，当需要调用类 <code>A</code> 的拷贝构造函数时，需要以值方式传进一个 <code>A</code> 的对象作为实参；而以值方式传递需要调用类 <code>A</code> 的拷贝构造函数；结果就是调用类 <code>A</code> 的拷贝构造函数导致又一次调用类A的拷贝构造函数，这就是一个无限递归。</li>
+<li>在某些状况下，类内成员变量需要动态开辟堆内存，如果实行位拷贝，也就是把对象里的值完全复制给另一个对象，如<code>A=B</code>。这时，如果B中有一个成员变量指针已经申请了内存，那 <code>A</code> 中的那个成员变量也指向同一块内存。这就出现了问题：当B把内存释放了（如：析构），这时 <code>A</code> 内的指针就是野指针了，出现运行错误。</li>
+</ul>
+<h4 id="21-拷贝构造函数-复制构造函数-的作用是什么？什么是浅拷贝？什么是深拷贝？"><a class="header-anchor" href="#21-拷贝构造函数-复制构造函数-的作用是什么？什么是浅拷贝？什么是深拷贝？">¶</a>21.拷贝构造函数(复制构造函数)的作用是什么？什么是浅拷贝？什么是深拷贝？</h4>
+<ul>
+<li>复制构造函数由编译器调用来完成一些基于同一类的其他对象的构建及初始化。</li>
+<li>浅拷贝只是对指针的拷贝，拷贝后两个指针指向同一个内存空间，深拷贝不但对指针进行拷贝，而且对指针指向的内容进行拷贝，经深拷贝后的指针是指向两个不同地址的指针。</li>
+</ul>
+<h4 id="22-全局对象-Global-scope-objects-的构造函数、析构函数分别是什么时候被调用的？自动局部对象-Automatic-local-objects-的构造函数、析构函数分别是什么时候被调用的？静态局部对象-static-local-objects-的构造函数、析构函数分别是什么时候被调用的？"><a class="header-anchor" href="#22-全局对象-Global-scope-objects-的构造函数、析构函数分别是什么时候被调用的？自动局部对象-Automatic-local-objects-的构造函数、析构函数分别是什么时候被调用的？静态局部对象-static-local-objects-的构造函数、析构函数分别是什么时候被调用的？">¶</a>22.全局对象(<code>Global scope objects</code>)的构造函数、析构函数分别是什么时候被调用的？自动局部对象(<code>Automatic local objects</code>)的构造函数、析构函数分别是什么时候被调用的？静态局部对象(<code>static local objects</code>)的构造函数、析构函数分别是什么时候被调用的？</h4>
+<ul>
+<li>全局变量构造函数程序运行前被调用，在<code>main()</code>函数返回后全局对象才被销毁，析构函数在程序结束前最后被调用。</li>
+<li>自动局部变量，当程序执行到对象定义时，调用自动局部对象的构造函数。该对象的析构函数在对象离开范围时调用(即离开定义对象的块时)。自动对象的构造函数与析构函数在每次对象进人和离开范围时调用。</li>
+<li>静态局部对象的构造函数只在程序执行首次到达对象定义时调用一次，对应的析构函数在<code>main</code>终止或调用<code>exit</code>函数时调用。</li>
+</ul>
+<h4 id="23-什么是初始化列表-Initialization-Sections-？它的作用是什么？（提示：一般数据成员的初始化、常量成员的初始化，对象成员构造函数的选择、父类构造函数的选择等）。"><a class="header-anchor" href="#23-什么是初始化列表-Initialization-Sections-？它的作用是什么？（提示：一般数据成员的初始化、常量成员的初始化，对象成员构造函数的选择、父类构造函数的选择等）。">¶</a>23.什么是初始化列表(<code>Initialization Sections</code>)？它的作用是什么？（提示：一般数据成员的初始化、常量成员的初始化，对象成员构造函数的选择、父类构造函数的选择等）。</h4>
+<ul>
+<li>
+<p>构造函数初始化列表以一个冒号开始，接着是以逗号分隔的数据成员列表，每个数据成员后面跟一个放在括号中的初始化式。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="type">float</span> b;</span><br><span class="line">    <span class="built_in">A</span>(): <span class="built_in">a</span>(<span class="number">0</span>),<span class="built_in">b</span>(<span class="number">9.9</span>) &#123;&#125; <span class="comment">//构造函数初始化列表</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>初始化列表作用：一般数据成员的初始化、常量成员的初始化，对象成员构造函数的选择、父类构造函数的选择。</p>
+</li>
+</ul>
+<h4 id="24-什么是析构函数？析构函数有返回值吗？析构函数如何命名？析构函数可以重载吗？"><a class="header-anchor" href="#24-什么是析构函数？析构函数有返回值吗？析构函数如何命名？析构函数可以重载吗？">¶</a>24.什么是析构函数？析构函数有返回值吗？析构函数如何命名？析构函数可以重载吗？</h4>
+<ul>
+<li>与构造函数相反，当对象结束其生命周期，如果对象所在的函数已调用完毕时，系统会自动执行析构函数。</li>
+<li>析构函数没有返回值。</li>
+<li>名字与类名相同，在前面加‘ <code>~</code> ’。</li>
+<li>析构函数不返回任何值，没有函数类型，也没有函数参数，因此它不能被重载。</li>
+</ul>
+<h4 id="25-析构函数的作用是什么？什么时候会被调用？为什么析构函数通常是虚函数，如果不是虚函数，会如何？"><a class="header-anchor" href="#25-析构函数的作用是什么？什么时候会被调用？为什么析构函数通常是虚函数，如果不是虚函数，会如何？">¶</a>25.析构函数的作用是什么？什么时候会被调用？为什么析构函数通常是虚函数，如果不是虚函数，会如何？</h4>
+<ul>
+<li>
+<p>作用：清空并释放对象先前创建或者占用的内存资源。</p>
+</li>
+<li>
+<p>析构函数对象消亡时即自动被调用。</p>
+</li>
+<li>
+<p>如果析构函数不被声明成虚函数，则编译器采用的绑定方式是静态绑定，在删除基类指针时，只会调用基类析构函数，而不调用派生类析构函数，这样就会导致基类指针指向的派生类对象析构不完全。</p>
+</li>
+<li>
+<p>若是将析构函数声明为虚函数，不管派生类的析构函数前是否加<code>virtual</code>（可以理解为编译器优化），都构成重写。基类的指针指向派生类的对象，然后调用重写虚函数——析构函数，构成了多态，而多态与类型无关，只与对象有关，所以就能够调用的就是派生类的析构函数了。</p>
+</li>
+</ul>
+<h4 id="26-如果要编写一段程序，跟踪类A所创建的实例的个数，请叙述编写程序的大体思路。"><a class="header-anchor" href="#26-如果要编写一段程序，跟踪类A所创建的实例的个数，请叙述编写程序的大体思路。">¶</a>26.如果要编写一段程序，跟踪类A所创建的实例的个数，请叙述编写程序的大体思路。</h4>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="built_in">A</span>()&#123; i++; &#125;</span><br><span class="line">  ~<span class="built_in">A</span>()&#123; i--; &#125;</span><br><span class="line">  <span class="function"><span class="type">int</span> <span class="title">get</span><span class="params">()</span></span>&#123; <span class="keyword">return</span> i; &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">  <span class="type">static</span> <span class="type">int</span> i;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">A::i</span><span class="params">(<span class="number">0</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  A c;</span><br><span class="line">  A b;</span><br><span class="line">  A e;</span><br><span class="line">  cout&lt;&lt;c.<span class="built_in">get</span>()&lt;&lt;endl;</span><br><span class="line">  A *p=<span class="keyword">new</span> A;</span><br><span class="line">  cout&lt;&lt;c.<span class="built_in">get</span>()&lt;&lt;endl;</span><br><span class="line">  <span class="keyword">delete</span> p;</span><br><span class="line">  cout&lt;&lt;c.<span class="built_in">get</span>()&lt;&lt;endl;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="27-什么是C-中的三大函数-The-Big-Three-？"><a class="header-anchor" href="#27-什么是C-中的三大函数-The-Big-Three-？">¶</a>27.什么是<code>C++</code>中的三大函数(<code>The Big Three</code>)？</h4>
+<ul>
+<li><code>Big Three</code>: 是指 如果一个类要实现下面某一个成员函数，一般都要一起实现另外两个：
+<ul>
+<li><code>Desconstructor</code>    析构函数</li>
+<li><code>copy constructor</code>   拷贝构造函数</li>
+<li><code>operator =</code>      赋值函数</li>
+</ul>
+</li>
+</ul>
+<h4 id="28-使用const定义常量与用使用define定义常量相比，有什么优点？"><a class="header-anchor" href="#28-使用const定义常量与用使用define定义常量相比，有什么优点？">¶</a>28.使用<code>const</code>定义常量与用使用<code>define</code>定义常量相比，有什么优点？</h4>
+<ul>
+<li><code>const</code>常量有数据类型，而宏常量没有数据类型。编译器可以对<code>const</code>常量进行类型安全检查，而对宏常量只能字符替换</li>
+<li>有些集成化的调试工具能对<code>const</code>常量进行调试，对宏常量不能调试</li>
+<li><code>const</code>定义的常量在程序运行的过程中只有一份拷贝，而<code>define</code>定义的常量在内存中有若干拷贝。</li>
+</ul>
+<h4 id="29-C-中如何进行静态类型转换，解释并举例说明。"><a class="header-anchor" href="#29-C-中如何进行静态类型转换，解释并举例说明。">¶</a>29.<code>C++</code>中如何进行静态类型转换，解释并举例说明。</h4>
+<ul>
+<li>
+<p>用于类层次结构中基类和派生类之间指针或引用的转换。进行上行转换（把派生类的指针或引用转换成基类表示）是安全的；进行下行转换（把基类指针或引用转换成派生类表示）时，由于没有动态类型检查，所以是不安全的。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> &#123; &#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span>:<span class="keyword">public</span> Base &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  Derived D;</span><br><span class="line">  Base* B = <span class="built_in">static_cast</span>&lt;Base*&gt; (&amp;D);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>将派生类型的指针转化为基类型的指针。</p>
+</li>
+<li>
+<p>用于基本数据类型之间的转换，如把<code>int</code>转换成<code>char</code>，把<code>int</code>转换成<code>enum</code>。这种转换的安全性也要开发人员来保证。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> a;</span><br><span class="line"><span class="type">int</span> b=<span class="number">100</span>;</span><br><span class="line">a = <span class="built_in">static_cast</span>&lt;<span class="type">double</span>&gt; (b);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="30-关键字const的用法有哪些"><a class="header-anchor" href="#30-关键字const的用法有哪些">¶</a>30.关键字const的用法有哪些?</h4>
+<ul>
+<li>
+<p>定义常量</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> val = <span class="number">5</span>；</span><br><span class="line"><span class="type">int</span> <span class="type">const</span> val = <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>修饰指针</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span>* p；     <span class="comment">//指针p指向的内容是常量，不可改变。</span></span><br><span class="line"><span class="type">int</span>* <span class="type">const</span> p;      <span class="comment">//指针本身是一个常量，不可改变。</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span>* <span class="type">const</span> p；  <span class="comment">//指针本身和指向的内容都是常量，都不可以改变。</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>修饰函数参数 <code>void function(const int Var);</code> 表明参数在函数体内不能被修改，但此处没有任何意义，<code>Var</code>本身就是形参，在函数内不会改变。</p>
+<ul>
+<li>使用引用参数，可以防止创建副本，减少内存开销，同时可以在函数中对引用参数修改，函数结束后，引用参数的修改仍然存在。</li>
+<li>如果为了防止对引用参数进行修改，可以对该参数加上<code>const</code>关键字。</li>
+</ul>
+</li>
+<li>
+<p>修饰函数返回值：与修饰普通变量和指针意义差不多，而在传引用时，如果不希望函数返回值被改变，就可以添加关键字 <code>const</code> 。</p>
+</li>
+</ul>
+<p><strong>在类中使用<code>const</code></strong></p>
+<ul>
+<li>
+<p>修饰类成员变量</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>&#123;</span><br><span class="line">  <span class="type">const</span> <span class="type">int</span> nValue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>成员常量不可被修改。只能在初始化列表中被赋值。</li>
+</ul>
+</li>
+<li>
+<p>修饰类成员函数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>&#123;</span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">function</span><span class="params">()</span><span class="type">const</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>常成员函数, 它不改变对象的成员变量. 代表只读函数，增加程序的可读性。</p>
+</li>
+<li>
+<p>常成员函数不能调用类中任何非<code>const</code>成员函数。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="31-C-中，static静态变量的初始化和取值问题？"><a class="header-anchor" href="#31-C-中，static静态变量的初始化和取值问题？">¶</a>31.<code>C++</code>中，<code>static</code>静态变量的初始化和取值问题？</h4>
+<ul>
+<li>初始化：不能在<code>main()</code>函数和类的构造函数中定义，必须在类外定义。</li>
+</ul>
+<h4 id="32-操作符new的作用是什么？如何申请单个空间？如何申请动态数组？用new创建类的对象时，会发生哪些操作？必要时，请用代码说明。"><a class="header-anchor" href="#32-操作符new的作用是什么？如何申请单个空间？如何申请动态数组？用new创建类的对象时，会发生哪些操作？必要时，请用代码说明。">¶</a>32.操作符<code>new</code>的作用是什么？如何申请单个空间？如何申请动态数组？用<code>new</code>创建类的对象时，会发生哪些操作？必要时，请用代码说明。</h4>
+<ul>
+<li>
+<p>作用：在堆中申请一段空间，动态分配内存。</p>
+</li>
+<li>
+<p>申请单个空间 <code>int *i = new int;</code></p>
+</li>
+<li>
+<p>申请动态数组 <code>int *a = new int[10];</code></p>
+</li>
+<li>
+<p><code>new</code>创建类对象需要指针接收，一处初始化，多处使用，作用域是全局，且需要手动释放空间，在堆中动态分配内存，调用构造函数。</p>
+</li>
+</ul>
+<h4 id="33-操作符delete的作用是什么？如何删除单个用new申请的空间？如何删除申请的动态数组？用delete删除一个类的对象时，会发生哪些操作？必要时，请用代码说明。"><a class="header-anchor" href="#33-操作符delete的作用是什么？如何删除单个用new申请的空间？如何删除申请的动态数组？用delete删除一个类的对象时，会发生哪些操作？必要时，请用代码说明。">¶</a>33.操作符<code>delete</code>的作用是什么？如何删除单个用<code>new</code>申请的空间？如何删除申请的动态数组？用<code>delete</code>删除一个类的对象时，会发生哪些操作？必要时，请用代码说明。</h4>
+<ul>
+<li>作用：释放所申请的空间</li>
+<li>释放单个空间<code>delete i;</code></li>
+<li>释放动态数组<code>delete []a;</code></li>
+<li>释放在堆中分配的内存，调用析构函数。</li>
+</ul>
+<h4 id="34-什么是悬挂指针-又称为野指针，Dangling-Pointers-，其危害是什么？"><a class="header-anchor" href="#34-什么是悬挂指针-又称为野指针，Dangling-Pointers-，其危害是什么？">¶</a>34.什么是悬挂指针(又称为野指针，<code>Dangling Pointers</code>)，其危害是什么？</h4>
+<ul>
+<li>指针指向非法的内存地址，那么这个指针就是悬挂指针，也叫野指针。意为无法正常使用的指针。</li>
+<li>野指针造成的危害程度和危害时间未知，因为野指针指向的内存空间，有可能是某个重要的数据或其他程序。严重的情况下会造成程序崩溃。</li>
+</ul>
+<h4 id="35-什么是切片-Slicing-？-注意参考讲义"><a class="header-anchor" href="#35-什么是切片-Slicing-？-注意参考讲义">¶</a>35.什么是切片(<code>Slicing</code>)？(注意参考讲义)</h4>
+<ul>
+<li>派生类的存储结构与基类的存储结构存在着“粘接（<code>splice</code>）”关系：当子类对象拷贝到父类对象时，父类对象中只存在父类定义的成员，而不会出现任何子类中的成员。</li>
+</ul>
+<h4 id="36-若父类中没有缺省构造函数，则对派生类的构造函数有什么要求？"><a class="header-anchor" href="#36-若父类中没有缺省构造函数，则对派生类的构造函数有什么要求？">¶</a>36.若父类中没有缺省构造函数，则对派生类的构造函数有什么要求？</h4>
+<ul>
+<li>如果父类是一个无缺省参数的构造函数，那么对于派生类一旦没有构造函数，那么就不会自动的先构造父类的构造函数，这是不允许的。</li>
+<li>派生类中一定要有构造函数。</li>
+<li><code>BaseballTeam(const string s[], int si) : Team(si)</code></li>
+<li>派生类的构造函数通过初始化列表，对基类进行初始化。</li>
+</ul>
+<h4 id="37-父类成员中的public、protected、private成员，哪些在子类中是可以访问的？在公有继承、私有继承、受保护继承三种继承方式下，父类成员中的public、protected、private成员被继承到子类后，其可访问性分别是什么？派生类是否可以继承父类的构造函数和析构函数？"><a class="header-anchor" href="#37-父类成员中的public、protected、private成员，哪些在子类中是可以访问的？在公有继承、私有继承、受保护继承三种继承方式下，父类成员中的public、protected、private成员被继承到子类后，其可访问性分别是什么？派生类是否可以继承父类的构造函数和析构函数？">¶</a>37.父类成员中的<code>public</code>、<code>protected</code>、<code>private</code>成员，哪些在子类中是可以访问的？在公有继承、私有继承、受保护继承三种继承方式下，父类成员中的<code>public</code>、<code>protected</code>、<code>private</code>成员被继承到子类后，其可访问性分别是什么？派生类是否可以继承父类的构造函数和析构函数？</h4>
+<ul>
+<li><code>public</code> 和<code>protected</code>是可以访问的，<code>private</code>不可访问。</li>
+<li>公有继承：<code>public</code>、<code>protected</code>、<code>private</code></li>
+<li>私有继承：<code>private</code>、<code>private</code>、<code>private</code></li>
+<li>保护继承：<code>protected</code>、<code>protected</code>、<code>private</code></li>
+<li>派生类不能继承父类的构造函数和析构函数。</li>
+</ul>
+<h4 id="38-多重继承会带来什么问题？在C-中是如何解决的？"><a class="header-anchor" href="#38-多重继承会带来什么问题？在C-中是如何解决的？">¶</a>38.多重继承会带来什么问题？在<code>C++</code>中是如何解决的？</h4>
+<ul>
+<li>
+<p>问题1：类DC的对象中存在多个同名成员 <code>x</code>， 应如何使用？</p>
+</li>
+<li>
+<p>解决方案：在DC对象调用x时，用作用域标识符说明 <code>x </code> 是属于哪个类的。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">BC0</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">int</span> K;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">BC1</span> : <span class="keyword">virtual</span> <span class="keyword">public</span> BC0</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">int</span> x;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">BC2</span> : <span class="keyword">virtual</span> <span class="keyword">public</span> BC0</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">int</span> x;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DC</span> : <span class="keyword">public</span> BC1,<span class="keyword">public</span> BC2</span><br><span class="line">&#123;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	DC d;    <span class="comment">//虚继承使得BC0仅被DC间接继承一份</span></span><br><span class="line">	d.K = <span class="number">13</span>;   <span class="comment">// OK</span></span><br><span class="line">	d.BC1::x = <span class="number">1</span>;</span><br><span class="line">    d.BC2::x = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>问题2：类DC的对象中，存在两份来自类 <code>BC0</code> 的成员 <code>K</code>，如何区分？</p>
+</li>
+<li>
+<p>解决方案：在<code>BC1</code>类和<code>BC2</code>类继承<code>BC0</code>时，其前面加上<code>virtual</code>关键字就可以实现虚拟继承，使用虚拟继承后，当系统碰到多重继承的时候就会先自动加一个<code>BC0</code>的拷贝，当再次请求一个<code>BC0</code>的拷贝时就会被忽略，以保证继承类成员函数的唯一性。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">BC0</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="type">int</span> K;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">BC1</span> : <span class="keyword">virtual</span> <span class="keyword">public</span> BC0</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="type">int</span> x;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">BC2</span> : <span class="keyword">virtual</span> <span class="keyword">public</span> BC0</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="type">int</span> x;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DC</span> : <span class="keyword">public</span> BC1, <span class="keyword">public</span> BC2</span><br><span class="line">&#123;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">main</span><span class="params">( )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  DC d;    <span class="comment">//虚继承使得BC0仅被DC间接继承一份</span></span><br><span class="line">  d.K = <span class="number">13</span>;   <span class="comment">// OK</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="39-什么是纯虚函数？什么是抽象数据类型-ADT-？抽象类的作用是什么？抽象类是否可实例化？抽象类的什么样子类可以实例化？"><a class="header-anchor" href="#39-什么是纯虚函数？什么是抽象数据类型-ADT-？抽象类的作用是什么？抽象类是否可实例化？抽象类的什么样子类可以实例化？">¶</a>39.什么是纯虚函数？什么是抽象数据类型(<code>ADT</code>)？抽象类的作用是什么？抽象类是否可实例化？抽象类的什么样子类可以实例化？</h4>
+<ul>
+<li>纯虚函数是没有函数体的虚函数，它的实现留给该基类的派生类去做，这就是纯虚函数的作用。</li>
+<li>抽象类是一种特殊的类，它是为了抽象和设计的目的而建立的，它处于继承层次结构的较上层。</li>
+<li>抽象类不可实例化，只可以派生。</li>
+<li>抽象类派生的子类必须重置基类的纯虚函数才能实现实例化。</li>
+<li>抽象数据类型是具有类似行为的特定类型的数据结构的数学模型：或者具有类似语义的一种或者多种程序设计语言的数据类型。</li>
+<li>定义：一个数学模型以及定义在该模型上的一组操作。</li>
+</ul>
+<h4 id="40-对于函数调用，什么是前期绑定-Early-Binding，又称为静态联编-？什么是后期绑定-Late-Binding，又称为动态联编-？重载函数是后期绑定吗，如果不是为什么？"><a class="header-anchor" href="#40-对于函数调用，什么是前期绑定-Early-Binding，又称为静态联编-？什么是后期绑定-Late-Binding，又称为动态联编-？重载函数是后期绑定吗，如果不是为什么？">¶</a>40.对于函数调用，什么是前期绑定(<code>Early Binding</code>，又称为静态联编)？什么是后期绑定(<code>Late Binding</code>，又称为动态联编)？重载函数是后期绑定吗，如果不是为什么？</h4>
+<ul>
+<li>
+<p>绑定：程序自身彼此关联的过程，确定程序中的操作调用与执行该操作的代码间的关系。例如把一个标示符名和一个存储地址联系在一起的过程。</p>
+</li>
+<li>
+<p>用面向对象的术语讲，就是把一条消息和一个对象的方法相结合的过程。</p>
+</li>
+<li>
+<p>按照绑定进行的阶段的不同，可以分为静态绑定和动态绑定两种。</p>
+</li>
+<li>
+<p>静态绑定：绑定工作在编译连接阶段完成。</p>
+<p>因为绑定过程是在程序开始执行之前进行的，因此也称为早期绑定或前绑定。</p>
+<p>在编译、连接过程中，系统就可以根据类型匹配等特征确定程序中操作调用与执行该操作代码的关系，即确定了某一个同名标识到底是要调用哪一段程序代码。</p>
+</li>
+<li>
+<p>动态绑定：和静态绑定相对应，绑定工作在程序运行阶段完成的。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">Get</span><span class="params">( )</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> : <span class="keyword">public</span> A</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">Get</span><span class="params">( )</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MyFunction</span><span class="params">( A * pa )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	pa-&gt;<span class="built_in">Get</span>( );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>pa-&gt;Get( )</code> 调用的是 <code>A::Get( )</code>还是<code>B::Get( )</code>，编译时无法确定，因为不知道<code>MyFunction</code>被调用时，形参会对应于一个 <code>A</code> 对象还是<code>B</code>对象。</p>
+<p>所以只能等程序运行到 <code>pa-&gt;Get( )</code>了，才能决定到底调用哪个<code>Get()</code>。</p>
+</li>
+<li>
+<p>重载函数是静态绑定。</p>
+</li>
+</ul>
+<h4 id="41-要让一个函数调用表现出多态特征，必须满足哪些条件？"><a class="header-anchor" href="#41-要让一个函数调用表现出多态特征，必须满足哪些条件？">¶</a>41.要让一个函数调用表现出多态特征，必须满足哪些条件？</h4>
+<ul>
+<li>必须存在继承关系；</li>
+<li>子类重写父类的方法。继承关系中必须有同名的虚函数，并且它们是覆盖关系（重载不行）。</li>
+<li>存在基类的指针，通过该指针调用虚函数。</li>
+</ul>
+<h4 id="42-什么是隐藏-hiding-、覆盖-overriding-、重载-overloading-？对比它们的异同？以C-代码为例进行说明。"><a class="header-anchor" href="#42-什么是隐藏-hiding-、覆盖-overriding-、重载-overloading-？对比它们的异同？以C-代码为例进行说明。">¶</a>42.什么是隐藏(<code>hiding</code>)、覆盖(<code>overriding</code>)、重载(<code>overloading)</code>？对比它们的异同？以<code>C++</code>代码为例进行说明。</h4>
+<ul>
+<li>
+<p>若基类 B 定义了非虚方法 <code>m</code>，同时其派生类 <code>D</code> 也定义了方法<code>m</code>，此时，我们说派生类方法 <code>D::m</code> 隐藏了继承自基类的同名方法 <code>B::m</code> 。由于函数签名不同，所以二者不构成重置。故<code>D::m</code>隐藏了<code>B::m</code>。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">B</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">m</span><span class="params">(<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span>  <span class="title class_">D</span> : <span class="keyword">public</span> B</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">m</span> <span class="params">( )</span><span class="comment">//由于函数签名不同，所以二者不构成重置。</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">( )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    D  d1 ;</span><br><span class="line">    d1.<span class="built_in">m</span>();  <span class="comment">// invokes D::m()</span></span><br><span class="line">    <span class="comment">//d1.m(10); // ERROR</span></span><br><span class="line">    d1.B::<span class="built_in">m</span>(<span class="number">10</span>);  <span class="comment">// OK</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>覆盖(<code>override</code>)是指派生类中存在重新定义的函数，其函数名、参数列、返回值类型必须同父类中的相对应被覆盖的函数严格一致，覆盖函数和被覆盖函数只有函数体不同，当派生类对象调用派生类中该同名函数时会自动调用派生类中的覆盖版本，而不是父类中的被覆盖函数版本，这种机制就叫做覆盖。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">B</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">m</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span>  <span class="title class_">D</span> : <span class="keyword">public</span> B</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">m</span> <span class="params">()</span><span class="comment">//重置了基类方法，仍然为虚函数</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    B*p= <span class="keyword">new</span> D;</span><br><span class="line">    p -&gt; <span class="built_in">m</span>();  <span class="comment">// 动态绑定 D::m()</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>重载：如果顶层函数如果同一类中的函数有不同的签名，则函数名可以相同。编译过程中绑定函数调用和对应的函数体。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">C</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">C</span>()</span><br><span class="line">    &#123;</span><br><span class="line">    &#125;     <span class="comment">// default constructor</span></span><br><span class="line">    <span class="built_in">C</span>(<span class="type">int</span> x)</span><br><span class="line">    &#123;</span><br><span class="line">    &#125;  <span class="comment">// convert constructor</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">void</span>  <span class="title">print</span><span class="params">( <span class="type">double</span> d )</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span>  <span class="title">print</span><span class="params">( <span class="type">char</span> * )</span></span>;</span><br><span class="line"><span class="function"><span class="type">int</span>  <span class="title">main</span><span class="params">( )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    C c1,<span class="built_in">c2</span>(<span class="number">26</span>);</span><br><span class="line">    <span class="built_in">print</span>(<span class="number">100.123</span>);</span><br><span class="line">    <span class="built_in">print</span>( <span class="string">&quot;100.123&quot;</span> );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="43-什么是多态？"><a class="header-anchor" href="#43-什么是多态？">¶</a>43.什么是多态？</h4>
+<ul>
+<li>多态是一种运行时绑定机制(<code>run-time binding</code>) ，通过这种机制，实现将函数名绑定到函数具体实现代码的目的。</li>
+</ul>
+<h4 id="44-什么是运算符重载？为什么要使用运算符重载？如何进行运算符重载，举例说明。"><a class="header-anchor" href="#44-什么是运算符重载？为什么要使用运算符重载？如何进行运算符重载，举例说明。">¶</a>44.什么是运算符重载？为什么要使用运算符重载？如何进行运算符重载，举例说明。</h4>
+<ul>
+<li>
+<p>运算符重载，就是对已有的运算符重新进行定义，赋予其另一种功能，以适应不同的数据类型。</p>
+</li>
+<li>
+<p>扩展<code>C++</code>中提供的运算符的适用范围，以用于类所表示的抽象数据类型。同一个运算符，对不同类型的操作数，所发生的行为不同。</p>
+</li>
+<li>
+<p>运算符重载的函数一般地采用如下两种形式：成员函数形式和友元函数形式。这两种形式都可访问类中的私有成员。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Complex</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Complex</span>( )</span><br><span class="line">    &#123;</span><br><span class="line">    	real=<span class="number">0</span>;</span><br><span class="line">    	imag=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">Complex</span>(<span class="type">double</span> r,<span class="type">double</span> i)</span><br><span class="line">    &#123;</span><br><span class="line">   	 	real=r;</span><br><span class="line">    	imag=i;</span><br><span class="line">    &#125;</span><br><span class="line">    Complex <span class="keyword">operator</span>+( <span class="type">const</span> Complex &amp; ) <span class="type">const</span>;       <span class="comment">//重载为成员函数</span></span><br><span class="line">    <span class="keyword">friend</span> Complex <span class="keyword">operator</span>+(Complex &amp;c1,Complex &amp;c2);  <span class="comment">//重载为友员函数</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">display</span><span class="params">( )</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">double</span> real;</span><br><span class="line">    <span class="type">double</span> imag;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="45-为什么重载为全局函数的运算符通常要比重载为成员函数的运算符多一个参数？举例说明。"><a class="header-anchor" href="#45-为什么重载为全局函数的运算符通常要比重载为成员函数的运算符多一个参数？举例说明。">¶</a>45.为什么重载为全局函数的运算符通常要比重载为成员函数的运算符多一个参数？举例说明。</h4>
+<ul>
+<li>
+<p>当重载为成员函数时，会有一个<code>this</code>指针，指向当前的类，所以只需要一个参数就可以了。</p>
+</li>
+<li>
+<p>而当重载为全局函数时，将没有隐含的参数<code>this</code>指针，这样将会多一个参数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Complex <span class="keyword">operator</span> +(Complex&amp;);</span><br><span class="line"><span class="keyword">friend</span> Complex <span class="keyword">operator</span>+(Complex &amp;c1,Complex &amp;c2);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="46-什么是友元-friend-函数？为什么要使用友员函数？"><a class="header-anchor" href="#46-什么是友元-friend-函数？为什么要使用友员函数？">¶</a>46.什么是友元(<code>friend</code>)函数？为什么要使用友员函数？</h4>
+<ul>
+<li>友元函数是在类声明中由关键字<code>friend</code>修饰说明的非成员函数或其它类的成员函数，在它的函数体中能够通过对象名访问 <code>private</code> 和 <code>protected</code>成员</li>
+<li>友元函数可以访问这个类中的私有成员，增加灵活性，使程序员可以在封装和快速性方面做合理选择。</li>
+<li>友元是<code>C++</code>提供的一种对数据封装和数据隐藏的破坏机制。</li>
+</ul>
+<h4 id="47-什么是UML？如何画UML中的类图？什么是类与类之间依赖关系、关联关系、包含关系？试举例说明这三种类之间的关系。这三种关系如何和UML图表示？"><a class="header-anchor" href="#47-什么是UML？如何画UML中的类图？什么是类与类之间依赖关系、关联关系、包含关系？试举例说明这三种类之间的关系。这三种关系如何和UML图表示？">¶</a>47.什么是<code>UML</code>？如何画<code>UML</code>中的类图？什么是类与类之间依赖关系、关联关系、包含关系？试举例说明这三种类之间的关系。这三种关系如何和<code>UML</code>图表示？</h4>
+<ul>
+<li><code>UML</code>统一建模语言，UML语言是一种可视化的的面向对象建模语言，描述软件模型的静态结构、动态行为及模块组织与管理。</li>
+<li>依赖关系：一个事物的变化可能会影响到使用它的另一个事物。举例：驾驶员（源）开车（目标）。</li>
+<li>关联关系：一个类的对象和另一个类的对象之间相互作用。举例：老师和学生，小明的语文老师是张老师，张老师的学生有小明。</li>
+<li>包含关系：聚集和组合</li>
+<li>聚集表示类之间的关系是整体与部分的关系。举例：班级成员和学生。</li>
+<li>组合是指整体拥有各个部分，整体和部分共存，整体不存在了，部分也会随之消失。举例：打开一个视窗口，它由标题、外框和显示区域组成，视窗口是一个整体，它消失了，部分也就随之消失了。</li>
+<li>继承关系：在UML中称为泛化。举例：鸭子和鸟，鸭子是一种鸟，继承了鸟的特性。</li>
+</ul>
+<h4 id="48-常见的类与类之间的关系有哪几种，举例说明每种关系的对应UML图如何画？两个什么样的类可以实现为继承关系？"><a class="header-anchor" href="#48-常见的类与类之间的关系有哪几种，举例说明每种关系的对应UML图如何画？两个什么样的类可以实现为继承关系？">¶</a>48.常见的类与类之间的关系有哪几种，举例说明每种关系的对应<code>UML</code>图如何画？两个什么样的类可以实现为继承关系？</h4>
+<ul>
+<li>依赖关系、关联关系、包含关系、继承关系。</li>
+<li>具有共同属性的两个类可以实现继承关系。</li>
+</ul>
+<h4 id="49-分别举例说明用于算法抽象的函数模板和用于数据抽象的类模板。"><a class="header-anchor" href="#49-分别举例说明用于算法抽象的函数模板和用于数据抽象的类模板。">¶</a>49.分别举例说明用于算法抽象的函数模板和用于数据抽象的类模板。</h4>
+<ul>
+<li>
+<p><strong>函数模板：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</span></span><br><span class="line"><span class="function">T <span class="title">add</span><span class="params">( T a, T b )</span><span class="comment">//函数模板</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">add</span>&lt;<span class="type">int</span>&gt; ( <span class="number">10</span>, <span class="number">17</span> );<span class="comment">//模板实例</span></span><br><span class="line">complex c1, c2;</span><br><span class="line"><span class="built_in">add</span>&lt;complex&gt; ( c1, c2 );</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>函数模板是  对算法相似，但支持的数据类型不同的一组操作的提炼，以提高程序的重用性。</p>
+</li>
+<li>
+<p>函数模板的实例就是一个用于特定类型的普通函数。</p>
+</li>
+<li>
+<p>通常，编译器可根据实参类型确定模板参数；</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">add</span> ( <span class="number">10</span>, <span class="number">17</span> ); <span class="comment">// add&lt;int&gt; (10,17);</span></span><br><span class="line">complex c1, c2;</span><br><span class="line"><span class="built_in">add</span> ( c1, c2 ); <span class="comment">// add&lt;complex&gt;(c1,c2);</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>类模板：</strong></p>
+</li>
+<li>
+<p>使用类模板使用户可以为类定义一种模式，使得类中的某些数据成员、某些数据成员函数的参数、返回值和局部变量能够取任意类型（包括系统预定义和用户自定义）</p>
+</li>
+<li>
+<p>有时候，有两个或多个类，其功能是相同的，仅仅是数据类型不同，可以使用模板类。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;<span class="comment">//声明模板</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Array</span></span><br><span class="line">&#123;</span><br><span class="line">    T*  array;</span><br><span class="line">    <span class="type">int</span> size;</span><br><span class="line"><span class="keyword">public</span>：</span><br><span class="line">    <span class="built_in">Array</span>( <span class="type">int</span> );</span><br><span class="line">    T&amp; <span class="keyword">operator</span>[ ]( <span class="type">int</span> );</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">charArray</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> *array;</span><br><span class="line">    <span class="type">int</span> size;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">charArray</span>( <span class="type">int</span> );</span><br><span class="line">    <span class="type">char</span>&amp; <span class="keyword">operator</span>[](<span class="type">int</span>);</span><br><span class="line">&#125;;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">intArray</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> *array;</span><br><span class="line">    <span class="type">int</span> size;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">intArray</span>( <span class="type">int</span> );</span><br><span class="line">    <span class="type">int</span>&amp; <span class="keyword">operator</span>[](<span class="type">int</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="50-使用异常处理机制的好处是什么？"><a class="header-anchor" href="#50-使用异常处理机制的好处是什么？">¶</a>50.使用异常处理机制的好处是什么？</h4>
+<ul>
+<li>将常规代码与错误处理代码的分离</li>
+<li>实现在调用栈中传播异常</li>
+<li>实现对不同的错误类型进行分类</li>
+</ul>
+<h4 id="51-简述C-中的异常处理机制。要捕获某段代码中的所有异常，应该如何编写代码？"><a class="header-anchor" href="#51-简述C-中的异常处理机制。要捕获某段代码中的所有异常，应该如何编写代码？">¶</a>51.简述<code>C++</code>中的异常处理机制。要捕获某段代码中的所有异常，应该如何编写代码？</h4>
+<ul>
+<li><code>C++</code> 用<code>try</code>和<code>catch</code>进行异常处理，当<code>try</code>块出现异常，则<code>catch</code>中匹配相应的异常处理，若<code>catch</code>块中没有匹配该异常对象的语句，则转向外一层的<code>try</code>、<code>catch</code>语句，若一直退回到主函数都无法处理异常，则由系统调用<code>terminate()</code>函数终止程序。</li>
+<li>用异常规格(<code>exception specification</code>)列出函数可能会抛出所有异常的类型。</li>
+</ul>
+<h4 id="52-简述虚函数动态绑定的实现原理。"><a class="header-anchor" href="#52-简述虚函数动态绑定的实现原理。">¶</a>52.简述虚函数动态绑定的实现原理。</h4>
+<ul>
+<li>构造函数中为对象的虚指针赋值，通过多态类型的指针或引用调用成员函数时，通过虚指针找到虚表，进而找到所调用的虚函数的入口地址，通过该入口地址调用虚函数。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>如果您觉得这篇文章有帮助，可以请我吃颗糖哦。</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="心意 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="心意 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>心意
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://xinyi127.cn/2022/06/21/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%9C%9F%E6%9C%AB%E9%A2%84%E4%B9%A0%E5%A4%A7%E7%BA%B2/" title="面向对象期末预习大纲">http://xinyi127.cn/2022/06/21/面向对象程序设计期末预习大纲/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <div>
+          
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------　　　　本文结束　<i class="fa fa-heart"></i>　感谢您的阅读　　　　-------------</div>
+    
+</div>
+          
+      </div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/c/" rel="tag"># c++</a>
+              <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" rel="tag"># 面向对象程序设计</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/06/18/%E8%83%8C%E6%99%AF%E4%B8%8E%E8%B6%85%E9%93%BE%E6%8E%A5%E9%A2%9C%E8%89%B2%E9%97%AE%E9%A2%98/" rel="prev" title="背景与超链接颜色问题">
+      <i class="fa fa-chevron-left"></i> 背景与超链接颜色问题
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/06/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%BE%8B%E9%A2%98/" rel="next" title="面向对象期末预习例题">
+      面向对象期末预习例题 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E4%B9%A0%E5%A4%A7%E7%BA%B2%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">复习大纲：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E7%94%A8%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E%E5%9C%A8%E6%A0%87%E5%87%86C-%E4%B8%AD%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%EF%BC%8C%E5%B9%B6%E8%A7%A3%E9%87%8A%E5%90%84%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%90%AB%E4%B9%89%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">1.用代码说明在标准C++中如何进行输入输出，并解释各语句的含义是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E9%98%90%E8%BF%B0C%EF%BC%8B%EF%BC%8B%E4%B8%AD%E5%87%BD%E6%95%B0%E4%B8%89%E7%A7%8D%E8%B0%83%E7%94%A8%E6%96%B9%E5%BC%8F%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6%E3%80%81%E7%89%B9%E7%82%B9%E5%8F%8A%E5%85%B6%E5%AE%9E%E5%8F%82%E3%80%81%E5%BD%A2%E5%8F%82%E6%A0%BC%E5%BC%8F%EF%BC%8C%E6%9C%80%E5%A5%BD%E7%94%A8%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E%E3%80%82%E8%AF%95%E6%AF%94%E8%BE%83%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F%E7%9A%84%E6%89%A7%E8%A1%8C%E6%95%88%E7%8E%87%E3%80%82%EF%BC%88%E6%8F%90%E7%A4%BA%EF%BC%9A%E4%BC%A0%E5%9D%80%E3%80%81%E4%BC%A0%E5%80%BC%E3%80%81%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">2.阐述C＋＋中函数三种调用方式的实现机制、特点及其实参、形参格式，最好用代码说明。试比较三种方式的执行效率。（提示：传址、传值、引用传递）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E4%BB%80%E4%B9%88%E6%98%AF%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0%EF%BC%9F%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0%EF%BC%9F"><span class="nav-number">1.3.</span> <span class="nav-text">3.什么是内联函数？为什么要使用内联函数？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E4%BB%80%E4%B9%88%E6%98%AF%E7%B1%BB%E7%9A%84%E5%89%8D%E5%90%91%E5%A3%B0%E6%98%8E%EF%BC%9F%E4%BD%BF%E7%94%A8%E7%B1%BB%E7%9A%84%E5%89%8D%E5%90%91%E5%A3%B0%E6%98%8E%E6%97%B6%EF%BC%8C%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.4.</span> <span class="nav-text">4.什么是类的前向声明？使用类的前向声明时，要注意什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E4%BB%80%E4%B9%88%E6%98%AF%E5%85%88%E9%AA%8C%E6%9D%A1%E4%BB%B6-Precondition-%EF%BC%8C%E4%BB%80%E4%B9%88%E6%98%AF%E5%90%8E%E7%BD%AE%E6%9D%A1%E4%BB%B6-Postcondition-%EF%BC%9F"><span class="nav-number">1.5.</span> <span class="nav-text">5.什么是先验条件(Precondition)，什么是后置条件(Postcondition)？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E4%BB%80%E4%B9%88%E6%98%AF%E5%90%8D%E7%A7%B0%E7%A9%BA%E9%97%B4-namespace-%EF%BC%9F%E5%AE%83%E7%9A%84%E4%B8%BB%E8%A6%81%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E8%A6%81%E4%BD%BF%E7%94%A8%E4%B8%80%E4%B8%AA%E5%90%8D%E7%A7%B0%E7%A9%BA%E9%97%B4%E4%B8%AD%E5%A3%B0%E6%98%8E%E7%9A%84%E6%A0%87%E8%AF%86%E7%AC%A6%EF%BC%8C%E6%96%B9%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="nav-number">1.6.</span> <span class="nav-text">6.什么是名称空间(namespace)？它的主要作用是什么？要使用一个名称空间中声明的标识符，方式有哪些？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-%E4%BB%80%E4%B9%88%E6%98%AF%E9%87%8D%E8%BD%BD-Overloading-%EF%BC%8C%E8%A7%A3%E9%87%8A%E5%B9%B6%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E%EF%BC%9F%E8%83%BD%E5%90%A6%E6%A0%B9%E6%8D%AE%E8%BF%94%E5%9B%9E%E5%80%BC%E4%B8%8D%E5%90%8C%EF%BC%8C%E5%AF%B9%E5%87%BD%E6%95%B0%E8%BF%9B%E8%A1%8C%E9%87%8D%E8%BD%BD%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.7.</span> <span class="nav-text">7.什么是重载(Overloading)，解释并举例说明？能否根据返回值不同，对函数进行重载，为什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E4%B8%80%E4%B8%AA%E5%A4%B4%E6%96%87%E4%BB%B6%E8%A2%AB%E5%A4%9A%E9%87%8D%E5%8C%85%E5%90%AB%EF%BC%9F%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E%E3%80%82"><span class="nav-number">1.8.</span> <span class="nav-text">8.如何防止一个头文件被多重包含？举例说明。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-dynamic-cast%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E8%AF%95%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E%E3%80%82"><span class="nav-number">1.9.</span> <span class="nav-text">9.dynamic-cast的作用是什么？试举例说明。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-%E5%8F%99%E8%BF%B0%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E7%9A%84%E7%89%B9%E7%82%B9%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E6%8F%90%E7%A4%BA%EF%BC%9A%E5%B0%81%E8%A3%85%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E5%A4%9A%E6%80%81%E3%80%82"><span class="nav-number">1.10.</span> <span class="nav-text">10.叙述面向对象编程的特点是什么？(提示：封装、继承、多态。)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-%E4%BB%80%E4%B9%88%E6%98%AF%E5%B0%81%E8%A3%85%EF%BC%9F%E5%85%B6%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.11.</span> <span class="nav-text">11.什么是封装？其作用是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-%E4%BB%80%E4%B9%88%E6%98%AF%E7%B1%BB%EF%BC%9F%E9%80%9A%E5%B8%B8%E4%B8%80%E4%B8%AA%E7%B1%BB%E4%B8%AD%EF%BC%8C%E5%8C%85%E5%90%AB%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E5%86%85%E5%AE%B9%EF%BC%9F%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E7%B1%BB%E7%9A%84%E8%AF%AD%E6%B3%95%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8C%E8%AF%95%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E%E3%80%82"><span class="nav-number">1.12.</span> <span class="nav-text">12.什么是类？通常一个类中，包含什么样的内容？定义一个类的语法是什么，试举例说明。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-%E4%BB%80%E4%B9%88%E6%98%AF%E5%AF%B9%E8%B1%A1%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AF%E7%B1%BB%EF%BC%9F%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%85%B3%E7%B3%BB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.13.</span> <span class="nav-text">13.什么是对象？什么是类？类与对象的关系是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-%E7%B1%BB%E4%B8%AD%E7%9A%84%E6%88%90%E5%91%98%E5%8F%AF%E4%BB%A5%E7%94%A8public-protected-private%E5%88%86%E5%88%AB%E8%BF%9B%E8%A1%8C%E4%BF%AE%E9%A5%B0%EF%BC%8C%E8%BF%99%E4%B8%89%E7%A7%8D%E6%88%90%E5%91%98%E5%9C%A8%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E6%98%AF%E5%8F%AF%E4%BB%A5%E8%A2%AB%E8%AE%BF%E9%97%AE%E7%9A%84%EF%BC%9F%E7%B1%BB%E4%B8%AD%E6%B2%A1%E6%9C%89%E7%94%A8public-protected-private%E4%BF%AE%E9%A5%B0%E7%9A%84%E6%88%90%E5%91%98%EF%BC%8C%E5%85%B6%E5%8F%AF%E8%AE%BF%E9%97%AE%E6%80%A7%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8C%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%AD%E6%B2%A1%E6%9C%89%E7%94%A8public-protected-private%E4%BF%AE%E9%A5%B0%E7%9A%84%E6%88%90%E5%91%98%EF%BC%8C%E5%85%B6%E5%8F%AF%E8%AE%BF%E9%97%AE%E6%80%A7%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.14.</span> <span class="nav-text">14.类中的成员可以用public &#x2F; protected &#x2F; private分别进行修饰，这三种成员在什么情况下是可以被访问的？类中没有用public &#x2F; protected &#x2F; private修饰的成员，其可访问性是什么，结构体中没有用public &#x2F; protected &#x2F; private修饰的成员，其可访问性是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15-%E4%BB%80%E4%B9%88%E6%98%AF%E7%B1%BB%E4%BD%9C%E7%94%A8%E5%9F%9F-Class-scope-%E3%80%81%E6%96%87%E4%BB%B6%E4%BD%9C%E7%94%A8%E5%9F%9F-file-scope-%E3%80%81%E5%87%BD%E6%95%B0%E4%BD%9C%E7%94%A8%E5%9F%9F%EF%BC%88function-scope%EF%BC%89%EF%BC%9F"><span class="nav-number">1.15.</span> <span class="nav-text">15.什么是类作用域(Class scope)、文件作用域(file scope)、函数作用域（function scope）？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-%E4%BB%80%E4%B9%88%E6%98%AFthis%E6%8C%87%E9%92%88%EF%BC%8C%E5%85%B6%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.16.</span> <span class="nav-text">16.什么是this指针，其作用是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-%E5%9C%A8%E4%B8%80%E4%B8%AA%E7%B1%BB%E4%B8%AD%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%EF%BC%88-static-member-function-%EF%BC%89%E4%B8%AD%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8-this-%E6%8C%87%E9%92%88%EF%BC%9F"><span class="nav-number">1.17.</span> <span class="nav-text">17.在一个类中，为什么静态成员函数（ static member function ）中不能使用 this 指针？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#18-%E4%BB%80%E4%B9%88%E6%98%AF%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%EF%BC%9F%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%9C%89%E8%BF%94%E5%9B%9E%E5%80%BC%E5%90%97%EF%BC%9F%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%A6%82%E4%BD%95%E5%91%BD%E5%90%8D%EF%BC%9F%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%8F%AF%E4%BB%A5%E9%87%8D%E8%BD%BD%E5%90%97%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AF%E7%BC%BA%E7%9C%81%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0-default-constructor-%EF%BC%9F%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%EF%BC%8C%E7%B1%BB%E4%B8%AD%E4%BC%9A%E6%9C%89%E7%BC%BA%E7%9C%81%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%EF%BC%9F"><span class="nav-number">1.18.</span> <span class="nav-text">18.什么是构造函数？构造函数有返回值吗？构造函数如何命名？构造函数可以重载吗？什么是缺省构造函数(default constructor)？什么情况下，类中会有缺省构造函数？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E8%A2%AB%E8%B0%83%E7%94%A8%EF%BC%9F%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%88%E7%88%B6%E7%B1%BB%E4%B8%8E%E5%AD%90%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E3%80%81%E7%B1%BB%E8%87%AA%E8%BA%AB%E4%B8%8E%E5%85%B6%E6%95%B0%E6%8D%AE%E6%88%90%E5%91%98%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%EF%BC%89%EF%BC%9F"><span class="nav-number">1.19.</span> <span class="nav-text">19.构造函数的作用是什么？什么时候会被调用？构造函数的执行顺序是什么（父类与子类的构造函数、类自身与其数据成员的构造函数）？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%EF%BC%88copy-constructor%EF%BC%89%E7%9A%84%E5%8F%82%E6%95%B0%E5%BF%85%E9%A1%BB%E6%98%AF%E6%8C%89%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92-by-reference-%E8%80%8C%E4%B8%8D%E8%83%BD%E6%98%AF%E6%8C%89%E5%80%BC%E4%BC%A0%E9%80%92-by-value-%EF%BC%9F"><span class="nav-number">1.20.</span> <span class="nav-text">20.为什么拷贝构造函数（copy constructor）的参数必须是按引用传递(by reference)而不能是按值传递(by value)？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21-%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0-%E5%A4%8D%E5%88%B6%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0-%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AF%E6%B5%85%E6%8B%B7%E8%B4%9D%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AF%E6%B7%B1%E6%8B%B7%E8%B4%9D%EF%BC%9F"><span class="nav-number">1.21.</span> <span class="nav-text">21.拷贝构造函数(复制构造函数)的作用是什么？什么是浅拷贝？什么是深拷贝？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#22-%E5%85%A8%E5%B1%80%E5%AF%B9%E8%B1%A1-Global-scope-objects-%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E3%80%81%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%A2%AB%E8%B0%83%E7%94%A8%E7%9A%84%EF%BC%9F%E8%87%AA%E5%8A%A8%E5%B1%80%E9%83%A8%E5%AF%B9%E8%B1%A1-Automatic-local-objects-%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E3%80%81%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%A2%AB%E8%B0%83%E7%94%A8%E7%9A%84%EF%BC%9F%E9%9D%99%E6%80%81%E5%B1%80%E9%83%A8%E5%AF%B9%E8%B1%A1-static-local-objects-%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E3%80%81%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%A2%AB%E8%B0%83%E7%94%A8%E7%9A%84%EF%BC%9F"><span class="nav-number">1.22.</span> <span class="nav-text">22.全局对象(Global scope objects)的构造函数、析构函数分别是什么时候被调用的？自动局部对象(Automatic local objects)的构造函数、析构函数分别是什么时候被调用的？静态局部对象(static local objects)的构造函数、析构函数分别是什么时候被调用的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#23-%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8-Initialization-Sections-%EF%BC%9F%E5%AE%83%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%EF%BC%88%E6%8F%90%E7%A4%BA%EF%BC%9A%E4%B8%80%E8%88%AC%E6%95%B0%E6%8D%AE%E6%88%90%E5%91%98%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E3%80%81%E5%B8%B8%E9%87%8F%E6%88%90%E5%91%98%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%EF%BC%8C%E5%AF%B9%E8%B1%A1%E6%88%90%E5%91%98%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E9%80%89%E6%8B%A9%E3%80%81%E7%88%B6%E7%B1%BB%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E9%80%89%E6%8B%A9%E7%AD%89%EF%BC%89%E3%80%82"><span class="nav-number">1.23.</span> <span class="nav-text">23.什么是初始化列表(Initialization Sections)？它的作用是什么？（提示：一般数据成员的初始化、常量成员的初始化，对象成员构造函数的选择、父类构造函数的选择等）。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#24-%E4%BB%80%E4%B9%88%E6%98%AF%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0%EF%BC%9F%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0%E6%9C%89%E8%BF%94%E5%9B%9E%E5%80%BC%E5%90%97%EF%BC%9F%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0%E5%A6%82%E4%BD%95%E5%91%BD%E5%90%8D%EF%BC%9F%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0%E5%8F%AF%E4%BB%A5%E9%87%8D%E8%BD%BD%E5%90%97%EF%BC%9F"><span class="nav-number">1.24.</span> <span class="nav-text">24.什么是析构函数？析构函数有返回值吗？析构函数如何命名？析构函数可以重载吗？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#25-%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E8%A2%AB%E8%B0%83%E7%94%A8%EF%BC%9F%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0%E9%80%9A%E5%B8%B8%E6%98%AF%E8%99%9A%E5%87%BD%E6%95%B0%EF%BC%8C%E5%A6%82%E6%9E%9C%E4%B8%8D%E6%98%AF%E8%99%9A%E5%87%BD%E6%95%B0%EF%BC%8C%E4%BC%9A%E5%A6%82%E4%BD%95%EF%BC%9F"><span class="nav-number">1.25.</span> <span class="nav-text">25.析构函数的作用是什么？什么时候会被调用？为什么析构函数通常是虚函数，如果不是虚函数，会如何？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#26-%E5%A6%82%E6%9E%9C%E8%A6%81%E7%BC%96%E5%86%99%E4%B8%80%E6%AE%B5%E7%A8%8B%E5%BA%8F%EF%BC%8C%E8%B7%9F%E8%B8%AA%E7%B1%BBA%E6%89%80%E5%88%9B%E5%BB%BA%E7%9A%84%E5%AE%9E%E4%BE%8B%E7%9A%84%E4%B8%AA%E6%95%B0%EF%BC%8C%E8%AF%B7%E5%8F%99%E8%BF%B0%E7%BC%96%E5%86%99%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%A4%A7%E4%BD%93%E6%80%9D%E8%B7%AF%E3%80%82"><span class="nav-number">1.26.</span> <span class="nav-text">26.如果要编写一段程序，跟踪类A所创建的实例的个数，请叙述编写程序的大体思路。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#27-%E4%BB%80%E4%B9%88%E6%98%AFC-%E4%B8%AD%E7%9A%84%E4%B8%89%E5%A4%A7%E5%87%BD%E6%95%B0-The-Big-Three-%EF%BC%9F"><span class="nav-number">1.27.</span> <span class="nav-text">27.什么是C++中的三大函数(The Big Three)？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#28-%E4%BD%BF%E7%94%A8const%E5%AE%9A%E4%B9%89%E5%B8%B8%E9%87%8F%E4%B8%8E%E7%94%A8%E4%BD%BF%E7%94%A8define%E5%AE%9A%E4%B9%89%E5%B8%B8%E9%87%8F%E7%9B%B8%E6%AF%94%EF%BC%8C%E6%9C%89%E4%BB%80%E4%B9%88%E4%BC%98%E7%82%B9%EF%BC%9F"><span class="nav-number">1.28.</span> <span class="nav-text">28.使用const定义常量与用使用define定义常量相比，有什么优点？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#29-C-%E4%B8%AD%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E9%9D%99%E6%80%81%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%EF%BC%8C%E8%A7%A3%E9%87%8A%E5%B9%B6%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E%E3%80%82"><span class="nav-number">1.29.</span> <span class="nav-text">29.C++中如何进行静态类型转换，解释并举例说明。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#30-%E5%85%B3%E9%94%AE%E5%AD%97const%E7%9A%84%E7%94%A8%E6%B3%95%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="nav-number">1.30.</span> <span class="nav-text">30.关键字const的用法有哪些?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#31-C-%E4%B8%AD%EF%BC%8Cstatic%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E5%8F%96%E5%80%BC%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="nav-number">1.31.</span> <span class="nav-text">31.C++中，static静态变量的初始化和取值问题？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#32-%E6%93%8D%E4%BD%9C%E7%AC%A6new%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E5%A6%82%E4%BD%95%E7%94%B3%E8%AF%B7%E5%8D%95%E4%B8%AA%E7%A9%BA%E9%97%B4%EF%BC%9F%E5%A6%82%E4%BD%95%E7%94%B3%E8%AF%B7%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84%EF%BC%9F%E7%94%A8new%E5%88%9B%E5%BB%BA%E7%B1%BB%E7%9A%84%E5%AF%B9%E8%B1%A1%E6%97%B6%EF%BC%8C%E4%BC%9A%E5%8F%91%E7%94%9F%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C%EF%BC%9F%E5%BF%85%E8%A6%81%E6%97%B6%EF%BC%8C%E8%AF%B7%E7%94%A8%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E%E3%80%82"><span class="nav-number">1.32.</span> <span class="nav-text">32.操作符new的作用是什么？如何申请单个空间？如何申请动态数组？用new创建类的对象时，会发生哪些操作？必要时，请用代码说明。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#33-%E6%93%8D%E4%BD%9C%E7%AC%A6delete%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4%E5%8D%95%E4%B8%AA%E7%94%A8new%E7%94%B3%E8%AF%B7%E7%9A%84%E7%A9%BA%E9%97%B4%EF%BC%9F%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4%E7%94%B3%E8%AF%B7%E7%9A%84%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84%EF%BC%9F%E7%94%A8delete%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E7%B1%BB%E7%9A%84%E5%AF%B9%E8%B1%A1%E6%97%B6%EF%BC%8C%E4%BC%9A%E5%8F%91%E7%94%9F%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C%EF%BC%9F%E5%BF%85%E8%A6%81%E6%97%B6%EF%BC%8C%E8%AF%B7%E7%94%A8%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E%E3%80%82"><span class="nav-number">1.33.</span> <span class="nav-text">33.操作符delete的作用是什么？如何删除单个用new申请的空间？如何删除申请的动态数组？用delete删除一个类的对象时，会发生哪些操作？必要时，请用代码说明。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#34-%E4%BB%80%E4%B9%88%E6%98%AF%E6%82%AC%E6%8C%82%E6%8C%87%E9%92%88-%E5%8F%88%E7%A7%B0%E4%B8%BA%E9%87%8E%E6%8C%87%E9%92%88%EF%BC%8CDangling-Pointers-%EF%BC%8C%E5%85%B6%E5%8D%B1%E5%AE%B3%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.34.</span> <span class="nav-text">34.什么是悬挂指针(又称为野指针，Dangling Pointers)，其危害是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#35-%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%87%E7%89%87-Slicing-%EF%BC%9F-%E6%B3%A8%E6%84%8F%E5%8F%82%E8%80%83%E8%AE%B2%E4%B9%89"><span class="nav-number">1.35.</span> <span class="nav-text">35.什么是切片(Slicing)？(注意参考讲义)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#36-%E8%8B%A5%E7%88%B6%E7%B1%BB%E4%B8%AD%E6%B2%A1%E6%9C%89%E7%BC%BA%E7%9C%81%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%EF%BC%8C%E5%88%99%E5%AF%B9%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%9C%89%E4%BB%80%E4%B9%88%E8%A6%81%E6%B1%82%EF%BC%9F"><span class="nav-number">1.36.</span> <span class="nav-text">36.若父类中没有缺省构造函数，则对派生类的构造函数有什么要求？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#37-%E7%88%B6%E7%B1%BB%E6%88%90%E5%91%98%E4%B8%AD%E7%9A%84public%E3%80%81protected%E3%80%81private%E6%88%90%E5%91%98%EF%BC%8C%E5%93%AA%E4%BA%9B%E5%9C%A8%E5%AD%90%E7%B1%BB%E4%B8%AD%E6%98%AF%E5%8F%AF%E4%BB%A5%E8%AE%BF%E9%97%AE%E7%9A%84%EF%BC%9F%E5%9C%A8%E5%85%AC%E6%9C%89%E7%BB%A7%E6%89%BF%E3%80%81%E7%A7%81%E6%9C%89%E7%BB%A7%E6%89%BF%E3%80%81%E5%8F%97%E4%BF%9D%E6%8A%A4%E7%BB%A7%E6%89%BF%E4%B8%89%E7%A7%8D%E7%BB%A7%E6%89%BF%E6%96%B9%E5%BC%8F%E4%B8%8B%EF%BC%8C%E7%88%B6%E7%B1%BB%E6%88%90%E5%91%98%E4%B8%AD%E7%9A%84public%E3%80%81protected%E3%80%81private%E6%88%90%E5%91%98%E8%A2%AB%E7%BB%A7%E6%89%BF%E5%88%B0%E5%AD%90%E7%B1%BB%E5%90%8E%EF%BC%8C%E5%85%B6%E5%8F%AF%E8%AE%BF%E9%97%AE%E6%80%A7%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E6%B4%BE%E7%94%9F%E7%B1%BB%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E7%BB%A7%E6%89%BF%E7%88%B6%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8C%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0%EF%BC%9F"><span class="nav-number">1.37.</span> <span class="nav-text">37.父类成员中的public、protected、private成员，哪些在子类中是可以访问的？在公有继承、私有继承、受保护继承三种继承方式下，父类成员中的public、protected、private成员被继承到子类后，其可访问性分别是什么？派生类是否可以继承父类的构造函数和析构函数？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#38-%E5%A4%9A%E9%87%8D%E7%BB%A7%E6%89%BF%E4%BC%9A%E5%B8%A6%E6%9D%A5%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%9F%E5%9C%A8C-%E4%B8%AD%E6%98%AF%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E7%9A%84%EF%BC%9F"><span class="nav-number">1.38.</span> <span class="nav-text">38.多重继承会带来什么问题？在C++中是如何解决的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#39-%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%AF%E8%99%9A%E5%87%BD%E6%95%B0%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AF%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-ADT-%EF%BC%9F%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E6%8A%BD%E8%B1%A1%E7%B1%BB%E6%98%AF%E5%90%A6%E5%8F%AF%E5%AE%9E%E4%BE%8B%E5%8C%96%EF%BC%9F%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E4%BB%80%E4%B9%88%E6%A0%B7%E5%AD%90%E7%B1%BB%E5%8F%AF%E4%BB%A5%E5%AE%9E%E4%BE%8B%E5%8C%96%EF%BC%9F"><span class="nav-number">1.39.</span> <span class="nav-text">39.什么是纯虚函数？什么是抽象数据类型(ADT)？抽象类的作用是什么？抽象类是否可实例化？抽象类的什么样子类可以实例化？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#40-%E5%AF%B9%E4%BA%8E%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%EF%BC%8C%E4%BB%80%E4%B9%88%E6%98%AF%E5%89%8D%E6%9C%9F%E7%BB%91%E5%AE%9A-Early-Binding%EF%BC%8C%E5%8F%88%E7%A7%B0%E4%B8%BA%E9%9D%99%E6%80%81%E8%81%94%E7%BC%96-%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AF%E5%90%8E%E6%9C%9F%E7%BB%91%E5%AE%9A-Late-Binding%EF%BC%8C%E5%8F%88%E7%A7%B0%E4%B8%BA%E5%8A%A8%E6%80%81%E8%81%94%E7%BC%96-%EF%BC%9F%E9%87%8D%E8%BD%BD%E5%87%BD%E6%95%B0%E6%98%AF%E5%90%8E%E6%9C%9F%E7%BB%91%E5%AE%9A%E5%90%97%EF%BC%8C%E5%A6%82%E6%9E%9C%E4%B8%8D%E6%98%AF%E4%B8%BA%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.40.</span> <span class="nav-text">40.对于函数调用，什么是前期绑定(Early Binding，又称为静态联编)？什么是后期绑定(Late Binding，又称为动态联编)？重载函数是后期绑定吗，如果不是为什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#41-%E8%A6%81%E8%AE%A9%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E8%A1%A8%E7%8E%B0%E5%87%BA%E5%A4%9A%E6%80%81%E7%89%B9%E5%BE%81%EF%BC%8C%E5%BF%85%E9%A1%BB%E6%BB%A1%E8%B6%B3%E5%93%AA%E4%BA%9B%E6%9D%A1%E4%BB%B6%EF%BC%9F"><span class="nav-number">1.41.</span> <span class="nav-text">41.要让一个函数调用表现出多态特征，必须满足哪些条件？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#42-%E4%BB%80%E4%B9%88%E6%98%AF%E9%9A%90%E8%97%8F-hiding-%E3%80%81%E8%A6%86%E7%9B%96-overriding-%E3%80%81%E9%87%8D%E8%BD%BD-overloading-%EF%BC%9F%E5%AF%B9%E6%AF%94%E5%AE%83%E4%BB%AC%E7%9A%84%E5%BC%82%E5%90%8C%EF%BC%9F%E4%BB%A5C-%E4%BB%A3%E7%A0%81%E4%B8%BA%E4%BE%8B%E8%BF%9B%E8%A1%8C%E8%AF%B4%E6%98%8E%E3%80%82"><span class="nav-number">1.42.</span> <span class="nav-text">42.什么是隐藏(hiding)、覆盖(overriding)、重载(overloading)？对比它们的异同？以C++代码为例进行说明。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#43-%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%9A%E6%80%81%EF%BC%9F"><span class="nav-number">1.43.</span> <span class="nav-text">43.什么是多态？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#44-%E4%BB%80%E4%B9%88%E6%98%AF%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD%EF%BC%9F%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD%EF%BC%9F%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD%EF%BC%8C%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E%E3%80%82"><span class="nav-number">1.44.</span> <span class="nav-text">44.什么是运算符重载？为什么要使用运算符重载？如何进行运算符重载，举例说明。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#45-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%87%8D%E8%BD%BD%E4%B8%BA%E5%85%A8%E5%B1%80%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%90%E7%AE%97%E7%AC%A6%E9%80%9A%E5%B8%B8%E8%A6%81%E6%AF%94%E9%87%8D%E8%BD%BD%E4%B8%BA%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%90%E7%AE%97%E7%AC%A6%E5%A4%9A%E4%B8%80%E4%B8%AA%E5%8F%82%E6%95%B0%EF%BC%9F%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E%E3%80%82"><span class="nav-number">1.45.</span> <span class="nav-text">45.为什么重载为全局函数的运算符通常要比重载为成员函数的运算符多一个参数？举例说明。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#46-%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8B%E5%85%83-friend-%E5%87%BD%E6%95%B0%EF%BC%9F%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8%E5%8F%8B%E5%91%98%E5%87%BD%E6%95%B0%EF%BC%9F"><span class="nav-number">1.46.</span> <span class="nav-text">46.什么是友元(friend)函数？为什么要使用友员函数？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#47-%E4%BB%80%E4%B9%88%E6%98%AFUML%EF%BC%9F%E5%A6%82%E4%BD%95%E7%94%BBUML%E4%B8%AD%E7%9A%84%E7%B1%BB%E5%9B%BE%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AF%E7%B1%BB%E4%B8%8E%E7%B1%BB%E4%B9%8B%E9%97%B4%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB%E3%80%81%E5%85%B3%E8%81%94%E5%85%B3%E7%B3%BB%E3%80%81%E5%8C%85%E5%90%AB%E5%85%B3%E7%B3%BB%EF%BC%9F%E8%AF%95%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E%E8%BF%99%E4%B8%89%E7%A7%8D%E7%B1%BB%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E3%80%82%E8%BF%99%E4%B8%89%E7%A7%8D%E5%85%B3%E7%B3%BB%E5%A6%82%E4%BD%95%E5%92%8CUML%E5%9B%BE%E8%A1%A8%E7%A4%BA%EF%BC%9F"><span class="nav-number">1.47.</span> <span class="nav-text">47.什么是UML？如何画UML中的类图？什么是类与类之间依赖关系、关联关系、包含关系？试举例说明这三种类之间的关系。这三种关系如何和UML图表示？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#48-%E5%B8%B8%E8%A7%81%E7%9A%84%E7%B1%BB%E4%B8%8E%E7%B1%BB%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%EF%BC%8C%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E%E6%AF%8F%E7%A7%8D%E5%85%B3%E7%B3%BB%E7%9A%84%E5%AF%B9%E5%BA%94UML%E5%9B%BE%E5%A6%82%E4%BD%95%E7%94%BB%EF%BC%9F%E4%B8%A4%E4%B8%AA%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E7%B1%BB%E5%8F%AF%E4%BB%A5%E5%AE%9E%E7%8E%B0%E4%B8%BA%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB%EF%BC%9F"><span class="nav-number">1.48.</span> <span class="nav-text">48.常见的类与类之间的关系有哪几种，举例说明每种关系的对应UML图如何画？两个什么样的类可以实现为继承关系？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#49-%E5%88%86%E5%88%AB%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E%E7%94%A8%E4%BA%8E%E7%AE%97%E6%B3%95%E6%8A%BD%E8%B1%A1%E7%9A%84%E5%87%BD%E6%95%B0%E6%A8%A1%E6%9D%BF%E5%92%8C%E7%94%A8%E4%BA%8E%E6%95%B0%E6%8D%AE%E6%8A%BD%E8%B1%A1%E7%9A%84%E7%B1%BB%E6%A8%A1%E6%9D%BF%E3%80%82"><span class="nav-number">1.49.</span> <span class="nav-text">49.分别举例说明用于算法抽象的函数模板和用于数据抽象的类模板。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#50-%E4%BD%BF%E7%94%A8%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6%E7%9A%84%E5%A5%BD%E5%A4%84%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.50.</span> <span class="nav-text">50.使用异常处理机制的好处是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#51-%E7%AE%80%E8%BF%B0C-%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6%E3%80%82%E8%A6%81%E6%8D%95%E8%8E%B7%E6%9F%90%E6%AE%B5%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E5%BC%82%E5%B8%B8%EF%BC%8C%E5%BA%94%E8%AF%A5%E5%A6%82%E4%BD%95%E7%BC%96%E5%86%99%E4%BB%A3%E7%A0%81%EF%BC%9F"><span class="nav-number">1.51.</span> <span class="nav-text">51.简述C++中的异常处理机制。要捕获某段代码中的所有异常，应该如何编写代码？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#52-%E7%AE%80%E8%BF%B0%E8%99%9A%E5%87%BD%E6%95%B0%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E3%80%82"><span class="nav-number">1.52.</span> <span class="nav-text">52.简述虚函数动态绑定的实现原理。</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="心意"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">心意</p>
+  <div class="site-description" itemprop="description"><font color="#DB7093">像珍惜礼物一样，珍惜今天。</font></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xinyi127" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xinyi127" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1224179212@qq.com" title="E-Mail → mailto:1224179212@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/jhgjhg225?type=blog" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;jhgjhg225?type&#x3D;blog" rel="noopener" target="_blank"><i class="codiepie fa-fw"></i>CSDN</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.acwing.com/user/myspace/index/111921/" title="AcWing → https:&#x2F;&#x2F;www.acwing.com&#x2F;user&#x2F;myspace&#x2F;index&#x2F;111921&#x2F;" rel="noopener" target="_blank"><i class=" fa-fw"></i>AcWing</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+
+<!-- require APlayer -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<!-- require MetingJS-->
+
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
+<!--网易云playlist外链地址-->   
+<meting-js
+    server="netease"
+    type="playlist" 
+    id="7496223401"
+    mini="false"
+    fixed="false"
+    list-folded="true"
+    autoplay="false"
+    volume="0.4"
+    theme="#FADFA3"
+    order="random"
+    loop="all"
+    preload="auto"
+    mutex="true">
+</meting-js>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank"><font color="#FFFAFA">鲁ICP备2022018291号-1</font> </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">心意</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">238k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:36</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+-->
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共238k字</span>
+</div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+
+// 说说额外刷新
+    $(document).ready(function () {
+
+    if(location.href.indexOf("#reloaded")==-1){
+        location.href=location.href+"#reloaded";
+        location.reload();
+    }
+}）
+// 在这后面可以加入程序的其他代码  
+
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+
+  
+     <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+     <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+     <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'fYGYazVwbVLy8cEqJqIcUCcO-MdYXbMMI',
+      appKey     : 'hhEw2wKtOfkSDCmpAlPAO7g3',
+      placeholder: "交流促进成长，欢迎分享你的苹果。昵称、邮箱和网址非必填哦，可直接评论~",
+      avatar     : 'robohash',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : 'https://fygyazvw.api.lncldglobal.com'
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>

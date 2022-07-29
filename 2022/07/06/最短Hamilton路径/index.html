@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!--pjax：防止跳转页面音乐暂停-->
+    <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"xinyi127.cn","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":"true  //复制代码按钮","show_result":"true //复制成功进行提示","style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#00FFFF","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="第一次感觉状态压缩dp不过“如此”~ （其实没有那么难理解，而且越用越能体会到这个算法的神妙）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="最短Hamilton路径">
+<meta property="og:url" content="http://xinyi127.cn/2022/07/06/%E6%9C%80%E7%9F%ADHamilton%E8%B7%AF%E5%BE%84/index.html">
+<meta property="og:site_name" content="&lt;font color&#x3D;&quot;#FFFAFA&quot;&gt;❤梧桐苑&lt;&#x2F;font&gt;">
+<meta property="og:description" content="第一次感觉状态压缩dp不过“如此”~ （其实没有那么难理解，而且越用越能体会到这个算法的神妙）">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-06T02:03:51.851Z">
+<meta property="article:modified_time" content="2022-07-06T02:14:38.703Z">
+<meta property="article:author" content="心意">
+<meta property="article:tag" content="c++">
+<meta property="article:tag" content="动态规划">
+<meta property="article:tag" content="状态压缩">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://xinyi127.cn/2022/07/06/%E6%9C%80%E7%9F%ADHamilton%E8%B7%AF%E5%BE%84/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>最短Hamilton路径 | <font color="#FFFAFA">❤梧桐苑</font></title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title"><font color="#FFFAFA">❤梧桐苑</font></h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i><i class="fa fa-university" aria-hidden="true"></i> 首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i><i class="fa fa-briefcase" aria-hidden="true"></i> 归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i><i class="fa fa-th-list" aria-hidden="true"></i> 分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i><i class="fa fa-tags" aria-hidden="true"></i> 标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i><i class="fa fa-calendar" aria-hidden="true"></i> 更新日志</a>
+
+  </li>
+        <li class="menu-item menu-item-artitalk">
+
+    <a href="/Artitalk/" rel="section"><i class="paper-plane fa-fw"></i><i class="fa fa-paper-plane" aria-hidden="true"></i> 说说</a>
+
+  </li>
+        <li class="menu-item menu-item-gallery">
+
+    <a href="/gallery/" rel="section"><i class="fas fa-camera-retro fa-fw"></i>相册</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="download fa-fw"></i><i class="fa fa-link" aria-hidden="true"></i> 资源</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xinyi127.cn/2022/07/06/%E6%9C%80%E7%9F%ADHamilton%E8%B7%AF%E5%BE%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="心意">
+      <meta itemprop="description" content="<font color="#DB7093">像珍惜礼物一样，珍惜今天。</font>">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="<font color="#FFFAFA">❤梧桐苑</font>">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          最短Hamilton路径
+        </h1>
+
+        <div class="post-meta">
+
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-07-06 10:03:51 / 修改时间：10:14:38" itemprop="dateCreated datePublished" datetime="2022-07-06T10:03:51+08:00">2022-07-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/07/06/%E6%9C%80%E7%9F%ADHamilton%E8%B7%AF%E5%BE%84/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/06/%E6%9C%80%E7%9F%ADHamilton%E8%B7%AF%E5%BE%84/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+            <div class="post-description">第一次感觉状态压缩dp不过“如此”~ （其实没有那么难理解，而且越用越能体会到这个算法的神妙）</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="题目-最短Hamilton路径"><a class="header-anchor" href="#题目-最短Hamilton路径">¶</a>题目: <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/93/">最短Hamilton路径</a></h4>
+<h4 id="题意-v32"><a class="header-anchor" href="#题意-v32">¶</a>题意:</h4>
+<p>给定一张 n 个点的带权无向图，点从 0∼n−1 标号，求起点 0 到终点 n−1 的最短 Hamilton 路径。</p>
+<p>Hamilton 路径的定义是从 0 到 n−1不重不漏地经过每个点恰好一次。</p>
+<h4 id="输入格式-v41"><a class="header-anchor" href="#输入格式-v41">¶</a>输入格式</h4>
+<p>第一行输入整数 n。</p>
+<p>接下来 n 行每行 n 个整数，其中第 i 行第 j 个整数表示点 i到 j 的距离（记为 a[i,j]）。</p>
+<p>对于任意的 x,y,z，数据保证 a[x,x]=0，a[x,y]=a[y,x] 并且 a[x,y]+a[y,z]≥a[x,z]。</p>
+<h4 id="输出格式-v48"><a class="header-anchor" href="#输出格式-v48">¶</a>输出格式</h4>
+<p>输出一个整数，表示最短 Hamilton 路径的长度。</p>
+<h4 id="数据范围-v46"><a class="header-anchor" href="#数据范围-v46">¶</a>数据范围</h4>
+<p>1≤n≤20<br>
+0≤a[i,j]≤10^7</p>
+<h4 id="输入样例：-v41"><a class="header-anchor" href="#输入样例：-v41">¶</a>输入样例：</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">0 2 4 5 1</span><br><span class="line">2 0 6 5 3</span><br><span class="line">4 6 0 8 3</span><br><span class="line">5 5 8 0 5</span><br><span class="line">1 3 3 5 0</span><br></pre></td></tr></table></figure>
+<h4 id="输出样例：-v41"><a class="header-anchor" href="#输出样例：-v41">¶</a>输出样例：</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">18</span><br></pre></td></tr></table></figure>
+<h4 id="思路-v24"><a class="header-anchor" href="#思路-v24">¶</a>思路:</h4>
+<ul>
+<li>为什么要用状态压缩dp？<br>
+因为暴力来求的话要从第二个点（起点是0）开始遍历所有点，第二个点有n-2（除去起点和终点）种可能，第三个点有n-3种可能，最后还要根据路径求长度，那么时间复杂度将是(n-1)!，而n最大是20，所以会超时。而状态压缩dp用二进制表示路径，最大不会超过2^20次方，时间复杂度远远小于 (19)！</li>
+<li>为什么可以用状态压缩dp？<br>
+状态压缩dp归根结底还是dp，我们正常去思考这个问题时可能会想到因为我们要走遍所有点，那么因为根据的变化将会有(18)! 种可能。但是状态压缩dp将这(18)!种可能视为一种可能，而这一种可能是由2^20个子状态（或者我们应该称之为集合）逐步优化得到的。这就是压缩的本质！它将问题从如何在所有排列中找到最优解转化为了如何从有限个子状态中直接优化到最优解，所以它的速度可以比暴力做法快很多很多。<br>
+状态压缩的思考层次简直高了一个维度。</li>
+</ul>
+<h4 id="代码-v27"><a class="header-anchor" href="#代码-v27">¶</a>代码</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">21</span>,M=<span class="number">1</span>&lt;&lt;N;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> w[N][N];</span><br><span class="line"><span class="comment">//f[i][j]表示从0走到j这个点，路径是i的所有方案 比如：(1100100)B表示0, 1, 3, 4号点没有走</span></span><br><span class="line"><span class="comment">//我们只关心起点和终点是否是0和j，怎么走的不关心，只要0到n-1个点按顺序摆成二进制大小是i就可以</span></span><br><span class="line"><span class="type">int</span> f[M][N];</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n;++j)</span><br><span class="line">            cin&gt;&gt;w[i][j];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">memset</span>(f,<span class="number">0x3f</span>,<span class="keyword">sizeof</span> f);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//1代表从0号点走到0号点，只有0这个点是1</span></span><br><span class="line">    f[<span class="number">1</span>][<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="comment">//第一重循环遍历从0出发到每个点的所有路径：1 ~ (1&lt;&lt;n)-1 </span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;<span class="number">1</span>&lt;&lt;n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//第二重循环是终点</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n;++j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//用i的二进制表示路径，1&lt;&lt;j的含义是在i的二进制上表示出这个点，代表这个点走过了</span></span><br><span class="line">            <span class="comment">//两者与操作表示判断i是否走过j，因为我们f[i] [j]的含义是从0走到j并且路径大小是i</span></span><br><span class="line">            <span class="keyword">if</span>(i&amp;(<span class="number">1</span>&lt;&lt;j))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//k代表从0走到j的路径上的倒数第二个点（倒数第一个是j）</span></span><br><span class="line">                <span class="comment">//我们要将f[i] [j]从f[i-(1&lt;&lt;j)] [k]+w[k][j]转移过来</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">0</span>;k&lt;n;++k)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="comment">//i-(1&lt;&lt;j)就是在i这条路径上删除j这个点，要时刻注意我们是在用二进制表示路径</span></span><br><span class="line">                    <span class="comment">//1&lt;&lt;k同上，表示k这个点在二进制路径中的位置，两者与操作表示从0到j的路径上删除j后仍然包含k这个点</span></span><br><span class="line">                    <span class="comment">//为什么要删除j这个点？因为我们要从倒数第二步转移到f[i] [j]，此时还没有走到j这个点</span></span><br><span class="line">                    <span class="keyword">if</span>((i-(<span class="number">1</span>&lt;&lt;j))&amp;(<span class="number">1</span>&lt;&lt;k))</span><br><span class="line">                    &#123;</span><br><span class="line">                        f[i][j]=<span class="built_in">min</span>(f[i][j],f[i-(<span class="number">1</span>&lt;&lt;j)][k]+w[k][j]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//(1&lt;&lt;n)-1表示所有点都为1，也即走过所有点</span></span><br><span class="line">    cout&lt;&lt;f[(<span class="number">1</span>&lt;&lt;n)<span class="number">-1</span>][n<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>如果您觉得这篇文章有帮助，可以请我吃颗糖哦。</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="心意 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="心意 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>心意
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://xinyi127.cn/2022/07/06/%E6%9C%80%E7%9F%ADHamilton%E8%B7%AF%E5%BE%84/" title="最短Hamilton路径">http://xinyi127.cn/2022/07/06/最短Hamilton路径/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <div>
+          
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------　　　　本文结束　<i class="fa fa-heart"></i>　感谢您的阅读　　　　-------------</div>
+    
+</div>
+          
+      </div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/c/" rel="tag"># c++</a>
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag"># 动态规划</a>
+              <a href="/tags/%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9/" rel="tag"># 状态压缩</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/07/05/2022.7.5%E6%9D%82%E6%84%9F/" rel="prev" title="2022.7.5杂感">
+      <i class="fa fa-chevron-left"></i> 2022.7.5杂感
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/07/06/%E6%B2%A1%E6%9C%89%E4%B8%8A%E5%8F%B8%E7%9A%84%E8%88%9E%E4%BC%9A/" rel="next" title="没有上司的舞会">
+      没有上司的舞会 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE-%E6%9C%80%E7%9F%ADHamilton%E8%B7%AF%E5%BE%84"><span class="nav-number">1.</span> <span class="nav-text">题目: 最短Hamilton路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-v32"><span class="nav-number">2.</span> <span class="nav-text">题意:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F-v41"><span class="nav-number">3.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-v48"><span class="nav-number">4.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-v46"><span class="nav-number">5.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B%EF%BC%9A-v41"><span class="nav-number">6.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B%EF%BC%9A-v41"><span class="nav-number">7.</span> <span class="nav-text">输出样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-v24"><span class="nav-number">8.</span> <span class="nav-text">思路:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-v27"><span class="nav-number">9.</span> <span class="nav-text">代码</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="心意"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">心意</p>
+  <div class="site-description" itemprop="description"><font color="#DB7093">像珍惜礼物一样，珍惜今天。</font></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xinyi127" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xinyi127" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1224179212@qq.com" title="E-Mail → mailto:1224179212@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/jhgjhg225?type=blog" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;jhgjhg225?type&#x3D;blog" rel="noopener" target="_blank"><i class="codiepie fa-fw"></i>CSDN</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.acwing.com/user/myspace/index/111921/" title="AcWing → https:&#x2F;&#x2F;www.acwing.com&#x2F;user&#x2F;myspace&#x2F;index&#x2F;111921&#x2F;" rel="noopener" target="_blank"><i class=" fa-fw"></i>AcWing</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+
+<!-- require APlayer -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<!-- require MetingJS-->
+
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
+<!--网易云playlist外链地址-->   
+<meting-js
+    server="netease"
+    type="playlist" 
+    id="7496223401"
+    mini="false"
+    fixed="false"
+    list-folded="true"
+    autoplay="false"
+    volume="0.4"
+    theme="#FADFA3"
+    order="random"
+    loop="all"
+    preload="auto"
+    mutex="true">
+</meting-js>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank"><font color="#FFFAFA">鲁ICP备2022018291号-1</font> </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">心意</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">238k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:36</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+-->
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共238k字</span>
+</div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+
+// 说说额外刷新
+    $(document).ready(function () {
+
+    if(location.href.indexOf("#reloaded")==-1){
+        location.href=location.href+"#reloaded";
+        location.reload();
+    }
+}）
+// 在这后面可以加入程序的其他代码  
+
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+
+  
+     <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+     <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+     <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'fYGYazVwbVLy8cEqJqIcUCcO-MdYXbMMI',
+      appKey     : 'hhEw2wKtOfkSDCmpAlPAO7g3',
+      placeholder: "交流促进成长，欢迎分享你的苹果。昵称、邮箱和网址非必填哦，可直接评论~",
+      avatar     : 'robohash',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : 'https://fygyazvw.api.lncldglobal.com'
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>

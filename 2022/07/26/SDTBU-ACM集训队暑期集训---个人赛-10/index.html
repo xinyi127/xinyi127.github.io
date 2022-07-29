@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!--pjax：防止跳转页面音乐暂停-->
+    <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"xinyi127.cn","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":"true  //复制代码按钮","show_result":"true //复制成功进行提示","style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#00FFFF","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="这周看完数论时间有点紧啊，老坐着身体也不太舒服。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SDTBU-ACM集训队暑期集训---个人赛 10">
+<meta property="og:url" content="http://xinyi127.cn/2022/07/26/SDTBU-ACM%E9%9B%86%E8%AE%AD%E9%98%9F%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD---%E4%B8%AA%E4%BA%BA%E8%B5%9B-10/index.html">
+<meta property="og:site_name" content="&lt;font color&#x3D;&quot;#FFFAFA&quot;&gt;❤梧桐苑&lt;&#x2F;font&gt;">
+<meta property="og:description" content="这周看完数论时间有点紧啊，老坐着身体也不太舒服。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-26T09:50:50.181Z">
+<meta property="article:modified_time" content="2022-07-27T03:16:38.176Z">
+<meta property="article:author" content="心意">
+<meta property="article:tag" content="c++">
+<meta property="article:tag" content="ACM集训队暑期集训">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://xinyi127.cn/2022/07/26/SDTBU-ACM%E9%9B%86%E8%AE%AD%E9%98%9F%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD---%E4%B8%AA%E4%BA%BA%E8%B5%9B-10/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>SDTBU-ACM集训队暑期集训---个人赛 10 | <font color="#FFFAFA">❤梧桐苑</font></title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title"><font color="#FFFAFA">❤梧桐苑</font></h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i><i class="fa fa-university" aria-hidden="true"></i> 首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i><i class="fa fa-briefcase" aria-hidden="true"></i> 归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i><i class="fa fa-th-list" aria-hidden="true"></i> 分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i><i class="fa fa-tags" aria-hidden="true"></i> 标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i><i class="fa fa-calendar" aria-hidden="true"></i> 更新日志</a>
+
+  </li>
+        <li class="menu-item menu-item-artitalk">
+
+    <a href="/Artitalk/" rel="section"><i class="paper-plane fa-fw"></i><i class="fa fa-paper-plane" aria-hidden="true"></i> 说说</a>
+
+  </li>
+        <li class="menu-item menu-item-gallery">
+
+    <a href="/gallery/" rel="section"><i class="fas fa-camera-retro fa-fw"></i>相册</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="download fa-fw"></i><i class="fa fa-link" aria-hidden="true"></i> 资源</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xinyi127.cn/2022/07/26/SDTBU-ACM%E9%9B%86%E8%AE%AD%E9%98%9F%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD---%E4%B8%AA%E4%BA%BA%E8%B5%9B-10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="心意">
+      <meta itemprop="description" content="<font color="#DB7093">像珍惜礼物一样，珍惜今天。</font>">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="<font color="#FFFAFA">❤梧桐苑</font>">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          SDTBU-ACM集训队暑期集训---个人赛 10
+        </h1>
+
+        <div class="post-meta">
+
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-07-26 17:50:50" itemprop="dateCreated datePublished" datetime="2022-07-26T17:50:50+08:00">2022-07-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-07-27 11:16:38" itemprop="dateModified" datetime="2022-07-27T11:16:38+08:00">2022-07-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/07/26/SDTBU-ACM%E9%9B%86%E8%AE%AD%E9%98%9F%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD---%E4%B8%AA%E4%BA%BA%E8%B5%9B-10/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/26/SDTBU-ACM%E9%9B%86%E8%AE%AD%E9%98%9F%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD---%E4%B8%AA%E4%BA%BA%E8%B5%9B-10/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+            <div class="post-description">这周看完数论时间有点紧啊，老坐着身体也不太舒服。</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<h3 id="前言-v2"><a class="header-anchor" href="#前言-v2">¶</a>前言</h3>
+<p>过了样例不要着急，多测几组自己的数据，错一次20分钟的罚时还是很伤的。</p>
+</blockquote>
+<h3 id="第一题-v2"><a class="header-anchor" href="#第一题-v2">¶</a>第一题</h3>
+<h4 id="题目：-Changing-Volume"><a class="header-anchor" href="#题目：-Changing-Volume">¶</a>题目： <a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1255/A">Changing Volume</a></h4>
+<h4 id="题意：-v7"><a class="header-anchor" href="#题意：-v7">¶</a>题意：</h4>
+<p>给我们两个数a和b，每次可以在a上加 <code>[-5,-2,-1,1,2,5]</code> 六个数之一，问最少几次可以将a变为b。</p>
+<h4 id="输入格式-v4"><a class="header-anchor" href="#输入格式-v4">¶</a>输入格式</h4>
+<p>输入包含多个样例，第一行是一个整数t，表示有t个样例。</p>
+<p>每个样例包含两个整数a和b。</p>
+<h4 id="输出格式-v4"><a class="header-anchor" href="#输出格式-v4">¶</a>输出格式</h4>
+<p>对每个样例输出一个整数。</p>
+<h4 id="数据范围-v4"><a class="header-anchor" href="#数据范围-v4">¶</a>数据范围</h4>
+<p>1 ≤ t ≤ 1000</p>
+<p>1 ≤ a, b ≤ 10<sup>9</sup></p>
+<h4 id="输入样例："><a class="header-anchor" href="#输入样例：">¶</a>输入样例：</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">4 0</span><br><span class="line">5 14</span><br><span class="line">3 9</span><br></pre></td></tr></table></figure>
+<h4 id="输出样例："><a class="header-anchor" href="#输出样例：">¶</a>输出样例：</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">3</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+<h4 id="思路：-v8"><a class="header-anchor" href="#思路：-v8">¶</a>思路：</h4>
+<ul>
+<li>思维题。因为可操作的六个数是对称的，所以我们可以将a变为b视为将a和b中较小的数变为较大的数。</li>
+<li>从5到1每次贪心减去最多能减的数即可。</li>
+</ul>
+<h4 id="代码：-v4"><a class="header-anchor" href="#代码：-v4">¶</a>代码：</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> d[] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">get_num</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (a &gt; b)<span class="built_in">swap</span>(a, b);</span><br><span class="line">	<span class="type">int</span> num = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &gt;=<span class="number">0</span>; --i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (b == a)<span class="keyword">break</span>;</span><br><span class="line">		<span class="type">int</span> t = (b - a) / d[i];</span><br><span class="line">		num += t;</span><br><span class="line">		b -= d[i]*t;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	<span class="keyword">while</span> (n--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> a, b;</span><br><span class="line">		cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">		cout &lt;&lt; <span class="built_in">get_num</span>(a, b) &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="第二题-v2"><a class="header-anchor" href="#第二题-v2">¶</a>第二题</h3>
+<h4 id="题目：-Fridge-Lockers"><a class="header-anchor" href="#题目：-Fridge-Lockers">¶</a>题目： <a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1255/B">Fridge Lockers</a></h4>
+<h4 id="题意：-v8"><a class="header-anchor" href="#题意：-v8">¶</a>题意：</h4>
+<p>有n个住户，每个住户有一个房间，住户自己可以开自己的房间，每个房间会有一个代价。我们可以将n个房间上m把锁，每把锁会把两个房间连在一起。如果一个房间通过两把锁以上连接了另外两个以上不同的房间，那么这些房间的主人可以共同打开这个房间。但是代价是这些锁所连接的房间的代价之和。可以在两个房间之间上多把锁，问在没有任何一个房间是私有的前提下（私有是指只有房间主人可以打开该放房间），打开所有房间的最小代价。<s>感觉我描述的好繁琐晦涩，但是原文比这还难理解啊，起码这算是人话了</s></p>
+<h4 id="输入格式-v5"><a class="header-anchor" href="#输入格式-v5">¶</a>输入格式</h4>
+<p>输入包含多个样例，第一行是一个整数t，代表有t个样例。</p>
+<p>每个样例第一行是两个整数n和m，表示有n个房间和可以上m把锁。</p>
+<p>每个样例第二行是n个整数，表示每个房间的代价。</p>
+<h4 id="输出格式-v5"><a class="header-anchor" href="#输出格式-v5">¶</a>输出格式</h4>
+<p>对于每个样例，如果不存在输出<code>-1</code>。</p>
+<p>否则第一行输出一个整数，表示总代价。</p>
+<p>接下来m行每行两个整数，表示该锁所连接的两个房间。</p>
+<h4 id="数据范围-v5"><a class="header-anchor" href="#数据范围-v5">¶</a>数据范围</h4>
+<p>1 ≤ t ≤ 10</p>
+<p>2 ≤ n ≤ 1000,  1 ≤ m ≤ n</p>
+<p>0 ≤ a<sub>i</sub> ≤10<sup>4</sup></p>
+<p><strong>保证所有的n之和不会大于2×10<sup>5</sup></strong></p>
+<h4 id="输入样例：-v2"><a class="header-anchor" href="#输入样例：-v2">¶</a>输入样例：</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">4 4</span><br><span class="line">1 1 1 1</span><br><span class="line">3 1</span><br><span class="line">1 2 3</span><br><span class="line">3 3</span><br><span class="line">1 2 3</span><br></pre></td></tr></table></figure>
+<h4 id="输出样例：-v2"><a class="header-anchor" href="#输出样例：-v2">¶</a>输出样例：</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">8</span><br><span class="line">1 2</span><br><span class="line">4 3</span><br><span class="line">3 2</span><br><span class="line">4 1</span><br><span class="line">-1</span><br><span class="line">12</span><br><span class="line">3 2</span><br><span class="line">1 2</span><br><span class="line">3 1</span><br></pre></td></tr></table></figure>
+<h4 id="思路：-v9"><a class="header-anchor" href="#思路：-v9">¶</a>思路：</h4>
+<ul>
+<li>首先要满足所有房间都不是私有的，也就是说任何房间都起码有两把锁和两个不同的房间相连，那么n个房间最少需要n把锁。同时如果只有两个房间，是无法实现非私有化的。</li>
+<li>如果满足 <code>m&gt;=n</code> ，首先为了满足非私有化需要所有房间两两上锁，然后将多余的锁都上在代价最小的两个房间即可。</li>
+</ul>
+<h4 id="代码：-v5"><a class="header-anchor" href="#代码：-v5">¶</a>代码：</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e4</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> m, n;</span><br><span class="line">		cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">		<span class="type">int</span> num = <span class="number">0</span>;</span><br><span class="line">		priority_queue&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;, vector&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt;, greater&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt;&gt;p;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">		&#123;</span><br><span class="line">			cin &gt;&gt; a[i];</span><br><span class="line">			num += a[i];</span><br><span class="line">			p.<span class="built_in">push</span>(&#123; a[i],i &#125;);</span><br><span class="line">		&#125;</span><br><span class="line">		num *= <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span> (m &lt; n||n==<span class="number">2</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			cout &lt;&lt; <span class="number">-1</span> &lt;&lt; endl;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">sort</span>(a + <span class="number">1</span>, a + n + <span class="number">1</span>);</span><br><span class="line">			num += (a[<span class="number">1</span>] + a[<span class="number">2</span>]) * (m - n);</span><br><span class="line">			cout &lt;&lt; num &lt;&lt; endl;</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; ++i)cout &lt;&lt; i &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; i + <span class="number">1</span> &lt;&lt; endl;</span><br><span class="line">			cout &lt;&lt; n &lt;&lt; <span class="string">&quot; &quot;</span>&lt;&lt;<span class="number">1</span> &lt;&lt; endl;</span><br><span class="line">			<span class="type">int</span> x = p.<span class="built_in">top</span>().second;</span><br><span class="line">			p.<span class="built_in">pop</span>();</span><br><span class="line">			<span class="type">int</span> y = p.<span class="built_in">top</span>().second;</span><br><span class="line">			p.<span class="built_in">pop</span>();</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> i = n+<span class="number">1</span>; i &lt;= m; ++i)cout &lt;&lt; x &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; y &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="第三题-赛后补题"><a class="header-anchor" href="#第三题-赛后补题">¶</a>第三题-赛后补题</h3>
+<h4 id="题目：-League-of-Leesins"><a class="header-anchor" href="#题目：-League-of-Leesins">¶</a>题目： <a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1255/C">League of Leesins</a></h4>
+<h4 id="题意-v7"><a class="header-anchor" href="#题意-v7">¶</a>题意:</h4>
+<p>有n个整数组成的数列，每三个相邻的三个整数可以组成一个三元组，可以任意交换三元组内的元素和不同组的顺序，但是不能交换不同组内的元素，求出原序列。</p>
+<h4 id="输入格式-v6"><a class="header-anchor" href="#输入格式-v6">¶</a>输入格式</h4>
+<p>输入第一行是一个整数n表示原数列有n个整数。</p>
+<p>接下来有 <code>n-2</code> 行，每行是一个三元组。</p>
+<h4 id="输出格式-v6"><a class="header-anchor" href="#输出格式-v6">¶</a>输出格式</h4>
+<p>输出一行n个整数，两个整数之间用空格间隔。</p>
+<h4 id="数据范围-v6"><a class="header-anchor" href="#数据范围-v6">¶</a>数据范围</h4>
+<p>5 ≤ n ≤ 10<sup>5</sup></p>
+<p>1 ≤ q<sub>i</sub>, q<sub>j</sub> ≤ n</p>
+<h4 id="输入样例：-v3"><a class="header-anchor" href="#输入样例：-v3">¶</a>输入样例：</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">4 3 2</span><br><span class="line">2 3 5</span><br><span class="line">4 1 2</span><br></pre></td></tr></table></figure>
+<h4 id="输出样例：-v3"><a class="header-anchor" href="#输出样例：-v3">¶</a>输出样例：</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 4 2 3 5 </span><br></pre></td></tr></table></figure>
+<h4 id="思路：-v10"><a class="header-anchor" href="#思路：-v10">¶</a>思路：</h4>
+<ul>
+<li>首先我们可以会发现，原数列的开始位置和结束位置的数字都只出现了一次，第二个和倒数第二个数字都只出现了二次，中间所有数字都出现了三次。</li>
+<li>因为正序输出还是倒序输出都是可接受的，所以我们可以先随便选一个只出现一次的数字作为起始位置，然后找到和它一组的另外两个元素，判断一下出现两次或者三次，起始位置先输出出现两次的，结束位置后输出出现两次的。而确定两个数之后，可以根据前两个数来找到后面那个元素，因为相邻三个数一定在一个三元组中。</li>
+<li>这就涉及到一个问题，怎么判断两个三元组有两个元素相同，暴力遍历最终会超时。</li>
+<li>考虑如何优化，如果通过三元组的关系将所有点画成图，我们会发现所谓出现的次数其实对应着每个点的入度，那么就可以用拓扑排序的做法来解决。需要注意的是在移去某个点时，可能会导致倒数第三个点和倒数第二点的入度同时变为1，为了使顺序不变，我们可以先将所有点根据初始入度排序。</li>
+</ul>
+<h4 id="超时代码："><a class="header-anchor" href="#超时代码：">¶</a>超时代码：</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unordered_map&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a[N][<span class="number">4</span>],b[<span class="number">4</span>];</span><br><span class="line">unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt;p;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">judge</span><span class="params">(<span class="type">int</span> j)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt;p;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">3</span>; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		p[b[i]]++;</span><br><span class="line">		p[a[j][i]]++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> res = <span class="number">0</span>, num = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">auto</span> t : p)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (t.second == <span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			res++;</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">1</span>; k &lt;= <span class="number">3</span>; ++k)<span class="keyword">if</span> (t.first == a[j][k])num = k;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (res == <span class="number">2</span>)<span class="keyword">return</span> num;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n - <span class="number">2</span>; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= <span class="number">3</span>; ++j)</span><br><span class="line">		&#123;</span><br><span class="line">			cin &gt;&gt; a[i][j];</span><br><span class="line">			p[a[i][j]]++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> x=<span class="number">0</span>,y=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n<span class="number">-2</span>; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (x)<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= <span class="number">3</span>; ++j)</span><br><span class="line">			<span class="keyword">if</span> (p[a[i][j]] == <span class="number">1</span>)x = i, y = j;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	a[x][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">	cout &lt;&lt; a[x][y] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">	pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;s[<span class="number">5</span>];</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">3</span>; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		b[i] = a[x][i];</span><br><span class="line">		s[i].first = p[a[x][i]]; s[i].second = a[x][i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">sort</span>(s + <span class="number">1</span>, s + <span class="number">4</span>);</span><br><span class="line">	cout &lt;&lt; s[<span class="number">2</span>].second &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; s[<span class="number">3</span>].second &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n - <span class="number">3</span>; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= n - <span class="number">2</span>; ++j)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (!a[j][<span class="number">0</span>])</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="type">int</span> f = <span class="built_in">judge</span>(j);</span><br><span class="line">				<span class="keyword">if</span> (f)</span><br><span class="line">				&#123;</span><br><span class="line">					a[j][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">					cout &lt;&lt; a[j][f] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">					<span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">1</span>; k &lt;= <span class="number">3</span>; ++k)b[k] = a[j][k];</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="拓扑排序代码"><a class="header-anchor" href="#拓扑排序代码">¶</a>拓扑排序代码</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">vector&lt;<span class="type">int</span>&gt;v[N];</span><br><span class="line">unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt;p;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">find</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//如果数组v[a]已经存在b，那么就不用再存</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; v[a].<span class="built_in">size</span>(); ++i)<span class="keyword">if</span> (v[a][i] == b)<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//说明没有出现过，需要存b</span></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//建立一个在vector中a为下标的数组，存的数是和a有关的所有三元组的其它元素。</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">rudu</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">find</span>(a,b))v[a].<span class="built_in">push_back</span>(b);</span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">find</span>(a, c))v[a].<span class="built_in">push_back</span>(c);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> p[a] &gt; p[b];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	<span class="type">int</span> m = n - <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">while</span> (m--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> a, b, c;</span><br><span class="line">		cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;</span><br><span class="line">		p[a]++, p[b]++, p[c]++;</span><br><span class="line">		<span class="built_in">rudu</span>(a, b, c), <span class="built_in">rudu</span>(b, a, c), <span class="built_in">rudu</span>(c, a, b);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//将入度大的排在前面，防止倒数第二个和倒数第三个入度同时变为1，导致顺序混乱。</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)<span class="built_in">sort</span>(v[i].<span class="built_in">begin</span>(), v[i].<span class="built_in">end</span>(), cmp);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//找到起始位置和结束位置</span></span><br><span class="line">	<span class="type">int</span> l=<span class="number">0</span>, r=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">		<span class="keyword">if</span> (p[i] == <span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (l == <span class="number">0</span>)l = i;</span><br><span class="line">			<span class="keyword">else</span> r = i;</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">	queue&lt;<span class="type">int</span>&gt;q;</span><br><span class="line">	q.<span class="built_in">push</span>(l);</span><br><span class="line">	<span class="keyword">while</span> (q.<span class="built_in">size</span>())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> t = q.<span class="built_in">front</span>();</span><br><span class="line">		q.<span class="built_in">pop</span>();</span><br><span class="line">		cout &lt;&lt; t &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; v[t].<span class="built_in">size</span>(); ++i)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">//当三元组的某个元素出队后，与之相关的元素入度都要减一</span></span><br><span class="line">			p[v[t][i]]--;</span><br><span class="line">			<span class="keyword">if</span> (p[v[t][i]] == <span class="number">1</span>)q.<span class="built_in">push</span>(v[t][i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//不要忘记输出最后一个元素</span></span><br><span class="line">	cout &lt;&lt; r;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>如果您觉得这篇文章有帮助，可以请我吃颗糖哦。</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="心意 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="心意 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>心意
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://xinyi127.cn/2022/07/26/SDTBU-ACM%E9%9B%86%E8%AE%AD%E9%98%9F%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD---%E4%B8%AA%E4%BA%BA%E8%B5%9B-10/" title="SDTBU-ACM集训队暑期集训---个人赛 10">http://xinyi127.cn/2022/07/26/SDTBU-ACM集训队暑期集训---个人赛-10/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <div>
+          
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------　　　　本文结束　<i class="fa fa-heart"></i>　感谢您的阅读　　　　-------------</div>
+    
+</div>
+          
+      </div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/c/" rel="tag"># c++</a>
+              <a href="/tags/ACM%E9%9B%86%E8%AE%AD%E9%98%9F%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD/" rel="tag"># ACM集训队暑期集训</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/07/22/SDTBU-ACM%E9%9B%86%E8%AE%AD%E9%98%9F%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD---%E4%B8%AA%E4%BA%BA%E8%B5%9B-9/" rel="prev" title="SDTBU-ACM集训队暑期集训---个人赛 9">
+      <i class="fa fa-chevron-left"></i> SDTBU-ACM集训队暑期集训---个人赛 9
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/07/27/SDTBU-ACM%E9%9B%86%E8%AE%AD%E9%98%9F%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD---%E4%B8%AA%E4%BA%BA%E8%B5%9B-11/" rel="next" title="SDTBU-ACM集训队暑期集训---个人赛 11">
+      SDTBU-ACM集训队暑期集训---个人赛 11 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80-v2"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%A2%98-v2"><span class="nav-number">2.</span> <span class="nav-text">第一题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A-Changing-Volume"><span class="nav-number">2.1.</span> <span class="nav-text">题目： Changing Volume</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A-v7"><span class="nav-number">2.2.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F-v4"><span class="nav-number">2.3.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-v4"><span class="nav-number">2.4.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-v4"><span class="nav-number">2.5.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B%EF%BC%9A"><span class="nav-number">2.6.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B%EF%BC%9A"><span class="nav-number">2.7.</span> <span class="nav-text">输出样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A-v8"><span class="nav-number">2.8.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A-v4"><span class="nav-number">2.9.</span> <span class="nav-text">代码：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%A2%98-v2"><span class="nav-number">3.</span> <span class="nav-text">第二题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A-Fridge-Lockers"><span class="nav-number">3.1.</span> <span class="nav-text">题目： Fridge Lockers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A-v8"><span class="nav-number">3.2.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F-v5"><span class="nav-number">3.3.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-v5"><span class="nav-number">3.4.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-v5"><span class="nav-number">3.5.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B%EF%BC%9A-v2"><span class="nav-number">3.6.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B%EF%BC%9A-v2"><span class="nav-number">3.7.</span> <span class="nav-text">输出样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A-v9"><span class="nav-number">3.8.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A-v5"><span class="nav-number">3.9.</span> <span class="nav-text">代码：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E9%A2%98-%E8%B5%9B%E5%90%8E%E8%A1%A5%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">第三题-赛后补题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A-League-of-Leesins"><span class="nav-number">4.1.</span> <span class="nav-text">题目： League of Leesins</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-v7"><span class="nav-number">4.2.</span> <span class="nav-text">题意:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F-v6"><span class="nav-number">4.3.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-v6"><span class="nav-number">4.4.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-v6"><span class="nav-number">4.5.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B%EF%BC%9A-v3"><span class="nav-number">4.6.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B%EF%BC%9A-v3"><span class="nav-number">4.7.</span> <span class="nav-text">输出样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A-v10"><span class="nav-number">4.8.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B6%85%E6%97%B6%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="nav-number">4.9.</span> <span class="nav-text">超时代码：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E4%BB%A3%E7%A0%81"><span class="nav-number">4.10.</span> <span class="nav-text">拓扑排序代码</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="心意"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">心意</p>
+  <div class="site-description" itemprop="description"><font color="#DB7093">像珍惜礼物一样，珍惜今天。</font></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xinyi127" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xinyi127" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1224179212@qq.com" title="E-Mail → mailto:1224179212@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/jhgjhg225?type=blog" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;jhgjhg225?type&#x3D;blog" rel="noopener" target="_blank"><i class="codiepie fa-fw"></i>CSDN</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.acwing.com/user/myspace/index/111921/" title="AcWing → https:&#x2F;&#x2F;www.acwing.com&#x2F;user&#x2F;myspace&#x2F;index&#x2F;111921&#x2F;" rel="noopener" target="_blank"><i class=" fa-fw"></i>AcWing</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+
+<!-- require APlayer -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<!-- require MetingJS-->
+
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
+<!--网易云playlist外链地址-->   
+<meting-js
+    server="netease"
+    type="playlist" 
+    id="7496223401"
+    mini="false"
+    fixed="false"
+    list-folded="true"
+    autoplay="false"
+    volume="0.4"
+    theme="#FADFA3"
+    order="random"
+    loop="all"
+    preload="auto"
+    mutex="true">
+</meting-js>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank"><font color="#FFFAFA">鲁ICP备2022018291号-1</font> </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">心意</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">238k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:36</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+-->
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共238k字</span>
+</div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+
+// 说说额外刷新
+    $(document).ready(function () {
+
+    if(location.href.indexOf("#reloaded")==-1){
+        location.href=location.href+"#reloaded";
+        location.reload();
+    }
+}）
+// 在这后面可以加入程序的其他代码  
+
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+
+  
+     <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+     <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+     <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'fYGYazVwbVLy8cEqJqIcUCcO-MdYXbMMI',
+      appKey     : 'hhEw2wKtOfkSDCmpAlPAO7g3',
+      placeholder: "交流促进成长，欢迎分享你的苹果。昵称、邮箱和网址非必填哦，可直接评论~",
+      avatar     : 'robohash',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : 'https://fygyazvw.api.lncldglobal.com'
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!--pjax：防止跳转页面音乐暂停-->
+    <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"xinyi127.cn","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":"true  //复制代码按钮","show_result":"true //复制成功进行提示","style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#00FFFF","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="继续努力。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SDTBU-ACM集训队暑期集训---个人赛 3">
+<meta property="og:url" content="http://xinyi127.cn/2022/07/08/SDTBU-ACM%E9%9B%86%E8%AE%AD%E9%98%9F%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD---%E4%B8%AA%E4%BA%BA%E8%B5%9B-3/index.html">
+<meta property="og:site_name" content="&lt;font color&#x3D;&quot;#FFFAFA&quot;&gt;❤梧桐苑&lt;&#x2F;font&gt;">
+<meta property="og:description" content="继续努力。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-08T09:40:51.015Z">
+<meta property="article:modified_time" content="2022-07-11T08:36:11.512Z">
+<meta property="article:author" content="心意">
+<meta property="article:tag" content="c++">
+<meta property="article:tag" content="ACM集训队暑期集训">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://xinyi127.cn/2022/07/08/SDTBU-ACM%E9%9B%86%E8%AE%AD%E9%98%9F%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD---%E4%B8%AA%E4%BA%BA%E8%B5%9B-3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>SDTBU-ACM集训队暑期集训---个人赛 3 | <font color="#FFFAFA">❤梧桐苑</font></title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title"><font color="#FFFAFA">❤梧桐苑</font></h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i><i class="fa fa-university" aria-hidden="true"></i> 首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i><i class="fa fa-briefcase" aria-hidden="true"></i> 归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i><i class="fa fa-th-list" aria-hidden="true"></i> 分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i><i class="fa fa-tags" aria-hidden="true"></i> 标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i><i class="fa fa-calendar" aria-hidden="true"></i> 更新日志</a>
+
+  </li>
+        <li class="menu-item menu-item-artitalk">
+
+    <a href="/Artitalk/" rel="section"><i class="paper-plane fa-fw"></i><i class="fa fa-paper-plane" aria-hidden="true"></i> 说说</a>
+
+  </li>
+        <li class="menu-item menu-item-gallery">
+
+    <a href="/gallery/" rel="section"><i class="fas fa-camera-retro fa-fw"></i>相册</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="download fa-fw"></i><i class="fa fa-link" aria-hidden="true"></i> 资源</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xinyi127.cn/2022/07/08/SDTBU-ACM%E9%9B%86%E8%AE%AD%E9%98%9F%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD---%E4%B8%AA%E4%BA%BA%E8%B5%9B-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="心意">
+      <meta itemprop="description" content="<font color="#DB7093">像珍惜礼物一样，珍惜今天。</font>">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="<font color="#FFFAFA">❤梧桐苑</font>">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          SDTBU-ACM集训队暑期集训---个人赛 3
+        </h1>
+
+        <div class="post-meta">
+
+	
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-07-08 17:40:51" itemprop="dateCreated datePublished" datetime="2022-07-08T17:40:51+08:00">2022-07-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-07-11 16:36:11" itemprop="dateModified" datetime="2022-07-11T16:36:11+08:00">2022-07-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/07/08/SDTBU-ACM%E9%9B%86%E8%AE%AD%E9%98%9F%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD---%E4%B8%AA%E4%BA%BA%E8%B5%9B-3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/08/SDTBU-ACM%E9%9B%86%E8%AE%AD%E9%98%9F%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD---%E4%B8%AA%E4%BA%BA%E8%B5%9B-3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+            <div class="post-description">继续努力。</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><s>我TM怎么这么垃圾，我要是有技术，会是这个吊样？</s></p>
+<p><s>不过元气骑士要更新了，期待。</s></p>
+<h3 id="第一题-v6"><a class="header-anchor" href="#第一题-v6">¶</a>第一题</h3>
+<h4 id="题目-Problem-1625A-Codeforces"><a class="header-anchor" href="#题目-Problem-1625A-Codeforces">¶</a>题目: <a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1625/A">Problem - 1625A - Codeforces</a></h4>
+<h4 id="题意-v15"><a class="header-anchor" href="#题意-v15">¶</a>题意:</h4>
+<p>给n个数字，让我们找到一个转化为二进制后恰好为L位的数字y，使得n个数字与求得的数字y误差之和最小。规定两个数字的误差等于两个数字二进制中不同位的数量。例如：1011和1111的误差为1，因为只有1位不同。</p>
+<h4 id="输入格式-v15"><a class="header-anchor" href="#输入格式-v15">¶</a>输入格式</h4>
+<p>输入有多个样例，第一行是一个整数t，表示有t个样例。</p>
+<p>每个样例第一行是两个整数n和L。</p>
+<p>每个样例第二行是n个整数，表示给定的n个数字。</p>
+<h4 id="输出格式-v17"><a class="header-anchor" href="#输出格式-v17">¶</a>输出格式</h4>
+<p>一个十进制整数y。</p>
+<p>样例数 1 &lt;= t &lt;=10<sup>4</sup> ，其余均小于100。</p>
+<h4 id="输出格式-v18"><a class="header-anchor" href="#输出格式-v18">¶</a>输出格式</h4>
+<p>输出一个整数。</p>
+<h4 id="数据范围-v17"><a class="header-anchor" href="#数据范围-v17">¶</a>数据范围</h4>
+<p>1 ≤ t ≤ 100</p>
+<p>1 ≤ n ≤ 100, 1 ≤ ℓ ≤ 30</p>
+<p>0 ≤ xi ≤2<sup>ℓ−1</sup></p>
+<p>0 ≤ y ≤ 2<sup>ℓ−1</sup></p>
+<h4 id="输入样例：-v14"><a class="header-anchor" href="#输入样例：-v14">¶</a>输入样例：</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">7</span><br><span class="line">3 5</span><br><span class="line">18 9 21</span><br><span class="line">3 5</span><br><span class="line">18 18 18</span><br><span class="line">1 1</span><br><span class="line">1</span><br><span class="line">5 30</span><br><span class="line">1 2 3 4 5</span><br><span class="line">6 10</span><br><span class="line">99 35 85 46 78 55</span><br><span class="line">2 1</span><br><span class="line">0 1</span><br><span class="line">8 8</span><br><span class="line">5 16 42 15 83 65 78 42</span><br></pre></td></tr></table></figure>
+<h4 id="输出样例：-v13"><a class="header-anchor" href="#输出样例：-v13">¶</a>输出样例：</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">17</span><br><span class="line">18</span><br><span class="line">1</span><br><span class="line">1</span><br><span class="line">39</span><br><span class="line">0</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+<h4 id="思路-v12"><a class="header-anchor" href="#思路-v12">¶</a>思路:</h4>
+<ul>
+<li>其实这个题难点在于读懂题意，<s>原文里鬼扯半天火星、陌生语言、科学家、石板等等，看得我云里雾里的，我到底是来做题的还是来看小说的。</s></li>
+<li>题目规定误差就是两个数字二进制下的不同位数，那么显然要用到位操作，题目要求我们找到一个数字y使得y与所有数字的误差最小，那么我们可以从这里入手，建立一个数组表示所有数字在某一位上1的数量，例如a[1]，就表示所有数字二进制表示下，第一位有多少个1。因为具体到某一位要么是1要么是0，那么所谓的误差也就是0和1的数量区别，记录下所有数字的每一位后。遍历数组，如果某个位上1的数量大于n/2，那么我们就加上这一位的权重，求和就是答案。</li>
+<li><strong>务必看清题目给的数据范围</strong>，因为看错n和L的范围导致一直用40的数组在存数，结果痛wrong两次！</li>
+</ul>
+<h4 id="代码-v10"><a class="header-anchor" href="#代码-v10">¶</a>代码:</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;map&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">150</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,l;</span><br><span class="line"><span class="type">int</span> a[N],w[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		cin &gt;&gt; n &gt;&gt; l;<span class="comment">//n个数，l位</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)cin &gt;&gt; a[i];</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= l; ++i)w[i] = <span class="number">0</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; (<span class="number">1</span> &lt;&lt; j) &lt;= a[i]; ++j)</span><br><span class="line">				<span class="keyword">if</span> (((<span class="number">1</span> &lt;&lt; j) &amp; a[i]))</span><br><span class="line">					w[j + <span class="number">1</span>]++;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>,k=<span class="number">1</span>; i &lt;= l; ++i,k*=<span class="number">2</span>)</span><br><span class="line">			<span class="keyword">if</span> (w[i] &gt; n - w[i])res += k;</span><br><span class="line">		cout &lt;&lt; res &lt;&lt; endl;;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="第二题-v5"><a class="header-anchor" href="#第二题-v5">¶</a>第二题</h3>
+<h4 id="题目-Problem-1625B-Codeforces"><a class="header-anchor" href="#题目-Problem-1625B-Codeforces">¶</a>题目: <a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1625/B">Problem - 1625B - Codeforces</a></h4>
+<h4 id="题意-v16"><a class="header-anchor" href="#题意-v16">¶</a>题意:</h4>
+<p>在一个数列中找两个长度相同的子数列，这两个子数列必须有相同的成员，相同成员指在两个子数列同一位置有相同的数字。两个子数列的起点必须不同。</p>
+<h4 id="输入格式-v16"><a class="header-anchor" href="#输入格式-v16">¶</a>输入格式</h4>
+<p>数据包含多个样例，第一行是一个整数t，表示有t个样例。</p>
+<p>每个样例第一行是一个整数n。</p>
+<p>每个样例第二行是n个正整数，表示整个数列。</p>
+<h4 id="输出格式-v19"><a class="header-anchor" href="#输出格式-v19">¶</a>输出格式</h4>
+<p>一个整数，表示子数列的最大长度。如果找不到则输出-1。</p>
+<h4 id="数据范围-v18"><a class="header-anchor" href="#数据范围-v18">¶</a>数据范围</h4>
+<p>1 ≤ t ≤ 100</p>
+<p>2 ≤ n ≤ 150000</p>
+<p>1 ≤ ai ≤ 150000</p>
+<h4 id="输入样例：-v15"><a class="header-anchor" href="#输入样例：-v15">¶</a>输入样例：</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">7</span><br><span class="line">3 1 5 2 1 3 4</span><br><span class="line">6</span><br><span class="line">1 1 1 1 1 1</span><br><span class="line">6</span><br><span class="line">1 4 2 8 5 7</span><br><span class="line">2</span><br><span class="line">15 15</span><br></pre></td></tr></table></figure>
+<h4 id="输出样例：-v14"><a class="header-anchor" href="#输出样例：-v14">¶</a>输出样例：</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">5</span><br><span class="line">-1</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+<h4 id="思路-v13"><a class="header-anchor" href="#思路-v13">¶</a>思路:</h4>
+<ul>
+<li>首先明确一点，题目要求两个子数列必须有相同成员，但是没有要求相同成员的长度，易得相同成员长度为1时得到的两个子数列长度一定是最长的。</li>
+<li>那么问题就转化为找到两个相同的数字，然后围绕两个相同数字生成两个长度相同，起点不同的数列。什么时候两个子数列长度最大呢？答案是当两个相同字符的距离最近时。</li>
+<li>为什么？我们先来看如何根据两个数字生成子数列，子数列的长度就等于第一个数字到起点的距离加第二个数字到末尾的距离。因为第二个数字到起点的距离一定小于第一个到起点的距离，而第一个数字到结尾的距离一定小于第二个到结尾的距离。</li>
+<li>那么就可以得到答案，当两个相同字符，距离最近时，得到的一定是最优解。</li>
+</ul>
+<h4 id="代码-v11"><a class="header-anchor" href="#代码-v11">¶</a>代码:</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unordered_map&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">150010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		cin &gt;&gt; n;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)cin &gt;&gt; a[i];</span><br><span class="line"></span><br><span class="line">		unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt;p;</span><br><span class="line">		<span class="type">int</span> flag = <span class="number">0</span>,res=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">//cout &lt;&lt;&quot;??&quot; &lt;&lt; p[a[i]] &lt;&lt; endl;</span></span><br><span class="line">			<span class="keyword">if</span> (p[a[i]] == <span class="number">0</span>)p[a[i]] = i;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				res = <span class="built_in">min</span>(res, i - p[a[i]]);</span><br><span class="line">				p[a[i]] = i;</span><br><span class="line">				flag = <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//cout &lt;&lt; res &lt;&lt; endl;</span></span><br><span class="line">		flag == <span class="number">0</span> ? cout &lt;&lt; <span class="number">-1</span> &lt;&lt; endl : cout &lt;&lt; n-res &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="第三题-赛后补题-v4"><a class="header-anchor" href="#第三题-赛后补题-v4">¶</a>第三题-赛后补题</h3>
+<h4 id="题目-Problem-1625C-Codeforces"><a class="header-anchor" href="#题目-Problem-1625C-Codeforces">¶</a>题目: <a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1625/C">Problem - 1625C - Codeforces</a></h4>
+<h4 id="题意-v17"><a class="header-anchor" href="#题意-v17">¶</a>题意:</h4>
+<p>在一段路程为L的路上有n个路牌，在位置d[i]处有一个路牌，上面记录的数字代表从路牌d[i]走到路牌d[i+1]每公里花费的时间，现在我们最多可以去掉k个路牌，要求给出能够将总时间缩短到多少。注意，第一个路牌不可以去掉。</p>
+<h4 id="输出格式-v20"><a class="header-anchor" href="#输出格式-v20">¶</a>输出格式</h4>
+<p>第一行有三个整数n, L, k，分别表示有n个路牌，公路长L公里，最多可以去掉k个路牌。</p>
+<p>第二行有n个数，表示路牌的位置。</p>
+<p>第三行有n个正整数，表示从当前路牌走到下一个路牌每公里所花费的时间。</p>
+<h4 id="输出格式-v21"><a class="header-anchor" href="#输出格式-v21">¶</a>输出格式</h4>
+<p>一个整数，表示缩短后的时间。</p>
+<h4 id="数据范围-v19"><a class="header-anchor" href="#数据范围-v19">¶</a>数据范围</h4>
+<p>1 ≤ n ≤ 500, 1 ≤ ℓ ≤ 10^5, 0 ≤ k ≤ n −1</p>
+<p>d1=0, di &lt; di+1, 0 ≤ di ≤ ℓ−1</p>
+<p>1 ≤ ai ≤ 10^4</p>
+<h4 id="输入样例：-v16"><a class="header-anchor" href="#输入样例：-v16">¶</a>输入样例：</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">4 10 0</span><br><span class="line">0 3 4 8</span><br><span class="line">5 8 3 6</span><br></pre></td></tr></table></figure>
+<h4 id="输出样例：-v15"><a class="header-anchor" href="#输出样例：-v15">¶</a>输出样例：</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">47</span><br></pre></td></tr></table></figure>
+<h4 id="思路-v14"><a class="header-anchor" href="#思路-v14">¶</a>思路:</h4>
+<ul>
+<li>
+<p><s>一眼贪心，不出所料wrong answer</s></p>
+</li>
+<li>
+<p>说说为什么不能贪心来做，首先要清晰的明白贪心局部最优，是不能保证整体最优意味着什么。贪心的做法：我们可以将所有路牌按照从大到小排序，然后去掉前j个路牌，如果两个路牌时间相同，那么就比较两者的前一个路牌，去掉前一个路牌数字更小的路牌，虽然确实将时间缩短了，但是无法保证一定是最优解。我们来看这个例子：有3个路牌，路程为10，要求去掉1个路牌。路牌位置：<code>0,5,9 </code>，路牌速度：<code> 5,10,11</code> 。如果按照贪心来做我们应该去掉数字为 <code>11</code> 的路牌，结果为 <code>5*5+10*5=75</code> ，但是显然我们可以通过去掉数字为 <code>10</code> 的路牌将时间缩短到 <code>5*9+11=56</code> 。可见贪心是不能保证得到最优解的。</p>
+</li>
+<li>
+<p>考虑动态规划，既然有两个变量，那么一般就要用到二维数组。</p>
+</li>
+<li>
+<p>用<code>f[i][j]</code> 表示走到第i个路牌已经选择了 <code>j</code> 个路牌所花费的时间的集合，属性是所有时间中的最小值。</p>
+</li>
+<li>
+<p>如何计算状态？从选择了 <code>j</code> 个路牌入手，既然当前我们走到第 <code>i</code> 个路牌已经选择了 <code>j</code> 个路牌，那么一定是从选择了 <code>j-1</code> 个路牌处转移过来的，问题在于我们无法确定选择的第 <code>j-1</code> 块路牌是哪一块，不过没关系，不知道那就暴力跑一边好了，它一定在前 <code>i-1</code>个路牌中。</p>
+</li>
+<li>
+<p>那么就得到了状态转移方程：<code>f[i][j] = min(f[i][j], f[u][j-1] + (a[i] - a[u]) * b[u]);</code> u表示遍历前 <code>i-1</code> 路牌。</p>
+</li>
+<li>
+<p>务必将极大值写成 <code>0x3f3f3f3f </code>或者 <code>1e9</code> ，<code>0x3f3f </code>只有可怜的 <code>16191 </code>，别问我怎么知道的，问就是 <code>wrong answer</code> 。</p>
+</li>
+</ul>
+<h4 id="代码-v12"><a class="header-anchor" href="#代码-v12">¶</a>代码:</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unordered_map&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> PII pair<span class="string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">510</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m, k;</span><br><span class="line"><span class="type">int</span> a[N], b[N], f[N][N];<span class="comment">//a坐标，b每公里路程所花时间</span></span><br><span class="line"><span class="comment">//f[i][j]是从起点走到第i个路牌时，恰好选了j个路牌（可以包含第i个路牌）的方式所花时间的集合，属性取所有时间中的最小值</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; m &gt;&gt; k;<span class="comment">//n个路牌，m段路程，删除k个</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)cin &gt;&gt; a[i];</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)cin &gt;&gt; b[i];</span><br><span class="line">	a[n + <span class="number">1</span>] = m;<span class="comment">//</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">memset</span>(f,<span class="number">0x3f3f</span>,<span class="keyword">sizeof</span> f);</span><br><span class="line">	f[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">0</span>;<span class="comment">//走到第一个路牌并且选了一个路牌所花费时间为0</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n + <span class="number">1</span>; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= i; ++j)</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> u = <span class="number">1</span>; u &lt; i; ++u)</span><br><span class="line">				f[i][j] = <span class="built_in">min</span>(f[i][j], f[u][j<span class="number">-1</span>] + (a[i] - a[u]) * b[u]);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> res = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line">	<span class="comment">//我们将终点处视为一个路牌</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= k; ++i)res = <span class="built_in">min</span>(res, f[n + <span class="number">1</span>][n + <span class="number">1</span> - i]);</span><br><span class="line">	cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>如果您觉得这篇文章有帮助，可以请我吃颗糖哦。</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="心意 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="心意 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>心意
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://xinyi127.cn/2022/07/08/SDTBU-ACM%E9%9B%86%E8%AE%AD%E9%98%9F%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD---%E4%B8%AA%E4%BA%BA%E8%B5%9B-3/" title="SDTBU-ACM集训队暑期集训---个人赛 3">http://xinyi127.cn/2022/07/08/SDTBU-ACM集训队暑期集训---个人赛-3/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <div>
+          
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------　　　　本文结束　<i class="fa fa-heart"></i>　感谢您的阅读　　　　-------------</div>
+    
+</div>
+          
+      </div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/c/" rel="tag"># c++</a>
+              <a href="/tags/ACM%E9%9B%86%E8%AE%AD%E9%98%9F%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD/" rel="tag"># ACM集训队暑期集训</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/07/07/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E6%A8%A1%E6%9D%BF/" rel="prev" title="背包问题模板">
+      <i class="fa fa-chevron-left"></i> 背包问题模板
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/07/11/%E5%8C%BA%E9%97%B4%E9%80%89%E7%82%B9/" rel="next" title="区间选点">
+      区间选点 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%A2%98-v6"><span class="nav-number">1.</span> <span class="nav-text">第一题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE-Problem-1625A-Codeforces"><span class="nav-number">1.1.</span> <span class="nav-text">题目: Problem - 1625A - Codeforces</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-v15"><span class="nav-number">1.2.</span> <span class="nav-text">题意:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F-v15"><span class="nav-number">1.3.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-v17"><span class="nav-number">1.4.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-v18"><span class="nav-number">1.5.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-v17"><span class="nav-number">1.6.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B%EF%BC%9A-v14"><span class="nav-number">1.7.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B%EF%BC%9A-v13"><span class="nav-number">1.8.</span> <span class="nav-text">输出样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-v12"><span class="nav-number">1.9.</span> <span class="nav-text">思路:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-v10"><span class="nav-number">1.10.</span> <span class="nav-text">代码:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%A2%98-v5"><span class="nav-number">2.</span> <span class="nav-text">第二题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE-Problem-1625B-Codeforces"><span class="nav-number">2.1.</span> <span class="nav-text">题目: Problem - 1625B - Codeforces</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-v16"><span class="nav-number">2.2.</span> <span class="nav-text">题意:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F-v16"><span class="nav-number">2.3.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-v19"><span class="nav-number">2.4.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-v18"><span class="nav-number">2.5.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B%EF%BC%9A-v15"><span class="nav-number">2.6.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B%EF%BC%9A-v14"><span class="nav-number">2.7.</span> <span class="nav-text">输出样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-v13"><span class="nav-number">2.8.</span> <span class="nav-text">思路:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-v11"><span class="nav-number">2.9.</span> <span class="nav-text">代码:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E9%A2%98-%E8%B5%9B%E5%90%8E%E8%A1%A5%E9%A2%98-v4"><span class="nav-number">3.</span> <span class="nav-text">第三题-赛后补题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE-Problem-1625C-Codeforces"><span class="nav-number">3.1.</span> <span class="nav-text">题目: Problem - 1625C - Codeforces</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-v17"><span class="nav-number">3.2.</span> <span class="nav-text">题意:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-v20"><span class="nav-number">3.3.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-v21"><span class="nav-number">3.4.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-v19"><span class="nav-number">3.5.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B%EF%BC%9A-v16"><span class="nav-number">3.6.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B%EF%BC%9A-v15"><span class="nav-number">3.7.</span> <span class="nav-text">输出样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-v14"><span class="nav-number">3.8.</span> <span class="nav-text">思路:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-v12"><span class="nav-number">3.9.</span> <span class="nav-text">代码:</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="心意"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">心意</p>
+  <div class="site-description" itemprop="description"><font color="#DB7093">像珍惜礼物一样，珍惜今天。</font></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xinyi127" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xinyi127" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1224179212@qq.com" title="E-Mail → mailto:1224179212@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/jhgjhg225?type=blog" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;jhgjhg225?type&#x3D;blog" rel="noopener" target="_blank"><i class="codiepie fa-fw"></i>CSDN</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.acwing.com/user/myspace/index/111921/" title="AcWing → https:&#x2F;&#x2F;www.acwing.com&#x2F;user&#x2F;myspace&#x2F;index&#x2F;111921&#x2F;" rel="noopener" target="_blank"><i class=" fa-fw"></i>AcWing</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+
+<!-- require APlayer -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<!-- require MetingJS-->
+
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
+<!--网易云playlist外链地址-->   
+<meting-js
+    server="netease"
+    type="playlist" 
+    id="7496223401"
+    mini="false"
+    fixed="false"
+    list-folded="true"
+    autoplay="false"
+    volume="0.4"
+    theme="#FADFA3"
+    order="random"
+    loop="all"
+    preload="auto"
+    mutex="true">
+</meting-js>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank"><font color="#FFFAFA">鲁ICP备2022018291号-1</font> </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">心意</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">238k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:36</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+-->
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共238k字</span>
+</div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+
+// 说说额外刷新
+    $(document).ready(function () {
+
+    if(location.href.indexOf("#reloaded")==-1){
+        location.href=location.href+"#reloaded";
+        location.reload();
+    }
+}）
+// 在这后面可以加入程序的其他代码  
+
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+
+  
+     <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+     <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+     <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'fYGYazVwbVLy8cEqJqIcUCcO-MdYXbMMI',
+      appKey     : 'hhEw2wKtOfkSDCmpAlPAO7g3',
+      placeholder: "交流促进成长，欢迎分享你的苹果。昵称、邮箱和网址非必填哦，可直接评论~",
+      avatar     : 'robohash',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : 'https://fygyazvw.api.lncldglobal.com'
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>
