@@ -279,7 +279,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1k</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -299,47 +299,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="题目P1512-蓝桥杯2020初赛-平面分割-New-Online-Judge-ecustacm-cn"><a class="header-anchor" href="#题目P1512-蓝桥杯2020初赛-平面分割-New-Online-Judge-ecustacm-cn">¶</a>题目<a target="_blank" rel="noopener" href="http://oj.ecustacm.cn/problem.php?id=1512">P1512 - 蓝桥杯2020初赛] 平面分割 - New Online Judge (ecustacm.cn)</a></h4>
-<h4 id="写在前面-v2"><a class="header-anchor" href="#写在前面-v2">¶</a>写在前面:</h4>
-<p>这个题比较难想，最好是结合画图来看。</p>
-<h4 id="思路-v22"><a class="header-anchor" href="#思路-v22">¶</a>思路:</h4>
-<ul>
-<li>
-<p>n个圆可以将一个平面分割为多少部分:<br>
-除第一个圆外,每添加一个圆都会将平面额外分割2*(n-1)部分<br>
-f(1) = 2<br>
-f(2) = f(1) + 2 * (n - 1) = 4<br>
-f(3)= 8<br>
-f(n) = f(n - 1) + 2 * (n - 1)<br>
-f(n) = f(n - 2) + 2 * (n - 2) + 2 * (n - 1)<br>
-f(n) = 2 + 2 * 1 + 2 * 2 + … + 2 * (n - 1) = 2 + 2 * (1 + 2 + 3 + … + n - 1)<br>
-= 2 + 2 * ((1 + n - 1) * (n - 1)) / 2<br>
-= 2 + n * (n - 1);</p>
+        <h4 id="题目P1512-蓝桥杯2020初赛-平面分割-New-Online-Judge-ecustacm-cn"><a href="#题目P1512-蓝桥杯2020初赛-平面分割-New-Online-Judge-ecustacm-cn" class="headerlink" title="题目P1512 - 蓝桥杯2020初赛] 平面分割 - New Online Judge (ecustacm.cn)"></a>题目<a target="_blank" rel="noopener" href="http://oj.ecustacm.cn/problem.php?id=1512">P1512 - 蓝桥杯2020初赛] 平面分割 - New Online Judge (ecustacm.cn)</a></h4><h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面:"></a>写在前面:</h4><p>这个题比较难想，最好是结合画图来看。</p>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路:"></a>思路:</h4><ul>
+<li><p>n个圆可以将一个平面分割为多少部分:<br>除第一个圆外,每添加一个圆都会将平面额外分割2*(n-1)部分<br>f(1) &#x3D; 2<br>f(2) &#x3D; f(1) + 2 * (n - 1) &#x3D; 4<br>f(3)&#x3D; 8<br>f(n) &#x3D; f(n - 1) + 2 * (n - 1)<br>f(n) &#x3D; f(n - 2) + 2 * (n - 2) + 2 * (n - 1)<br>f(n) &#x3D; 2 + 2 * 1 + 2 * 2 + … + 2 * (n - 1) &#x3D; 2 + 2 * (1 + 2 + 3 + … + n - 1)<br>&#x3D; 2 + 2 * ((1 + n - 1) * (n - 1)) &#x2F; 2<br>&#x3D; 2 + n * (n - 1);</p>
 </li>
-<li>
-<p>m个直线可以将一个平面分割为几部分:<br>
-除第一条直线外,每额外添加一条直线都会将平面额外分割n部分<br>
-h(1) = 2<br>
-h(2) = 4<br>
-h(3) = 7<br>
-h(n) = 2 + 2 + 3 + 4 … + n<br>
-= 1 + (1 + n) * n / 2</p>
+<li><p>m个直线可以将一个平面分割为几部分:<br>除第一条直线外,每额外添加一条直线都会将平面额外分割n部分<br>h(1) &#x3D; 2<br>h(2) &#x3D; 4<br>h(3) &#x3D; 7<br>h(n) &#x3D; 2 + 2 + 3 + 4 … + n<br>&#x3D; 1 + (1 + n) * n &#x2F; 2</p>
 </li>
-<li>
-<p>n个圆和m个直线共可以将平面分为几个部分:<br>
-n个圆0条线:g(n,0)=f(n)= 2 + n * (n - 1);<br>
-n个圆1条线:这条直线可以分割它与所有圆交点个数个部分,每个圆可产生2个交点,也即增多2<em>n个部分<br>
-g(n,1)=2 + n * (n - 1)+2</em>n;<br>
-n个圆2条线:第二条线同样可以产生2<em>n个部分,除此之外还将与第一条直线相交分割一个部分<br>
-g(n,2)=g(n,1)+2</em>n+2</p>
+<li><p>n个圆和m个直线共可以将平面分为几个部分:<br>n个圆0条线:g(n,0)&#x3D;f(n)&#x3D; 2 + n * (n - 1);<br>n个圆1条线:这条直线可以分割它与所有圆交点个数个部分,每个圆可产生2个交点,也即增多2<em>n个部分<br>g(n,1)&#x3D;2 + n * (n - 1)+2</em>n;<br>n个圆2条线:第二条线同样可以产生2<em>n个部分,除此之外还将与第一条直线相交分割一个部分<br>g(n,2)&#x3D;g(n,1)+2</em>n+2</p>
 </li>
-<li>
-<p>最终公式：</p>
-<p>g(n,m)=2+n*(n-1)+2<em>n</em>m+(2+m)*(m-1)/2</p>
+<li><p>最终公式：</p>
+<p>g(n,m)&#x3D;2+n*(n-1)+2<em>n</em>m+(2+m)*(m-1)&#x2F;2</p>
 </li>
 </ul>
-<h4 id="代码-v26"><a class="header-anchor" href="#代码-v26">¶</a>代码:</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span><span class="comment">//使用to_string必须加该头文件</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long </span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> itn int</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> array_size = (<span class="type">int</span>)<span class="number">1e6</span> + <span class="number">50</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> m = <span class="number">20</span>, n = <span class="number">20</span>;</span><br><span class="line">	cout &lt;&lt; <span class="number">2</span> + n * (n - <span class="number">1</span>) + <span class="number">2</span> * n * m + (<span class="number">2</span> + m) * (m - <span class="number">1</span>) / <span class="number">2</span> &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码:"></a>代码:</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span><span class="comment">//使用to_string必须加该头文件</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long </span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> itn int</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> array_size = (<span class="type">int</span>)<span class="number">1e6</span> + <span class="number">50</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> m = <span class="number">20</span>, n = <span class="number">20</span>;</span><br><span class="line">	cout &lt;&lt; <span class="number">2</span> + n * (n - <span class="number">1</span>) + <span class="number">2</span> * n * m + (<span class="number">2</span> + m) * (m - <span class="number">1</span>) / <span class="number">2</span> &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -471,7 +443,7 @@ g(n,2)=g(n,1)+2</em>n+2</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AEP1512-%E8%93%9D%E6%A1%A5%E6%9D%AF2020%E5%88%9D%E8%B5%9B-%E5%B9%B3%E9%9D%A2%E5%88%86%E5%89%B2-New-Online-Judge-ecustacm-cn"><span class="nav-number">1.</span> <span class="nav-text">题目P1512 - 蓝桥杯2020初赛] 平面分割 - New Online Judge (ecustacm.cn)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2-v2"><span class="nav-number">2.</span> <span class="nav-text">写在前面:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-v22"><span class="nav-number">3.</span> <span class="nav-text">思路:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-v26"><span class="nav-number">4.</span> <span class="nav-text">代码:</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AEP1512-%E8%93%9D%E6%A1%A5%E6%9D%AF2020%E5%88%9D%E8%B5%9B-%E5%B9%B3%E9%9D%A2%E5%88%86%E5%89%B2-New-Online-Judge-ecustacm-cn"><span class="nav-number">1.</span> <span class="nav-text">题目P1512 - 蓝桥杯2020初赛] 平面分割 - New Online Judge (ecustacm.cn)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-number">2.</span> <span class="nav-text">写在前面:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text">思路:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">4.</span> <span class="nav-text">代码:</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -487,7 +459,7 @@ g(n,2)=g(n,1)+2</em>n+2</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -577,12 +549,12 @@ g(n,2)=g(n,1)+2</em>n+2</p>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">238k</span>
+    <span title="站点总字数">243k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:36</span>
+    <span title="站点阅读时长">3:41</span>
 </div>
 
 <!--
@@ -592,7 +564,7 @@ g(n,2)=g(n,1)+2</em>n+2</p>
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共238k字</span>
+  <span class="post-count">博客全站共80.1k字</span>
 </div>
 
 

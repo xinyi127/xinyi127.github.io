@@ -418,45 +418,33 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="问题"><a class="header-anchor" href="#问题">¶</a>问题:</h4>
-<p>在本地好好的LaTeX公式部署到博客上后, 无法正常显示.</p>
-<h4 id="原因"><a class="header-anchor" href="#原因">¶</a>原因:</h4>
-<p>hexo默认支持的hexo-renderer-marked渲染器不支持latex公式.</p>
-<h4 id="解决方法"><a class="header-anchor" href="#解决方法">¶</a>解决方法:</h4>
-<ol>
-<li>
-<p>打开git bash或者用管理员身份打开命令管理器(个人推荐后者), 输入如下命令以卸载hexo-math和hexo-renderer-marked渲染引擎:</p>
+        <h4 id="问题"><a href="#问题" class="headerlink" title="问题:"></a>问题:</h4><p>在本地好好的LaTeX公式部署到博客上后, 无法正常显示.</p>
+<h4 id="原因"><a href="#原因" class="headerlink" title="原因:"></a>原因:</h4><p>hexo默认支持的hexo-renderer-marked渲染器不支持latex公式.</p>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法:"></a>解决方法:</h4><ol>
+<li><p>打开git bash或者用管理员身份打开命令管理器(个人推荐后者), 输入如下命令以卸载hexo-math和hexo-renderer-marked渲染引擎: </p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm un hexo-math</span><br><span class="line">npm un hexo-renderer-marked</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>输入如下命令以安装hexo-renderer-pandoc渲染器:</p>
+<li><p>输入如下命令以安装hexo-renderer-pandoc渲染器:</p>
 <p><code>npm i hexo-renderer-pandoc</code></p>
 </li>
-<li>
-<p>输入如下命令以安装mathjax公式引擎:</p>
+<li><p>输入如下命令以安装mathjax公式引擎:</p>
 <p><code>npm install hexo-filter-mathjax</code></p>
 </li>
-<li>
-<p>修改Blog根目录下的<code>_config.yaml</code>文件, 在文件最后添加如下代码:</p>
+<li><p>修改Blog根目录下的<code>_config.yaml</code>文件, 在文件最后添加如下代码:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mathjax:</span><br><span class="line">  tags: none <span class="meta"># or <span class="string">'ams'</span> or <span class="string">'all'</span></span></span><br><span class="line">  single_dollars: <span class="literal">true</span> <span class="meta"># enable single dollar signs as in-<span class="keyword">line</span> math delimiters</span></span><br><span class="line">  cjk_width: <span class="number">0.9</span> <span class="meta"># relative CJK char width</span></span><br><span class="line">  normal_width: <span class="number">0.6</span> <span class="meta"># relative normal (monospace) width</span></span><br><span class="line">  append_css: <span class="literal">true</span> <span class="meta"># add CSS to pages rendered by MathJax</span></span><br><span class="line">  every_page: <span class="literal">false</span> <span class="meta"># <span class="keyword">if</span> true, every page will be rendered by MathJax regardless the `mathjax` setting in Front-matter</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>修改Blog\themes\next目录下的<code>_config.yaml</code>文件:</p>
+<li><p>修改Blog\themes\next目录下的<code>_config.yaml</code>文件:</p>
 <p>注意，per_page设为true表示对每一篇文章都支持LaTeX公式, 否则需要在文章标题栏中加<code>mathjax: true</code>.</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># Math Formulas Render Support</span><br><span class="line">math:</span><br><span class="line">  # <span class="built_in">Default</span> (<span class="literal">true</span>) will load mathjax / katex script on demand.</span><br><span class="line">  # That is it only render those page which has `mathjax: <span class="literal">true</span>` in Front-matter.</span><br><span class="line">  # If you set it to <span class="literal">false</span>, it will load mathjax / katex srcipt EVERY PAGE.</span><br><span class="line">  per_page: <span class="literal">true</span></span><br><span class="line">  <span class="meta"># hexo-renderer-pandoc (or hexo-renderer-kramed) required for full MathJax support.</span></span><br><span class="line">  mathjax:</span><br><span class="line">    enable: <span class="literal">true</span></span><br><span class="line">    # See: https:<span class="comment">//mhchem.github.io/MathJax-mhchem/</span></span><br><span class="line">    mhchem: <span class="literal">false</span></span><br><span class="line">  <span class="meta"># hexo-renderer-markdown-it-plus (or hexo-renderer-markdown-it with markdown-it-katex plugin) required for full Katex support.</span></span><br><span class="line">  katex:</span><br><span class="line">    enable: <span class="literal">false</span></span><br><span class="line">    # See: https:<span class="comment">//github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex</span></span><br><span class="line">    copy_tex: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>安装pandoc, 否则在hexo g时会报错: pandoc exited with code null.</p>
-<p>可以去官网下载, 但是不翻墙速度很慢, 同时下到3/4左右会不允许下载, <s>痛的回忆</s>. 所以这里直接给出下载链接:  <a target="_blank" rel="noopener" href="http://rczkr10rm.hn-bkt.clouddn.com/hexo%E5%8D%9A%E5%AE%A2%2Fpandoc-2.0.1.1-windows.msi">下载地址</a></p>
+<li><p>安装pandoc, 否则在hexo g时会报错: pandoc exited with code null.</p>
+<p>可以去官网下载, 但是不翻墙速度很慢, 同时下到3/4左右会不允许下载, <del>痛的回忆</del>. 所以这里直接给出下载链接:  <a target="_blank" rel="noopener" href="http://rczkr10rm.hn-bkt.clouddn.com/hexo%E5%8D%9A%E5%AE%A2%2Fpandoc-2.0.1.1-windows.msi">下载地址</a></p>
 </li>
-<li>
-<p>部署到云端即可.</p>
+<li><p>部署到云端即可. </p>
 <p>如果发现仍然不能正常显示并且per_page已经设置为true, 那就在文章标题栏中加<code>mathjax: true</code>可以解决问题.</p>
 </li>
 </ol>
-<h4 id="ps-v7"><a class="header-anchor" href="#ps-v7">¶</a>ps:</h4>
-<p>这是一个测试公式:<br>
-<mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -0.186ex;" xmlns="http://www.w3.org/2000/svg" width="9.176ex" height="1.692ex" role="img" focusable="false" viewBox="0 -666 4056 748"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(722.2,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mn" transform="translate(1722.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(2500.2,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mn" transform="translate(3556,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g></g></svg></mjx-container></p>
+<h4 id="ps"><a href="#ps" class="headerlink" title="ps:"></a>ps:</h4><p>这是一个测试公式:<br><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -0.186ex;" xmlns="http://www.w3.org/2000/svg" width="9.176ex" height="1.692ex" role="img" focusable="false" viewBox="0 -666 4056 748"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(722.2,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mn" transform="translate(1722.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(2500.2,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mn" transform="translate(3556,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g></g></svg></mjx-container></p>
 
     </div>
 
@@ -589,7 +577,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">问题:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="nav-number">2.</span> <span class="nav-text">原因:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">解决方法:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ps-v7"><span class="nav-number">4.</span> <span class="nav-text">ps:</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">问题:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="nav-number">2.</span> <span class="nav-text">原因:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">解决方法:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ps"><span class="nav-number">4.</span> <span class="nav-text">ps:</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -605,7 +593,7 @@ mjx-container[display="true"] + br {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -695,12 +683,12 @@ mjx-container[display="true"] + br {
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">238k</span>
+    <span title="站点总字数">243k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:36</span>
+    <span title="站点阅读时长">3:41</span>
 </div>
 
 <!--
@@ -710,7 +698,7 @@ mjx-container[display="true"] + br {
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共238k字</span>
+  <span class="post-count">博客全站共80.1k字</span>
 </div>
 
 

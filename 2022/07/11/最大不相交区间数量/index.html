@@ -301,31 +301,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="题目：最大不相交区间数量"><a class="header-anchor" href="#题目：最大不相交区间数量">¶</a>题目：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/910/">最大不相交区间数量</a></h4>
-<h4 id="题意：-v31"><a class="header-anchor" href="#题意：-v31">¶</a>题意：</h4>
-<p>给定 N 个闭区间 [ai,bi]，请你在数轴上选择若干区间，使得选中的区间之间互不相交（包括端点）。</p>
+        <h4 id="题目：最大不相交区间数量"><a href="#题目：最大不相交区间数量" class="headerlink" title="题目：最大不相交区间数量"></a>题目：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/910/">最大不相交区间数量</a></h4><h4 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h4><p>给定 N 个闭区间 [ai,bi]，请你在数轴上选择若干区间，使得选中的区间之间互不相交（包括端点）。</p>
 <p>输出可选取区间的最大数量。</p>
-<h4 id="输入格式-v42"><a class="header-anchor" href="#输入格式-v42">¶</a>输入格式</h4>
-<p>第一行包含整数 N，表示区间数。</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含整数 N，表示区间数。</p>
 <p>接下来 N 行，每行包含两个整数 ai,bi，表示一个区间的两个端点。</p>
-<h4 id="输出格式-v49"><a class="header-anchor" href="#输出格式-v49">¶</a>输出格式</h4>
-<p>输出一个整数，表示可选取区间的最大数量。</p>
-<h4 id="数据范围-v47"><a class="header-anchor" href="#数据范围-v47">¶</a>数据范围</h4>
-<p>1 ≤ N ≤ 10<sup>5</sup>,<br>
-−10<sup>9</sup> ≤ ai ≤ bi ≤ 10<sup>9</sup></p>
-<h4 id="输入样例：-v42"><a class="header-anchor" href="#输入样例：-v42">¶</a>输入样例：</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">-1 1</span><br><span class="line">2 4</span><br><span class="line">3 5</span><br></pre></td></tr></table></figure>
-<h4 id="输出样例：-v42"><a class="header-anchor" href="#输出样例：-v42">¶</a>输出样例：</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
-<h4 id="思路：-v37"><a class="header-anchor" href="#思路：-v37">¶</a>思路：</h4>
-<ul>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出一个整数，表示可选取区间的最大数量。</p>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>1 ≤ N ≤ 10^5^,<br>−10^9^ ≤ ai ≤ bi ≤ 10^9^</p>
+<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">-1 1</span><br><span class="line">2 4</span><br><span class="line">3 5</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><ul>
 <li>第一步：将每个区间按右端点从小到大排序。</li>
 <li>第二步：从前向后依次枚举每个区间。如果当前区间中已经包含点（实际意义就是被维护的“右值”覆盖），就直接跳过。否则选择当前区间的右端点，更新所维护的“右值”。</li>
 <li>这里的“右值”就是指某个点所能延伸到的最右端，在这个范围内的区间都将包含点。</li>
 <li>我们会发现和 <a href="http://xinyi127.cn/2022/07/11/%E5%8C%BA%E9%97%B4%E9%80%89%E7%82%B9/">区间选点</a> 这道题思路是一样，甚至代码也一样，为什么会这样？我们来看这道题的题意，题目要求我们找到最多的互不相交的区间，而 <a href="http://xinyi127.cn/2022/07/11/%E5%8C%BA%E9%97%B4%E9%80%89%E7%82%B9/">区间选点</a> 这道题则是要求我们找到最少的点来覆盖所有区间，我们在做这两道题时都是维护了一个“右值”，如果某个区间包含了“右值”，说明他被覆盖了，为了保证点的数量最少，我们尽可能的多的让互相覆盖的区间属于一个点，那么点与点之间就相当于两个互不相交的区间，所以当我们在找最少的点来覆盖所有区间时，实际上就找出了最多的互不相交的区间，数量就等于点的数量。</li>
 </ul>
-<h4 id="代码-v28"><a class="header-anchor" href="#代码-v28">¶</a>代码</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> PII pair<span class="string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">100010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line">PII p[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp1</span><span class="params">(PII a,PII b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.second&lt;b.second;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)cin&gt;&gt;p[i].first&gt;&gt;p[i].second;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">sort</span>(p+<span class="number">1</span>,p+n+<span class="number">1</span>,cmp1);</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> res=<span class="number">0</span>,ed=<span class="number">-0x3f3f3f3f</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(p[i].first&gt;ed)</span><br><span class="line">        &#123;</span><br><span class="line">            res++;</span><br><span class="line">            ed=p[i].second;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    cout&lt;&lt;res;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> PII pair<span class="string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">100010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line">PII p[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp1</span><span class="params">(PII a,PII b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.second&lt;b.second;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)cin&gt;&gt;p[i].first&gt;&gt;p[i].second;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">sort</span>(p+<span class="number">1</span>,p+n+<span class="number">1</span>,cmp1);</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> res=<span class="number">0</span>,ed=<span class="number">-0x3f3f3f3f</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(p[i].first&gt;ed)</span><br><span class="line">        &#123;</span><br><span class="line">            res++;</span><br><span class="line">            ed=p[i].second;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    cout&lt;&lt;res;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -459,7 +452,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E6%9C%80%E5%A4%A7%E4%B8%8D%E7%9B%B8%E4%BA%A4%E5%8C%BA%E9%97%B4%E6%95%B0%E9%87%8F"><span class="nav-number">1.</span> <span class="nav-text">题目：最大不相交区间数量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A-v31"><span class="nav-number">2.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F-v42"><span class="nav-number">3.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-v49"><span class="nav-number">4.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-v47"><span class="nav-number">5.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B%EF%BC%9A-v42"><span class="nav-number">6.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B%EF%BC%9A-v42"><span class="nav-number">7.</span> <span class="nav-text">输出样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A-v37"><span class="nav-number">8.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-v28"><span class="nav-number">9.</span> <span class="nav-text">代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E6%9C%80%E5%A4%A7%E4%B8%8D%E7%9B%B8%E4%BA%A4%E5%8C%BA%E9%97%B4%E6%95%B0%E9%87%8F"><span class="nav-number">1.</span> <span class="nav-text">题目：最大不相交区间数量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4"><span class="nav-number">5.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B%EF%BC%9A"><span class="nav-number">6.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B%EF%BC%9A"><span class="nav-number">7.</span> <span class="nav-text">输出样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A"><span class="nav-number">8.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">9.</span> <span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -475,7 +468,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -565,12 +558,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">238k</span>
+    <span title="站点总字数">243k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:36</span>
+    <span title="站点阅读时长">3:41</span>
 </div>
 
 <!--
@@ -580,7 +573,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共238k字</span>
+  <span class="post-count">博客全站共80.1k字</span>
 </div>
 
 

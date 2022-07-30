@@ -299,7 +299,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5k</span>
+              <span>5.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -319,19 +319,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="一-简答题"><a class="header-anchor" href="#一-简答题">¶</a>一  简答题:</h3>
-<p><u>重点: 第一章(绪论), 第五章(数据库完整性), 第十一章(并发控制)</u></p>
-<h4 id="数据库模型和约束条件"><a class="header-anchor" href="#数据库模型和约束条件">¶</a><strong>数据库模型和约束条件:</strong></h4>
-<p><strong>网状模型:</strong></p>
+        <h3 id="一-简答题"><a href="#一-简答题" class="headerlink" title="一  简答题:"></a>一  简答题:</h3><p><u>重点: 第一章(绪论), 第五章(数据库完整性), 第十一章(并发控制)</u></p>
+<h4 id="数据库模型和约束条件"><a href="#数据库模型和约束条件" class="headerlink" title="数据库模型和约束条件:"></a><strong>数据库模型和约束条件:</strong></h4><p><strong>网状模型:</strong> </p>
 <ul>
-<li>
-<p>其实就是图</p>
+<li><p>其实就是图</p>
 </li>
-<li>
-<p><img src="https://img-blog.csdnimg.cn/d1772e8765e840a091ab437500645718.png" alt=""></p>
+<li><p><img src="https://img-blog.csdnimg.cn/d1772e8765e840a091ab437500645718.png"></p>
 </li>
-<li>
-<p>约数条件:  插入数据时, 允许插入尚未确定双亲结点值的子女结点值.  删除数据时, 允许只删除双亲结点值. 修改数据时, 可直接表示非树形结构, 而无需像层次模型那样增加冗余结点.</p>
+<li><p>约数条件:  插入数据时, 允许插入尚未确定双亲结点值的子女结点值.  删除数据时, 允许只删除双亲结点值. 修改数据时, 可直接表示非树形结构, 而无需像层次模型那样增加冗余结点.</p>
 </li>
 </ul>
 <p><strong>层次模型:</strong></p>
@@ -340,98 +335,77 @@
 <li><img src="https://img-blog.csdnimg.cn/21657e2bbf2548c9ba543f06be09890c.png" alt="在这里插入图片描述"></li>
 <li>约束条件: 在进行插入操作时，如果没有相应的双亲结点值就不能插入它的子女节点值。在进行删除操作的时候，如果删除双亲结点值，则相应的子女节点值也将被同时删除。</li>
 </ul>
-<h4 id="数据的完整性包括哪三种"><a class="header-anchor" href="#数据的完整性包括哪三种">¶</a>数据的完整性包括哪三种?</h4>
-<ul>
+<h4 id="数据的完整性包括哪三种"><a href="#数据的完整性包括哪三种" class="headerlink" title="数据的完整性包括哪三种?"></a>数据的完整性包括哪三种?</h4><ul>
 <li>实体完整性</li>
 <li>参照完整性</li>
 <li>用户定义完整性</li>
 </ul>
-<h4 id="事务"><a class="header-anchor" href="#事务">¶</a>事务:</h4>
-<p>用户定义的一个数据操作序列, 这些操作要么全部执行, 要么全部不执行, 是一个不可分割的工作单元.</p>
-<h4 id="并发操作带来的数据不一致性"><a class="header-anchor" href="#并发操作带来的数据不一致性">¶</a>并发操作带来的数据不一致性:</h4>
-<ul>
+<h4 id="事务"><a href="#事务" class="headerlink" title="事务:"></a>事务:</h4><p>用户定义的一个数据操作序列, 这些操作要么全部执行, 要么全部不执行, 是一个不可分割的工作单元.</p>
+<h4 id="并发操作带来的数据不一致性"><a href="#并发操作带来的数据不一致性" class="headerlink" title="并发操作带来的数据不一致性:"></a>并发操作带来的数据不一致性:</h4><ul>
 <li>丢失更新: 同时读同一数据并修改.</li>
 <li>读“脏”数据: 读取了未提交事务的数据.</li>
 <li>不可重复读(幻读现象):两次读同一数据不一样, 另一个事务修改了数据. 并发操作破坏了事务的隔离性.</li>
 </ul>
-<h4 id="共享锁-s锁-和排它锁-x锁-的区别"><a class="header-anchor" href="#共享锁-s锁-和排它锁-x锁-的区别">¶</a>共享锁(s锁)和排它锁(x锁)的区别:</h4>
-<ul>
-<li>
-<p><strong>排它锁又称为写锁, 即X锁, 已有X锁或S锁时, 不能加X锁.</strong></p>
+<h4 id="共享锁-s锁-和排它锁-x锁-的区别"><a href="#共享锁-s锁-和排它锁-x锁-的区别" class="headerlink" title="共享锁(s锁)和排它锁(x锁)的区别:"></a>共享锁(s锁)和排它锁(x锁)的区别:</h4><ul>
+<li><p><strong>排它锁又称为写锁, 即X锁, 已有X锁或S锁时, 不能加X锁.</strong> </p>
 <ul>
 <li>若事务T对数据对象A加上X锁, 则只允许T读取和修改A, 其它任何事务都不能再对A加任何类型的锁, 直到T释放A上的锁. 这就保证了其它事务在T释放A上的锁之前不能再读取和修改A.</li>
 </ul>
 </li>
-<li>
-<p><strong>共享锁又称为读锁, 即S锁, 只有S锁时, 可加S锁.</strong></p>
+<li><p><strong>共享锁又称为读锁, 即S锁, 只有S锁时, 可加S锁.</strong> </p>
 <ul>
 <li>若事务T对数据对象A加上S锁, 则事务T可以读A但不能修改A, 其它事务只能再对A加S锁, 而不能加X锁, 直到T释放A上的S锁. 这就保证了其它事务可以读A, 但在T释放A上的S锁之前不能对A做任何修改.</li>
 </ul>
 </li>
 </ul>
-<h4 id="封锁协议"><a class="header-anchor" href="#封锁协议">¶</a>封锁协议:</h4>
-<p><strong>一级封锁协议:</strong> 事务T在修改数据R之前必须先对其加X锁, 直到事务结束才释放.</p>
+<h4 id="封锁协议"><a href="#封锁协议" class="headerlink" title="封锁协议:"></a>封锁协议:</h4><p><strong>一级封锁协议:</strong> 事务T在修改数据R之前必须先对其加X锁, 直到事务结束才释放.</p>
 <p>一级封锁协议可防止丢失更新, 并保证事务T是可恢复的.</p>
-<p><strong>二级封锁协议:</strong> 一级封锁协议加上事务T在读取数据R之前必须先对其加S锁, 读完后即可释放S锁.</p>
+<p><strong>二级封锁协议:</strong> 一级封锁协议加上事务T在读取数据R之前必须先对其加S锁, 读完后即可释放S锁. </p>
 <p>二级封锁协议除防止了丢失更新, 还可进一步防止读“脏”数据.</p>
 <p><strong>三级封锁协议是:</strong> 一级封锁协议加上事务T在读取数据R之前必须先对其加S锁, 直到事务结束才释放.</p>
 <p>三级封锁协议除防止了丢失更新和不读‘脏’数据外, 还进一步防止了不可重复读.</p>
-<h4 id="死锁"><a class="header-anchor" href="#死锁">¶</a>死锁:</h4>
-<p><strong>概念:</strong>   有两个或两个以上的线程在执行的过程中, 由于竞争的资源或者彼此通信而造成的一种阻塞状态, 若无外力作用, 他们将都无法进行下去, 从而形成一直阻塞的状态叫死锁.</p>
+<h4 id="死锁"><a href="#死锁" class="headerlink" title="死锁:"></a>死锁:</h4><p><strong>概念:</strong>   有两个或两个以上的线程在执行的过程中, 由于竞争的资源或者彼此通信而造成的一种阻塞状态, 若无外力作用, 他们将都无法进行下去, 从而形成一直阻塞的状态叫死锁.</p>
 <p><strong>举例:</strong>  某计算机系统中只有一台打印机和一台输入 设备, 进程P1正占用输入设备, 同时又提出使用打印机的请求, 但此时打印机正被进程P2 所占用, 而P2在未释放打印机之前, 又提出请求使用正被P1占用着的输入设备. 这样两个进程相互无休止地等待下去, 均无法继续执行, 此时两个进程陷入死锁状态.</p>
 <p><strong>预防死锁:</strong> 一次封锁法, 顺序封锁法</p>
 <p><strong>死锁诊断:</strong> 超时法, 事务等待图法</p>
-<h4 id="可串行化调度"><a class="header-anchor" href="#可串行化调度">¶</a>可串行化调度:</h4>
-<p>结果正确, 当且仅当其结果与按某一顺序的串行执行的结果相同时, 该策略为可串行化调度策略. 两段锁协议可保证并发调度可串行化.</p>
-<h4 id="两段锁协议"><a class="header-anchor" href="#两段锁协议">¶</a>两段锁协议:</h4>
-<p>是指所有的事务必须分两个阶段对数据项加锁和解锁. 即事务分两个阶段, 第一个阶段是获得封锁. 事务可以获得任何数据项上的任何类型的锁, 但是不能释放; 第二阶段是释放封锁, 事务可以释放任何数据项上的任何类型的锁, 但不能申请.</p>
+<h4 id="可串行化调度"><a href="#可串行化调度" class="headerlink" title="可串行化调度:"></a>可串行化调度:</h4><p>结果正确, 当且仅当其结果与按某一顺序的串行执行的结果相同时, 该策略为可串行化调度策略. 两段锁协议可保证并发调度可串行化.</p>
+<h4 id="两段锁协议"><a href="#两段锁协议" class="headerlink" title="两段锁协议:"></a>两段锁协议:</h4><p>是指所有的事务必须分两个阶段对数据项加锁和解锁. 即事务分两个阶段, 第一个阶段是获得封锁. 事务可以获得任何数据项上的任何类型的锁, 但是不能释放; 第二阶段是释放封锁, 事务可以释放任何数据项上的任何类型的锁, 但不能申请. </p>
 <p><strong>注意:</strong></p>
 <ul>
 <li>遵循两段锁协议，一定可串行化；可串行化，不一定遵循两段锁协议</li>
 <li>遵循两段锁协议，仍可能发生死锁</li>
 </ul>
-<h3 id="二-分析题"><a class="header-anchor" href="#二-分析题">¶</a>二 分析题:</h3>
-<p><u>重点: 第二章关系代数</u></p>
-<h4 id="运算符总览"><a class="header-anchor" href="#运算符总览">¶</a>运算符总览:</h4>
-<p><img src="https://img-blog.csdnimg.cn/2a3e55dd9f62440b9a65f1e6b06f0dde.png" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/6f4c139f8455469597d5072c998eaa0b.png" alt=""></p>
-<h4 id="集合的并-交-差-笛卡尔积运算"><a class="header-anchor" href="#集合的并-交-差-笛卡尔积运算">¶</a>集合的并, 交, 差, 笛卡尔积运算:</h4>
-<p><strong>笛卡尔积:</strong> 将关系R的每一行分别与关系S的每一行直接连接, 不用管相同属性.</p>
+<h3 id="二-分析题"><a href="#二-分析题" class="headerlink" title="二 分析题:"></a>二 分析题:</h3><p><u>重点: 第二章关系代数</u></p>
+<h4 id="运算符总览"><a href="#运算符总览" class="headerlink" title="运算符总览:"></a>运算符总览:</h4><p><img src="https://img-blog.csdnimg.cn/2a3e55dd9f62440b9a65f1e6b06f0dde.png" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/6f4c139f8455469597d5072c998eaa0b.png"></p>
+<h4 id="集合的并-交-差-笛卡尔积运算"><a href="#集合的并-交-差-笛卡尔积运算" class="headerlink" title="集合的并, 交, 差, 笛卡尔积运算:"></a>集合的并, 交, 差, 笛卡尔积运算:</h4><p><strong>笛卡尔积:</strong> 将关系R的每一行分别与关系S的每一行直接连接, 不用管相同属性.</p>
 <p><img src="https://img-blog.csdnimg.cn/439ab86e83f64795a97791beb4a72578.png" alt="在这里插入图片描述"></p>
-<h4 id="自然连接"><a class="header-anchor" href="#自然连接">¶</a>自然连接:</h4>
-<p>将拥有共同属性的行进等值连接, 其余行舍弃.</p>
+<h4 id="自然连接"><a href="#自然连接" class="headerlink" title="自然连接:"></a>自然连接:</h4><p>将拥有共同属性的行进等值连接, 其余行舍弃.</p>
 <p><img src="https://img-blog.csdnimg.cn/73eac64f94db481b8c2c3d26cf666d16.png" alt="在这里插入图片描述"></p>
-<h4 id="外连接"><a class="header-anchor" href="#外连接">¶</a>外连接:</h4>
-<p>保留没有共同属性的行(悬浮元组), 并将缺少的部分用null代替.</p>
+<h4 id="外连接"><a href="#外连接" class="headerlink" title="外连接:"></a>外连接:</h4><p>保留没有共同属性的行(悬浮元组), 并将缺少的部分用null代替. </p>
 <p><strong>左外连接:</strong> 只保留左边关系表没有共同属性的行.</p>
-<p><strong>右外连接:</strong> 只保留右边关系表没有共同属性的行.</p>
-<h4 id="选择"><a class="header-anchor" href="#选择">¶</a>选择:</h4>
-<p>选择符合条件的某行或者某几行. 注意是<strong>整行.</strong> 记为:  δ 条件 (表名)</p>
-<p><img src="https://img-blog.csdnimg.cn/12abb3f1cc4d4029ab871e7ff2437ac6.png" alt=""></p>
-<h4 id="投影"><a class="header-anchor" href="#投影">¶</a>投影:</h4>
-<p>投<strong>整列</strong>, 注意<strong>去重</strong>(若投影完后有两行完全相同, 只保留一行). 记为: π 列名1, 列名2… (表名)</p>
+<p><strong>右外连接:</strong> 只保留右边关系表没有共同属性的行. </p>
+<h4 id="选择"><a href="#选择" class="headerlink" title="选择:"></a>选择:</h4><p>选择符合条件的某行或者某几行. 注意是<strong>整行.</strong> 记为:  δ 条件 (表名)</p>
+<p><img src="https://img-blog.csdnimg.cn/12abb3f1cc4d4029ab871e7ff2437ac6.png"></p>
+<h4 id="投影"><a href="#投影" class="headerlink" title="投影:"></a>投影:</h4><p>投<strong>整列</strong>, 注意<strong>去重</strong>(若投影完后有两行完全相同, 只保留一行). 记为: π 列名1, 列名2… (表名)</p>
 <p><img src="https://img-blog.csdnimg.cn/ec3be0799a724d9ca5058c737b122d9d.png" alt="在这里插入图片描述"></p>
-<h4 id="除法"><a class="header-anchor" href="#除法">¶</a>除法:</h4>
-<p><strong>最后保留R包含而S不包含的属性</strong>,  忽视S含有而R不含有的属性.  保留的属性所在行要包含所有共同属性.</p>
-<p><img src="https://img-blog.csdnimg.cn/1c8e57dce4db4cf28ac7d43cc26a3351.png" alt=""></p>
-<h4 id="可串行化调度判断问题"><a class="header-anchor" href="#可串行化调度判断问题">¶</a>可串行化调度判断问题:</h4>
-<p><strong>可串行化调度:</strong> 多个事务的并发执行是正确的, 当且仅当其结果与按某一次序串行地执行这些事务时的结果相同. 可串行化调度当然也保持数据库的一致状态.</p>
+<h4 id="除法"><a href="#除法" class="headerlink" title="除法:"></a>除法:</h4><p><strong>最后保留R包含而S不包含的属性</strong>,  忽视S含有而R不含有的属性.  保留的属性所在行要包含所有共同属性.</p>
+<p><img src="https://img-blog.csdnimg.cn/1c8e57dce4db4cf28ac7d43cc26a3351.png"></p>
+<h4 id="可串行化调度判断问题"><a href="#可串行化调度判断问题" class="headerlink" title="可串行化调度判断问题:"></a>可串行化调度判断问题:</h4><p><strong>可串行化调度:</strong> 多个事务的并发执行是正确的, 当且仅当其结果与按某一次序串行地执行这些事务时的结果相同. 可串行化调度当然也保持数据库的一致状态.</p>
 <p>通常这种题会给我们几个事务的调度, 然后问我们是否是可串行化调度, 并要求给出判断步骤.</p>
 <p>只要我们最后能把给出的调度通过交换事务最后得到一个有序的调度(同一事物的不同操作放在一起), 那么就是可串行化的 (一般题目给的都是可串行化的) .</p>
 <p><strong>什么情况下事务不能交换:</strong> 1. 不同事务的对<strong>同一数据</strong>的操作. 2. 同一事物对<strong>同一数据</strong>的操作.</p>
 <p><strong>什么事务可以交换:</strong> 不同事务对<strong>不同数据</strong>的操作. 同一事物对<strong>不同数据</strong>的操作.</p>
-<p><strong>例题:</strong> 下列是3个事务的一个调度; Sc1=r3(B)r1(A)w3(B)r2(B)r2(A) w2(B)r1(B)w1(A). 请判断该调度是否为可串行化的调度, 请写出判断的步骤.</p>
+<p><strong>例题:</strong> 下列是3个事务的一个调度; Sc1&#x3D;r3(B)r1(A)w3(B)r2(B)r2(A) w2(B)r1(B)w1(A). 请判断该调度是否为可串行化的调度, 请写出判断的步骤.</p>
 <ul>
-<li>是可串行化调度.</li>
-<li>首先交换r1(A)和r3(B), 得到Sc1=r1(A)r3(B)w3(B)r2(B)r2(A) w2(B)r1(B)w1(A).</li>
-<li>然后交换r3(B)w3(B)和r1(B)w1(A), 得到Sc1=r1(A)r1(B)w1(A)r2(B)r2(A) w2(B)r3(B)w3(B).</li>
+<li>是可串行化调度. </li>
+<li>首先交换r1(A)和r3(B), 得到Sc1&#x3D;r1(A)r3(B)w3(B)r2(B)r2(A) w2(B)r1(B)w1(A).</li>
+<li>然后交换r3(B)w3(B)和r1(B)w1(A), 得到Sc1&#x3D;r1(A)r1(B)w1(A)r2(B)r2(A) w2(B)r3(B)w3(B).</li>
 <li>等价于一个串行调度T1, T2, T3, 所以是可串行化调度.</li>
 </ul>
-<h3 id="三-设计题"><a class="header-anchor" href="#三-设计题">¶</a>三 设计题:</h3>
-<p><u>重点: 第六章范式, 第七章E-R图</u></p>
-<h4 id="了解范式"><a class="header-anchor" href="#了解范式">¶</a>了解范式:</h4>
-<p><strong>基本概念:</strong></p>
+<h3 id="三-设计题"><a href="#三-设计题" class="headerlink" title="三 设计题:"></a>三 设计题:</h3><p><u>重点: 第六章范式, 第七章E-R图</u></p>
+<h4 id="了解范式"><a href="#了解范式" class="headerlink" title="了解范式:"></a>了解范式:</h4><p><strong>基本概念:</strong></p>
 <ul>
-<li><strong>候选码:</strong> 如果一个集合可以推出所有的属性, 而它的任意一个真子集无法推出所有属性, 那么它就是候选码. <s>看不懂没事, 看看候选码怎么求的就会了.</s></li>
+<li><strong>候选码:</strong> 如果一个集合可以推出所有的属性, 而它的任意一个真子集无法推出所有属性, 那么它就是候选码. <del>看不懂没事, 看看候选码怎么求的就会了.</del></li>
 <li><strong>主码:</strong> 任意一个候选码都可以当做主码. 在求出候选码后主码是我们自己选择的, 候选码可以有多个, 主码只有一个.</li>
 <li><strong>主属性:</strong> 如果一个属性在某个候选码中出现过, 那么它就被称之为主属性. 注意只要在任意候选码中出现过就可以, 不需要是主码.</li>
 <li><strong>非主属性:</strong> 如果一个属性在任何一个候选码中都没有出现, 那么它就被称之为非主属性.</li>
@@ -441,81 +415,64 @@
 </ul>
 <p><strong>函数依赖:</strong></p>
 <ul>
-<li><strong>完全函数依赖:</strong> (A, B)→C且A和B均无法单独推出C, 则C完全依赖于(A, B).</li>
+<li><strong>完全函数依赖:</strong> (A, B)→C且A和B均无法单独推出C, 则C完全依赖于(A, B). </li>
 <li><strong>部分函数依赖:</strong> (A, B)→C且A→C, 则C部分依赖于(A, B). 简单说就是存在非主属性只用主码的一部分就可以推出来.</li>
 <li><strong>传递函数依赖:</strong> A→B &amp; B→C, 如果通过A属性 (属性组) 的值, 可以确定唯一的B属性值, 再通过B属性(属性组)的值可以确定唯一C属性的值, 则称 C 传递依赖于 A. 直观来讲就是存在非主属性可以由非主属性推出来.</li>
 </ul>
-<h4 id="四种范式"><a class="header-anchor" href="#四种范式">¶</a>四种范式:</h4>
-<ul>
-<li><strong>第一范式:</strong> 所有的属性不可再分.</li>
+<h4 id="四种范式"><a href="#四种范式" class="headerlink" title="四种范式:"></a>四种范式:</h4><ul>
+<li><strong>第一范式:</strong> 所有的属性不可再分. </li>
 <li><strong>第二范式:</strong> 在第一范式的基础上, 不存在<strong>非主属性</strong>对码的部分函数依赖.</li>
-<li><strong>第三范式:</strong> 在第二范式的基础上, 不存在<strong>非主属性</strong>对码的传递函数依赖.
-<ul>
+<li><strong>第三范式:</strong> 在第二范式的基础上, 不存在<strong>非主属性</strong>对码的传递函数依赖. <ul>
 <li>因为二, 三范式都是针对非主属性的, 所以全码可以直接定位到第三范式.</li>
 </ul>
 </li>
-<li><strong>BCNF范式:</strong> 在第三范式的基础上, 不存在<strong>主属性</strong>对码的部分和传递函数的依赖.
-<ul>
+<li><strong>BCNF范式:</strong> 在第三范式的基础上, 不存在<strong>主属性</strong>对码的部分和传递函数的依赖.<ul>
 <li>判断第三范式是否为BCNF范式: 如果每一个决定因素都<strong>包含候选码</strong>, 那么就是BCNF.</li>
 </ul>
 </li>
 </ul>
-<h4 id="做题流程"><a class="header-anchor" href="#做题流程">¶</a>做题流程:</h4>
-<ol>
-<li>
-<p><strong>求候选码:</strong><img src="https://img-blog.csdnimg.cn/da5baec3b40d4669ad8ac3b2834ccc7b.png" alt=""></p>
+<h4 id="做题流程"><a href="#做题流程" class="headerlink" title="做题流程:"></a>做题流程:</h4><ol>
+<li><p><strong>求候选码:</strong><img src="https://img-blog.csdnimg.cn/da5baec3b40d4669ad8ac3b2834ccc7b.png"></p>
 </li>
-<li>
-<p><strong>依次对照各种范式的条件定位到属于哪种范式.</strong></p>
+<li><p><strong>依次对照各种范式的条件定位到属于哪种范式.</strong></p>
 </li>
-<li>
-<p><strong>按要求将范式分解到更高级别的范式.</strong></p>
+<li><p><strong>按要求将范式分解到更高级别的范式.</strong></p>
 <ul>
-<li>如果是存在部分函数依赖, 就将引起部分函数依赖的那部分拿出单独建一个表.</li>
+<li>如果是存在部分函数依赖, 就将引起部分函数依赖的那部分拿出单独建一个表. </li>
 <li>如果是存在传递函数依赖, 就将引起传递函数依赖的那部分拿出单独建一个表.</li>
 </ul>
 </li>
 </ol>
-<h4 id="示例"><a class="header-anchor" href="#示例">¶</a>示例:</h4>
-<p><img src="https://img-blog.csdnimg.cn/289e9efc53f8449585e66b0ffe1ef5cc.png" alt=""></p>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例:"></a>示例:</h4><p><img src="https://img-blog.csdnimg.cn/289e9efc53f8449585e66b0ffe1ef5cc.png"></p>
 <p><strong>PS: 下面题目的候选码求的有问题, 应该是C, 主要看做题方法.</strong></p>
-<p><img src="https://img-blog.csdnimg.cn/57b1ace74b17418b917e385b7a319069.png" alt=""></p>
-<h4 id="画E-R图"><a class="header-anchor" href="#画E-R图">¶</a>画E-R图:</h4>
-<ul>
+<p><img src="https://img-blog.csdnimg.cn/57b1ace74b17418b917e385b7a319069.png"></p>
+<h4 id="画E-R图"><a href="#画E-R图" class="headerlink" title="画E-R图:"></a>画E-R图:</h4><ul>
 <li>实体用矩形括起来.</li>
 <li>属性用椭圆括起来.</li>
-<li>关系用菱形括起来.
-<ul>
+<li>关系用菱形括起来.<ul>
 <li>实体间的对应关系要在表上表示出来. 例如: 1对多就要在菱形两边的横线上写1和n.</li>
 </ul>
 </li>
 </ul>
-<h4 id="E-R图转化为关系表"><a class="header-anchor" href="#E-R图转化为关系表">¶</a>E-R图转化为关系表:</h4>
-<ul>
+<h4 id="E-R图转化为关系表"><a href="#E-R图转化为关系表" class="headerlink" title="E-R图转化为关系表:"></a>E-R图转化为关系表:</h4><ul>
 <li>首先将所有的实体分别对应一个关系模式.</li>
 <li>1对1的实体关系, 将其中一个实体的主码写到另一个实体的关系模式中. 例如: A和B是1对1的关系, 可以<strong>将A的主码作为普通的码写到B的关系模式中</strong>, B中不用再写A的主码.</li>
 <li>1对多的实体关系: 将1端实体的主码作为外码写到N端实体的关系模式中并注明是外码.</li>
 <li>多对多的实体关系: 新建一个关系模式, 模式名是关系名字, 主码是两侧实体的主码. 不要忘记关系的属性.</li>
 </ul>
-<h3 id="四-编程题"><a class="header-anchor" href="#四-编程题">¶</a>四  编程题:</h3>
-<p><u>重点: 第三章SQL语言</u></p>
-<h4 id="关于建表时数据类型的选择："><a class="header-anchor" href="#关于建表时数据类型的选择：">¶</a>关于建表时数据类型的选择：</h4>
-<ul>
+<h3 id="四-编程题"><a href="#四-编程题" class="headerlink" title="四  编程题:"></a>四  编程题:</h3><p><u>重点: 第三章SQL语言</u></p>
+<h4 id="关于建表时数据类型的选择："><a href="#关于建表时数据类型的选择：" class="headerlink" title="关于建表时数据类型的选择："></a>关于建表时数据类型的选择：</h4><ul>
 <li>整形: int</li>
-<li>浮点数: float(m, n)</li>
+<li>浮点数: float(m, n)  </li>
 <li>字符串: varchar(n)  可变长字符串</li>
-<li>时间: datetime / date   存储日期 + 时间 / 日期</li>
+<li>时间: datetime &#x2F; date   存储日期 + 时间 &#x2F; 日期</li>
 </ul>
-<h4 id="关于什么时候需要加单引号"><a class="header-anchor" href="#关于什么时候需要加单引号">¶</a>关于什么时候需要加单引号:</h4>
-<p><strong>整数和浮点数</strong>不需要加, <strong>字符串和日期</strong>类型均需要加单引号</p>
-<h4 id="面向考试SQL语句汇总"><a class="header-anchor" href="#面向考试SQL语句汇总">¶</a>面向考试SQL语句汇总:</h4>
-<p><strong>对表的操作</strong>:</p>
+<h4 id="关于什么时候需要加单引号"><a href="#关于什么时候需要加单引号" class="headerlink" title="关于什么时候需要加单引号:"></a>关于什么时候需要加单引号:</h4><p><strong>整数和浮点数</strong>不需要加, <strong>字符串和日期</strong>类型均需要加单引号</p>
+<h4 id="面向考试SQL语句汇总"><a href="#面向考试SQL语句汇总" class="headerlink" title="面向考试SQL语句汇总:"></a>面向考试SQL语句汇总:</h4><p><strong>对表的操作</strong>:</p>
 <ul>
-<li>
-<p>建表</p>
+<li><p>建表</p>
 <ul>
-<li>
-<p><code>create table 表名 (</code></p>
+<li><p><code>create table 表名 (</code></p>
 <p><code>列名 类型,</code></p>
 <p><code>列名 类型,</code></p>
 <p><code>primary key(列名, 列名...),  //表示主码</code></p>
@@ -523,40 +480,32 @@
 <p><code>foreign key(列名) references 表名 (列名)  //一行只能写一个外码</code></p>
 <p><code>)</code></p>
 </li>
-<li>
-<p>除了上面的<code>primary key</code> 和<code>foreign key</code>之外, 还有三个可以直接跟在类型后面的约束条件:</p>
+<li><p>除了上面的<code>primary key</code> 和<code>foreign key</code>之外, 还有三个可以直接跟在类型后面的约束条件: </p>
 </li>
-<li>
-<p>not null  //不允许为空.</p>
+<li><p>not null  &#x2F;&#x2F;不允许为空. </p>
 </li>
-<li>
-<p>unique  //不允许重复.</p>
+<li><p>unique  &#x2F;&#x2F;不允许重复. </p>
 </li>
-<li>
-<p>cherk(条件)  //通常用来指定输入数据的范围, 例如: <code>grade int cherk(grade &gt;= 0 and grade &lt;=100)</code> 或者 <code>sex char(4) cherk(sex = '男' or sex = '女')</code></p>
+<li><p>cherk(条件)  &#x2F;&#x2F;通常用来指定输入数据的范围, 例如: <code>grade int cherk(grade &gt;= 0 and grade &lt;=100)</code> 或者 <code>sex char(4) cherk(sex = &#39;男&#39; or sex = &#39;女&#39;)</code></p>
 </li>
 </ul>
 </li>
-<li>
-<p>删除表</p>
+<li><p>删除表</p>
 <ul>
 <li><code>drop table 表名 cascade</code></li>
 </ul>
 </li>
-<li>
-<p>添加列</p>
+<li><p>添加列</p>
 <ul>
 <li><code>alter table 表名 add 列名 类型</code></li>
 </ul>
 </li>
-<li>
-<p>删除列</p>
+<li><p>删除列</p>
 <ul>
 <li><code>alter table  表名 drop column 列名</code></li>
 </ul>
 </li>
-<li>
-<p>修改列的类型</p>
+<li><p>修改列的类型</p>
 <ul>
 <li><code>alter table 表名 alter column 列名 类型</code></li>
 </ul>
@@ -564,76 +513,61 @@
 </ul>
 <p><strong>对数据的操作</strong>:</p>
 <ul>
-<li>
-<p>添加数据:</p>
+<li><p>添加数据:</p>
 <ul>
 <li><code>insert into 表名 values (,,,)(,,,)(,,,)</code></li>
 </ul>
 </li>
-<li>
-<p>删除数据:</p>
+<li><p>删除数据:</p>
 <ul>
 <li><code>delete from 表名 where 条件</code></li>
 </ul>
 </li>
-<li>
-<p>修改数据:</p>
+<li><p>修改数据:</p>
 <ul>
 <li><code>update 表名 set 变量名 = 数据值 where 条件</code></li>
 <li>把<strong>where和后面的条件去掉</strong>就是修改所有人的某个属性</li>
 </ul>
 </li>
-<li>
-<p>排序:</p>
+<li><p>排序:</p>
 <ul>
 <li>排序本质上是对查找到的数据通过比较某个或某几个属性进行排序, 所以要用到selete</li>
-<li><code>selete 列名1, 列名2, 列名3... form 表名 order by 列名2</code>  //order by后只写列名2或者在列名2后加asc, 表示将查找结果按照列名2进行升序排列</li>
-<li><code>selete 列名1, 列名2, 列名3... form 表名 order by 列名2 desc</code> //在列名2后加desc表示将查找结果按照列名2进行降序排列</li>
-<li><code>selete * form 表名 order by 列名1, 列名2 desc</code>  //将整个表按照列名1升序排列, 如果列名1相同则按照列名2降序排列</li>
+<li><code>selete 列名1, 列名2, 列名3... form 表名 order by 列名2</code>  &#x2F;&#x2F;order by后只写列名2或者在列名2后加asc, 表示将查找结果按照列名2进行升序排列</li>
+<li><code>selete 列名1, 列名2, 列名3... form 表名 order by 列名2 desc</code> &#x2F;&#x2F;在列名2后加desc表示将查找结果按照列名2进行降序排列</li>
+<li><code>selete * form 表名 order by 列名1, 列名2 desc</code>  &#x2F;&#x2F;将整个表按照列名1升序排列, 如果列名1相同则按照列名2降序排列</li>
 </ul>
 </li>
-<li>
-<p>查找数据:</p>
+<li><p>查找数据:</p>
 <ul>
-<li>
-<p>查找数据是最复杂的一种, 这里只列出几个必考的</p>
+<li><p>查找数据是最复杂的一种, 这里只列出几个必考的</p>
 </li>
-<li>
-<p>查找名字中带有吴的人的名字: <code>selete 列名1 from 表名 where 列名1 like '%吴%'</code>   // %是匹配任意字符串</p>
+<li><p>查找名字中带有吴的人的名字: <code>selete 列名1 from 表名 where 列名1 like &#39;%吴%&#39;</code>   &#x2F;&#x2F; %是匹配任意字符串</p>
 </li>
-<li>
-<p>查找员工名和公司名(分别在员工表和公司表, 两个表的共同列是公司编号): <code>selete 员工表.名字列, 公司表.公司列 from 员工表, 公司表 where 员工表.公司编号 = 公司表.公司编号</code>  //更多的表和两个表一个道理</p>
+<li><p>查找员工名和公司名(分别在员工表和公司表, 两个表的共同列是公司编号): <code>selete 员工表.名字列, 公司表.公司列 from 员工表, 公司表 where 员工表.公司编号 = 公司表.公司编号</code>  &#x2F;&#x2F;更多的表和两个表一个道理</p>
 </li>
-<li>
-<p>简单举例三张表查询(其实和两张表一样):  有三个表 a b c. c.aid对应a.aid, c.bid对应b.bid对应a.aid, c.bid对应b.bid, 现在要查出a.aname,b.bname,c.value. <code>select a.anme, b.bname, c.value</code> <code>from a,b,c</code> <code>where a.aid = c.aid and b.bid = c.bid</code></p>
+<li><p>简单举例三张表查询(其实和两张表一样):  有三个表 a b c. c.aid对应a.aid, c.bid对应b.bid对应a.aid, c.bid对应b.bid, 现在要查出a.aname,b.bname,c.value. <code>select a.anme, b.bname, c.value</code> <code>from a,b,c</code> <code>where a.aid = c.aid and b.bid = c.bid</code></p>
 </li>
-<li>
-<p>统计总人数大于2的各班级各性别人数, 列出班级, 性别, 人数:</p>
+<li><p>统计总人数大于2的各班级各性别人数, 列出班级, 性别, 人数:   </p>
 </li>
-<li>
-<p><code>select 班级列, sum(case when 性别列 = '男' then 1 else 0 end) as 男生人数, sum(case when 性别列 = '女' then 1 else 0 end) as 女生人数</code></p>
-<p><code>from  班级表</code></p>
-<p><code>group by 班级列</code><br>
-<code>having (count(班级列) &gt; 2);</code></p>
+<li><p><code>select 班级列, sum(case when 性别列 = &#39;男&#39; then 1 else 0 end) as 男生人数, sum(case when 性别列 = &#39;女&#39; then 1 else 0 end) as 女生人数</code>  </p>
+<p><code>from  班级表</code>  </p>
+<p><code>group by 班级列</code><br><code>having (count(班级列) &gt; 2);</code></p>
 </li>
 </ul>
 </li>
 </ul>
 <p><strong>视图的建立:</strong></p>
 <ul>
-<li>
-<p>视图的建立和表类似</p>
+<li><p>视图的建立和表类似</p>
 </li>
-<li>
-<p><code>create view 视图名 as </code></p>
+<li><p><code>create view 视图名 as </code></p>
 <p><code>select 列名1, 列名2, 列名3...</code></p>
 <p><code>form 表名</code></p>
 <p><code>where 条件</code></p>
 <p><code>with check option</code></p>
 </li>
 </ul>
-<h3 id="五-真题链接"><a class="header-anchor" href="#五-真题链接">¶</a>五 真题链接:</h3>
-<ol>
+<h3 id="五-真题链接"><a href="#五-真题链接" class="headerlink" title="五 真题链接:"></a>五 真题链接:</h3><ol>
 <li><a target="_blank" rel="noopener" href="http://rczkr10rm.hn-bkt.clouddn.com/hexo%E5%8D%9A%E5%AE%A2%2F2020-2021-02-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86%E8%AF%95%E5%8D%B7-%E8%AE%A1%E7%A7%9119-%E4%BA%8E%E6%96%87%E8%8E%89.doc">a卷下载链接</a></li>
 <li><a target="_blank" rel="noopener" href="http://rczkr10rm.hn-bkt.clouddn.com/hexo%E5%8D%9A%E5%AE%A2%2F2020-2021-02-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86%E8%AF%95%E5%8D%B7b--%E4%BA%8E%E6%96%87%E8%8E%89%20.doc">b卷下载链接</a></li>
 </ol>
@@ -785,7 +719,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -875,12 +809,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">238k</span>
+    <span title="站点总字数">243k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:36</span>
+    <span title="站点阅读时长">3:41</span>
 </div>
 
 <!--
@@ -890,7 +824,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共238k字</span>
+  <span class="post-count">博客全站共80.1k字</span>
 </div>
 
 

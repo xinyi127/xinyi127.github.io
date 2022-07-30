@@ -299,19 +299,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="题目链接：八数码"><a class="header-anchor" href="#题目链接：八数码">¶</a>题目链接：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/847/">八数码</a></h4>
-<h4 id="题意：-v22"><a class="header-anchor" href="#题意：-v22">¶</a><strong>题意：</strong></h4>
-<p>给定一个3×3的字符矩阵，每次可以将 ‘x’ 与其上下左右四个方向的某个数字交换位置，问最少需要几次操作可以将矩阵恢复到 1 2 3 4 5  6 7 8 x 的状态。</p>
-<h4 id="思路：-v29"><a class="header-anchor" href="#思路：-v29">¶</a><strong>思路：</strong></h4>
-<ul>
+        <h4 id="题目链接：八数码"><a href="#题目链接：八数码" class="headerlink" title="题目链接：八数码"></a>题目链接：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/847/">八数码</a></h4><h4 id="题意："><a href="#题意：" class="headerlink" title="题意："></a><strong>题意：</strong></h4><p> 给定一个3×3的字符矩阵，每次可以将 ‘x’ 与其上下左右四个方向的某个数字交换位置，问最少需要几次操作可以将矩阵恢复到 1 2 3 4 5  6 7 8 x 的状态。</p>
+<h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a><strong>思路：</strong></h4><ul>
 <li>很容易想到BFS求最短路。</li>
 <li><strong>第一个问题</strong>，<strong>如何存状态</strong>？我们平时做图论的最短路时往往是从一个点走到另一个点，记录状态转移时可以直接记录点（例如走迷宫我们可以记录[x,y]是由[x-1,y]走到的），那么由图到图怎么记录状态呢？很简单，我们可以<strong>将图视为点，在存状态时，直接在队列中存字符串</strong>。</li>
-<li><strong>第二个问题</strong>，<strong>如何记录走了多少步</strong>？由于总共只有1~8 + 'x’共9个字符，我们可以开一个数组d[10]，<strong>d[i]表示表示x走了走到i位置走了多少步</strong>，因为最后x一定在右下角，所以当找到最短路后，d[8]就是所需步数。</li>
+<li><strong>第二个问题</strong>，<strong>如何记录走了多少步</strong>？由于总共只有1~8 + ‘x’共9个字符，我们可以开一个数组d[10]，<strong>d[i]表示表示x走了走到i位置走了多少步</strong>，因为最后x一定在右下角，所以当找到最短路后，d[8]就是所需步数。</li>
 <li><strong>第三个问题</strong>，<strong>如何记录我们是否走到过当前状态</strong>（防止反复重复相同路线），换句话说，如何剪枝？在点到点的搜索时我们可以开一个二维数组记录点，那么图我们同样可以将图视为点，用<strong>map来标记某个状态是否走到过</strong>。</li>
 <li><strong>第四个问题，我们怎么知道‘x’当前位置，</strong> 并且和周围数字交换？虽然在存状态时我们将图视为字符串，但是在寻找‘x’的位置和交换时，我们要<strong>将字符串重新视为图</strong>，然后根据x的坐标来看周围是否可以交换。</li>
-<li>两个注意的点，<br>
-第一，如果用两个队列来分别存‘x’的位置和当前状态的话，会超时。解决方案：直接调用string中的find函数。<br>
-第二，<strong>用scanf取字符很危险</strong>，<s>真的狠危险！血的教训…</s> 因为不确定后台会给多少空格。解决方案：用cin取字符，然后加到字符串上去。</li>
+<li>两个注意的点，<br>第一，如果用两个队列来分别存‘x’的位置和当前状态的话，会超时。解决方案：直接调用string中的find函数。<br> 第二，<strong>用scanf取字符很危险</strong>，<del>真的狠危险！血的教训…</del> 因为不确定后台会给多少空格。解决方案：用cin取字符，然后加到字符串上去。</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unordered_map&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; PII;</span><br><span class="line">unordered_map&lt;string,<span class="type">int</span>&gt;st;<span class="comment">//标记某个状态是否已经走到过</span></span><br><span class="line"><span class="type">int</span> d[<span class="number">10</span>];<span class="comment">//d[i]表示x走到当前状态的i位置需要多少步</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">bfs</span><span class="params">(string str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    queue&lt;string&gt;p;<span class="comment">//存状态</span></span><br><span class="line">    p.<span class="built_in">push</span>(str);</span><br><span class="line">    st[p.<span class="built_in">front</span>()]=<span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> dx[]=&#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">-1</span>&#125;,dy[]=&#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(p.<span class="built_in">size</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">auto</span> s=p.<span class="built_in">front</span>(); p.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="type">int</span> k=s.<span class="built_in">find</span>(<span class="string">&#x27;x&#x27;</span>);<span class="comment">//x在字符串中的位置</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(s==<span class="string">&quot;12345678x&quot;</span>) <span class="keyword">return</span> d[<span class="number">8</span>];<span class="comment">//x在字符串中的下标是8</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">3</span>;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> a=k/<span class="number">3</span>+dx[i],b=k%<span class="number">3</span>+dy[i];<span class="comment">//将字符串重新视为图，x的坐标</span></span><br><span class="line">            string u=s;</span><br><span class="line">            <span class="comment">//如果可以交换，那么交换之后的字符串就是u</span></span><br><span class="line">            <span class="built_in">swap</span>(u[a*<span class="number">3</span>+b],u[k]);</span><br><span class="line">            <span class="keyword">if</span>(a&gt;=<span class="number">0</span> &amp;&amp; a&lt;=<span class="number">2</span> &amp;&amp; b&gt;=<span class="number">0</span> &amp;&amp; b&lt;=<span class="number">2</span> &amp;&amp; !st[u])</span><br><span class="line">            &#123;</span><br><span class="line">                p.<span class="built_in">push</span>(u);</span><br><span class="line">                d[a*<span class="number">3</span>+b]=d[k]+<span class="number">1</span>;</span><br><span class="line">                st[u]=<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//无法回到1 2 3 4 5 6 7 8 x返回-1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string str;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">9</span>;++i)</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="comment">//注意，最好是用cin，用scanf真的真的很危险！</span></span><br><span class="line">        <span class="type">char</span> c;</span><br><span class="line">        cin&gt;&gt;c;</span><br><span class="line">        str+=c;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;<span class="built_in">bfs</span>(str);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
@@ -445,7 +440,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E9%93%BE%E6%8E%A5%EF%BC%9A%E5%85%AB%E6%95%B0%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">题目链接：八数码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A-v22"><span class="nav-number">2.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A-v29"><span class="nav-number">3.</span> <span class="nav-text">思路：</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E9%93%BE%E6%8E%A5%EF%BC%9A%E5%85%AB%E6%95%B0%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">题目链接：八数码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">思路：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -461,7 +456,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -551,12 +546,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">238k</span>
+    <span title="站点总字数">243k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:36</span>
+    <span title="站点阅读时长">3:41</span>
 </div>
 
 <!--
@@ -566,7 +561,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共238k字</span>
+  <span class="post-count">博客全站共80.1k字</span>
 </div>
 
 

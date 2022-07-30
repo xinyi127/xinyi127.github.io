@@ -299,43 +299,37 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="网站背景"><a class="header-anchor" href="#网站背景">¶</a>网站背景:</h4>
-<ul>
+        <h4 id="网站背景"><a href="#网站背景" class="headerlink" title="网站背景:"></a>网站背景:</h4><ul>
 <li>打开主题配置文件即<code>blog/themes/next</code>下的<code>config.yml</code>，将 <code>style: source/data/styles.styl</code> 前面的<code>#</code>去掉取消注释</li>
 </ul>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">custom_file_path:</span><br><span class="line">  style: source/_data/styles.styl</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>
-<p>打开根目录 <code>Blog/source</code> 创建文件 <code>_data/styles.styl</code> , 添加以下内容</p>
+<li><p>打开根目录 <code>Blog/source</code> 创建文件 <code>_data/styles.styl</code> , 添加以下内容</p>
 <p>注意:图片的地址不用改, 但是要将想要改的图片放到 <code>Blog\themes\next\source\images</code> 并将图片改名为 <code>background.png</code></p>
 </li>
 </ul>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 添加背景图片</span><br><span class="line">body &#123;</span><br><span class="line">      background: url(/images/background.png);//自己喜欢的图片地址</span><br><span class="line">      background-size: cover;</span><br><span class="line">      background-repeat: no-repeat;</span><br><span class="line">      background-attachment: fixed;</span><br><span class="line">      background-position: 50% 50%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="网站超链接颜色"><a class="header-anchor" href="#网站超链接颜色">¶</a>网站超链接颜色:</h4>
-<ul>
-<li>
-<p>打开 <code>Blog\themes\next\source\css\_common\components\post</code> 路径下的<code>post.styl</code> , 并在底部添加如下代码</p>
+
+
+
+<h4 id="网站超链接颜色"><a href="#网站超链接颜色" class="headerlink" title="网站超链接颜色:"></a>网站超链接颜色:</h4><ul>
+<li><p>打开 <code>Blog\themes\next\source\css\_common\components\post</code> 路径下的<code>post.styl</code> , 并在底部添加如下代码</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a:not(.btn)&#123;</span><br><span class="line">  color: #90EE90; //超链接显示颜色</span><br><span class="line">  border-bottom: none;</span><br><span class="line">  &amp;:hover &#123;</span><br><span class="line">	color: #00FA9A;  //鼠标移动上去后超链接颜色</span><br><span class="line">	font-weight: bold;</span><br><span class="line">	text-decoration: underline;</span><br><span class="line">	&#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p><strong>颜色码链接:</strong> <a target="_blank" rel="noopener" href="https://www.sioe.cn/yingyong/yanse-rgb-16/">RGB颜色值与十六进制颜色码转换工具 (sioe.cn)</a></p>
+<li><p><strong>颜色码链接:</strong> <a target="_blank" rel="noopener" href="https://www.sioe.cn/yingyong/yanse-rgb-16/">RGB颜色值与十六进制颜色码转换工具 (sioe.cn)</a></p>
 </li>
 </ul>
-<h4 id="侧边栏背景"><a class="header-anchor" href="#侧边栏背景">¶</a>侧边栏背景:</h4>
-<ul>
-<li>
-<p>注意: 本文仅针对next主题.</p>
-<p>对于 Muse 和 Mist主题, 其侧边栏的配置文件为 <code>Blog\themes\next\source\css\_schemes\Muse</code></p>
-<p>对于 Pisces和 Gemini主题，其侧边栏的配置文件为 <code>Blog\themes\next\source\css\_schemes\Pisces</code></p>
+<h4 id="侧边栏背景"><a href="#侧边栏背景" class="headerlink" title="侧边栏背景:"></a>侧边栏背景:</h4><ul>
+<li><p>注意: 本文仅针对next主题.</p>
+<p>对于 Muse 和 Mist主题, 其侧边栏的配置文件为 <code>Blog\themes\next\source\css\_schemes\Muse</code> </p>
+<p>对于 Pisces和 Gemini主题，其侧边栏的配置文件为 <code>Blog\themes\next\source\css\_schemes\Pisces</code> </p>
 </li>
-<li>
-<p>在 <code>_sidebar.styl</code> 文件底部添加如下内容</p>
+<li><p>在 <code>_sidebar.styl</code> 文件底部添加如下内容</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">.sidebar &#123;</span><br><span class="line">  //设置背景图片，图片放在Hexo\themes\hexo-theme-next\source\images目录下</span><br><span class="line">  background:url(/images/sidebar-bg.jpg);	</span><br><span class="line">  background-size: cover;</span><br><span class="line">  background-position:center;</span><br><span class="line">  background-repeat:no-repeat;</span><br><span class="line">  bottom: 0;</span><br><span class="line">  if (not hexo-config(&#x27;back2top.sidebar&#x27;)) &#123;</span><br><span class="line">    box-shadow: inset 0 2px 6px black;</span><br><span class="line">  &#125;</span><br><span class="line">  position: fixed;</span><br><span class="line">  top: 0;</span><br><span class="line">  transition: all $transition-ease-out;</span><br><span class="line">  width: $sidebar-desktop;</span><br><span class="line">  z-index: $zindex-2;</span><br><span class="line"></span><br><span class="line">  a &#123;</span><br><span class="line">    //设置文字颜色</span><br><span class="line">	border-bottom-color: #FFFFFF;</span><br><span class="line">	color: #FFFFFF;</span><br><span class="line">    &amp;:hover &#123;</span><br><span class="line">	  border-bottom-color: $FFFFFF;</span><br><span class="line">	  color: #FFFFFF;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>修改侧边栏中头像下方的作者姓名和描述的字体颜色, 需要在 <code>Blog\_config.yml</code> 中修改</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">description: 像珍惜礼物一样，珍惜今天。     #简介或者格言 不修改颜色版本</span><br><span class="line">description: &lt;font color=&quot;#000000&quot;&gt;像珍惜礼物一样，珍惜今天。&lt;/font&gt;     #简介或者格言  修改颜色版本&quot;#000000&quot;就是对应的颜色 两个版本二选其一</span><br></pre></td></tr></table></figure>
-</li>
+<li><p>修改侧边栏中头像下方的作者姓名和描述的字体颜色, 需要在 <code>Blog\_config.yml</code> 中修改</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">description: 像珍惜礼物一样，珍惜今天。     #简介或者格言 不修改颜色版本</span><br><span class="line">description: &lt;font color=&quot;#000000&quot;&gt;像珍惜礼物一样，珍惜今天。&lt;/font&gt;     #简介或者格言  修改颜色版本&quot;#000000&quot;就是对应的颜色 两个版本二选其一</span><br></pre></td></tr></table></figure></li>
 </ul>
 
     </div>
@@ -485,7 +479,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -575,12 +569,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">238k</span>
+    <span title="站点总字数">243k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:36</span>
+    <span title="站点阅读时长">3:41</span>
 </div>
 
 <!--
@@ -590,7 +584,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共238k字</span>
+  <span class="post-count">博客全站共80.1k字</span>
 </div>
 
 

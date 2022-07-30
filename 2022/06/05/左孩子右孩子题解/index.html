@@ -300,13 +300,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="题目：左孩子右兄弟"><a class="header-anchor" href="#题目：左孩子右兄弟">¶</a>题目：<a target="_blank" rel="noopener" href="http://oj.ecustacm.cn/problem.php?id=1560">左孩子右兄弟 </a></h4>
-<h4 id="题意-v29"><a class="header-anchor" href="#题意-v29">¶</a>题意:</h4>
-<p>题意很简单，对于每个结点做这样的操作：</p>
+        <h4 id="题目：左孩子右兄弟"><a href="#题目：左孩子右兄弟" class="headerlink" title="题目：左孩子右兄弟 "></a>题目：<a target="_blank" rel="noopener" href="http://oj.ecustacm.cn/problem.php?id=1560">左孩子右兄弟 </a></h4><h4 id="题意"><a href="#题意" class="headerlink" title="题意:"></a>题意:</h4><p>题意很简单，对于每个结点做这样的操作：</p>
 <p>选任意顺序将所有子节点中任选作为左结点，将该结点的兄弟结点依次在右侧连接，最后形成一个二叉树。</p>
 <p>要我们求出一颗给定树改为二叉树后最大的高度为多少。</p>
-<h4 id="思路：-v35"><a class="header-anchor" href="#思路：-v35">¶</a>思路：</h4>
-<ul>
+<h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><ul>
 <li>由于父节点不能改变，所以得到的二叉树根节点也还是1</li>
 <li>假设以1为父节点的所有子节点中孩子结点最多的那个结点为x</li>
 <li>显然我们需要将x结点放在他所有兄弟结点的最下面</li>
@@ -315,10 +312,9 @@
 <li>于是问题变为去寻找以x为根节点的二叉树的高度，而这显然与寻找1为根节点的树的高度相同，于是考虑递归dfs</li>
 <li>vector中存放的是以i为父节点的所有结点，p[k] [i]是以k为父节点的第i个结点</li>
 </ul>
-<h4 id="代码：-v22"><a class="header-anchor" href="#代码：-v22">¶</a>代码：</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="type">const</span> ll N = <span class="number">100005</span>;</span><br><span class="line"></span><br><span class="line">vector&lt;<span class="type">int</span>&gt;p[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p[k].<span class="built_in">size</span>() == <span class="number">0</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> maxx = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; p[k].<span class="built_in">size</span>(); ++i)</span><br><span class="line">        maxx = <span class="built_in">max</span>(maxx, <span class="built_in">dfs</span>(p[k][i]));</span><br><span class="line">    <span class="keyword">return</span> maxx+p[k].<span class="built_in">size</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> a; cin &gt;&gt; a;</span><br><span class="line">        p[a].<span class="built_in">push_back</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;<span class="built_in">dfs</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="PS："><a class="header-anchor" href="#PS：">¶</a>PS：</h4>
-<ul>
+<h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="type">const</span> ll N = <span class="number">100005</span>;</span><br><span class="line"></span><br><span class="line">vector&lt;<span class="type">int</span>&gt;p[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p[k].<span class="built_in">size</span>() == <span class="number">0</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> maxx = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; p[k].<span class="built_in">size</span>(); ++i)</span><br><span class="line">        maxx = <span class="built_in">max</span>(maxx, <span class="built_in">dfs</span>(p[k][i]));</span><br><span class="line">    <span class="keyword">return</span> maxx+p[k].<span class="built_in">size</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> a; cin &gt;&gt; a;</span><br><span class="line">        p[a].<span class="built_in">push_back</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;<span class="built_in">dfs</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="PS："><a href="#PS：" class="headerlink" title="PS："></a>PS：</h4><ul>
 <li>链式前向星存图，好处在于图的起点终点清晰，很容易获得思路。劣处是无法直接获取该节点有多少子节点，需要提前处理，这里用b[i]表示i的子节点数量。总体而言能用vector简单做还是选择vector更好。</li>
 <li>树是有向边，只需要add(x,y)一次就可以</li>
 </ul>
@@ -455,7 +451,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E5%B7%A6%E5%AD%A9%E5%AD%90%E5%8F%B3%E5%85%84%E5%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">题目：左孩子右兄弟 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-v29"><span class="nav-number">2.</span> <span class="nav-text">题意:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A-v35"><span class="nav-number">3.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A-v22"><span class="nav-number">4.</span> <span class="nav-text">代码：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PS%EF%BC%9A"><span class="nav-number">5.</span> <span class="nav-text">PS：</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E5%B7%A6%E5%AD%A9%E5%AD%90%E5%8F%B3%E5%85%84%E5%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">题目：左孩子右兄弟 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F"><span class="nav-number">2.</span> <span class="nav-text">题意:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="nav-number">4.</span> <span class="nav-text">代码：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PS%EF%BC%9A"><span class="nav-number">5.</span> <span class="nav-text">PS：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -471,7 +467,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -561,12 +557,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">238k</span>
+    <span title="站点总字数">243k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:36</span>
+    <span title="站点阅读时长">3:41</span>
 </div>
 
 <!--
@@ -576,7 +572,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共238k字</span>
+  <span class="post-count">博客全站共80.1k字</span>
 </div>
 
 

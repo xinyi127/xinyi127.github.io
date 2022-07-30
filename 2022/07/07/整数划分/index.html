@@ -300,31 +300,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="题目-整数划分"><a class="header-anchor" href="#题目-整数划分">¶</a>题目: <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/902/">整数划分</a></h4>
-<h4 id="题意-v31"><a class="header-anchor" href="#题意-v31">¶</a>题意:</h4>
-<p>一个正整数 n 可以表示成若干个正整数之和，形如：n=n1+n2+…+nk，其中 n1≥n2≥…≥nk,k≥1。</p>
+        <h4 id="题目-整数划分"><a href="#题目-整数划分" class="headerlink" title="题目: 整数划分"></a>题目: <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/902/">整数划分</a></h4><h4 id="题意"><a href="#题意" class="headerlink" title="题意:"></a>题意:</h4><p>一个正整数 n 可以表示成若干个正整数之和，形如：n&#x3D;n1+n2+…+nk，其中 n1≥n2≥…≥nk,k≥1。</p>
 <p>我们将这样的一种表示称为正整数 n 的一种划分。</p>
 <p>现在给定一个正整数 n，请你求出 n 共有多少种不同的划分方法。</p>
-<h4 id="输入格式-v40"><a class="header-anchor" href="#输入格式-v40">¶</a>输入格式</h4>
-<p>共一行，包含一个整数 n。</p>
-<h4 id="输出格式-v47"><a class="header-anchor" href="#输出格式-v47">¶</a>输出格式</h4>
-<p>共一行，包含一个整数，表示总划分数量。</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>共一行，包含一个整数 n。</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>共一行，包含一个整数，表示总划分数量。</p>
 <p>由于答案可能很大，输出结果请对 10^9+7 取模。</p>
-<h4 id="数据范围-v45"><a class="header-anchor" href="#数据范围-v45">¶</a>数据范围</h4>
-<p><code>1 ≤ n ≤ 1000</code></p>
-<h4 id="输入样例"><a class="header-anchor" href="#输入样例">¶</a>输入样例:</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5</span><br></pre></td></tr></table></figure>
-<h4 id="输出样例：-v40"><a class="header-anchor" href="#输出样例：-v40">¶</a>输出样例：</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">7</span><br></pre></td></tr></table></figure>
-<h4 id="解法一：视为完全背包问题"><a class="header-anchor" href="#解法一：视为完全背包问题">¶</a>解法一：视为完全背包问题</h4>
-<p>将给定的数视为背包的体积，那么题目就转变为了给我们n个体积和价值均为从1到n的物品，要求我们可以刚好将背包填满，问有多少种填法。<br>
-原本的完全背包是将集合中的所有方案比较出一个最大值，状态转移方程：<code>f[j]=max(f[j],f[j-v[i]]+w[i]);</code><br>
-现在则是将完全背包集合中所有方案加在一起，状态转移方程：<code>f[j]=f[j]+f[j-i];</code></p>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p><code>1 ≤ n ≤ 1000</code></p>
+<h4 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例:"></a>输入样例:</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">7</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="解法一：视为完全背包问题"><a href="#解法一：视为完全背包问题" class="headerlink" title="解法一：视为完全背包问题"></a>解法一：视为完全背包问题</h4><p>将给定的数视为背包的体积，那么题目就转变为了给我们n个体积和价值均为从1到n的物品，要求我们可以刚好将背包填满，问有多少种填法。<br>原本的完全背包是将集合中的所有方案比较出一个最大值，状态转移方程：<code>f[j]=max(f[j],f[j-v[i]]+w[i]);</code><br>现在则是将完全背包集合中所有方案加在一起，状态转移方程：<code>f[j]=f[j]+f[j-i];</code></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1010</span>,M=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> f[N];</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//当n==0时，只有一种选法，就是什么也不选</span></span><br><span class="line">    f[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//完全背包容易被忽略的一点是j的起始值要注意，通常是当前物品的体积</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=i;j&lt;=n;++j)</span><br><span class="line">            f[j]=(f[j]+f[j-i])%M;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;f[n];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="解法二：其它解法"><a class="header-anchor" href="#解法二：其它解法">¶</a>解法二：其它解法</h4>
-<p>将f[i][j]的集合视为两个子集，分别是方案中含有数字的最小值是1和方案中所含数字最小值大于1两个。<br>
-状态转移方程就是两者之和：<code>f[i][j]=f[i-1][j-1]+f[i-j][j];</code><br>
-关键点就在于不重不漏的分割集合</p>
+
+<h4 id="解法二：其它解法"><a href="#解法二：其它解法" class="headerlink" title="解法二：其它解法"></a>解法二：其它解法</h4><p>将f[i][j]的集合视为两个子集，分别是方案中含有数字的最小值是1和方案中所含数字最小值大于1两个。<br>状态转移方程就是两者之和：<code>f[i][j]=f[i-1][j-1]+f[i-j][j];</code><br>关键点就在于不重不漏的分割集合</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1010</span>,M=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//f[i][j]表示所有总和是i，且刚好有j个数的方案  </span></span><br><span class="line"><span class="type">int</span> f[N][N];</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    </span><br><span class="line">    f[<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;++j)</span><br><span class="line">            <span class="keyword">if</span>(i&gt;=j)</span><br><span class="line">                f[i][j]=(f[i<span class="number">-1</span>][j<span class="number">-1</span>]+f[i-j][j])%M;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> res=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">        res=(res+f[n][i])%M;</span><br><span class="line">    cout&lt;&lt;res;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
@@ -458,7 +450,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE-%E6%95%B4%E6%95%B0%E5%88%92%E5%88%86"><span class="nav-number">1.</span> <span class="nav-text">题目: 整数划分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-v31"><span class="nav-number">2.</span> <span class="nav-text">题意:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F-v40"><span class="nav-number">3.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-v47"><span class="nav-number">4.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-v45"><span class="nav-number">5.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B"><span class="nav-number">6.</span> <span class="nav-text">输入样例:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B%EF%BC%9A-v40"><span class="nav-number">7.</span> <span class="nav-text">输出样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E6%B3%95%E4%B8%80%EF%BC%9A%E8%A7%86%E4%B8%BA%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98"><span class="nav-number">8.</span> <span class="nav-text">解法一：视为完全背包问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E6%B3%95%E4%BA%8C%EF%BC%9A%E5%85%B6%E5%AE%83%E8%A7%A3%E6%B3%95"><span class="nav-number">9.</span> <span class="nav-text">解法二：其它解法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE-%E6%95%B4%E6%95%B0%E5%88%92%E5%88%86"><span class="nav-number">1.</span> <span class="nav-text">题目: 整数划分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F"><span class="nav-number">2.</span> <span class="nav-text">题意:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4"><span class="nav-number">5.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B"><span class="nav-number">6.</span> <span class="nav-text">输入样例:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B%EF%BC%9A"><span class="nav-number">7.</span> <span class="nav-text">输出样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E6%B3%95%E4%B8%80%EF%BC%9A%E8%A7%86%E4%B8%BA%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98"><span class="nav-number">8.</span> <span class="nav-text">解法一：视为完全背包问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E6%B3%95%E4%BA%8C%EF%BC%9A%E5%85%B6%E5%AE%83%E8%A7%A3%E6%B3%95"><span class="nav-number">9.</span> <span class="nav-text">解法二：其它解法</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -474,7 +466,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -564,12 +556,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">238k</span>
+    <span title="站点总字数">243k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:36</span>
+    <span title="站点阅读时长">3:41</span>
 </div>
 
 <!--
@@ -579,7 +571,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共238k字</span>
+  <span class="post-count">博客全站共80.1k字</span>
 </div>
 
 

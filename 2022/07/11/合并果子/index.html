@@ -301,9 +301,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="题目：合并果子"><a class="header-anchor" href="#题目：合并果子">¶</a>题目：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/150/">合并果子</a></h4>
-<h4 id="题意：-v28"><a class="header-anchor" href="#题意：-v28">¶</a>题意：</h4>
-<p>在一个果园里，达达已经将所有的果子打了下来，而且按果子的不同种类分成了不同的堆。</p>
+        <h4 id="题目：合并果子"><a href="#题目：合并果子" class="headerlink" title="题目：合并果子"></a>题目：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/150/">合并果子</a></h4><h4 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h4><p>在一个果园里，达达已经将所有的果子打了下来，而且按果子的不同种类分成了不同的堆。</p>
 <p>达达决定把所有的果子合成一堆。</p>
 <p>每一次合并，达达可以把两堆果子合并到一起，消耗的体力等于两堆果子的重量之和。</p>
 <p>可以看出，所有的果子经过 n−1 次合并之后，就只剩下一堆了。</p>
@@ -313,35 +311,29 @@
 <p>例如有 3 种果子，数目依次为 1，2，9。</p>
 <p>可以先将 1、2 堆合并，新堆数目为 3，耗费体力为 3。</p>
 <p>接着，将新堆与原先的第三堆合并，又得到新的堆，数目为 12，耗费体力为 12。</p>
-<p>所以达达总共耗费体力=3+12=15。</p>
+<p>所以达达总共耗费体力&#x3D;3+12&#x3D;15。</p>
 <p>可以证明 15 为最小的体力耗费值。</p>
-<h4 id="输入格式-v37"><a class="header-anchor" href="#输入格式-v37">¶</a>输入格式</h4>
-<p>输入包括两行，第一行是一个整数 n，表示果子的种类数。</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>输入包括两行，第一行是一个整数 n，表示果子的种类数。</p>
 <p>第二行包含 n 个整数，用空格分隔，第 i 个整数 ai 是第 i 种果子的数目。</p>
-<h4 id="输出格式-v44"><a class="header-anchor" href="#输出格式-v44">¶</a>输出格式</h4>
-<p>输出包括一行，这一行只包含一个整数，也就是最小的体力耗费值。</p>
-<p>输入数据保证这个值小于 2<sup>31</sup>。</p>
-<h4 id="数据范围-v42"><a class="header-anchor" href="#数据范围-v42">¶</a>数据范围</h4>
-<p>1 ≤ n ≤ 10000,<br>
-1 ≤ ai ≤ 20000</p>
-<h4 id="输入样例：-v38"><a class="header-anchor" href="#输入样例：-v38">¶</a>输入样例：</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3 </span><br><span class="line">1 2 9 </span><br></pre></td></tr></table></figure>
-<h4 id="输出样例：-v37"><a class="header-anchor" href="#输出样例：-v37">¶</a>输出样例：</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">15</span><br></pre></td></tr></table></figure>
-<h4 id="思路：-v34"><a class="header-anchor" href="#思路：-v34">¶</a>思路：</h4>
-<ul>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出包括一行，这一行只包含一个整数，也就是最小的体力耗费值。</p>
+<p>输入数据保证这个值小于 2^31^。</p>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>1 ≤ n ≤ 10000,<br>1 ≤ ai ≤ 20000</p>
+<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3 </span><br><span class="line">1 2 9 </span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">15</span><br></pre></td></tr></table></figure>
+
+<h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><ul>
 <li>考虑对于当前步骤最优的行动，显然是取当前的两个最小值相加。</li>
 <li>而通过合并的哈夫曼树可以证明将较小值从浅层交换到深层一定会导致哈夫曼树的代权路径长度变小，这就说明了每次选最小的两个是全局最优。</li>
 <li>所以最优解就是每次将两个最小值从集合中取出相加，并将新的数加入到集合中，直到集合中只剩下一个数时，就是所求值。</li>
-<li>可能有同学会觉得这道题和 <a href="http://xinyi127.cn/2022/07/11/%E7%9F%B3%E5%AD%90%E5%90%88%E5%B9%B6/">石子合并</a> 这道题很像，但其实不一样。
-<ul>
+<li>可能有同学会觉得这道题和 <a href="http://xinyi127.cn/2022/07/11/%E7%9F%B3%E5%AD%90%E5%90%88%E5%B9%B6/">石子合并</a> 这道题很像，但其实不一样。<ul>
 <li>1.<em>石子合并</em> 只允许合并两个相邻的石子。而本题则允许合并任意两堆。</li>
-<li>2.<em>石子合并</em> 的数据范围 <code>n</code> 不大于300，而这道题 <code>n</code> 的范围是不大于10<sup>4</sup>。</li>
+<li>2.<em>石子合并</em> 的数据范围 <code>n</code> 不大于300，而这道题 <code>n</code> 的范围是不大于10^4^。</li>
 </ul>
 </li>
 </ul>
-<h4 id="代码-v25"><a class="header-anchor" href="#代码-v25">¶</a>代码</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">10010</span>;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="comment">//优先队列相当于自己实现了一个哈夫曼树</span></span><br><span class="line">priority_queue&lt;<span class="type">int</span>,vector&lt;<span class="type">int</span>&gt;,greater&lt;<span class="type">int</span>&gt;&gt;q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> x;</span><br><span class="line">        cin&gt;&gt;x;</span><br><span class="line">        q.<span class="built_in">push</span>(x);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ll sum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(q.<span class="built_in">size</span>()&amp;&amp;n&gt;<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> x=<span class="number">0</span>,y=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(q.<span class="built_in">size</span>())x=q.<span class="built_in">top</span>(),q.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span>(q.<span class="built_in">size</span>())y=q.<span class="built_in">top</span>(),q.<span class="built_in">pop</span>();</span><br><span class="line">        sum+=x+y;</span><br><span class="line">        <span class="comment">//提前判断队列是否为空，否则会一直循环</span></span><br><span class="line">        <span class="keyword">if</span>(q.<span class="built_in">size</span>()==<span class="number">0</span>)<span class="keyword">break</span>;</span><br><span class="line">        q.<span class="built_in">push</span>(x+y); </span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;sum;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">10010</span>;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="comment">//优先队列相当于自己实现了一个哈夫曼树</span></span><br><span class="line">priority_queue&lt;<span class="type">int</span>,vector&lt;<span class="type">int</span>&gt;,greater&lt;<span class="type">int</span>&gt;&gt;q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> x;</span><br><span class="line">        cin&gt;&gt;x;</span><br><span class="line">        q.<span class="built_in">push</span>(x);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ll sum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(q.<span class="built_in">size</span>()&amp;&amp;n&gt;<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> x=<span class="number">0</span>,y=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(q.<span class="built_in">size</span>())x=q.<span class="built_in">top</span>(),q.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span>(q.<span class="built_in">size</span>())y=q.<span class="built_in">top</span>(),q.<span class="built_in">pop</span>();</span><br><span class="line">        sum+=x+y;</span><br><span class="line">        <span class="comment">//提前判断队列是否为空，否则会一直循环</span></span><br><span class="line">        <span class="keyword">if</span>(q.<span class="built_in">size</span>()==<span class="number">0</span>)<span class="keyword">break</span>;</span><br><span class="line">        q.<span class="built_in">push</span>(x+y); </span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;sum;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -475,7 +467,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E5%90%88%E5%B9%B6%E6%9E%9C%E5%AD%90"><span class="nav-number">1.</span> <span class="nav-text">题目：合并果子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A-v28"><span class="nav-number">2.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F-v37"><span class="nav-number">3.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-v44"><span class="nav-number">4.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-v42"><span class="nav-number">5.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B%EF%BC%9A-v38"><span class="nav-number">6.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B%EF%BC%9A-v37"><span class="nav-number">7.</span> <span class="nav-text">输出样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A-v34"><span class="nav-number">8.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-v25"><span class="nav-number">9.</span> <span class="nav-text">代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E5%90%88%E5%B9%B6%E6%9E%9C%E5%AD%90"><span class="nav-number">1.</span> <span class="nav-text">题目：合并果子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4"><span class="nav-number">5.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B%EF%BC%9A"><span class="nav-number">6.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B%EF%BC%9A"><span class="nav-number">7.</span> <span class="nav-text">输出样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A"><span class="nav-number">8.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">9.</span> <span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -491,7 +483,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -581,12 +573,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">238k</span>
+    <span title="站点总字数">243k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:36</span>
+    <span title="站点阅读时长">3:41</span>
 </div>
 
 <!--
@@ -596,7 +588,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共238k字</span>
+  <span class="post-count">博客全站共80.1k字</span>
 </div>
 
 

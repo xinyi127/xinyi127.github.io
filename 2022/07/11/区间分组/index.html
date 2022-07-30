@@ -301,28 +301,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="题目：区间分组"><a class="header-anchor" href="#题目：区间分组">¶</a>题目：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/908/">区间分组</a></h4>
-<h4 id="题意：-v24"><a class="header-anchor" href="#题意：-v24">¶</a>题意：</h4>
-<p>给定 N 个闭区间 [ai,bi]，请你将这些区间分成若干组，使得每组内部的区间两两之间（包括端点）没有交集，并使得组数尽可能小。</p>
+        <h4 id="题目：区间分组"><a href="#题目：区间分组" class="headerlink" title="题目：区间分组"></a>题目：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/908/">区间分组</a></h4><h4 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h4><p>给定 N 个闭区间 [ai,bi]，请你将这些区间分成若干组，使得每组内部的区间两两之间（包括端点）没有交集，并使得组数尽可能小。</p>
 <p>输出最小组数。</p>
-<h4 id="输入格式-v33"><a class="header-anchor" href="#输入格式-v33">¶</a>输入格式</h4>
-<p>第一行包含整数 N，表示区间数。</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含整数 N，表示区间数。</p>
 <p>接下来 N 行，每行包含两个整数 ai,bi，表示一个区间的两个端点。</p>
-<h4 id="输出格式-v40"><a class="header-anchor" href="#输出格式-v40">¶</a>输出格式</h4>
-<p>输出一个整数，表示最小组数。</p>
-<h4 id="数据范围-v38"><a class="header-anchor" href="#数据范围-v38">¶</a>数据范围</h4>
-<p>1 ≤ N ≤ 10<sup>5</sup> ,<br>
-−10<sup>9</sup> ≤ ai ≤ bi ≤ 10<sup>9</sup></p>
-<h4 id="输入样例：-v34"><a class="header-anchor" href="#输入样例：-v34">¶</a>输入样例：</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">-1 1</span><br><span class="line">2 4</span><br><span class="line">3 5</span><br></pre></td></tr></table></figure>
-<h4 id="输出样例：-v33"><a class="header-anchor" href="#输出样例：-v33">¶</a>输出样例：</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
-<h4 id="思路：-v31"><a class="header-anchor" href="#思路：-v31">¶</a>思路：</h4>
-<ul>
-<li>首先我们要明确，涉及区间的贪心问题一般都是<strong>先排序，后处理</strong>。至于是根据左端点排序还是根据右端点，需要我们根据实际情况来判断。可以是直觉，也可以根据现实情况或者试一试样例，反正能过就可以了，贪心问题难就难在证明，<s>这么做肯定对，为什么对？说不出来。</s></li>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出一个整数，表示最小组数。</p>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>1 ≤ N ≤ 10^5^ ,<br>−10^9^ ≤ ai ≤ bi ≤ 10^9^</p>
+<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">-1 1</span><br><span class="line">2 4</span><br><span class="line">3 5</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><ul>
+<li>首先我们要明确，涉及区间的贪心问题一般都是<strong>先排序，后处理</strong>。至于是根据左端点排序还是根据右端点，需要我们根据实际情况来判断。可以是直觉，也可以根据现实情况或者试一试样例，反正能过就可以了，贪心问题难就难在证明，<del>这么做肯定对，为什么对？说不出来。</del></li>
 <li>第一步：将所有区间按左端点从小到大排序（第一步就很奇怪，也许有同学会觉得这道题和 <a href="http://xinyi127.cn/2022/07/11/%E6%9C%80%E5%A4%A7%E4%B8%8D%E7%9B%B8%E4%BA%A4%E5%8C%BA%E9%97%B4%E6%95%B0%E9%87%8F/">最大不相交区间数量</a> 很像，根据传递性那么这道题应该也根据右端点排序才对，但事实就是需要根据左端点）。</li>
-<li>第二步：依次枚举每个区间，判断是否能将其放入现有的某个组中 <code>L[i] &gt; Max_r</code> 。
-<ul>
+<li>第二步：依次枚举每个区间，判断是否能将其放入现有的某个组中 <code>L[i] &gt; Max_r</code> 。<ul>
 <li>如果不存在这样的组，说明当前区间与现有所有组有冲突，开辟新的组并放入该区间。</li>
 <li>如果存在这样的组，<strong>将该区间随意放入任何一个可以放入的组中</strong>（为什么可以随便放？首先无论我们放入哪个合法的组中，放入后该组的 <code>Max_r</code> 都会更新为该区间的 <code>R[i]</code> ，其次因为我们是根据左端点排序的，所以一定有 <code>L[i+1]&gt;=L[i]</code>，那么这个区间能放入的组后面的区间也一定能放入），并更新该组的 <code>Max_r</code>。</li>
 </ul>
@@ -330,8 +322,9 @@
 <li>如何实现这样的分组？优先队列。因为我们需要维护每个组的 <code>Max_r</code> ，所以我们只需要存每个组的 <code>Max_r</code> 即可，然后每次与队中的首元素比较，如果可以加入就该区间 <code>L[i]</code> 入队并将首元素出队。否则就直接将 <code>L[i]</code> 入队。队列中<strong>每个元素表示一个分组</strong>。</li>
 <li>注意，优先队列默认大根堆，如果想让元素从小到大排序需要在定义时补充<code>priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&gt;&gt;q;</code></li>
 </ul>
-<h4 id="代码-v20"><a class="header-anchor" href="#代码-v20">¶</a>代码</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">100010</span>;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> PII pair<span class="string">&lt;int,int&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line">PII p[N];</span><br><span class="line">priority_queue&lt;<span class="type">int</span>,vector&lt;<span class="type">int</span>&gt;,greater&lt;<span class="type">int</span>&gt;&gt;q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)cin&gt;&gt;p[i].first&gt;&gt;p[i].second;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">sort</span>(p+<span class="number">1</span>,p+n+<span class="number">1</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(q.<span class="built_in">size</span>()==<span class="number">0</span>||p[i].first&lt;=q.<span class="built_in">top</span>())</span><br><span class="line">            q.<span class="built_in">push</span>(p[i].second);</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">        &#123;</span><br><span class="line">            q.<span class="built_in">pop</span>();</span><br><span class="line">            q.<span class="built_in">push</span>(p[i].second);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    cout&lt;&lt;q.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">100010</span>;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> PII pair<span class="string">&lt;int,int&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line">PII p[N];</span><br><span class="line">priority_queue&lt;<span class="type">int</span>,vector&lt;<span class="type">int</span>&gt;,greater&lt;<span class="type">int</span>&gt;&gt;q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)cin&gt;&gt;p[i].first&gt;&gt;p[i].second;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">sort</span>(p+<span class="number">1</span>,p+n+<span class="number">1</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(q.<span class="built_in">size</span>()==<span class="number">0</span>||p[i].first&lt;=q.<span class="built_in">top</span>())</span><br><span class="line">            q.<span class="built_in">push</span>(p[i].second);</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">        &#123;</span><br><span class="line">            q.<span class="built_in">pop</span>();</span><br><span class="line">            q.<span class="built_in">push</span>(p[i].second);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    cout&lt;&lt;q.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 
     </div>
 
@@ -465,7 +458,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E5%8C%BA%E9%97%B4%E5%88%86%E7%BB%84"><span class="nav-number">1.</span> <span class="nav-text">题目：区间分组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A-v24"><span class="nav-number">2.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F-v33"><span class="nav-number">3.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-v40"><span class="nav-number">4.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-v38"><span class="nav-number">5.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B%EF%BC%9A-v34"><span class="nav-number">6.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B%EF%BC%9A-v33"><span class="nav-number">7.</span> <span class="nav-text">输出样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A-v31"><span class="nav-number">8.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-v20"><span class="nav-number">9.</span> <span class="nav-text">代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E5%8C%BA%E9%97%B4%E5%88%86%E7%BB%84"><span class="nav-number">1.</span> <span class="nav-text">题目：区间分组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4"><span class="nav-number">5.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B%EF%BC%9A"><span class="nav-number">6.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B%EF%BC%9A"><span class="nav-number">7.</span> <span class="nav-text">输出样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A"><span class="nav-number">8.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">9.</span> <span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -481,7 +474,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -571,12 +564,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">238k</span>
+    <span title="站点总字数">243k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:36</span>
+    <span title="站点阅读时长">3:41</span>
 </div>
 
 <!--
@@ -586,7 +579,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共238k字</span>
+  <span class="post-count">博客全站共80.1k字</span>
 </div>
 
 

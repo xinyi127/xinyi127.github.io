@@ -300,43 +300,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="题目：耍杂技的牛"><a class="header-anchor" href="#题目：耍杂技的牛">¶</a>题目：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/127/">耍杂技的牛</a></h4>
-<h4 id="题意：-v37"><a class="header-anchor" href="#题意：-v37">¶</a>题意：</h4>
-<p>农民约翰的 N 头奶牛（编号为 1…N）计划逃跑并加入马戏团，为此它们决定练习表演杂技。</p>
+        <h4 id="题目：耍杂技的牛"><a href="#题目：耍杂技的牛" class="headerlink" title="题目：耍杂技的牛"></a>题目：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/127/">耍杂技的牛</a></h4><h4 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h4><p>农民约翰的 N 头奶牛（编号为 1..N）计划逃跑并加入马戏团，为此它们决定练习表演杂技。</p>
 <p>奶牛们不是非常有创意，只提出了一个杂技表演：</p>
 <p>叠罗汉，表演时，奶牛们站在彼此的身上，形成一个高高的垂直堆叠。</p>
 <p>奶牛们正在试图找到自己在这个堆叠中应该所处的位置顺序。</p>
-<p>这 N 头奶牛中的每一头都有着自己的重量 W<sub>i</sub> 以及自己的强壮程度 S<sub>i</sub>。</p>
+<p>这 N 头奶牛中的每一头都有着自己的重量 W<del>i</del> 以及自己的强壮程度 S<del>i</del>。</p>
 <p>一头牛支撑不住的可能性取决于它头上所有牛的总重量（不包括它自己）减去它的身体强壮程度的值，现在称该数值为风险值，风险值越大，这只牛撑不住的可能性越高。</p>
 <p>您的任务是确定奶牛的排序，使得所有奶牛的风险值中的最大值尽可能的小。</p>
-<h4 id="输入格式-v46"><a class="header-anchor" href="#输入格式-v46">¶</a>输入格式</h4>
-<p>第一行输入整数 N，表示奶牛数量。</p>
-<p>接下来 N 行，每行输入两个整数，表示牛的重量和强壮程度，第 i 行表示第 i 头牛的重量 W<sub>i</sub> 以及它的强壮程度 S<sub>i</sub>。</p>
-<h4 id="输出格式-v53"><a class="header-anchor" href="#输出格式-v53">¶</a>输出格式</h4>
-<p>输出一个整数，表示最大风险值的最小可能值。</p>
-<h4 id="数据范围-v51"><a class="header-anchor" href="#数据范围-v51">¶</a>数据范围</h4>
-<p>1 ≤ N ≤ 50000,<br>
-1 ≤ W<sub>i</sub> ≤ 10,000,<br>
-1 ≤ S<sub>i</sub> ≤ 1,000,000,000</p>
-<h4 id="输入样例：-v46"><a class="header-anchor" href="#输入样例：-v46">¶</a>输入样例：</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">10 3</span><br><span class="line">2 5</span><br><span class="line">3 3</span><br></pre></td></tr></table></figure>
-<h4 id="输出样例：-v46"><a class="header-anchor" href="#输出样例：-v46">¶</a>输出样例：</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
-<h4 id="思路：-v44"><a class="header-anchor" href="#思路：-v44">¶</a>思路：</h4>
-<ul>
-<li>
-<p><strong>排序方式：</strong> 将n头牛按照 <code>w[i]+s[i]</code> 从小到大排序。</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行输入整数 N，表示奶牛数量。</p>
+<p>接下来 N 行，每行输入两个整数，表示牛的重量和强壮程度，第 i 行表示第 i 头牛的重量 W<del>i</del> 以及它的强壮程度 S<del>i</del>。</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出一个整数，表示最大风险值的最小可能值。</p>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>1 ≤ N ≤ 50000,<br>1 ≤ W<del>i</del> ≤ 10,000,<br>1 ≤ S<del>i</del> ≤ 1,000,000,000</p>
+<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">10 3</span><br><span class="line">2 5</span><br><span class="line">3 3</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><ul>
+<li><p><strong>排序方式：</strong> 将n头牛按照 <code>w[i]+s[i]</code> 从小到大排序。</p>
 </li>
-<li>
-<p><strong>证明：</strong> 假如最优解中存在 <code>w[i]+s[i]&gt;w[i+1]+s[i+1]</code>（这里的下标指牛在最优解中的位置，不是输入时的下标），那么交换两头牛的位置可以得到</p>
+<li><p><strong>证明：</strong> 假如最优解中存在 <code>w[i]+s[i]&gt;w[i+1]+s[i+1]</code>（这里的下标指牛在最优解中的位置，不是输入时的下标），那么交换两头牛的位置可以得到</p>
 </li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    第i个位置上的牛               第i+1个位置上的牛</span><br><span class="line">  </span><br><span class="line">交换前      w[1]+w[2]+...w[i-1]-s[i]       w[1]+w[2]+...w[i-1]+w[i]-s[i+1]</span><br><span class="line">交换后      w[1]+w[2]+...w[i-1]-s[i+1]     w[1]+w[2]+...w[i-1]+w[i+1]-s[i]</span><br><span class="line">四项同时减去 `w[1]+w[2]+...w[i-1]` 并加上 `s[i]+s[i+1]` 可以得到</span><br><span class="line">交换前               s[i+1]                       w[i]+s[i]</span><br><span class="line">交换后               s[i]                        w[i+1]+s[i+1] </span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>因为牛的体重和强壮值都是正数，所以<code>w[i]+s[i]&gt;s[i]</code>，又因为最优解存在<code>w[i]+s[i]&gt;w[i+1]+s[i+1]</code>，所以可以发现这四项的最大值不在交换后这两项中，从而得到两头牛交换位置后最大的风险值减小。而对于最优解中的任何两头牛都可以通过这样的方式交换两头牛的位置，所以根据<code>w[i]+s[i]</code>排序是最优的。</li>
 </ul>
-<h4 id="代码-v33"><a class="header-anchor" href="#代码-v33">¶</a>代码</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">50010</span>;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> PII pair<span class="string">&lt;int,int&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line">PII p[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp1</span><span class="params">(PII a,PII b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.first+a.second&lt;b.first+b.second;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)cin&gt;&gt;p[i].first&gt;&gt;p[i].second;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">sort</span>(p+<span class="number">1</span>,p+n+<span class="number">1</span>,cmp1);</span><br><span class="line">    <span class="type">int</span> sum=<span class="number">0</span>,mm=<span class="number">-0x3f3f3f3f</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        mm=<span class="built_in">max</span>(mm,sum-p[i].second);</span><br><span class="line">        sum+=p[i].first;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    cout&lt;&lt;mm;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">50010</span>;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> PII pair<span class="string">&lt;int,int&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line">PII p[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp1</span><span class="params">(PII a,PII b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.first+a.second&lt;b.first+b.second;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)cin&gt;&gt;p[i].first&gt;&gt;p[i].second;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">sort</span>(p+<span class="number">1</span>,p+n+<span class="number">1</span>,cmp1);</span><br><span class="line">    <span class="type">int</span> sum=<span class="number">0</span>,mm=<span class="number">-0x3f3f3f3f</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        mm=<span class="built_in">max</span>(mm,sum-p[i].second);</span><br><span class="line">        sum+=p[i].first;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    cout&lt;&lt;mm;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -469,7 +460,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E8%80%8D%E6%9D%82%E6%8A%80%E7%9A%84%E7%89%9B"><span class="nav-number">1.</span> <span class="nav-text">题目：耍杂技的牛</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A-v37"><span class="nav-number">2.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F-v46"><span class="nav-number">3.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-v53"><span class="nav-number">4.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4-v51"><span class="nav-number">5.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B%EF%BC%9A-v46"><span class="nav-number">6.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B%EF%BC%9A-v46"><span class="nav-number">7.</span> <span class="nav-text">输出样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A-v44"><span class="nav-number">8.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-v33"><span class="nav-number">9.</span> <span class="nav-text">代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E8%80%8D%E6%9D%82%E6%8A%80%E7%9A%84%E7%89%9B"><span class="nav-number">1.</span> <span class="nav-text">题目：耍杂技的牛</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4"><span class="nav-number">5.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B%EF%BC%9A"><span class="nav-number">6.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B%EF%BC%9A"><span class="nav-number">7.</span> <span class="nav-text">输出样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A"><span class="nav-number">8.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">9.</span> <span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -485,7 +476,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -575,12 +566,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">238k</span>
+    <span title="站点总字数">243k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:36</span>
+    <span title="站点阅读时长">3:41</span>
 </div>
 
 <!--
@@ -590,7 +581,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共238k字</span>
+  <span class="post-count">博客全站共80.1k字</span>
 </div>
 
 

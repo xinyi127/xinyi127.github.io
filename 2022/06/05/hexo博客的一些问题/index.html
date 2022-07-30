@@ -314,43 +314,28 @@
 
       
         <ol>
-<li>
-<p>关于<code>hexo init</code>语句的执行，如果遇到这种情况<br>
-<img src="https://img-blog.csdnimg.cn/cfc80a92339446e18a8d43245c125977.png" alt="在这里插入图片描述"><br>
-可以尝试用管理员身份打开cmd，然后cd到Blog文件夹下再执行这一步，大概率能解决问题。</p>
+<li><p>关于<code>hexo init</code>语句的执行，如果遇到这种情况<br><img src="https://img-blog.csdnimg.cn/cfc80a92339446e18a8d43245c125977.png" alt="在这里插入图片描述"><br>可以尝试用管理员身份打开cmd，然后cd到Blog文件夹下再执行这一步，大概率能解决问题。</p>
 </li>
-<li>
-<p>在获取自己github的 IPV4地址的时候，如果ping + github网址不行，那么就在后面加-4试试。 例如：<img src="https://img-blog.csdnimg.cn/c055ff4329984a76b51b69889201f904.png" alt="在这里插入图片描述"><br>
-加-4后(注意负号前有空格)：<br>
-<img src="https://img-blog.csdnimg.cn/6134ee67609348339f79e607a4671cbf.png" alt="在这里插入图片描述"></p>
+<li><p>在获取自己github的 IPV4地址的时候，如果ping + github网址不行，那么就在后面加-4试试。 例如：<img src="https://img-blog.csdnimg.cn/c055ff4329984a76b51b69889201f904.png" alt="在这里插入图片描述"><br>加-4后(注意负号前有空格)：<br><img src="https://img-blog.csdnimg.cn/6134ee67609348339f79e607a4671cbf.png" alt="在这里插入图片描述"></p>
 </li>
-<li>
-<p>有些时候出错可能是因为国内访问github速度太慢出错。可以尝试切换网络或者等等再试一下。例如：<br>
-<img src="https://img-blog.csdnimg.cn/f1f0511555434be18ea20b81afdec169.png" alt="在这里插入图片描述"></p>
+<li><p>有些时候出错可能是因为国内访问github速度太慢出错。可以尝试切换网络或者等等再试一下。例如：<br> <img src="https://img-blog.csdnimg.cn/f1f0511555434be18ea20b81afdec169.png" alt="在这里插入图片描述"></p>
 </li>
 </ol>
-<p>或者参考这边博文: <a target="_blank" rel="noopener" href="https://blog.csdn.net/HTL2018/article/details/106876940">hexo发生error：spawn failed错误的解决方法_HuangTLhit的博客-CSDN博客</a></p>
+<p> 或者参考这边博文: <a target="_blank" rel="noopener" href="https://blog.csdn.net/HTL2018/article/details/106876940">hexo发生error：spawn failed错误的解决方法_HuangTLhit的博客-CSDN博客</a></p>
 <ol start="4">
-<li>
-<p>当我们在Blog文件夹下的source文件夹中创建CNAME文档时，可以先创建一个txt，但是在保存txt文档后务必将<code>.txt</code>后缀删除。例如：<br>
-<img src="https://img-blog.csdnimg.cn/0d99262048cc45da9b24055d7d3ee8b5.png" alt="在这里插入图片描述"></p>
+<li><p>当我们在Blog文件夹下的source文件夹中创建CNAME文档时，可以先创建一个txt，但是在保存txt文档后务必将<code>.txt</code>后缀删除。例如：<br> <img src="https://img-blog.csdnimg.cn/0d99262048cc45da9b24055d7d3ee8b5.png" alt="在这里插入图片描述"></p>
 </li>
-<li>
-<p>在购买好域名后，先去备案，在备案期间不可以解析域名，如果不提前备案的话，即便搭建好博客也无法正常使用。在备案时可能会让你填写备案服务码，这个东西是要购买服务器才会有的，但是没有必要为了一个服务码而单独购买域名（例如我是搭建在github上的），可以问问周围同学有没有购买的，或者去网上买个服务码。在备案的时候按照教程来一步步走就好了，并不复杂。</p>
+<li><p>在购买好域名后，先去备案，在备案期间不可以解析域名，如果不提前备案的话，即便搭建好博客也无法正常使用。在备案时可能会让你填写备案服务码，这个东西是要购买服务器才会有的，但是没有必要为了一个服务码而单独购买域名（例如我是搭建在github上的），可以问问周围同学有没有购买的，或者去网上买个服务码。在备案的时候按照教程来一步步走就好了，并不复杂。</p>
 </li>
-<li>
-<p>当ICP备案通过后，打开主题配置文件，查找beian，修改为如下代码:</p>
+<li><p>当ICP备案通过后，打开主题配置文件，查找beian，修改为如下代码:</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># Beian ICP and gongan information for Chinese users. See: https://beian.miit.gov.cn, http://www.beian.gov.cn</span><br><span class="line">beian:</span><br><span class="line">  enable: true</span><br><span class="line">  icp: 鲁ICP备2022018291号-1</span><br><span class="line">  # The digit in the num of gongan beian.</span><br><span class="line">  gongan_id:</span><br><span class="line">  # The full num of gongan beian.</span><br><span class="line">  gongan_num:</span><br><span class="line">  # The icon for gongan beian. See: http://www.beian.gov.cn/portal/download</span><br><span class="line">  gongan_icon_url:</span><br></pre></td></tr></table></figure>
+
 </li>
-<li>
-<p>首先输入<code>hexo clean</code> 清除缓存输入 <code>hexo g</code> (完整命令为hexo generate)，用于生成静态文件； 然后输入 <code>hexo s</code>(完整命令为hexo server)，用于启动服务器，主要用来本 	地预览；完成后 打开浏览器输入 <a target="_blank" rel="noopener" href="http://localhost:4000">http://localhost:4000</a>，会发现多了你刚写的那篇博客;最后输入<code>hexo d</code>(hexo deploy)，用于将本地文件发布到github等git仓库上；</p>
+<li><p>首先输入<code>hexo clean</code> 清除缓存输入 <code>hexo g</code> (完整命令为hexo generate)，用于生成静态文件； 然后输入 <code>hexo s</code>(完整命令为hexo server)，用于启动服务器，主要用来本 	地预览；完成后 打开浏览器输入 <a href="http://localhost:4000，会发现多了你刚写的那篇博客;最后输入`hexo">http://localhost:4000，会发现多了你刚写的那篇博客;最后输入`hexo</a> d&#96;(hexo deploy)，用于将本地文件发布到github等git仓库上；</p>
 </li>
-<li>
-<p>在发布博客之前最好检查一下自己的标题格式有没有写对，准确做法是在<strong>文档第一行</strong> 打下<code>---</code>后按回车，然后在出现的框中写<code>title:</code>后跟标题。<br>
-<img src="https://img-blog.csdnimg.cn/4fd5a509ae4d48de9f1534142aee7db2.png" alt="在这里插入图片描述"></p>
+<li><p>在发布博客之前最好检查一下自己的标题格式有没有写对，准确做法是在<strong>文档第一行</strong> 打下<code>---</code>后按回车，然后在出现的框中写<code>title:</code>后跟标题。<br><img src="https://img-blog.csdnimg.cn/4fd5a509ae4d48de9f1534142aee7db2.png" alt="在这里插入图片描述"></p>
 </li>
-<li>
-<p>博客文章的<code>Front-matter</code>区域中除了菜单后面的冒号外, 自己的内容不可以出现冒号, 否则在git g时会报错，因为所有跟冒号的字符都会被认为是菜单。</p>
+<li><p>博客文章的<code>Front-matter</code>区域中除了菜单后面的冒号外, 自己的内容不可以出现冒号, 否则在git g时会报错，因为所有跟冒号的字符都会被认为是菜单。</p>
 </li>
 </ol>
 
@@ -500,7 +485,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -590,12 +575,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">238k</span>
+    <span title="站点总字数">243k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:36</span>
+    <span title="站点阅读时长">3:41</span>
 </div>
 
 <!--
@@ -605,7 +590,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共238k字</span>
+  <span class="post-count">博客全站共80.1k字</span>
 </div>
 
 

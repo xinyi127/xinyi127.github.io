@@ -301,33 +301,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="题目链接：KMP字符串"><a class="header-anchor" href="#题目链接：KMP字符串">¶</a>题目链接：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/833/">KMP字符串</a></h4>
-<h4 id="题意：-v34"><a class="header-anchor" href="#题意：-v34">¶</a><strong>题意：</strong></h4>
-<p>题意很简单，给定一个模式串S和模板串P，问P在S中出现的所有位置。<s>第一反应，似乎可以暴力</s>  &lt;-- 这种思想虽然不能说好，但是往往有奇效hhh。</p>
-<h4 id="思路：-v40"><a class="header-anchor" href="#思路：-v40">¶</a><strong>思路：</strong></h4>
-<p><s>看完y总视频总觉得要写一写总结一下，有种不吐不快的感觉hhh</s></p>
+        <h4 id="题目链接：KMP字符串"><a href="#题目链接：KMP字符串" class="headerlink" title="题目链接：KMP字符串"></a>题目链接：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/833/">KMP字符串</a></h4><h4 id="题意："><a href="#题意：" class="headerlink" title="题意："></a><strong>题意：</strong></h4><p>题意很简单，给定一个模式串S和模板串P，问P在S中出现的所有位置。<del>第一反应，似乎可以暴力</del>  &lt;– 这种思想虽然不能说好，但是往往有奇效hhh。</p>
+<h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a><strong>思路：</strong></h4><p><del>看完y总视频总觉得要写一写总结一下，有种不吐不快的感觉hhh</del> </p>
 <ul>
 <li>KMP的思想其实很简单，但是很神奇很奇妙，重点就是<strong>next数组</strong>的构造和使用。</li>
 <li>我们先想想暴力怎么做，然后考虑怎么优化。朴素算法我们当然是从0开始遍历模式串的每个字符，从它开始一一对应模板串的每个字符。</li>
 <li>那么问题就是：如何优化？</li>
 <li>显然我们很难去优化第一重循环（也即模式串的遍历），那么我们可以从第二重循环（对模板串的遍历）下手。思考这样一个问题，<strong>当我们指向模式串S第i个字符的指针向后移动了一位，我们的模板串P需要从头开始遍历吗？</strong></li>
-<li><img src="https://img-blog.csdnimg.cn/3251218ac79044348ea2e125fafe6125.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5b-D5oSPMzEw,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插"></li>
+<li><img src="https://img-blog.csdnimg.cn/3251218ac79044348ea2e125fafe6125.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5b-D5oSPMzEw,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插"> </li>
 <li>我们可以看这张图，假设<strong>第一段</strong>P串开头走到S[i]位置，然后在S[k]位置与P无法匹配，那么我们显然要让P往后走，假设当<strong>第二段</strong>P串开头位置走到S[j]位置可以匹配，那么我们就会发现一个有趣的性质，<strong>第二段</strong>P[j,k]和S[j,k]相等，<strong>第一段</strong>P[j,k]也是和S[j,k]相等的，所以这两段P其实是相等的（第一段就是上面的P串，第二段就是下面的P串）。 而这里画圈的<strong>3</strong>实际上就是画圈的<strong>1</strong>平移过来的。</li>
 <li>于是我们发现如果S和P串在某个位置不匹配，那么P要向后走到某个位置，这个位置满足P从无法匹配处的后缀与P的前缀相等。</li>
-<li>那么我们就可以构造一个数组取名为next，next[i]中存的是以i为终点的后缀与前缀最大的匹配长度，同时长度要严格小于i。<s>KMP实际上就是模板串P要向后移动多少这么回事</s></li>
+<li>那么我们就可以构造一个数组取名为next，next[i]中存的是以i为终点的后缀与前缀最大的匹配长度，同时长度要严格小于i。<del>KMP实际上就是模板串P要向后移动多少这么回事</del> </li>
 <li>而next数组的构造同样可以用到KMP的思想。我们来看具体到代码如何实现。</li>
 </ul>
-<h4 id="补充："><a class="header-anchor" href="#补充：">¶</a><strong>补充：</strong></h4>
-<p><strong>注意体会next数组：</strong></p>
+<h4 id="补充："><a href="#补充：" class="headerlink" title="补充："></a><strong>补充：</strong></h4><p><strong>注意体会next数组：</strong></p>
 <ul>
 <li>首先next[i]是要小于i的。</li>
 <li>其次我们说如果s[i]与p[j+1]匹配不成功，就使j后退到next[j]的位置，这实际上是说我们首先将p字符串开头位置与s[i]对齐，然后整体向右走next[j]长度，注意体会这里的两个描述，他们的含义其实是相同的。</li>
-<li>在构造next数组时，我们可以假设构造到next[i]的位置，那么前面的next[j-1]已经构造好了，我们可以直接去看p[j+1]和p[i]是否相等，如果相等我们就令p[i]=j+1，否则我们就将j退回到next[i-1]的位置，因为此时一定有一个最长的后缀与前缀相等。</li>
+<li>在构造next数组时，我们可以假设构造到next[i]的位置，那么前面的next[j-1]已经构造好了，我们可以直接去看p[j+1]和p[i]是否相等，如果相等我们就令p[i]&#x3D;j+1，否则我们就将j退回到next[i-1]的位置，因为此时一定有一个最长的后缀与前缀相等。</li>
 <li>为什么是看p[j+1]和p[i]？因为我们假设next[i-1]的长度是j，那么p[1,j]和p[i-j,i-1]一定是匹配的，我们可以直接看当前点p[i]与p[j+1]是否匹配即可。</li>
 <li>这个KMP的模板时间复杂度是O(n)</li>
 </ul>
-<h4 id="代码：-v26"><a class="header-anchor" href="#代码：-v26">¶</a><strong>代码：</strong></h4>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1e5</span>+<span class="number">10</span>,M=<span class="number">1e6</span>+<span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,m;</span><br><span class="line"><span class="type">char</span> s[M],p[N];</span><br><span class="line"><span class="comment">//next[i]表示以i为终点的后缀与前缀最大的匹配长度，同时长度要小于i</span></span><br><span class="line"><span class="type">int</span> ne[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//kmp字符串从1开始</span></span><br><span class="line">    cin&gt;&gt;n&gt;&gt;p+<span class="number">1</span>&gt;&gt;m&gt;&gt;s+<span class="number">1</span>;</span><br><span class="line">    <span class="comment">//构造next[i]数组，因为next[i]&lt;i，所以next[1]=0;</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>,j=<span class="number">0</span>;i&lt;=n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;<span class="number">0</span>&amp;&amp;p[i]!=p[j+<span class="number">1</span>])j=ne[j];</span><br><span class="line">        <span class="keyword">if</span>(p[i]==p[j+<span class="number">1</span>])j++;</span><br><span class="line">        ne[i]=j;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//kmp匹配过程</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>,j=<span class="number">0</span>;i&lt;=m;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//如果此时j没有推到模板串开头，并且s[i]与p[j+1]不匹配，那么j推到next[j]</span></span><br><span class="line">        <span class="keyword">while</span>(j&gt;<span class="number">0</span>&amp;&amp;s[i]!=p[j+<span class="number">1</span>])j=ne[j];</span><br><span class="line">        <span class="comment">//如果匹配成功，i和j一起向后移动一位</span></span><br><span class="line">        <span class="keyword">if</span>(s[i]==p[j+<span class="number">1</span>])j++;</span><br><span class="line">        <span class="comment">//匹配成功</span></span><br><span class="line">        <span class="keyword">if</span>(j==n)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//在输入字符串时是从1开始的，所以要减1,i-n+1再-1也就是i-n</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,i-n);</span><br><span class="line">            j=ne[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a><strong>代码：</strong></h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1e5</span>+<span class="number">10</span>,M=<span class="number">1e6</span>+<span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,m;</span><br><span class="line"><span class="type">char</span> s[M],p[N];</span><br><span class="line"><span class="comment">//next[i]表示以i为终点的后缀与前缀最大的匹配长度，同时长度要小于i</span></span><br><span class="line"><span class="type">int</span> ne[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//kmp字符串从1开始</span></span><br><span class="line">    cin&gt;&gt;n&gt;&gt;p+<span class="number">1</span>&gt;&gt;m&gt;&gt;s+<span class="number">1</span>;</span><br><span class="line">    <span class="comment">//构造next[i]数组，因为next[i]&lt;i，所以next[1]=0;</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>,j=<span class="number">0</span>;i&lt;=n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;<span class="number">0</span>&amp;&amp;p[i]!=p[j+<span class="number">1</span>])j=ne[j];</span><br><span class="line">        <span class="keyword">if</span>(p[i]==p[j+<span class="number">1</span>])j++;</span><br><span class="line">        ne[i]=j;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//kmp匹配过程</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>,j=<span class="number">0</span>;i&lt;=m;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//如果此时j没有推到模板串开头，并且s[i]与p[j+1]不匹配，那么j推到next[j]</span></span><br><span class="line">        <span class="keyword">while</span>(j&gt;<span class="number">0</span>&amp;&amp;s[i]!=p[j+<span class="number">1</span>])j=ne[j];</span><br><span class="line">        <span class="comment">//如果匹配成功，i和j一起向后移动一位</span></span><br><span class="line">        <span class="keyword">if</span>(s[i]==p[j+<span class="number">1</span>])j++;</span><br><span class="line">        <span class="comment">//匹配成功</span></span><br><span class="line">        <span class="keyword">if</span>(j==n)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//在输入字符串时是从1开始的，所以要减1,i-n+1再-1也就是i-n</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,i-n);</span><br><span class="line">            j=ne[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -459,7 +454,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E9%93%BE%E6%8E%A5%EF%BC%9AKMP%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.</span> <span class="nav-text">题目链接：KMP字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A-v34"><span class="nav-number">2.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A-v40"><span class="nav-number">3.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A"><span class="nav-number">4.</span> <span class="nav-text">补充：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A-v26"><span class="nav-number">5.</span> <span class="nav-text">代码：</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E9%93%BE%E6%8E%A5%EF%BC%9AKMP%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.</span> <span class="nav-text">题目链接：KMP字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A"><span class="nav-number">4.</span> <span class="nav-text">补充：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="nav-number">5.</span> <span class="nav-text">代码：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -475,7 +470,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -565,12 +560,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">238k</span>
+    <span title="站点总字数">243k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:36</span>
+    <span title="站点阅读时长">3:41</span>
 </div>
 
 <!--
@@ -580,7 +575,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共238k字</span>
+  <span class="post-count">博客全站共80.1k字</span>
 </div>
 
 
