@@ -1,0 +1,2118 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <!--   引入加载动画   -->
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
+    
+    <meta charset="utf-8">
+    <meta name="keywords" content="计算机组成原理期末复习, ❤梧桐苑">
+    <meta name="description" content="不负责任的说，一个小时看完就能过期末考试hh~">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>计算机组成原理期末复习 | ❤梧桐苑</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="❤梧桐苑" type="application/atom+xml">
+</head>
+
+
+
+<body>
+    <!-- 引入加载动画 -->
+    
+  <div id="loading-box">
+    <div class="loading-left-bg"></div>
+    <div class="loading-right-bg"></div>
+    <div class="spinner-box">
+      <div class="configure-border-1">
+        <div class="configure-core"></div>
+      </div>
+      <div class="configure-border-2">
+        <div class="configure-core"></div>
+      </div>
+      <div class="loading-word">加载中...</div>
+    </div>
+  </div>
+  <!-- 页面加载动画 -->
+  <script>
+    $(document).ready(function () {
+      document.body.style.overflow = 'auto';
+      document.getElementById('loading-box').classList.add("loaded")
+    })
+  </script>
+
+
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">❤梧桐苑</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>相册</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/artitalk">
+          
+          <i class="fas fa-comment" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>随笔</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">❤梧桐苑</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>相册</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/artitalk " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-comment" style="position: absolute;left:50px" ></i>
+			      
+		          <span>随笔</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xinyi127" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xinyi127" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">计算机组成原理期末复习</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
+                                <span class="chip bg-color">计算机组成原理</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" class="post-category">
+                                期末复习
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-06-16
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-10-09
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    25 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="前言">前言</h2>
+<blockquote>
+<p>本文共6个应用题，8个计算题，12个简答题，均是根据我们学校往年考试重点挑出来的，看的快的话大概1个小时就能看完。《计算机组成原理》这门课内容太多，突击复习的话看课程和课本已经不现实了，知识点太多太杂，看不过来的（你让我怎么荔枝！）， 最好就是直接做题，因为着重的考点就那几种题目，记住怎么做就行了，不用知道为什么，看完再对着题目过一遍及格绝对没问题。</p>
+<p>为了保证效率，本文将采用倒序，即 ”应用题-计算题-简答题“ 的顺序，请放心食用。</p>
+</blockquote>
+<h2 id="题目总结">题目总结:</h2>
+<h3 id="三-应用题">三 应用题:</h3>
+<h4 id="1-CPU与存储器的连接">1.CPU与存储器的连接</h4>
+<p><img src="https://img-blog.csdnimg.cn/20a93fd2806f4a0bbad019ad99ba767e.png" alt=""></p>
+<ul>
+<li>
+<p>根据题目确定<strong>系统程序区</strong>和<strong>用户程序区</strong>的容量</p>
+<ul>
+<li>一般CPU的规格不会变，就是16根地址线(代表画图时CPU的A0 ~ A15端口)，8根数据线(代表画图时CPU的D0 ~ D7端口)，8根数据线代表数据是8位的，我们在选择ROM和RAM芯片也要尽量选择相应位数.</li>
+<li>入手点是根据题目的要求(一般会有三点, 第一点就是两种芯片的容量, 对应地址线, 也就是数据的地址)选择合适的芯片, <strong>系统程序区</strong>只能用ROM, <strong>用户程序区</strong>只能用RAM. 例如本题中要求我们最小4k为系统程序区, 联系上面的CPU8根数据线, 那么就是要求我们用ROM芯片组成一个4k×8位的ROM芯片. 4096 ~ 16383(16383 - 4096+1 = 12k)地址对应12k的地址，那么就是要求我们设计一个12k × 8位的RAM芯片.</li>
+</ul>
+</li>
+<li>
+<p>选择合适的芯片</p>
+<ul>
+<li>注意, 题目不会直接给我们正好合适的芯片, 需要我们自己去扩展, 有字扩展和位扩展两种. 两个2k × 8位可以合成一个4k × 8位, 这就是字扩展. 两个4k × 4位可以合成一个4k × 8位, 这就是位扩展. 字扩展和位扩展的区别体现在画图上, <strong>位扩展则芯片连接CPU对应的数据线</strong>, 比如两个4k的芯片合成一个8k的芯片, 那么这两个4k芯片分别连接CPU的D0、D3端口和D4、D7端口. <strong>字扩展则对应74138译码器的输出端</strong>(不必知道74138译码器是什么, 只要记住怎么画和分清输入端输出端即可).</li>
+<li>如图:<br>
+<img src="https://img-blog.csdnimg.cn/b4166294029a4943804aeed076aff802.png" alt="在这里插入图片描述"></li>
+</ul>
+</li>
+<li>
+<p>将十六进制的容量用二进制写出来, 分别对应ROM和RAM的芯片的容量.</p>
+<ul>
+<li>
+<p>比如该题中要求<strong>系统程序区</strong>4k容量, 对应的十六进制应该是1000H, 但是因为地址是从0开始计数, 所以<strong>系统程序区</strong>地址对应的十六进制就是0000H ~ 0FFFH. 用户地址区则是4096 ~ 16383也就是1000H ~ 3FFFH.</p>
+</li>
+<li>
+<p>注意两片ROM对应1个4k容量. 三个RAM对应12k容量, 也就是1个RAM对应1个4k容量, 写成二进制:</p>
+<p><img src="https://img-blog.csdnimg.cn/906e49ed0c244d8b9cc4ffe25e4e0deb.png" alt=""></p>
+</li>
+</ul>
+</li>
+<li>
+<p>最关键的一步, 根据二进制地址分配的表画出逻辑图.</p>
+<ul>
+<li>这一部分是拿分的关键, 首先CPU和74138译码器的图要自己记住, 考试时直接画上去. 画上对应芯片数量的矩形并注明是哪种芯片 注意布局, 合适的布局会让等下连接芯片更加清晰好看.</li>
+<li>根据芯片的容量来选择连接CPU的几根地址线, 例如本题中两种芯片的容量都是4k的(这里不看位数), 4k=2^12次方, 也就是连接12根地址线, 注意从A0开始.</li>
+<li><strong>没有用到的最低三位地址线</strong>去和74138的CBA输入端连接. 注意地址线从低到高依次和74138输入端的ABC连接.</li>
+<li>G2B非和G2A非均和CPU地址线中没有用到的且恒为0的端口连接.</li>
+<li>G1和恒为1的端口连接, 没有的话可以画一条线并注明5V, 表示外部连接.</li>
+<li>根据CBA三个输入连接的CPU地址线的二进制数, 来确定输出(Y0 ~ Y7), 并连接到对应的芯片上. 有时需要注意</li>
+<li>最后<strong>将RAM芯片连接到W/R非</strong>上即可.</li>
+<li>如图:</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/f8d225f209bd4df1a9f3964380eb105a.png" alt=""></p>
+<p><strong>参考连接：</strong> <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41913072/article/details/85137196"> 存储器与CPU的连接_yrdelft的博客-CSDN博客_存储器与cpu的连接</a></p>
+<h4 id="2-设计主存地址">2.设计主存地址</h4>
+<p>统一块长, Cache容量, 主存容量三者的单位, 最好都换算成B的单位(1B代表1个字节, 1B = 8b. 1b代表1位).</p>
+<p><strong>全相联有两部分: 主存字块标记, 字块内地址</strong></p>
+<ul>
+<li><strong>首先</strong>确定块长, 也就是每个字块有多少字节, 然后将该数字换算成2^x次方的形式, 那么<strong>字块内地址</strong>就是x.</li>
+<li><strong>主存字块标记</strong>等于将主存容量换成2^z次方的形式后, z - x即为<strong>主存字块标记</strong>大小.
+<ul>
+<li>全相联是最简单的一种, 出题时大概率会放在第一问.</li>
+</ul>
+</li>
+</ul>
+<p><strong>直接映射有三部分: 主存字块标记, Cache字块地址, 字块内地址</strong></p>
+<ul>
+<li><strong>字块内地址</strong>不变.</li>
+<li><strong>Cache字块地址</strong>等于将Cache容量换成2^y次方的形式后, y - x即为<strong>Cache字块地址</strong>大小.</li>
+<li><strong>主存字块标记</strong>等于将主存容量换成2^z次方的形式后, z - y - x即为<strong>主存字块标记</strong>大小.</li>
+</ul>
+<p><strong>二路组相联: 主存字块标记, 组地址, 字块内地址</strong></p>
+<ul>
+<li>首先<strong>字块内地址</strong>不变.</li>
+<li>2^(y-x)次方除n路组相联(这里是二路, n = 2)然后换算成2^m次方即为组地址.</li>
+<li><strong>主存字块标记</strong>等于将主存容量换成2^z的形式后, z - x - m即为<strong>主存字块标记</strong>大小.</li>
+</ul>
+<h4 id="3-磁盘的技术指标">3.磁盘的技术指标</h4>
+<p>磁盘计算题一般都是改改数, 记住计算公式就可以. 计算磁道周长时π视为3.14.</p>
+<p><strong>例题:</strong> 磁盘组有 <strong>6 片磁盘</strong>, 每片有两个记录面, <strong>最上最下两面不用</strong>. 存储区域<strong>内直径 20cm</strong>, <strong>外直径 40cm</strong>, <strong>道密度为 20 道/cm</strong>, <strong>内层位密度 400 位/cm</strong>, <strong>转速 2400 转/分</strong>.</p>
+<ul>
+<li>
+<p>共有多少存储面可用?</p>
+</li>
+<li>
+<p>一共6片, 每片有上下两个记录面, 最上最下两面不用. 则一共有6*2-2=10</p>
+</li>
+<li>
+<p>共有多少个柱面?</p>
+<ul>
+<li>
+<p><strong>柱面数量 = 有效存储区域(存储区域外半径 − 存储区域内半径) ∗ 道密度</strong></p>
+</li>
+<li>
+<p>柱面数量即为一个盘面上的磁道数量, 和有多少可用存储面无关.</p>
+</li>
+<li>
+<p>注意, 题目所给的内 / 外径为直径.</p>
+</li>
+<li>
+<p>本题中: 有效存储区域长度 = 40/2 - 20/2 = 10 (cm)</p>
+<p>柱面数 = 10 × 20 = 200 (道), 即200个柱面.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>盘组总存储容量是多少?</p>
+<ul>
+<li>
+<p><strong>盘组总容量 = 存储面数 * 柱面数 * 每道信息量(每条磁道容量)</strong></p>
+</li>
+<li>
+<p><strong>每道信息量 = 位密度 * 对应磁道周长</strong></p>
+</li>
+<li>
+<p>磁道长度就是题目中所给的位密度所对应的内层或外层周长.</p>
+</li>
+<li>
+<p>本题中给的是内层位密度, 所以先算内层磁道周长 = 2 * r * π = 62.8 cm</p>
+<p>每道信息量 = 400 * 62.8 = 25120 位. 单位可以转成字节, 也可以不转, 25120b = 3.14KB</p>
+<p>盘组总容量 = 10 * 200 * 3.14KB = 6280KB = 6.28 MB</p>
+</li>
+</ul>
+</li>
+<li>
+<p>数据传输率多少?</p>
+<ul>
+<li>
+<p><strong>数据传输率 = 转速(单位要转化为多少转每秒) * 每道信息量</strong></p>
+</li>
+<li>
+<p>本题中: 转速 = 2400转 / 分 = 40转 / 秒</p>
+<p>数据传输率 = 40 * 3.14KB = 125.6 KB / 秒 = 0.1256 MB / 秒</p>
+</li>
+</ul>
+</li>
+<li>
+<p>如果某文件长度超过一个磁道的容量, 应将它记录在同一个存储面上, 还是记录在同一个柱面上, 为什么?</p>
+<ul>
+<li><strong>记录在同一个柱面上, 因为不需要重新寻找磁道, 数据读写速度快.</strong></li>
+<li>没有为什么, 记住就行了.</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-虚拟存储器的工作原理">4.虚拟存储器的工作原理</h4>
+<p>虚页号 = 页号, 主存实页面号 = 页框号 = 物理块号, 有效位=<strong>该页面当前是否存在于内存中</strong></p>
+<p>这种题把握好三个数字即可.</p>
+<p><strong>例题:</strong> 某存储器按字节编址, <strong>虚拟地址空间大小为 16MB</strong>, <strong>主存地址空间大小为1MB</strong>, <strong>页面大小为 4KB</strong>.</p>
+<ul>
+<li>
+<p>虚拟地址共有几位, 哪几位表示页号? 物理地址共有几位, 哪几位表示物理页号?</p>
+<ul>
+<li>
+<p>虚拟地址空间大小为16MB = 2 ^ 24 B, 所以虚拟地址有24位, 因为页面大小为4KB = 2 ^ 12 位, 所以页内地址12位.</p>
+<p>24 - 12 = 12 所以高12位表示页号(虚页号). 因为主存地址空间大小为1MB = 2 ^ 20 位, 所以物理地址有20位, 20 - 12 = 8 所以高8位表示物理页号(页框号).</p>
+</li>
+</ul>
+</li>
+<li>
+<p>虚拟地址010C60H所在的页面是否在主存中? 若在主存中, 则该虚拟地址对应的物理地 址是什么? (页表如下图所示)</p>
+</li>
+<li>
+<table>
+<thead>
+<tr>
+<th><strong>虚页号</strong></th>
+<th><strong>有效位</strong></th>
+<th><strong>页框号</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>06</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>04</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>15</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1</td>
+<td>02</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0</td>
+<td>-</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1</td>
+<td>2B</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0</td>
+<td>–</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>1</strong></td>
+<td><strong>32</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>由第一问已知虚拟地址010C60H的低12位C60H为页内地址, 高12位010H为页号, <strong>查询表格发现虚页号为2(010视为二进制则表示十进制的2)的有效位是1</strong>, 所以已经存入主存中, <strong>对应页框号是15H</strong>, 所以<strong>对应的物理地址是15C60H</strong>.</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-中断和-I-O系统">5.中断和 I/O系统</h4>
+<p>CPI 为5(即执行每条指令平均需5个时钟周期). 在做I/O系统的题时要注意, 这里的1M与1B的换算关系是1M = 1000KB = 10^6B .</p>
+<p><strong>例题:</strong> 某计算机的 <strong>CPU 主频为 400MHz</strong>, <strong>CPI 为 5</strong>. 假设某<strong>外设的数据传输率为 0.5MB/s</strong>, 采用中断方式与主机进行数据传送, <strong>以 32 位为传输单位</strong>, 对应的<strong>中断服务程序包含 18 条指令, 中断服务的其他开销相当于 2 条指令的执行时间</strong>. 请回答下列问题, 要求给出计算过程.</p>
+<ul>
+<li>在中断方式下, CPU 用于该外设 I/O 的时间占整个CPU时间的百分比是多少?
+<ul>
+<li><strong>CPU用于外设I/O的时间占整个CPU时间的百分比 = 1秒钟内用于中断的开销 / CPU 主频</strong></li>
+<li><strong>1秒钟内用于中断的开销 = CPU每次用于数据传送的时钟周期数 * 外设每秒申请中断次数</strong></li>
+<li><strong>外设每秒申请中断次数 = 外设的数据传输率 / 传输单位(转化为B)</strong></li>
+<li><strong>CPU每次用于数据传送的时钟周期数 = (中断服务程序 + 中断服务的其他开销) * CPI</strong></li>
+<li>第一问要牢牢记住这4个式子</li>
+<li>本题中: 外设的数据传输率为 0.5MB/s, 以 32 位为传输单位, 32b = 4B, <strong>外设每秒申请的中断次数 = 0.5MB / (4B) = 5 * 10^5 / 4 = 125000</strong>. 中断服务程序包含 18 条指令, 中断服务的其他开销相当于 2 条指令的执行时间, CPI 为5, <strong>CPU每次用于数据传送的时钟周期数 = 5 * (18 + 2) =100</strong>. <strong>1秒钟内用于中断的开销 = 100 * 125000 = 12.5M个时钟周期</strong>. CPU 主频为 400MHz, <strong>CPU 用于该外设 I/O 的时间占整个CPU时间的百分比 = 12.5M / 400MHz = 3.125%</strong>.</li>
+</ul>
+</li>
+<li>当该外设的数据传输率达到 5MB/s 时, 改用 DMA 方式传送数据. 假定每次 DMA 传送块大小为 5000B, 且 DMA 预处理和后处理的总开销为 500 个时钟周期, 则 CPU 用于该外设 I/O 的时间占整个 CPU 时间的百分比是多少? (假设 DMA 与CPU 之间没有访存冲突)
+<ul>
+<li><strong>CPU用于外设I/O的时间占整个CPU时间的百分比 = CPU用于DMA处理的总开销 / CPU 主频</strong></li>
+<li><strong>CPU用于DMA处理的总开销 = 1秒钟内需产生的DMA次数 * DMA 预处理和后处理的总开销</strong></li>
+<li><strong>1秒钟内需产生的DMA次数 = 外设的数据传输率 / 每次 DMA 传送块大小</strong></li>
+<li>第二问只需要三个式子, 两问的式子大致相同.</li>
+<li>本题中: 该外设的数据传输率达到 5MB/s, 改用 DMA 方式传送数据, 假定每次 DMA 传送块大小为 5000B, <strong>1秒钟内需产生的DMA次数 = 5MB / 5000B = 1000</strong>. DMA 预处理和后处理的总开销为 500 个时钟周期, <strong>CPU用于DMA处理的总开销 = 1000 * 500 = 0.5M个时钟周期</strong>. <strong>CPU用于外设I/O的时间占整个CPU时间的百分比 = 0.5M / 400MHz</strong>.</li>
+</ul>
+</li>
+</ul>
+<h4 id="6-指令系统">6.指令系统</h4>
+<p>这道题能领悟多少全看造化…</p>
+<p><strong>例题:</strong> 某计算机字长为16位, 主存地址空间大小为128KB, 按字编址. 采用字长指令格式, 指令名字段定义如下:</p>
+<table>
+<thead>
+<tr>
+<th>OP(4位)</th>
+<th>Ms(3位)</th>
+<th>Rs(3位)</th>
+<th>Md(3位)</th>
+<th>Rd(3位)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>操作码</td>
+<td>源操作数寻址方式</td>
+<td>源寄存器</td>
+<td>目的操作数寻址方式</td>
+<td>目的寄存器</td>
+</tr>
+</tbody>
+</table>
+<p>转移指令采用相对寻址, 相对偏移用补码表示, 寻址方式定义如下:</p>
+<table>
+<thead>
+<tr>
+<th>Ms/Md</th>
+<th>寻址方式</th>
+<th>助记符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>000B</td>
+<td>寄存器直接</td>
+<td>Rn</td>
+<td>操作数=(Rn)</td>
+</tr>
+<tr>
+<td>001B</td>
+<td>寄存器间接</td>
+<td>(Rn)</td>
+<td>操作数=（（Rn））</td>
+</tr>
+<tr>
+<td>010B</td>
+<td>寄存器间接、自增</td>
+<td>(Rn)+</td>
+<td>操作数=((Rn))， (Rn)+1-&gt;Rn</td>
+</tr>
+<tr>
+<td>011B</td>
+<td>相对</td>
+<td>D(Rn)</td>
+<td>转移目标地址=(PC)+(Rn)</td>
+</tr>
+</tbody>
+</table>
+<p>注: (X)表示有存储地址X或寄存器X的内容, 请回答下列问题:</p>
+<ul>
+<li>该指令系统最多可有多少指令? 该计算机最多有多少个通用寄存器? 存储地址寄存器(MAR)和存储数据寄存器(MDR)至少各需多少位?
+<ul>
+<li><strong>指令数 = 2^OP位数</strong> OP表示操作码, 操作码有4位, 则该指令系统最多可有2 ^ 4 = 16条指令.</li>
+<li><strong>通用寄存器数量 = 2^寄存器位数</strong> 寄存器有3位, 则寄存器最多有2 ^ 3 = 8个寄存器.</li>
+<li><strong>MDR的位数等于计算机的字长</strong> 计算机字长为16位, 所以MDR最少需要16位.</li>
+<li><strong>MAR的位数 = log 2 (主存地址空间大小 / 计算机字长(单位转化为B))</strong> 主存地址空间大小为128KB, 计算机字长16位 = 2B, 128KB / 2B = 2^16, 所以至少需要16位的MAR.</li>
+</ul>
+</li>
+<li>若<strong>操作码 0001B</strong> 表示加法操作(助记符为 add), <strong>寄存器R4和R5 的编号分别为100B和101B</strong>, <strong>R4 的内容为 1234H, R5 的内容为 5678H</strong>, <strong>地址1234H中的内容为 5678H, 地址5678H中的内容为 1234H</strong>, 则汇编语句 “add (R4), (R5)+” (逗号前为源操作数, <strong>逗号后为目的操作数</strong>)对应的机器码是什么(用十六进制表示)? 该指令执行后, 哪些寄存器和存储单元的内容会改变? 改变后的内容是什么?
+<ul>
+<li><strong>对应的机器码 = 操作码 + R4的寻址方式位 + R4的编号二进制表示 + R5的寻址方式位 + R5的编号二进制表示</strong> 本题中: 操作码给出: 0001B, R4和R5的寻址方式位分别为001B和010B, R4和R5的编号分别为4和5, 所以语句 “add (R4), (R5)+”对应的机器码<strong>二进制表示 = 0001001100010101B, 转化为十六进制 = 1315H</strong></li>
+<li>因为R4和R5对应的寻址方式是寄存器间接寻址, 语句 “add (R4), (R5)+”的意思是将(R4)和(R5)指向的内容相加并放到目的操作数中, 然后R5的内容自增, 目的操作数是R5, R4 = 1234H, (1234H) = 5678H. R5 = 5678H, (5678H) = 1234H. 1234H + 5678H = 68ACH. 指令执行后, R5和存储单元5678H的内容会改变, R5变为5679H, 存储单元5678H的内容变为68ACH.</li>
+</ul>
+</li>
+</ul>
+<p><strong>参考链接:</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/8a3ee54ce98d4dcfafab715e06fee7b2?toCommentId=1753303">题目来源于王道论坛 某计算机字长为16位，主存地址空间__牛客网 (nowcoder.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Fy4y1p7k8?spm_id_from=333.337.search-card.all.click&amp;vd_source=4c641295e18917e9d2cad4d846182614">指令执行大题：寄存器间接寻址+执行过程（王道计组）_哔哩哔哩_bilibili</a><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Fy4y1p7k8?spm_id_from=333.337.search-card.all.click&amp;vd_source=4c641295e18917e9d2cad4d846182614">https://www.bilibili.com/video/BV1Fy4y1p7k8?spm_id_from=333.337.search-card.all.click&amp;vd_source=4c641295e18917e9d2cad4d846182614</a>)</p>
+<h3 id="二-计算题">二 计算题</h3>
+<h4 id="1-计算机性能">1.计算机性能</h4>
+<p>1G = 10^3M = 10^6KB = 10^9B</p>
+<p><strong>例题:</strong> 某<strong>计算机主频为1.5GHz</strong>，其指令分为 4 类，它们在基准程序中所占比例及 CPI 如下表所示。求出该机的 MIPS。</p>
+<table>
+<thead>
+<tr>
+<th>指令类型</th>
+<th>所占比例</th>
+<th>CPI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>50%</td>
+<td>2</td>
+</tr>
+<tr>
+<td>B</td>
+<td>20%</td>
+<td>3</td>
+</tr>
+<tr>
+<td>C</td>
+<td>10%</td>
+<td>4</td>
+</tr>
+<tr>
+<td>D</td>
+<td>20%</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>MIPS = 计算机主频(换算成M) / 平均CPI(将不同CPI × 对应比例并汇总求和)</strong></li>
+<li>本题中: MIPS = 1500 M / (2 * 0.5 + 3 * 0.2 + 4 * 0.1 + 5 * 0.2) = 500</li>
+</ul>
+<h4 id="2-计算总线带宽">2.计算总线带宽</h4>
+<p><strong>例题:</strong> 设<strong>总线的时钟频率为 8MHz</strong>, <strong>一个总线周期等于两个时钟周期</strong>. 如果<strong>一个总线周期中并行传送 32 位数据</strong>, 则计算总线宽度和总线的带宽各是多少?</p>
+<ul>
+<li><strong>总线宽度 = 总线位宽 = 一个总线周期中并行传送多少位数据</strong></li>
+<li><strong>总线的传输速率 = 总线带宽 = (总线位宽 / 8位) * (总线工作频率 / 总线周期时钟数). 通常单位: MB / s (MBps)</strong></li>
+<li>本题中: 总线宽度 = 32位 = 4B. 总线的时钟频率为 8MHz, 一个总线周期等于两个时钟周期, 总线带宽 = 4B * (8 MHZ / 2) = 16MB / s.</li>
+</ul>
+<h4 id="3-计算CRC码">3.计算CRC码</h4>
+<p><strong>例题:</strong> 有一个 (7, 4) 码 (即<strong>CRC码为7位</strong>, <strong>信息码为4位</strong>), 已确定<strong>生成多项式为: 1011</strong>. <strong>被传输的信息C(x) = 1000</strong>, 求C (x) 的CRC码 (写出具体步骤).</p>
+<ul>
+<li>CRC码很简单, 先看被传输的信息是否满足n位(也即CRC码的位数), 如果不满足就在后面补零. 然后用得到的n位CRC码 (这里是1000 000) 去除所确定的多项式, 这里是1011, 最后所得的余数取n - m (m是被传输的信息的位数) 位补在被传输的信息后面即可. 注意, 这里的<strong>除</strong>其实是逐位异或的意思, 只是形式上很像除法.</li>
+<li>本题中: 被传输的信息C(x) = 1000, CRC码为7位, 可暂得CRC码1000000, 然后如图所示可得余数101, 最终所得CRC码即为: 1000101</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/1acc1ebdc0d449a7bb8794ff18324117.png" alt=""></p>
+<h4 id="4-海明码">4.海明码</h4>
+<p><strong>参考链接:</strong></p>
+<p>看明白什么是海明码: <a target="_blank" rel="noopener" href="https://blog.csdn.net/konley233/article/details/108134466">可能是最详细的海明校验码（汉明码）解法_1橘猫的博客-CSDN博客_海明校验码例题</a></p>
+<p>两种题型怎么做: <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1P3411v7gd?p=2&amp;vd_source=4c641295e18917e9d2cad4d846182614">计算机组成原理速成、不挂科、搞定期末考试大题（横屏版）_哔哩哔哩_bilibili</a></p>
+<p>注意: 第一个链接所给出的海明码求法是将校验位从后向前插入的, 当然从前面还是后面开始都可以, 但是大部分题目都是从前向后插入, 所以习惯上最好也是从前向后插入.</p>
+<p><strong>例题: 已知八位数据11001100采用4位校验位, 偶校验方式, 求出海明校验码. (总结海明校验码具体步骤).</strong></p>
+<ul>
+<li>做法在上方链接, 讲的很好, 这里只给出答案.<br>
+<img src="https://img-blog.csdnimg.cn/64a7c6ce7d9140e2aa7d0982c3dfd795.png" alt=""></li>
+</ul>
+<h4 id="5-IEEE754浮点数">5.IEEE754浮点数</h4>
+<p>知识点涉及面比较广, 但是只要求会做题的话很简单.</p>
+<p><strong>例题:</strong> 已知<strong>x = 8.25</strong>, 求IEEE754单精度浮点数格式<strong>机器数十六进制</strong>表示形式(写出具体步骤).</p>
+<ul>
+<li>
+<p>机器数就是一个数在计算机中的二进制表示.</p>
+</li>
+<li>
+<p>这种题就是要我们将一个十进制的数转化成一个32位的二进制数, 至于十六进制和八进制都是在二进制的基础上处理一下结果.</p>
+</li>
+<li>
+<p>32位的二进制数由三部分组成: <strong>1位的符号位, 8位的阶码, 23位的尾数码</strong>组成. 不用管这些名词, 只要记住位数和怎么求就可以了.</p>
+</li>
+<li>
+<p><strong>符号位看给定的数是正还是负, 0正1负.</strong></p>
+</li>
+<li>
+<p><strong>将所给的数转化成二进制后, 再转化成1.xxx的形式</strong>, 例如8.25 = 1000.01B = 1.00001 * 2^3 B.</p>
+</li>
+<li>
+<p><strong>2的幂 + 127再转化为二进制就是我们要求的阶码</strong>, 不足8位在前面补零. <strong>所得到的1.00001小数点后面的00001就是尾数码</strong>, 不足23位就在后面补零. (不要管为什么加127, 记住就行了).</p>
+</li>
+<li>
+<p>本题中: x = 8.25 = (1000.01)B = ( 1.000 01×2^3 )B, E(阶码) = e(我们得到的3) + 127 = 130 = (1000 0010 )B，</p>
+<p>单精度浮点数格式: 1位数符, 8位阶码 (含阶符), 23位尾数. 故IEEE 754单精度浮点数表示为:</p>
+<p>0 1000 0010 000 0100 0000 0000 0000 0000 即0100 0001 0000 0100 0000 0000 0000 0000 即41040000H</p>
+</li>
+</ul>
+<p><strong>参考连接：</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1i54y1y7Fn?spm_id_from=333.337.search-card.all.click&amp;vd_source=4c641295e18917e9d2cad4d846182614">【计算机组成原理】十进制转IEEE754单精度浮点数格式_哔哩哔哩_bilibili</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1tK411P7nh?spm_id_from=333.337.search-card.all.click&amp;vd_source=4c641295e18917e9d2cad4d846182614">【计算机组成原理】IEEE754单精度浮点数转十进制_哔哩哔哩_bilibili</a></p>
+<h4 id="6-流水线的基本运算和流水线的相关性处理">6.流水线的基本运算和流水线的相关性处理</h4>
+<p><strong>单位换算:</strong></p>
+<ul>
+<li>1s = 1* 10^3 ms = 1 * 10^6 μs = 1 * 10^9 ns. 1G = 1 * 10^3 MB = 1 * 10^6 KB = 1 * 10^9 B</li>
+</ul>
+<p><strong>明确公式:</strong></p>
+<ul>
+<li>CPU时钟周期为△t, m阶指令流水线, 连续处理n条指令</li>
+<li><strong>吞吐率: TP = n / ((m + n − 1) ∗ △t) 加速比: Sp = (n * m * △t) / ((m + n - 1) * △t)</strong></li>
+<li><strong>CPU时钟频率(主频) = 1 / 时钟周期</strong></li>
+<li>执行<strong>n条指令需要m + ( n − 1 )个时钟周期</strong></li>
+</ul>
+<p><strong>例题:</strong> 计算机采用 <strong>5 段流水方式</strong>, 每段执行需<strong>1个时钟周期T</strong>, 若连续执行 <strong>30 条指令</strong>, 则流水线所需的时钟周期数是多少? 求出流水线的加速比Sp和吞吐率 TP(写出简要步骤).</p>
+<ul>
+<li>m段流水方式 = m级指令流水线.</li>
+<li>本题中: 时钟周期数 = (5 + 30 - 1) * T = 34T. TP = 30 / ((5 + 30 - 1) * T) = 17 / (15 * T). Sp = (5 * 30 * T) / (34 * T) = 75 / 17.</li>
+</ul>
+<p><strong>参考链接:</strong> <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44780229/article/details/105726824">(5条消息) 流水线性能吞吐率、加速比、效率计算_海绵泡泡~的博客-CSDN博客_流水线吞吐率加速比</a></p>
+<h4 id="7-Cache命中率问题">7.Cache命中率问题</h4>
+<p><strong>例题:</strong> 假设CPU执行某段程序时, <strong>共访问Cache命中950次</strong>, <strong>访问主存50次</strong>. <strong>Cache的存取周期为50ns</strong>, <strong>主存的存取周期为300ns</strong>. 求Cache - 主存系统的命中率, 平均访问时间和效率.</p>
+<ul>
+<li><strong>命中率 = (共访问Cache命中次数 / (共访问Cache命中次数 + 访问主存次数) ) * 100%.</strong></li>
+<li><strong>平均访问时间 = 命中率 * Cache的存取周期 + (1 - 命中率) * 主存的存取周期.</strong></li>
+<li><strong>效率 = Cache的存取周期为50ns / 平均访问时间.</strong></li>
+<li><strong>性能提高 = (主存的存取周期 / 平均访问时间) - 1.</strong></li>
+<li>本题中: 命中率 = 950 / (950 + 50) * 100% = 95% 平均访问时间 = 0.95 * 50 + 0.05 * 300 = 62.5 效率 = 50 / 62.5 = 80% 性能提高 = 300 / 62.5 - 1 = 4.8 - 1 = 3.8 倍</li>
+</ul>
+<h4 id="8-机器数的最大值最小值">8.机器数的最大值最小值</h4>
+<p>基础知识点.</p>
+<p><strong>例题:</strong> 设机器字长为n = 8位(其中１位为符号位), 求出对于整数, 当机器数分别代表无符号数, 原码, 补码和反码时, 对应真值的最大值和最小值为多少?(先写机器数, 再求真值).</p>
+<ul>
+<li>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>无符号数</th>
+<th>原码</th>
+<th>补码</th>
+<th>反码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>最大值机器数</td>
+<td>1,1111111</td>
+<td>0,1111111</td>
+<td>0,1111111</td>
+<td>0,1111111</td>
+</tr>
+<tr>
+<td>最大值真值</td>
+<td>255</td>
+<td>127</td>
+<td>127</td>
+<td>127</td>
+</tr>
+<tr>
+<td>最小值机器数</td>
+<td>0,0000000</td>
+<td>1,1111111</td>
+<td>1,0000000</td>
+<td>1,0000000</td>
+</tr>
+<tr>
+<td>最小值真值</td>
+<td>0</td>
+<td>-127</td>
+<td>-128</td>
+<td>-127</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>说明一下 -128, -128是由反码1, 1111111 + 1得到的, 他的原码是1, 0000000, 显然这是 -0, 而 -0是没有意义的, 所以就拿来给 -128用了.</p>
+</li>
+</ul>
+<h3 id="一-简答题">一 简答题</h3>
+<h4 id="名词解释-总线带宽-总线宽度-总线工作频率-总线复用">名词解释: 总线带宽, 总线宽度, 总线工作频率, 总线复用.</h4>
+<ul>
+<li><strong>总线宽度: 通常指数据总线的根数.</strong></li>
+<li><strong>总线带宽: 总线的数据传输率, 指单位时间内总线上传输数据的位数;</strong></li>
+<li><strong>总线频率: 指总线信号的时钟频率(工作频率)</strong></li>
+<li>总线复用: 指同一条信号线可以分时传输不同的信号.</li>
+</ul>
+<h4 id="计算机中引入Cache-主存和主-辅存层次的目的分别是什么？Cache-主存层次常用的地址映像方法和替换算法分别是什么？">计算机中引入Cache-主存和主-辅存层次的目的分别是什么？Cache-主存层次常用的地址映像方法和替换算法分别是什么？</h4>
+<ul>
+<li><strong>Cache(高速缓冲存储器)是为了解决主存与CPU的速度差异而采用的技术, 引入主-辅存层次的目的是弥补主存容量不足.</strong></li>
+<li><strong>Cache-主存层次常用的地址映像方法是组相联映像, 替换算法是LRU替换算法.</strong></li>
+</ul>
+<h4 id="主存单元的地址分配-大端-小端-按整数边界存放">主存单元的地址分配: 大端, 小端; 按整数边界存放</h4>
+<ul>
+<li><strong>大端模式: 是指将数据的低位(比如 1234 中的 34 就是低位)放在内存的高地址上, 而数据的高位(比如 1234 中的 12 就是高位)放在内存的低地址上.</strong></li>
+<li><strong>小端模式: 是指将数据的低位放在内存的低地址上, 而数据的高位放在内存的高地址上. 这种存储模式将地址的高低和数据的大小结合起来, 高地址存放数值较大的部分, 低地址存放数值较小的部分, 这和我们的思维习惯是一致, 比较容易理解.</strong></li>
+</ul>
+<h4 id="总结SRAM和DRAM的区别">总结SRAM和DRAM的区别.</h4>
+<ul>
+<li><strong>SRAM: 读写速度快, 生产成本高, 多用于容量较小的高速缓冲存储器.</strong></li>
+<li><strong>DRAM: 读写速度较慢, 集成度高, 生产成本低, 多用于容量较大的主存储器.</strong></li>
+</ul>
+<h4 id="动态半导体存储器-DRAM-为什么要刷新-如何刷新-主要包含哪三种刷新方式">动态半导体存储器(DRAM)为什么要刷新? 如何刷新?主要包含哪三种刷新方式?</h4>
+<ul>
+<li><strong>因为动态存储器信息的存储是靠充电电容存储的, 电荷会慢慢泄漏, 所以要经常性, 周期性地充电, 这就是刷新.</strong></li>
+<li><strong>读出的过程就是刷新的过程.</strong></li>
+<li><strong>三种刷新方式: 集中刷新, 分散刷新, 异步刷新.</strong></li>
+</ul>
+<h4 id="分辨率和灰度级">分辨率和灰度级.</h4>
+<ul>
+<li><strong>分辨率是显示器所能显示的像素个数, 屏幕上的每一个光点就是一个像素. 以宽, 高的像素表示, 例如800 * 600 等. 像素越密, 分辨率越高, 图像越清晰.</strong></li>
+<li><strong>灰度级: 灰度级是指黑白显示器中所显示的像素点的亮暗差别, 在彩色此案时期中测表现为颜色的不同, 灰度级越多, 图像层次越清楚逼真.</strong></li>
+</ul>
+<h4 id="计算机内部如何判断补码加-减运算的结果是否发生溢出">计算机内部如何判断补码加/减运算的结果是否发生溢出?</h4>
+<ul>
+<li><strong>双符号位, 最高位进位, 符号相同操作数的运算后与原操作数的符号不同则溢出.</strong></li>
+</ul>
+<h4 id="浮点数加减运算的步骤有哪些">浮点数加减运算的步骤有哪些?</h4>
+<ul>
+<li><strong>1.对阶. 2.尾数求和. 3.规格化. 4.舍入. 5.溢出判断.</strong></li>
+</ul>
+<h4 id="两个浮点规格化数相乘-是否可能需要右规-为什么-是否可能需要左规-为什么-其规格化次数可否确定">两个浮点规格化数相乘, 是否可能需要右规? 为什么? 是否可能需要左规? 为什么? 其规格化次数可否确定?</h4>
+<ul>
+<li><strong>两个浮点规格化数相乘, 不可能需要右规. 可能需要左规, 因为规格化的尾数是纯小数, 两个纯小数相乘不会得到整数, 但会变得更小.</strong></li>
+<li><strong>左规最多只需一次.</strong></li>
+</ul>
+<h4 id="简述微程序的基本思想">简述微程序的基本思想.</h4>
+<ul>
+<li><strong>一条微指令包含若干微命令, 控制一步操作; 一段微程序包含若干微指令, 解释执行一条机器指令; 微程序事先存放在控存中.</strong></li>
+</ul>
+<h4 id="影响指令流水线性能的因素有哪三个">影响指令流水线性能的因素有哪三个?</h4>
+<ul>
+<li>1.结构相关. 2.数据相关. 3.控制相关.</li>
+</ul>
+<h4 id="简述串行总线和并行总线的特点-现代计算机主要采用什么类型的总线">简述串行总线和并行总线的特点. 现代计算机主要采用什么类型的总线.</h4>
+<ul>
+<li>串行总线数据传输时, 数据是一位一位地在通信线上传输的; 并行总线数据传输时有多个数据位同时在两个设备之间传输.</li>
+<li>串行方式.</li>
+</ul>
+<h3 id="补充：">补充：</h3>
+<p><strong>ps：</strong> 截止2022.9.5，链接已失效，可联系站长邮箱获取文件。</p>
+<p><strong>真题：</strong></p>
+<p><a target="_blank" rel="noopener" href="http://rczkr10rm.hn-bkt.clouddn.com/hexo%E5%8D%9A%E5%AE%A2%2F2019-2020-02%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E3%80%8B%E8%AF%95%E9%A2%98a(%E8%AE%A1%E7%A7%91181-3).docx">http://rczkr10rm.hn-bkt.clouddn.com/hexo博客%2F2019-2020-02《计算机组成原理》试题a(计科181-3).docx</a></p>
+<p><strong>答案：</strong></p>
+<p><a target="_blank" rel="noopener" href="http://rczkr10rm.hn-bkt.clouddn.com/hexo%E5%8D%9A%E5%AE%A2%2F%E8%AF%95%E9%A2%98A(%E8%AE%A1%E7%A7%91181-3)%E7%AD%94%E6%A1%88.docx">http://rczkr10rm.hn-bkt.clouddn.com/hexo博客%2F试题A(计科181-3)答案.docx</a></p>
+<p><strong>复习提纲：</strong></p>
+<p><a target="_blank" rel="noopener" href="http://rczkr10rm.hn-bkt.clouddn.com/hexo%E5%8D%9A%E5%AE%A2%2F%E8%AE%A1%E7%BB%84%E5%A4%8D%E4%B9%A0.docx">http://rczkr10rm.hn-bkt.clouddn.com/hexo博客%2F计组复习.docx</a></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">心意</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://xinyi127.cn/posts/612f39d1.html">http://xinyi127.cn/posts/612f39d1.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">心意</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
+                                    <span class="chip bg-color">计算机组成原理</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">如果文章有帮到你，可以请我吃一颗糖哦~</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .waline-card {
+        margin: 1.5rem auto;
+    }
+    .waline-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #waline p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+    #waline blockquote p {
+        text-indent: 0.2rem;
+    }
+    #waline a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+    #waline img {
+        max-width: 100%;
+        cursor: pointer;
+    }
+    #waline ol li {
+        list-style-type: decimal;
+    }
+    #waline ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+    #waline ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+    #waline ul li {
+        list-style-type: disc;
+    }
+    #waline ul ul li {
+        list-style-type: circle;
+    }
+    #waline table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+    #waline table, th, td {
+        border: 0;
+    }
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+    #waline table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+    #waline table td {
+        min-width: 80px;
+    }
+    #waline h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+    #waline h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+    #waline h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+    #waline h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+    #waline h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+    #waline h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+    #waline p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+    #waline hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+    #waline blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+    #waline pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+    #waline code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+    #waline pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+    #waline pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+    #waline code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+    #waline [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+    #waline b,
+    strong {
+        font-weight: bold;
+    }
+    #waline dfn {
+        font-style: italic;
+    }
+    #waline small {
+        font-size: 85%;
+    }
+    #waline cite {
+        font-style: normal;
+    }
+    #waline mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+    #waline table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+    #waline table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+    #waline table td {
+        min-width: 80px;
+    }
+    #waline [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+  </style>
+  
+  <div class="card waline-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="waline" class="card-content" style="display: grid">
+    </div>
+  </div>
+  
+
+  <!-- <script src="//cdn.jsdelivr.net/npm/@waline/client"></script> -->
+  <script src="/libs/waline/Waline.min.js"></script>
+  <script>
+    new Waline({
+        el: '#waline',
+        serverURL: 'https://vercelwaline.xinyi127.cn',
+        avatar: 'mm'    
+    });
+  </script> 
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/5cbfb92d.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="【题解】最短编辑距离题解">
+                        
+                        <span class="card-title">【题解】最短编辑距离题解</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            y总的解法思路太清晰了，听完不禁有种还可以这样思考的感觉，细细品味又是标准的动态规划，令人叹服。
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-17
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%A2%98%E8%A7%A3/" class="post-category">
+                                    题解
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/c/">
+                        <span class="chip bg-color">c++</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+                        <span class="chip bg-color">动态规划</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/e01f19e4.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="【题解】Lake Counting">
+                        
+                        <span class="card-title">【题解】Lake Counting</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            专业课老师布置题目，做做专业课的作业放松一下~
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%A2%98%E8%A7%A3/" class="post-category">
+                                    题解
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/c/">
+                        <span class="chip bg-color">c++</span>
+                    </a>
+                    
+                    <a href="/tags/BFS/">
+                        <span class="chip bg-color">BFS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: ❤梧桐苑<br />'
+            + '文章作者: 心意<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2022</span>
+            
+            <a href="/about" target="_blank">心意</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">122.9k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2022";
+                        var startMonth = "5";
+                        var startDate = "23";
+                        var startHour = "21";
+                        var startMinute = "38";
+                        var startSecond = "13";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">鲁ICP备2022018291号-1</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xinyi127" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1224179212" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1224179212" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1224179212" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+        <script src="//code.tidio.co/ondsdwrvnlmxms4i4ncrgo71ffe58cqm.js"></script>
+        <script>
+            $(document).ready(function () {
+                setInterval(change_Tidio, 50);
+                function change_Tidio() {
+                    var tidio=$("#tidio-chat iframe");
+                    if(tidio.css("display")=="block"&& $(window).width()>977 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"85px":"20px";
+                        document.getElementById("tidio-chat-iframe").style.right="-15px";
+                        document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;
+                        document.getElementById("tidio-chat-iframe").style.right="-15px";
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
+                        document.getElementById("tidio-chat-iframe").style.zIndex="998";
+                    }
+                }
+            });
+        </script>
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
+
+
+
+<!-- 动态标签 -->
+<script type="text/javascript"> var OriginTitile = document.title, st; 
+document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ诶，页面崩溃了嘛？", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) }) </script>
+
