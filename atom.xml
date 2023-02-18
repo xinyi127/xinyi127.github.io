@@ -6,7 +6,7 @@
   <link href="http://xinyi127.cn/atom.xml" rel="self"/>
   
   <link href="http://xinyi127.cn/"/>
-  <updated>2022-12-06T11:46:01.543Z</updated>
+  <updated>2023-02-11T10:26:45.194Z</updated>
   <id>http://xinyi127.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Visual Studio项目配置SDL库</title>
+    <link href="http://xinyi127.cn/posts/377b.html"/>
+    <id>http://xinyi127.cn/posts/377b.html</id>
+    <published>2023-02-11T09:41:31.000Z</published>
+    <updated>2023-02-11T10:26:45.194Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;h3 id=&quot;前言&quot;&gt;前言&lt;/h3&gt;
+&lt;p&gt;Visual Studio版本：2022&lt;/p&gt;
+&lt;p&gt;SDL版本：SDL2-2.24.0&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="软件安装与环境配置" scheme="http://xinyi127.cn/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E4%B8%8E%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+    
+    <category term="SDL" scheme="http://xinyi127.cn/tags/SDL/"/>
+    
+  </entry>
   
   <entry>
     <title>Derby数据库安装与使用</title>
@@ -589,38 +619,6 @@
 &lt;/blockquote&gt;
 &lt;h3 id=&quot;第一题&quot;&gt;第一题&lt;/h3&gt;
 &lt;h4 id=&quot;题目：-Beautiful-String&quot;&gt;题目： &lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
-    
-    
-    <category term="c++" scheme="http://xinyi127.cn/tags/c/"/>
-    
-    <category term="ACM集训队暑期集训" scheme="http://xinyi127.cn/tags/ACM%E9%9B%86%E8%AE%AD%E9%98%9F%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SDTBU-ACM集训队暑期集训---个人赛 13</title>
-    <link href="http://xinyi127.cn/posts/820cd349.html"/>
-    <id>http://xinyi127.cn/posts/820cd349.html</id>
-    <published>2022-08-03T16:00:00.000Z</published>
-    <updated>2022-10-05T04:09:34.003Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;h3 id=&quot;前言&quot;&gt;前言&lt;/h3&gt;
-&lt;p&gt;AC三个题根本不算什么，别骄傲的太早。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;第一题&quot;&gt;第一题&lt;/h3&gt;
-&lt;h4 id=&quot;题目：-Sweet-Problem&quot;&gt;题目： &lt;a</summary>
         
       
     
