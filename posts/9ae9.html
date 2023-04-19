@@ -55,9 +55,9 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="❤梧桐苑" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="❤梧桐苑" type="application/atom+xml">
 </head>
 
 
@@ -481,14 +481,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-12-06
+                    2023-03-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    998
                 </div>
                 
 
@@ -527,20 +527,20 @@
 <h3 id="一、Derby安装">一、Derby安装</h3>
 <h4 id="1-打开-cmd">1. 打开 cmd</h4>
 <ul>
-<li>键盘按下 <code>Windows + R</code> 打开本地 <code>cmd</code> （命令提示符）或 <code>windows powershell</code> 。<img src="https://m1.im5i.com/2022/12/06/U52vrw.png" alt="1.1 运行"></li>
+<li>键盘按下 <code>Windows + R</code> 打开本地 <code>cmd</code> （命令提示符）或 <code>windows powershell</code> 。<img src="https://img-blog.csdnimg.cn/img_convert/2659f09b703e30591b02212d2e58454e.png" alt="1.1 运行"></li>
 </ul>
 <h4 id="2-查询-jdk-版本">2. 查询 jdk 版本</h4>
 <ul>
-<li>输入 <code>java -version</code> 命令查询本地 <code>jdk</code> 版本。<img src="https://m1.im5i.com/2022/12/06/U521zF.png" alt="1.2 jdk"></li>
+<li>输入 <code>java -version</code> 命令查询本地 <code>jdk</code> 版本。<img src="https://img-blog.csdnimg.cn/img_convert/625f682075435a639d38c6ec9e52665d.png" alt="1.2 jdk"></li>
 </ul>
 <h4 id="3-下载压缩包">3. 下载压缩包</h4>
 <ul>
 <li>根据 <code>jdk</code> 版本下载对应 <code>Derby</code> 压缩包。如果你的 <code>jdk</code> 和我一样就下载 <code>10.14.2.0</code> 版本。</li>
-<li>下载地址：<a target="_blank" rel="noopener" href="https://db.apache.org/derby/derby_downloads.html">我是链接</a><img src="https://m1.im5i.com/2022/12/06/U52Btd.png" alt="1.3 Derby"></li>
+<li>下载地址：<a target="_blank" rel="noopener" href="https://db.apache.org/derby/derby_downloads.html">我是链接</a><img src="https://img-blog.csdnimg.cn/img_convert/6b1bc6b42ca256599f3014da250463fa.png" alt="1.3 Derby"></li>
 </ul>
 <h4 id="4-Derby-解压缩">4. Derby 解压缩</h4>
 <ul>
-<li>将 <code>Derby</code> 压缩包解压，推荐解压到 <code>jdk</code> 文件目录下。<img src="https://m1.im5i.com/2022/12/06/U57U00.png" alt="1.4 解压缩"></li>
+<li>将 <code>Derby</code> 压缩包解压，推荐解压到 <code>jdk</code> 文件目录下。<img src="https://img-blog.csdnimg.cn/img_convert/de6617f02a32a7f028f76bb3e24b3ff8.png" alt="1.4 解压缩"></li>
 </ul>
 <h4 id="5-配置环境变量">5. 配置环境变量</h4>
 <blockquote>
@@ -551,23 +551,22 @@
 <p>鼠标右键<strong>我的电脑</strong> -&gt; 鼠标左键 <strong>属性</strong> -&gt; 找到 <strong>高级环境变量</strong> 。</p>
 </li>
 <li>
-<p>在系统变量中添加变量 <code>DERBY_HOME</code> ，值为 <strong>你自己的derby压缩包的解压路径</strong> 。如果你不确定，那么就重新执行第4步，并按我的 <code>DERBY_HOME</code> 变量值解压，这样你可以直接填我的 <code>DERBY_HOME</code> 值：<code>D:\JDK_Eclipse\db-derby-10.14.2.0-bin</code> 。</p>
-<p><img src="https://m1.im5i.com/2022/12/06/U578kp.png" alt="1.5.1"></p>
+<p>在系统变量中添加变量 <code>DERBY_HOME</code> ，值为 <strong>你自己的derby压缩包的解压路径</strong> 。如果你不确定，那么就重新执行第4步，并按我的 <code>DERBY_HOME</code> 变量值解压，这样你可以直接填我的 <code>DERBY_HOME</code> 值。<img src="https://img-blog.csdnimg.cn/bb7aa3b547f7486987ac5122b0306fa9.png" alt="1.5.1 DERBY_HOME"></p>
 </li>
 <li>
 <p>在系统变量中添加变量 <code>CLASSPATH</code> ，值为 <code>%DERBY_HOME%\lib\derby.jar;%DERBY_HOME%\lib\derbyclient.jar;%DERBY_HOME%\lib\derbytools.jar;%DERBY_HOME%\lib\derbynet.jar</code> 。</p>
-<p><img src="https://m1.im5i.com/2022/12/06/U524FC.png" alt="1.5.2 CLASSPATH"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/ee0bbc4939d5df0323a7854693a1645a.png" alt="1.5.2 CLASSPATH"></p>
 <ul>
 <li><strong>注意</strong>：
 <ul>
-<li>如果你本地 <code>CLASSPSTH</code> 已经有值，<strong>请添加在原值后，请勿直接覆盖原值！注意用分号与原值隔开。</strong></li>
+<li>如果你本地 <code>CLASSPSTH</code> 已经有值，<strong>请添加在原值后，请勿直接覆盖原值！注意与原值分号隔开。</strong>  。</li>
 <li>变量值最后没有 <code>;</code> ，请勿手动添加分号。</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>
-<p>在用户变量中添加 <code>PATH</code> ，值为 <code>%DERBY_HOME%\bin</code> 。<img src="https://m1.im5i.com/2022/12/06/U52AKH.png" alt="1.5.3 PATH"><img src="https://m1.im5i.com/2022/12/06/U52IPa.png" alt="1.5.4 PATH"></p>
+<p>在用户变量中添加 <code>PATH</code> ，值为 <code>%DERBY_HOME%\bin</code> 。<img src="https://img-blog.csdnimg.cn/img_convert/df2feea47b6342912a4f00e2c2d5aef9.png" alt="1.5.3 PATH"><img src="https://img-blog.csdnimg.cn/img_convert/fcd9c89e69fbf06cc53c64d6dbb8a1d5.png" alt="1.5.4 PATH"></p>
 </li>
 </ol>
 <h4 id="6-检查安装">6. 检查安装</h4>
@@ -580,18 +579,18 @@
 </li>
 <li>
 <p>如果出现下图说明安装成功（可不与我完全一致，但至少应该显示 <code>Derby</code> 基本信息），否则请重新检查自己的环境变量是否有语法上的填写错误（诸如多余的空格，分号之类问题很难察觉），如果填写没有问题请重新检查自己的安装路径是否与环境变量的值一致。</p>
-<p><img src="https://m1.im5i.com/2022/12/06/U52mhT.png" alt="1.6 检查"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/9479c87c8e9e5a8c9d8630a3d679229a.png" alt="1.6 检查"></p>
 </li>
 </ol>
 <h3 id="二、进入数据库">二、进入数据库</h3>
 <h4 id="方法一：命令行进入">方法一：命令行进入</h4>
 <ol>
 <li>
-<p>键盘按下 <code>Windows + R</code> 打开本地 <code>cmd</code> （命令提示符）或 <code>windows powershell</code> 。<img src="https://m1.im5i.com/2022/12/06/U52vrw.png" alt="2.1 运行"></p>
+<p>键盘按下 <code>Windows + R</code> 打开本地 <code>cmd</code> （命令提示符）或 <code>windows powershell</code> 。<img src="https://img-blog.csdnimg.cn/img_convert/2659f09b703e30591b02212d2e58454e.png" alt="2.1 运行"></p>
 </li>
 <li>
 <p>输入命令 <code>java org.apache.derby.tools.ij</code>  进入 <code>ij</code> 客户端。需要注意的是，在哪个路径下打开 <code>Derby</code> 客户端，那么在新建数据库时就会默认保存在当前路径下。</p>
-<p><img src="https://m1.im5i.com/2022/12/06/U52HfA.png" alt="2.2 ij"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/7ae84dadc6152df79f8b22b59e862ccc.png" alt="2.2 ij"></p>
 </li>
 </ol>
 <h4 id="方法二：直接运行">方法二：直接运行</h4>
@@ -602,7 +601,7 @@
 <ol>
 <li>
 <p>找到 <code>Derby</code> 解压缩后的文件，打开 <code>db-derby-10.14.2.0-bin\bin</code> 目录下的 <code>ij.bat</code> 可执行文件。</p>
-<p><img src="https://m1.im5i.com/2022/12/06/U52P4S.png" alt="2.3 bat"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/da9ab3bfff1bcb91b04e5a85c45e48c2.png" alt="2.3 bat"></p>
 </li>
 </ol>
 <h3 id="三、JDBC">三、JDBC</h3>
@@ -612,7 +611,7 @@
 </blockquote>
 <h4 id="1-新建项目">1. 新建项目</h4>
 <ul>
-<li>打开编译器，点击 <strong>文件</strong> -&gt; <strong>新建</strong> -&gt; <strong>项目</strong> 。<img src="https://m1.im5i.com/2022/12/06/U52K83.png" alt="3.1 项目"></li>
+<li>打开编译器，点击 <strong>文件</strong> -&gt; <strong>新建</strong> -&gt; <strong>项目</strong> 。<img src="https://img-blog.csdnimg.cn/img_convert/5051d99df9b5e3b3bdc0dce2300cee32.png" alt="3.1 项目"></li>
 </ul>
 <h4 id="2-导入数据库的包">2. 导入数据库的包</h4>
 <blockquote>
@@ -621,15 +620,15 @@
 <ol>
 <li>点击 <strong>文件</strong> -&gt; <strong>项目结构</strong> 。</li>
 </ol>
-<p><img src="https://m1.im5i.com/2022/12/06/U52QPp.png" alt="3.2 结构"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/d40b2726f63425f74c7e3563a2348d10.png" alt="3.2 结构"></p>
 <ol start="2">
 <li>
 <p>找到 <strong>项目设置</strong> 下的 <strong>库</strong> ，点击 <strong>新建项目库</strong> 。</p>
-<p><img src="https://m1.im5i.com/2022/12/06/U52o4Y.png" alt="3.3 库"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/ff789d9b57a16b26c169aba024d1ba24.png" alt="3.3 库"></p>
 </li>
 <li>
 <p><strong>依次</strong> 导入三个 <code>jar</code> 包。路径：<code>D:\JDK_Eclipse\db-derby-10.14.2.0-bin\lib</code> 。包名依次为：<code>derby.jar</code> 、<code> derbyclient.jar</code> 和 <code> derbynet.jar</code> 。</p>
-<p><img src="https://m1.im5i.com/2022/12/06/U52OK7.png" alt="3.4 导入"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/14d00f62216f7b32b27f3e177861d38c.png" alt="3.4 导入"></p>
 </li>
 </ol>
 <h4 id="3-编程前的工作">3. 编程前的工作</h4>
