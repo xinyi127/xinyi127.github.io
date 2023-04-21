@@ -4,6 +4,470 @@
   
     
     <entry>
+      <title>【题解】等差数列</title>
+      <link href="/posts/bb9e.html"/>
+      <url>/posts/bb9e.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="欧几里得算法-——-辗转相除法">欧几里得算法 —— 辗转相除法</h4><ol><li>a 和 b 的最大公约数等于 a 和 a % b 的最大公约数。</li><li><strong>证明</strong> ：设 a = k * b + r ，则 a % b = r ；设 d 是 (a, a % b) 的公约数。那么有 d | b 和 d | r 均为 0 ，又因为 a = k * b + r ，所以 d | a 也为 0 ，可得对于 (a, a % b) 的任意公约数 d ，都有 d 是 (a, b) 的公约数。反之同样可以证明对于 (a, b) 的任意公约数 d 也是 (a, a % b) 的公约数。</li><li>求 a 和 b 的最大公约数：<code>int gcd(int a, int b) { return b ? gcd(b, a % b) : a; }</code> 。</li></ol><h4 id="最大公约数">最大公约数</h4><ol><li>若等差数列所有项均相同，则最少需要的整数就是给出的整数。</li><li>若差值不为 0 ，则项数为 <code>(Amax - Amin)/Dmax + 1</code> 。Amax 为序列中的最大项，Amin 为序列最小项。Dmax 为所有项与第一项的差值的最大公约数。</li></ol><h4 id="GCD-C-531ms">GCD C++ 531ms</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;string&gt;#include &lt;cstring&gt;#include &lt;cmath&gt;#include &lt;unordered_map&gt;using namespace std;typedef long long LL;const int N = 1e5 + 10;int n;int e[N];int gcd(int a, int b){    return b ? gcd(b, a % b) : a;}int main(){    cin &gt;&gt; n;    for (int i = 1; i &lt;= n; i ++ ) cin &gt;&gt; e[i];    sort(e + 1, e + n + 1);    int res = 0;    for (int i = 2; i &lt;= n; i ++ )     {        // 0 和任何数的最大公约数都是那个数本身        res = gcd(res, e[i] - e[1]);    }    if (res == 0) cout &lt;&lt; n;    else cout &lt;&lt; (e[n] - e[1]) / res + 1;    system("pause");    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 最大公约数 </tag>
+            
+            <tag> 数论 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【题解】灵能传输</title>
+      <link href="/posts/196d.html"/>
+      <url>/posts/196d.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="前缀和">前缀和</h4><ol><li>对于序列 a，计算其前缀和序列 s。对序列 a 进行如下操作时，a[i−1] += a[i]，a[i+1] += a[i]，a[i] −= 2a[i]，我们可以发现对于其前缀和序列 s 而言，等价于 s[i-1] 和 s[i] 位置交换，s[i+1] 则没有变化。</li></ol><h4 id="首尾的位置不能改变">首尾的位置不能改变</h4><ol><li>在发现前缀和的性质后，我们似乎只需要将其前缀和升序排序，维护相邻两数差值绝对值的最大值即可，但是题目中要求第一个圣堂武士和最后一个圣堂武士不能被选择，这就意味着 s[0] 和 s[n] 无法被交换位置（选择 a[i]，交换的是 s[i-1] 和 s[i]）。</li><li>那么问题变为如何在不改变首尾位置的前提下，使得圣堂武士的不稳定性最小，我们可以想到前缀和序列画到坐标轴上应该是有一个波峰和一个波谷的（假如 s[0] 和 s[n] 均不为极值），为了使得前缀和每个数之间的间隙（也就是序列 a 的值）尽可能小，应当使得波谷和波峰两侧的数均匀分布。</li><li>先从 s[0] 开始，每跳一个数后取出一个数，作为从 s[0] 到极小值的跳板，s[n] 到极大值也需要依法找到合适的跳板（每隔一个数取出一个数）。</li></ol><h4 id="细节问题">细节问题</h4><ol><li>如果 s[0] &lt; s[n] ，可以直接交换两者的位置，这相当于将图形左右颠倒，不影响实际的值。</li></ol><h4 id="贪心-C-2077ms">贪心 C++ 2077ms</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;string&gt;#include &lt;cstring&gt;#include &lt;cmath&gt;#include &lt;unordered_map&gt;using namespace std;typedef long long LL;const int N = 3e5 + 10;int n;LL a[N];LL s[N];bool st[N];int main(){    int T;    cin &gt;&gt; T;    while (T -- )    {        s[0] = 0;        memset(st, false, sizeof st);        cin &gt;&gt; n;        for (int i = 1; i &lt;= n; i ++ )        {            cin &gt;&gt; a[i];            s[i] = s[i - 1] + a[i];        }                // 先记录后排序        LL s0 = s[0], sn = s[n];        if (s0 &gt; sn) swap(s0, sn);        sort(s, s + n + 1);                for (int i = 0; i &lt;= n; i ++ )        {            if (s0 == s[i])            {                s0 = i;                break;            }        }        for (int i = n; i &gt;= 0; i -- )         {            if (sn == s[i])            {                sn = i;                break;            }        }        int l = 0, r = n;        for (int i = s0; i &gt;= 0; i -= 2)         {            a[l ++ ] = s[i];            st[i] = true;        }        for (int i = sn; i &lt;= n; i += 2)        {            a[r -- ] = s[i];            st[i] = true;         }        for (int i = 0; i &lt;= n; i ++ )         {            if (!st[i]) a[l ++ ] = s[i];        }        LL res = 0;        for (int i = 1; i &lt;= n; i ++ )         {            res = max(res, abs(a[i] - a[i - 1]));        }        cout &lt;&lt; res &lt;&lt; endl;    }    system("pause");    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 贪心 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【题解】后缀表达式</title>
+      <link href="/posts/892d.html"/>
+      <url>/posts/892d.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="关于后缀表达式（逆波兰表达式）">关于后缀表达式（逆波兰表达式）</h4><ol><li>后缀表达式计算过程：不断取出数字并压入栈中，遇到操作符时取出栈顶两个数字计算，并将结果压入栈中。</li><li>每个后缀表达式都对应一棵二叉树。树的叶子全部都是数字，中间的节点全部都是操作符。按照后续遍历的方式可以得到后缀表达式的计算过程。</li></ol><h4 id="关于贪心细节">关于贪心细节</h4><ol><li>如果 m = 0，那么所有数字只能相加。</li><li>如果 m &gt; 0，那么可以通过构造后缀表达式反转负号，使得负号的数量在 1 ~ m 之间（至少有一个负号用于反转其它负号而导致其自身无法反转）。而此时如果 n &gt; 0，也可以用同样的方式反转正号（可以将所有正号反转为负号）。第一个数前面没有操作符，所以第一个数只能加到结果中。</li></ol><h4 id="为什么可以改变符号的正负？">为什么可以改变符号的正负？</h4><ol><li>例如 <code>3 5 + 4 - 2 -</code> ，计算结果是 <code>3 + 5 - 4 - 2 = 2</code> ，而 <code>3 5 + 4 2 - -</code> 的结果是 <code>3 + 5 - (4 - 2) = 6</code> 。</li></ol><h4 id="贪心-c-639ms">贪心 c++ 639ms</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;string&gt;#include &lt;cstring&gt;#include &lt;cmath&gt;#include &lt;unordered_map&gt;using namespace std;typedef long long LL;const int N = 2e5 + 10;int n, m;int a[N];LL res;int main(){    cin &gt;&gt; n &gt;&gt; m;    int r = n + m;    for (int i = 0; i &lt;= r; ++ i)         cin &gt;&gt; a[i];        sort(a, a + n + m + 1);        if (m)     {        res -= a[0];        res += a[r];        for (int i = 1; i &lt; r; ++ i)            res += abs(a[i]);    }    else     {        for (int i = 0; i &lt;= r; i ++ ) res += a[i];    }    cout &lt;&lt; res &lt;&lt; endl;    system("pause");    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 贪心 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【题解】乘积最大</title>
+      <link href="/posts/664c.html"/>
+      <url>/posts/664c.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="贪心">贪心</h4><ol><li>如果 k == n ，只需要给出所有元素的乘积并取模。</li><li>如果 k &lt; n ，需要考虑 k 为奇数还是偶数。如果 k 为偶数，那么结果必然为非负。如果 k 为奇数，则存在结果为负的情况。</li><li>如果结果必然为负，那么结果的绝对值越小，结果越大。如果结果为非负数，那么结果的绝对值越大，结果越大。</li></ol><h4 id="特殊情况">特殊情况</h4><ol><li>k &lt; n 时，什么情况下结果必然为负？当 k 为奇数且所有元素均为负数时，结果必然为负数。否则只要存在一个数非负，就可以先选择该非负数，然后选择 k - 1 个负数。偶数个负数的结果为正数。</li><li>这时问题统一转化为：取出偶数个元素，并使得乘积最大（注意区分结果为正数和负数的情况）。</li></ol><h4 id="双指针">双指针</h4><ol><li>将所有元素排序。</li><li>用两个指针指向序列首尾两端，每次从首尾两端各取出两个数，比较两个数的大小，取更大的那一端的两个数。这里的更大要区分正数和负数，正数是乘积绝对值最大，负数是乘积绝对值最小。</li></ol><h4 id="贪心-双指针-261ms">贪心 + 双指针 261ms</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;#include &lt;string&gt;#include &lt;map&gt;using namespace std;typedef long long LL;const int N = 1e5 + 10, mod = 1000000009;int n, k;int a[N];int main(){    cin &gt;&gt; n &gt;&gt; k;    for (int i = 0; i &lt; n; i ++ ) cin &gt;&gt; a[i];    sort(a, a + n);    // 双指针，l 和 r 分别表示两端选择的位置。    // sign 用于区分结果最终为负数的情况（k为奇数，且 a 数组全部为负）。    int l = 0, r = n - 1, sign = 1;    // // k 为奇数    int res = 1;    if (k % 2)     {        res = a[r --];        k --;        if (res &lt; 0) sign = -1;    }    while (k)    {        // 注意，x 和 y 的值可以超过 int         LL x = (LL)a[l] * a[l + 1], y = (LL)a[r] * a[r - 1];        if (x * sign &gt; y * sign)         {            res = (LL)x % mod * res % mod;            l += 2;        }        else         {            res = (LL)y % mod * res % mod;            r -= 2;        }        k -= 2;    }    cout &lt;&lt; res;    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 贪心 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【题解】付账问题</title>
+      <link href="/posts/92f1.html"/>
+      <url>/posts/92f1.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="账单计算">账单计算</h4><ol><li>初始时总账单除以人数即为每人应付钱数。</li><li>但由于有人没有带够钱，无法支付自己应付的钱数，所以需要后续的人为其额外支付一部分钱。</li></ol><h4 id="计算过程">计算过程</h4><ol><li>将所有人所带钱数升序排序。</li><li>计算每人 <strong>实付钱数</strong> 。如果所带钱数高于应付钱数，则实付钱数就是应付钱数。如果所带钱数不足以支付，则需要后续有人为其支付，为了使得标准差尽可能小，需要让更多的人分担这笔钱。</li></ol><h4 id="贪心-C-607ms">贪心 C++ 607ms</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;#include &lt;vector&gt;#include &lt;cstdio&gt;#include &lt;cmath&gt;#include &lt;map&gt;#include &lt;unordered_map&gt;#include &lt;queue&gt;using namespace std;typedef long long LL;typedef pair&lt;int, int&gt; PII;#define x first#define y secondconst int N = 500010, M = N * 2;int n;LL sum;// 带的钱int a[N];// 实付钱long double b[N];int main(){    cin &gt;&gt; n &gt;&gt; sum;    for (int i = 1; i &lt;= n; i ++ ) scanf("%d", &amp;a[i]);    sort(a + 1, a + n + 1);        // t 表示每人应付钱数，但由于有人带不够，所以后面的人应付钱数会随之上升    long double t = (long double)sum / n;    for (int i = 1; i &lt;= n; i ++ )    {        if (a[i] &gt;= t) b[i] = t;        else         {            b[i] = a[i];            // 由于第 i 个人带的钱不够支付应付钱数，所以需要后面的人来为其分担            t += (t - a[i]) / (n - i);        }    }        long double u = 0, avg = (long double)sum / n;    for (int i = 1; i &lt;= n; i ++ ) u += (b[i] - avg) * (b[i] - avg);    printf("%.4Lf", sqrt(u / n));    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 贪心 </tag>
+            
+            <tag> 均值不等式 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【题解】雷达设备</title>
+      <link href="/posts/da85.html"/>
+      <url>/posts/da85.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="贪心思路">贪心思路</h4><ol><li>本题模型：<a href="https://www.acwing.com/problem/content/907/">区间选点</a> 。</li><li>以小岛为圆心，雷达扫描范围为半径，为每个小岛画一个圆。</li><li>如果有小岛的圆与陆地没有交集，说明无法被扫描到。否则小岛 T 与陆地的交集所形成的区间 <code>[l, r]</code> 就是雷达可安置区间，将任意一枚雷达安置在区间 <code>[l, r]</code> 内，都可以扫描到小岛 T 。</li><li>于是问题转化为求出每个小岛的雷达可安置区间，然后寻找最少需要多少个雷达可以覆盖所有区间。</li></ol><h4 id="关于实数">关于实数</h4><ol><li>由于本题计算区间涉及开方，所以雷达可安置区间的端点需要用实数。</li><li>实数一般可以直接比较大小，但比较是否相等时最好用差值的形式比较（经测试本题直接比较是否相等也是可以的AC）。</li></ol><h4 id="c-贪心-16ms">c++ 贪心 16ms</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;#include &lt;vector&gt;#include &lt;cstdio&gt;#include &lt;cmath&gt;#include &lt;map&gt;#include &lt;unordered_map&gt;#include &lt;queue&gt;using namespace std;typedef long long LL;typedef pair&lt;int, int&gt; PII;#define x first#define y secondconst int N = 100010, M = N * 2;int n, d;pair&lt;double, double&gt; p[N];double get_c(int x, double y){    return sqrt(x * x - y * y);}bool cmp(pair&lt;double, double&gt; a, pair&lt;double, double&gt; b){    // 写成 if(a.y == b.y) 也可以过，但是由于实数自身存在误差，    // 所以最好用差值的方式比较是否相等    if (a.y - b.y &lt; -1e6) return a.x &lt; b.x;    return a.y &lt; b.y;}int main(){    cin &gt;&gt; n &gt;&gt; d;        bool flag = true;    for (int i = 1; i &lt;= n; i ++ )    {        int x, y;        cin &gt;&gt; x &gt;&gt; y;        if (y &gt; d)        {            flag = false;        }        double c = get_c(d, y);        p[i].x = x - c;        p[i].y = x + c;    }        if (!flag)    {        cout &lt;&lt; -1 &lt;&lt; endl;        return 0;    }    sort(p + 1, p + n + 1, cmp);    double l = -1e20;    int ans = 0;    for (int i = 1; i &lt;= n; i ++ )    {        if (p[i].x &gt; l)        {            ans ++ ;            l = p[i].y;        }    }    cout &lt;&lt; ans;    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 贪心 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【题解】糖果传递</title>
+      <link href="/posts/5355.html"/>
+      <url>/posts/5355.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="关于本题">关于本题</h4><ol><li><p>本题前身：<a href="https://www.acwing.com/problem/content/106/">仓库选址</a> 。</p></li><li><p>如何将该题转化到仓库选址是难点。首先设未知数 <code>x[i]</code> 表示第 i 名小朋友分出的糖果数（x 可以为负数）。根据糖果的分出的方向建立一个单向无环链表。可以证明是一定无环的，因为如果有环说明一定可以让每个小朋友都少分出一部分糖果使得环消失。但是为了便于计算我们可以补上一条为零的边，使得整个链表形成一个环。</p></li><li><p>根据图示可以发现我们的目标是使得<br>$$<br>\sum_{i=1}^n |x_i|<br>$$<br>值最小。</p></li><li><p>通过推到公式可以发现第三步的求值方式与 <strong>仓库选址</strong> 相同。</p></li></ol><h4 id="图解">图解</h4><img src="https://cdn.acwing.com/media/article/image/2023/02/14/111921_948ef950ac-QQ图片20230214155926.jpg" alt="图1" style="zoom: 33%;"> <img src="https://cdn.acwing.com/media/article/image/2023/02/14/111921_989ca3e5ac-QQ图片20230214155939.jpg" alt="图2" style="zoom: 25%;"> <h4 id="贪心-C-2306ms">贪心 C++ 2306ms</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;#include &lt;vector&gt;#include &lt;cstdio&gt;#include &lt;cmath&gt;#include &lt;unordered_map&gt;#include &lt;map&gt;#include &lt;queue&gt;using namespace std;typedef long long LL;typedef pair&lt;int, int&gt; PII;#define x first#define y secondconst int N = 1000010, M = N * 2;int n;int a[N];// c[i] = avg - ∑(a1~ai) LL c[N];int main(){    cin &gt;&gt; n;    LL sum = 0;    for (int i = 1; i &lt;= n; i ++ )     {        scanf("%d", &amp;a[i]);        sum += a[i];    }    LL avg = sum / n;    for (int i = 1; i &lt; n; i ++ )    {        c[i] = c[i - 1] + (avg - a[i]);    }    // c[n] = 0;    sort(c + 1, c + n + 1);    int x = n + 1 &gt;&gt; 1;    sum = 0;    for (int i = 1; i &lt;= n; i ++ ) sum += abs(c[i] - c[x]);    cout &lt;&lt; sum;    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 贪心 </tag>
+            
+            <tag> 排序 </tag>
+            
+            <tag> 推公式 </tag>
+            
+            <tag> 中位数 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【题解】大臣的旅费</title>
+      <link href="/posts/cdec.html"/>
+      <url>/posts/cdec.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="题目链接：大臣的旅费">题目链接：<a href="https://www.acwing.com/activity/content/problem/content/1751/">大臣的旅费</a></h4><h4 id="树的直径两种求法">树的直径两种求法</h4><ol><li><strong>贪心</strong> 。任取一点 a 作为根节点并找到树上距离点 a 最远的点 b ，然后再以点 b 为根节点，找到树上距离点 b 最远的点 c 。则点 b 与点 c 之间的距离就是树的直径。</li><li><strong>树形DP</strong> 。任取一点作为根节点，找到每个节点向下最深和次深的两条路径，对于每个点的两个路径之和维护最大值 <code>smax</code> ，最终树的直径就是 <code>smax</code> 。</li><li><strong>时间复杂度</strong> ：两种做法都是 $O(n)$ 。</li></ol><hr><h4 id="法一：树形DP">法一：树形DP</h4><h4 id="C-112ms">C++ 112ms</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;#include &lt;vector&gt;#include &lt;cstdio&gt;#include &lt;cmath&gt;#include &lt;unordered_map&gt;#include &lt;map&gt;#include &lt;queue&gt;using namespace std;typedef long long LL;typedef pair&lt;int, int&gt; PII;#define x first#define y secondconst int N = 100010, M = N * 2;int n;LL ans;int h[N], ne[M], e[M], w[M], idx;void add(int a, int b, int c){    w[idx] = c, e[idx] = b, ne[idx] = h[a], h[a] = idx ++;}LL get_post(LL u){    return u * 10 + (1 + u) * u / 2;}LL dfs(int s, int f){    LL d1 = 0, d2 = 0;// 最大深度，次大深度    for (int i = h[s]; ~i; i = ne[i])    {        int j = e[i];        if (j == f) continue; // 遇到父节点则跳过        LL d = dfs(j, s) + w[i];        if (d &gt; d1)         {            swap(d1, d2);            swap(d1, d);        }        else d2 = max(d2, d);    }    ans = max(ans, d1 + d2);    return d1;}int main(){    cin &gt;&gt; n;    memset(h, -1, sizeof h);//    for (int i = 1; i &lt;= n; i ++ )    {        int a, b, c;        scanf("%d%d%d", &amp;a, &amp;b, &amp;c);        add(a, b, c), add(b, a, c);    }    dfs(1, -1);    cout &lt;&lt; get_post(ans) &lt;&lt; endl;    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><hr><h4 id="法二：BFS">法二：BFS</h4><h4 id="C-177ms-如果用数组模拟-queue-用时会更少">C++ 177ms 如果用数组模拟 <code>queue</code> 用时会更少</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;#include &lt;vector&gt;#include &lt;cstdio&gt;#include &lt;cmath&gt;#include &lt;unordered_map&gt;#include &lt;map&gt;#include &lt;queue&gt;using namespace std;typedef long long LL;typedef pair&lt;int, int&gt; PII;#define x first#define y secondconst int N = 100010, M = N * 2;int n, ans;int h[N], ne[M], e[M], w[M], idx;LL dist[N];bool st[N];void add(int a, int b, int c){    w[idx] = c, e[idx] = b, ne[idx] = h[a], h[a] = idx ++;}void bfs(int u){    queue&lt;int&gt; q;    q.push(u);    memset(st, false, sizeof st);    st[u] = true;    dist[u] = 0;    while (q.size())    {        int v = q.front();        q.pop();        for (int i = h[v]; ~i; i = ne[i])        {            int j = e[i];            if (st[j]) continue;                        st[j] = true;            dist[j] = dist[v] + w[i];            q.push(j);        }    }    return ;}LL get_post(LL u){    return u * 10 + (1 + u) * u / 2;}int main(){    cin &gt;&gt; n;        memset(h, -1, sizeof h);    for (int i = 1; i &lt; n; i ++ )    {        int a, b, c;        scanf("%d%d%d", &amp;a, &amp;b, &amp;c);        add(a, b, c), add(b, a, c);    }    bfs(1);    LL st = 1;    for (int i = 2; i &lt;= n; i ++ )    {        if (dist[i] &gt; dist[st]) st = i;    }        bfs(st);    st = 0;    for (int i = 1; i &lt;= n; i ++ )     {        st = max(st, dist[i]);    }    cout &lt;&lt; get_post(st);    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><hr><h4 id="法三：DFS">法三：DFS</h4><h4 id="C-119ms">C++ 119ms</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;#include &lt;vector&gt;#include &lt;cstdio&gt;#include &lt;cmath&gt;#include &lt;unordered_map&gt;#include &lt;map&gt;#include &lt;queue&gt;using namespace std;typedef long long LL;typedef pair&lt;int, int&gt; PII;#define x first#define y secondconst int N = 100010, M = N * 2;int n, ans;int h[N], ne[M], e[M], w[M], idx;LL dist[N];void add(int a, int b, int c){    w[idx] = c, e[idx] = b, ne[idx] = h[a], h[a] = idx ++;}void dfs(int s, int f, LL distance){    dist[s] = distance;    for (int i = h[s]; ~i; i = ne[i])    {        int j = e[i];        if (j == f) continue;        dfs(j, s, dist[s] + w[i]);    }    return ; }LL get_post(LL u){    return u * 10 + (1 + u) * u / 2;}int main(){    cin &gt;&gt; n;        memset(h, -1, sizeof h);    for (int i = 1; i &lt; n; i ++ )    {        int a, b, c;        scanf("%d%d%d", &amp;a, &amp;b, &amp;c);        add(a, b, c), add(b, a, c);    }    dfs(1, -1, 0);    LL st = 1;    for (int i = 2; i &lt;= n; i ++ )    {        if (dist[i] &gt; dist[st]) st = i;    }        dfs(st, -1, 0);    st = 0;    for (int i = 1; i &lt;= n; i ++ )     {        st = max(st, dist[i]);    }    cout &lt;&lt; get_post(st);    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> BFS </tag>
+            
+            <tag> DFS </tag>
+            
+            <tag> 树的直径 </tag>
+            
+            <tag> 树形DP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【题解】单链表</title>
+      <link href="/posts/6766.html"/>
+      <url>/posts/6766.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="题目链接：单链表">题目链接：<a href="https://www.acwing.com/problem/content/828/">单链表</a></h4><h4 id="链表">链表</h4><ol><li>h 表示头结点的位置，<code>ne[i]</code> 表示第 i 个插入的数字所处的位置， <code>e[i]</code> 表示第 i 个插入的数字的值， <code>idx</code> 表示当前链表内节点个数。</li><li>一般将 h 初始化为 -1，便于判断链表内是否为空。</li></ol><h4 id="关于-string">关于 string</h4><ol><li>由于 <code>string</code> 并非是 C 的原生类型，所以无法像直接输入整数那样方便的使用 <code>scanf</code> 函数输入  <code>string</code> 变量。</li><li>但是是可以做到让scanf输入string类型的数据。如下代码。如果输入 <code>hello</code> ，则输出 <code>he</code> ，因为只给 a 分配了两个字符的空间。</li></ol><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;cstdio&gt;#include &lt;string&gt;#include&lt;iostream&gt;using namespace std;int main(){string a;a.resize(2); //需要预先分配空间scanf("%s", &amp;a[0]);cout &lt;&lt; a;return 0;} <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="数组模拟-c-158ms">数组模拟 c++ 158ms</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;#include &lt;vector&gt;#include &lt;cstdio&gt;#include &lt;cmath&gt;#include &lt;unordered_map&gt;#include &lt;map&gt;#include &lt;queue&gt;using namespace std;typedef long long LL;typedef pair&lt;int, int&gt; PII;#define x first#define y secondconst int N = 1e6 + 10;int n;int h = -1, ne[N], e[N], idx;void add_head(int x){    idx ++;    ne[idx] = h, e[idx] = x, h = idx;}void add(int k, int x){    idx ++;    ne[idx] = ne[k], ne[k] = idx, e[idx] = x;}void Delete(int k){    if (k == 0)        h = ne[h];    else ne[k] = ne[ne[k]];}int main(){    cin &gt;&gt; n;    while (n -- )    {        char op;        cin &gt;&gt; op;        // string op; // 由于 string 并非 c 的原生类型，所以不能直接输入        //scanf("%s", op);        if (op == 'H')        {            int x;             scanf("%d", &amp;x);            add_head(x);        }        else if (op == 'D')        {            int k;            scanf("%d", &amp;k);            Delete(k);        }        else         {            int k, x;            scanf("%d%d", &amp;k, &amp;x);            add(k, x);        }    }    while (h != -1)    {        printf("%d ", e[h]);        h = ne[h];    }    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 链表 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【题解】全球变暖</title>
+      <link href="/posts/de7c.html"/>
+      <url>/posts/de7c.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="题目链接：全球变暖">题目链接：<a href="https://www.acwing.com/activity/content/problem/content/1750/">全球变暖</a></h4><h4 id="判断淹没">判断淹没</h4><ol><li>题目要求最后输出剩多少岛屿未被淹没，只需要统计总共多少岛屿和被淹没多少岛屿，两者之差就是答案。</li><li>如何统计岛屿总数和有多少岛屿被淹没？用 cnt 表示岛屿总数，用 ans 表示有多少岛屿 被淹没。遍历整个海域，每遇到新的岛屿就让 cnt 加 1 ，同时做 <code>BFS</code> 操作，标记该点所在岛屿的所有点，如果在标记的过程中发现有一点上下左右全部为陆地，说明该岛屿不会被完全淹没，让 ans 加 1 。</li></ol><h4 id="BFS-C-615ms">BFS C++ 615ms</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;#include &lt;vector&gt;#include &lt;cstdio&gt;#include &lt;cmath&gt;#include &lt;unordered_map&gt;#include &lt;map&gt;#include &lt;queue&gt;using namespace std;typedef long long LL;typedef pair&lt;int, int&gt; PII;#define x first#define y secondconst int N = 1e3 + 10;int n;string g[N];bool st[N][N];int dx[] = {1, 0, -1, 0}, dy[] = {0, -1, 0, 1};bool bfs(int sx, int sy){    queue&lt;PII&gt; q;    q.push({sx, sy});    st[sx][sy] = true;        bool Flag = false;    while (q.size())    {        int x = q.front().x, y = q.front().y;        q.pop();                bool flag = true;        for (int i = 0; i &lt; 4; i ++ )        {            int a = x + dx[i], b = y + dy[i];            if (a &gt;= n || b &gt;= n || a &lt; 0 || b &lt; 0 || g[a][b] == '.')             {                flag = false;                continue;            }            if (st[a][b]) continue;                        st[a][b] = true;            q.push({a, b});        }        if (flag) Flag = true;    }    return Flag;}int main(){    cin &gt;&gt; n;    for (int i = 0; i &lt; n; i ++ ) cin &gt;&gt; g[i];    int sum = 0, ans = 0;    for (int i = 0; i &lt; n; i ++ )    {        for (int j = 0; j &lt; n; j ++ )        {            if (!st[i][j] &amp;&amp; g[i][j] == '#')            {                sum ++ ;                if (bfs(i, j)) ans ++ ;            }        }    }        cout &lt;&lt; sum - ans &lt;&lt; endl;    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> BFS </tag>
+            
+            <tag> Flood fill </tag>
+            
+            <tag> DFS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【题解】地牢大师</title>
+      <link href="/posts/2336.html"/>
+      <url>/posts/2336.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="题目链接：地牢大师">题目链接：<a href="https://www.acwing.com/problem/content/1098/">地牢大师</a></h4><h4 id="三维bfs">三维bfs</h4><ol><li>通常这种棋盘类的题目都是二维，虽然变为三维其实做法也一样。队列，标记数组，距离数组三大件先准备好（距离数组可以与标记数组合并，但我比较喜欢分开），然后修改一下偏移量数组即可。</li><li>改为三维后，在原来前后左右四个方向的基础上增加了上下两个方向，当在平面上移动时，第一维偏移量为 0 ；当在同一层移动时，第二、三维的偏移量为 0 。</li></ol><h3 id="bfs-c-1619ms">bfs c++ 1619ms</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;#include &lt;vector&gt;#include &lt;cstdio&gt;#include &lt;cmath&gt;#include &lt;unordered_map&gt;#include &lt;map&gt;#include &lt;queue&gt;using namespace std;typedef long long LL;typedef pair&lt;int, int&gt; PII;#define x first#define y secondconst int N = 1e2 + 10;int L, R, C;string g[N][N];int d[N][N][N];bool st[N][N][N];int dx[] = {0, 1, -1}, dy[] = {0, 1, 0, -1, 0}, dz[] = {0, 0, -1, 0, 1};int bfs(int sx, int sy, int sz){    memset(st, false, sizeof st);    queue&lt;pair&lt;PII, int&gt;&gt; q;    q.push({{sx, sy}, sz});    d[sx][sy][sz] = 0;    st[sx][sy][sz] = true;    while (q.size())    {        int x = q.front().x.x, y = q.front().x.y, z = q.front().y;        q.pop();        for (int i = 0; i &lt; 3; i ++ )        {            for (int j = 0; j &lt; 5; j ++ )            {                if (i == 0 &amp;&amp; j == 0) j ++ ;                if (i &amp;&amp; j) continue;                int a = x + dx[i], b = y + dy[j], c = z + dz[j];                if (a &lt; 0 || a &gt;= L || b &lt; 0 || b &gt;= R || c &lt; 0 || c &gt;= C) continue;                if (st[a][b][c] || g[a][b][c] == '#') continue;                if (g[a][b][c] == 'E') return d[x][y][z] + 1;                d[a][b][c] = d[x][y][z] + 1;                st[a][b][c] = true;                q.push({{a, b}, c});            }        }    }    return -1;}int main(){    while (cin &gt;&gt; L &gt;&gt; R &gt;&gt; C, L &amp;&amp; R &amp;&amp; C)    {        for (int i = 0; i &lt; L; i ++ )            for (int j = 0; j &lt; R; j ++ ) cin &gt;&gt; g[i][j];        bool flag = false;        for (int i = 0; i &lt; L; i ++ )        {            for (int j = 0; j &lt; R; j ++ )            {                for (int k = 0; k &lt; C; k ++ )                {                    if (g[i][j][k] == 'S')                    {                        int t = bfs(i, j, k);                        t == -1 ? printf("Trapped!\n") : printf("Escaped in %d minute(s).\n", t);                        flag = true;                        break;                     }                }                if (flag) break;            }            if (flag) break;        }    }    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> BFS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【题解】完全二叉树的权值</title>
+      <link href="/posts/acf9.html"/>
+      <url>/posts/acf9.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="题目链接：完全二叉树的权值">题目链接：<a href="https://www.acwing.com/activity/content/problem/content/1748/">完全二叉树的权值</a></h4><h4 id="双指针">双指针</h4><ol><li>用两个指针分别指向每一层的起点和终点，枚举每一层之和，找到总和最大的最小层数。</li></ol><h4 id="前缀和">前缀和</h4><ol><li>设给定二叉树共 depth 层，前 d - 1 层（第 d 层可以为 0 ，也可以为满）满足：2<sup>0</sup> + 2<sup>1</sup> + 2<sup>2</sup> + … + 2<sup>d-1</sup> =  (2<sup>d</sup>) - 1 ，也即 2<sup>d</sup> -1 &lt;= n，可得 d &lt;= log<sub>2</sub><sup>n+1</sup> ，将底数换成 e 可得 d &lt;= (log<sub>e</sub><sup>n+1</sup>) / (log<sub>e</sub><sup>2</sup>) ， 由于这是通过前 d - 1 层得到的，所以层数depth = d + 1 。</li><li>换句话说就是计算所得层数要向上取整，因为最后一层可能不满，此时计算 $\log_2 n+1$ 会比实际层数少一层，所以要加 1 。</li><li>第 d 层的区间是 [1 &lt;&lt; (d - 1), min((1 &lt;&lt; d) - 1, n)] 。</li></ol><h4 id="本题细节">本题细节</h4><ol><li><code>log</code> 函数默认以 e 为底。</li><li>本题需要 <code>long long</code> 。 <code>int</code> 最多存大小在正负 20 亿之间的数据，也即 -2e9 ~ 2e9 之间。</li></ol><h3 id="法一：双指针">法一：双指针</h3><h4 id="c-71ms">c++ 71ms</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;#include &lt;vector&gt;#include &lt;cstdio&gt;#include &lt;cmath&gt;#include &lt;unordered_map&gt;#include &lt;map&gt;#include &lt;queue&gt;using namespace std;typedef long long LL;typedef pair&lt;int, int&gt; PII;#define x first#define y secondconst int N = 1e5 + 10;int n;int a[N];int main(){    cin &gt;&gt; n;    for (int i = 1; i &lt;= n; i ++ ) scanf("%d", &amp;a[i]);    pair&lt;LL, LL&gt; p = {0, -0x3f3f3f3f};    for (int i = 1, u = 1; i &lt;= n; i *= 2, u ++ )    {        LL sum = 0;        for (int j = i; j &lt;= i * 2 - 1 &amp;&amp; j &lt;= n; j ++ )            sum += (LL)a[j];        if (sum &gt; p.second)         {            p.second = sum;            p.first = u;        }    }    cout &lt;&lt; p.first &lt;&lt; endl;    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="法二：前缀和">法二：前缀和</h3><h4 id="c-77ms">c++ 77ms</h4><h4 id=""></h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;#include &lt;vector&gt;#include &lt;cstdio&gt;#include &lt;cmath&gt;#include &lt;unordered_map&gt;#include &lt;map&gt;#include &lt;queue&gt;using namespace std;typedef long long LL;typedef pair&lt;int, int&gt; PII;#define x first#define y secondconst int N = 1e5 + 10;int n;LL s[N];int main(){    cin &gt;&gt; n;    for (int i = 1; i &lt;= n; i ++ )     {        scanf("%lld", &amp;s[i]);        s[i] += s[i - 1];    }    PII p = {0, -1e18};    int depth = log(n + 1) / log(2) + 1;    for (int d = 1; d &lt;= depth; d ++ )    {        // 第 d 层的区间是 [1 &lt;&lt; (d - 1), min((1 &lt;&lt; d) - 1, n)]        int u = (1 &lt;&lt; d) - 1;        int l = 1 &lt;&lt; (d - 1), r = min(u, n);        LL sum = s[r] - s[l - 1];        if (sum &gt; p.second)        {            p.second = sum;            p.first = d;        }    }    cout &lt;&lt; p.first;    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 双指针 </tag>
+            
+            <tag> 二叉树 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【题解】交换瓶子</title>
+      <link href="/posts/bcd.html"/>
+      <url>/posts/bcd.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="题目链接：交换瓶子">题目链接：<a href="https://www.acwing.com/activity/content/problem/content/1747/">交换瓶子</a></h4><h4 id="关于题目">关于题目</h4><ol><li>相似题目： <a href="https://www.acwing.com/problem/content/1217/">小朋友排队 </a>。 由于小朋友排队这道题只能交换 <strong>相邻</strong> 的两个数字，所以交换次数最多是 $n^2$ ，具体数量等于序列逆序对的数量。</li><li>本题由于可以交换 <strong>任意两个位置</strong> 的数字，所以交换次数最多是 n - 1 。</li></ol><h4 id="置换群">置换群</h4><ol><li>将 每个点向其目标位置上的点连一条边，称这样的一个环为 <strong>置换</strong> ，序列中所有这样的置换称为一个 <strong>置换群</strong> 。</li><li>将置换中某个点与其目标位置上的点交换位置，原来的一个环将会分裂为两个新的环。如果将两个不同的置换上的点交换位置，则两个置换将合并为一个新的环。</li><li>如果所有数字都在自己的目标位置，则会得到 n 个置换，也即 n 个环。所以目标是得到 n 个环。</li><li>设所给序列初始的置换群中环的个数为 k ，由于每交换一个环中的两个位置，就会得到两个新的环，所以最少交换 n - k 次就可以得到 n 个环。</li></ol><h4 id="环的数量">环的数量</h4><ol><li>如何确定序列初始时环的数量？需要用一个标记数组，从前向后遍历序列，如果当前点没有被遍历过，说明找到一个新的环，标记该点并将该点所在环的所有点依次标记。</li></ol><h3 id="法一：暴力枚举">法一：暴力枚举</h3><h4 id="c-333ms">c++ 333ms</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;#include &lt;vector&gt;#include &lt;cstdio&gt;#include &lt;cmath&gt;#include &lt;unordered_map&gt;#include &lt;map&gt;#include &lt;queue&gt;using namespace std;typedef long long LL;typedef pair&lt;int, int&gt; PII;#define x first#define y secondconst int N = 1e4 + 10;int n;int a[N];int main(){    cin &gt;&gt; n;    for (int i = 1; i &lt;= n; i ++ ) scanf("%d", &amp;a[i]);    int sum = 0;    for (int i = 1; i &lt;= n; i ++ )    {        if (a[i] == i) continue;        for (int j = i + 1; j &lt;= n; j ++ )        {            if (a[j] == i)             {                swap(a[i], a[j]);                sum ++ ;                break;            }        }    }    cout &lt;&lt; sum &lt;&lt; endl;    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="法二：置换群">法二：置换群</h3><h4 id="c-线性-20ms">c++ 线性 20ms</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;#include &lt;vector&gt;#include &lt;cstdio&gt;#include &lt;cmath&gt;#include &lt;unordered_map&gt;#include &lt;map&gt;#include &lt;queue&gt;using namespace std;typedef long long LL;typedef pair&lt;int, int&gt; PII;#define x first#define y secondconst int N = 1e4 + 10;int n;int b[N];bool st[N];int main(){    cin &gt;&gt; n;    for (int i = 1; i &lt;= n; i ++ ) scanf("%d", &amp;b[i]);    int cnt = 0;    for (int i = 1; i &lt;= n; i ++ )    {        if (!st[i])         {            cnt ++ ;            for (int j = i; !st[j]; j = b[j]) st[j] = true;        }    }    cout &lt;&lt; n - cnt &lt;&lt; endl;    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 图论 </tag>
+            
+            <tag> 贪心 </tag>
+            
+            <tag> 环 </tag>
+            
+            <tag> 置换群 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【题解】红与黑</title>
+      <link href="/posts/9fcb.html"/>
+      <url>/posts/9fcb.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="题目链接：红与黑">题目链接：<a href="https://www.acwing.com/activity/content/problem/content/1746/">红与黑</a></h4><h4 id="DFS-关键点">DFS 关键点</h4><ol><li>在 <code>dfs</code> 问题中， <code>st</code> 标记数组是不可缺少的。<code>st</code> 数组的用法取决于所处理的 <code>dfs</code> 问题属于哪种模型。例如：如果是基于连通性的模型，由于我们在棋盘的内部进行搜索，每个点视为一个状态，遍历的是所有点的集合，所以需要用 <code>st</code> 数组标记遍历到的点，并且不再取消标记，防止重复遍历到同一点；如果是其它 <code>DFS</code> 问题，我们将整个棋盘所有点的集合视为一个状态，搜索当前状态能否转移到目标状态，在搜索当前状态的一个分支前需要先将当前状态标记，搜索完该分支后，需要将当前状态标记取消再搜索当前状态的下一个分支。<code>st</code> 标记的取消与否影响到我们是否可以回溯。</li><li><strong>是否需要恢复现场本质上取决我们搜索下一个状态时，当前状态是否相同</strong> 。如果当前状态相同，就不用恢复现场。例如从棋盘上的某个点走到相邻点，无论走哪个相邻点，当前点都必须走到，所以不用恢复现场。如果当前状态不同，就需要恢复现场。例如搜索棋盘染色的不同状态时，起始状态棋盘是没有染过色的，我们搜索完将第一个格子染色的分支后，就需要先将第一个格子的标记取消，再搜索第一个格子不染色第二个格子染色的分支。</li></ol><h4 id="法一：dfs-32ms">法一：dfs 32ms</h4><h3 id="c">c++</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;#include &lt;vector&gt;#include &lt;cstdio&gt;#include &lt;cmath&gt;#include &lt;unordered_map&gt;#include &lt;map&gt;#include &lt;queue&gt;using namespace std;typedef long long LL;typedef pair&lt;int, int&gt; PII;#define x first#define y secondconst int N = 20 + 10;string g[N];int r, c, ans;int dx[] = {1, 0, -1, 0}, dy[] = {0, -1, 0, 1};bool st[N][N];int dfs(int x, int y){    //if (g[x][y] == '#') return 0;    int sum = 1;    for (int i = 0; i &lt; 4; i ++ )    {        int a = x + dx[i], b = y + dy[i];        if (a &lt; 0 || a &gt;= r || b &lt; 0 || b &gt;= c) continue;        if (st[a][b] || g[a][b] == '#') continue;        st[a][b] = true;        sum += dfs(a, b);    }    return sum;}int main(){    while (scanf("%d%d", &amp;c, &amp;r), r &amp;&amp; c)    {        for (int i = 0; i &lt; r; i ++ ) cin &gt;&gt; g[i];        for (int i = 0; i &lt; r; i ++ )        {            for (int j = 0; j &lt; c; j ++ )            {                if (g[i][j] == '@')                {                    st[i][j] = true;                    cout &lt;&lt; dfs(i, j) &lt;&lt; endl;                    break;                }            }        }        memset(st, false, sizeof st);    }    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="法二：bfs-51ms">法二：bfs 51ms</h4><h3 id="c-2">c++</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;#include &lt;vector&gt;#include &lt;cstdio&gt;#include &lt;cmath&gt;#include &lt;unordered_map&gt;#include &lt;map&gt;#include &lt;queue&gt;using namespace std;typedef long long LL;typedef pair&lt;int, int&gt; PII;#define x first#define y secondconst int N = 20 + 10;string g[N];int r, c, ans;int dx[] = {1, 0, -1, 0}, dy[] = {0, -1, 0, 1};bool st[N][N];int bfs(int sx, int sy){    memset(st, false, sizeof st);    queue&lt;PII&gt; q;    q.push({sx, sy});    st[sx][sy] = true;    int sum = 1;    while (q.size())    {        int x = q.front().x, y = q.front().y;        q.pop();        for (int i = 0; i &lt; 4; i ++ )        {            int a = x + dx[i], b = y + dy[i];            if (a &gt;= 0 &amp;&amp; a &lt; r &amp;&amp; b &gt;= 0 &amp;&amp; b &lt; c &amp;&amp; g[a][b] != '#' &amp;&amp; !st[a][b])            {                sum ++ ;                q.push({a, b});                st[a][b] = true;            }        }    }    return sum;}int main(){    while (scanf("%d%d", &amp;c, &amp;r), r &amp;&amp; c)    {        for (int i = 0; i &lt; r; i ++ ) cin &gt;&gt; g[i];        for (int i = 0; i &lt; r; i ++ )        {            for (int j = 0; j &lt; c; j ++ )            {                if (g[i][j] == '@')                {                    cout &lt;&lt; bfs(i, j) &lt;&lt; endl;                    break;                }            }        }    }    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> DFS </tag>
+            
+            <tag> Flood Fill </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【题解】献给阿尔吉侬的花束</title>
+      <link href="/posts/cd8a.html"/>
+      <url>/posts/cd8a.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="题目链接：献给阿尔吉侬的花束">题目链接：<a href="https://www.acwing.com/activity/content/problem/content/1745/">献给阿尔吉侬的花束</a></h4><h4 id="BFS">BFS</h4><ol><li>宽度优先遍历，适合有四个方向的棋盘类最短路问题，关键在于所有点之间的距离必须相同。</li><li>一般所需要的数据结构有：队列，标记数组，距离数据。通常标记数组可省略，看个人习惯。</li></ol><h4 id="BFS-C-117ms">BFS C++ 117ms</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;#include &lt;vector&gt;#include &lt;cstdio&gt;#include &lt;cmath&gt;#include &lt;unordered_map&gt;#include &lt;map&gt;#include &lt;queue&gt;using namespace std;typedef long long LL;typedef pair&lt;int, int&gt; PII;#define x first#define y secondconst int N = 200 + 10;string g[N];int r, c;int dx[] = {1, 0, -1, 0}, dy[] = {0, -1, 0, 1};bool st[N][N];int d[N][N];int bfs(int sx, int sy){    int u = 1;    queue&lt;PII&gt; q;    q.push({sx, sy});    d[sx][sy] = 0;        while (q.size())    {        int x = q.front().x, y = q.front().y;        q.pop();        for (int i = 0; i &lt; 4; i ++ )        {            int a = x + dx[i], b = y + dy[i];            if (a &gt;= 0 &amp;&amp; a &lt; r &amp;&amp; b &gt;= 0 &amp;&amp; b &lt; c &amp;&amp; g[a][b] != '#' &amp;&amp; !st[a][b])            {                st[a][b] = true;                if (g[a][b] == 'E')                {                    return d[x][y] + 1;                }                q.push({a, b});                d[a][b] = d[x][y] + 1;            }        }    }    return -1;}int main(){    int T;    cin &gt;&gt; T;    while (T -- )    {        cin &gt;&gt; r &gt;&gt; c;        memset(st, false, sizeof st);        bool flag = false;        int x, y;        for (int i = 0; i &lt; r; i ++ )        {            cin &gt;&gt; g[i];            if (flag == false)            {                for (int j = 0; j &lt; g[i].size(); j ++ )                {                    if (g[i][j] == 'S')                     {                        x = i, y = j;                        flag = true;                    }                }            }        }        int ans = bfs(x, y);        ans == -1 ? cout &lt;&lt; "oop!" &lt;&lt; endl : cout &lt;&lt; ans &lt;&lt; endl;    }    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> BFS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【题解】日志统计</title>
+      <link href="/posts/e63e.html"/>
+      <url>/posts/e63e.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="题目链接：日志统计">题目链接：<a href="https://www.acwing.com/activity/content/problem/content/1744/">日志统计</a></h4><h4 id="算法一">算法一</h4><h5 id="枚举-粗略估计-O-n2">(枚举)  粗略估计 O(n<sup>2</sup>)</h5><ol><li>首先这是偏暴力做法，如果出题人想卡也是可以卡掉的。由于第二层循环只在两篇相同文章点赞时刻之差大于等于 D 时，或者遇到两篇编号不同的文章时退出，所以只需要将 N K D 全部设为 1e5 并且所有的文章编号相同，那么该做法就退化到 $O(n^2)$ 了。</li><li>将文章编号作为第一关键字，点赞时刻作为第二关键字排序。对于每篇文章的点赞时刻，枚举后续相同文章中点赞时刻之差小于 D 的文章数，如果发现某篇文章符合条件且没有被记录过，则输出该文章编号并记录。</li></ol><h4 id="C-代码">C++ 代码</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;#include &lt;vector&gt;#include &lt;cstdio&gt;#include &lt;cmath&gt;#include &lt;unordered_map&gt;#include &lt;map&gt;using namespace std;typedef long long LL;typedef pair&lt;int, int&gt; PII;const int N = 1e5 + 10;// first编号，second时刻PII p[N];int n, d, k;int cnt[N];bool st[N];int main(){    cin &gt;&gt; n &gt;&gt; d &gt;&gt; k;    for (int i = 1; i &lt;= n; i ++ )    {        cin &gt;&gt; p[i].second &gt;&gt; p[i].first;    }    sort(p + 1, p + n + 1);    for (int i = 1; i &lt;= n;i ++ )    {        cnt[i] = 1;        for (int j = i + 1; j &lt;= n; j ++ )        {            if (p[j].first != p[j - 1].first)                break;            if (p[j].second - p[i].second &lt; d) cnt[i] ++;            else break;        }        if (cnt[i] &gt;= k &amp;&amp; !st[p[i].first])        {            st[p[i].first] = true;            cout &lt;&lt; p[i].first &lt;&lt; endl;        }    }    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><hr><h3 id="算法二">算法二</h3><h5 id="双指针-线性时间复杂度-O-n">双指针 线性时间复杂度 O(n)</h5><ol><li>双指针算法是一种思想，与指针没有关系。这里的双指针是指有两个指向变量指向同一个数组的下标。一般只有具有 <strong>单调性</strong> 的题目才能用双指针算法。</li><li>考虑枚举每一个长度为 D 的时间段，查看当前枚举的时间段内每篇帖子被点赞多少次，记录符合条件的热帖。我们可以发现，由于每个时间段的起点是依次递增的，所以相邻两个时间段只有起点和终点不同，中间有 D - 2 个时刻是重合的，我们可以用 i 指向当前枚举时间段的终点，j 指向当前枚举时间段的起点，每当发现两个时刻之差大于等于 D ，则让 j 向后移动一格。由于 i 和 j 都是单调递增的，所以最多只会遍历两遍，所以时间复杂度是线性的。</li></ol><h4 id="C-代码-2">C++ 代码</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;#include &lt;vector&gt;#include &lt;cstdio&gt;#include &lt;cmath&gt;#include &lt;unordered_map&gt;#include &lt;map&gt;using namespace std;typedef long long LL;typedef pair&lt;int, int&gt; PII;const int N = 1e5 + 10;// first编号，second时刻PII p[N];int n, d, k;int cnt[N];bool st[N];int main(){    cin &gt;&gt; n &gt;&gt; d &gt;&gt; k;    for (int i = 1; i &lt;= n; i ++ )    {        cin &gt;&gt; p[i].second &gt;&gt; p[i].first;    }    sort(p + 1, p + n + 1);    for (int i = 1; i &lt;= n;i ++ )    {        cnt[i] = 1;        for (int j = i + 1; j &lt;= n; j ++ )        {            if (p[j].first != p[j - 1].first)                break;            if (p[j].second - p[i].second &lt; d) cnt[i] ++;            else break;        }        if (cnt[i] &gt;= k &amp;&amp; !st[p[i].first])        {            st[p[i].first] = true;            cout &lt;&lt; p[i].first &lt;&lt; endl;        }    }    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 双指针 </tag>
+            
+            <tag> 队列 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Visual Studio项目配置SDL库</title>
       <link href="/posts/377b.html"/>
       <url>/posts/377b.html</url>
@@ -21,6 +485,62 @@
         <tags>
             
             <tag> SDL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【题解】最大数</title>
+      <link href="/posts/cb73.html"/>
+      <url>/posts/cb73.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="线段树"><code>线段树</code></h3><h4 id="线段树-2">线段树</h4><ol><li>线段树是在一维数组上，通过堆的方式实现的树状数据结构。主要支持区间修改、区间查询两大操作，其余的单点修改和单点查询等可以视为区间操作的简单化。</li></ol><h4 id="题目链接：最大数">题目链接：<a href="https://www.acwing.com/activity/content/problem/content/1607/">最大数</a></h4><h4 id="线段树-3">线段树</h4><ol><li>线段树是在一维数组上，通过堆的方式实现的树状数据结构。主要支持区间修改、区间查询两大操作，其余的单点修改和单点查询等可以视为区间操作的简单化。</li><li>为了实现上述操作，线段树有两个最基本的函数：<code>pushup</code> 和 <code>pushdow</code> ，前者通过子节点修改父节点的信息，后者通过父节点向下递归修改子节点的信息。通常 <code>pushup</code> 会用在建树函数或修改函数的回溯过程中用到。</li><li>通常情况下线段树会包含四个基本函数：①.<code>pushup</code> 函数：。②.<code>build</code> 函数：将一段区间初始化为线段树。③.<code>modify</code> 函数：修改单点或区间信息，如果是后者，则需要用到 <code>pushdown</code> 函数和懒标记（ <code>lazy</code> ）。④.<code>query</code> 函数：查询某段区间的信息。</li><li>线段树是一棵满二叉树，若某个节点的编号为 x ，则其父节点的编号为 <code>x &gt;&gt; 1</code>，其左右子节点的编号分别为 <code>x &lt;&lt; 1</code> 和 <code>x &lt;&lt; 1 | 1</code> 。在开辟空间时需要开 <code>4 * N</code> 的空间，以防溢出（实际所用的空间一定严格小于 <code>4 * N</code> ）。</li></ol><h4 id="本题细节">本题细节</h4><ol><li>由于最多有 m 个询问，所以线段树所维护的原序列长度最多为 m 。</li><li>在查询和修改函数中，<code>mid</code> 都是指当前节点所维护区间的中点，而不是询问的目标区间中点。</li><li>查询函数在递归是，目标区间的左右端点不能改变，必须一直是 <code>[l, r]</code> ，否则会导致查询的区间长度异常。原因：这里的 <code>mid</code> 是通过 <code>tr[u].l + tr[u].r &gt;&gt; 1</code> 算出来的，不能确定  <code>mid</code> 和 l、r 的大小关系，例如我要查询的目标区间是 <code>[3, 4]</code> ，从 <code>[1, 10]</code> 中找，由于不符合查询函数的第一个 <code>if</code> 条件，需要递归，如果 <code>else</code> 里的第一个 <code>if</code> 对应的区间改成 <code>[l,mid]</code> ，那查询的范围就成 <code>[3,5]</code> 了。</li><li>查询完后务必记得 <code>n ++ ;</code> 。</li><li>由于本题中 <code>build</code> 函数建立的是一棵空线段树，所以不需要 <code>pushup</code> 操作。</li><li>插入新的数据时，需要提前转为 <code>long long</code> 类型。</li></ol><h4 id="线段树-c-705ms">线段树 c++ 705ms</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;#include &lt;vector&gt;#include &lt;cstdio&gt;#include &lt;cmath&gt;#include &lt;unordered_map&gt;#include &lt;map&gt;using namespace std;typedef long long LL;typedef pair&lt;int, int&gt; PII;const int N = 2e5 + 5;int m, p;struct Node{    int l, r;    int v; // 区间[l, r]中的最大值}tr[N * 4];// 由子节点的信息，来计算父节点的信息void pushup(int u){    tr[u].v = max(tr[u &lt;&lt; 1].v, tr[u &lt;&lt; 1 | 1].v);}// u是线段树每个节点在一维数组中的映射// l和r表示该节点所包含原序列的区间左右端点void build(int u, int l, int r){    tr[u] = {l, r};    if (l == r) return ;    int mid = l + r &gt;&gt; 1;    build(u &lt;&lt; 1, l, mid), build(u &lt;&lt; 1 | 1, mid + 1, r);}// u是线段树每个节点在一维数组中的映射// l和r表示所要查询的目标区间int query(int u, int l, int r){    // 如果当前节点的左右端点在目标区间内部，则直接返回    if (l &lt;= tr[u].l &amp;&amp; r &gt;= tr[u].r) return tr[u].v;    else     {        // 注意mid由tr[u].l和tr[u].r计算得到        int mid = tr[u].l + tr[u].r &gt;&gt; 1;        int v = 0;        if (l &lt;= mid) v = query(u &lt;&lt; 1, l, r);        if (r &gt; mid) v = max(v, query(u &lt;&lt; 1 | 1, l, r));        return v;    }}// 单点修改，将原序列下标为x的点的值修改为yvoid modify(int u, int x, int y){    // 首先确保遍历到叶节点，其次该叶节点要对应修改点的下标    if (tr[u].l == tr[u].r &amp;&amp; tr[u].l == x) tr[u].v = y;    else     {        int mid = tr[u].l + tr[u].r &gt;&gt; 1;        if (x &gt; mid) modify(u &lt;&lt; 1 | 1, x, y);        else modify(u &lt;&lt; 1, x, y);        // 修改完叶节点的值后要回溯修改父节点        pushup(u);    }}int main(){    cin &gt;&gt; m &gt;&gt; p;    build(1, 1, m);    int n = 0, a = 0;    while (m -- )    {        char op[2];        int t;        scanf("%s%d", op, &amp;t);        if (*op == 'Q')        {            a = query(1, n - t + 1, n);            printf("%d\n", a);        }        else         {            t = ((LL)a + t) % p;            modify(1, n + 1, t);            // 务必记得n+1            n ++ ;        }    }    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 线段树 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【题解】航班时间</title>
+      <link href="/posts/b619.html"/>
+      <url>/posts/b619.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="题目链接：航班时间">题目链接：<a href="https://www.acwing.com/activity/content/problem/content/1604/">航班时间</a></h4><h4 id="思路">思路</h4><ol><li>设 x 为时差， A 为第一次起降时间差， B 为第二次起降时间差，可得 <code>A + x = B - x</code> ，推出： <code>(A + B) / 2 = A + x</code> 。</li><li>为了便于计算，可以先将所有的时间统一单位为秒，计算出两个时间相差秒数后，再转为时分秒的格式。</li></ol><h4 id="输入问题">输入问题</h4><ol><li><code>scanf</code> 会自动忽略输入字符串的空白字符（空格、tab、回车等），直到下一个非空白字符。</li><li>若遇到的非空白字符与格式化字符串匹配，则读入（例如： <code>scanf("%d(+%d)", &amp;a, &amp;b);</code> ，若输入1(+2)则可以读入）。</li><li><strong>若遇到的非空白字符与格式化字符串不匹配，则结束此次读取</strong> ，并将该非空白字符回存到缓存中，在下一次读取函数被调用时读取（如 <code>scanf</code> 、 <code>getchar</code> 等）。</li></ol><h4 id="模拟24ms">模拟24ms</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;#include &lt;vector&gt;#include &lt;cstdio&gt;#include &lt;cmath&gt;#include &lt;unordered_map&gt;#include &lt;map&gt;using namespace std;typedef long long LL;typedef pair&lt;int, int&gt; PII;const int N = 1e5 + 5;// 返回第一次起降所用秒数int readtime(){    int a1, b1, c1, a2, b2, c2, d = 0;    // 如果读完c2后发现没有形如(+2)这样的字符串，则结束本次读入    scanf("%d:%d:%d %d:%d:%d (+%d)", &amp;a1, &amp;b1, &amp;c1, &amp;a2, &amp;b2, &amp;c2, &amp;d);        int sum = (a2 + d * 24) * 3600 + b2 * 60 + c2 - (a1 * 3600 + b1 * 60 + c1);    return sum;}void myprint(int a, int b){    int c = a + b &gt;&gt; 1;    int x = c /60 / 60, y = c / 60 % 60, z = c % 60;    printf("%02d:%02d:%02d\n", x, y, z);    return ;}int main(){    int T;    cin &gt;&gt; T;    while (T -- )    {        // 设x为时差，A为第一次起降时间差，B为第二次起降时间差        // A+x=B-x，可得 (A+B)/2=A+x        int a = readtime();        int b = readtime();        myprint(a, b);    }    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 模拟 </tag>
+            
+            <tag> 数学 </tag>
             
         </tags>
       
@@ -99,7 +619,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> ACM集训队个人赛 </tag>
             
@@ -151,7 +671,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> ACM集训队组队赛 </tag>
             
@@ -178,7 +698,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> ACM集训队个人赛 </tag>
             
@@ -230,7 +750,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> ACM集训队个人赛 </tag>
             
@@ -282,7 +802,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 算法分析与设计 </tag>
             
@@ -413,7 +933,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 算法分析与设计 </tag>
             
@@ -440,7 +960,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 牛客练习赛 </tag>
             
@@ -467,7 +987,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> ACM集训队个人赛 </tag>
             
@@ -494,7 +1014,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> ACM集训队暑期集训 </tag>
             
@@ -521,7 +1041,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> ACM集训队暑期集训 </tag>
             
@@ -548,7 +1068,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> ACM集训队暑期集训 </tag>
             
@@ -575,7 +1095,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> ACM集训队暑期集训 </tag>
             
@@ -627,7 +1147,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> ACM集训队暑期集训 </tag>
             
@@ -654,7 +1174,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> ACM集训队暑期集训 </tag>
             
@@ -681,7 +1201,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> ACM集训队暑期集训 </tag>
             
@@ -708,7 +1228,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> AcWing周赛 </tag>
             
@@ -735,7 +1255,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> ACM集训队暑期集训 </tag>
             
@@ -762,7 +1282,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> ACM集训队暑期集训 </tag>
             
@@ -789,7 +1309,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> ACM集训队暑期集训 </tag>
             
@@ -800,7 +1320,7 @@
     
     
     <entry>
-      <title>【题解】仓库选址</title>
+      <title>【题解】货仓选址</title>
       <link href="/posts/eefbf7a4.html"/>
       <url>/posts/eefbf7a4.html</url>
       
@@ -816,7 +1336,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 贪心 </tag>
             
@@ -843,7 +1363,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 贪心 </tag>
             
@@ -870,7 +1390,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> ACM集训队暑期集训 </tag>
             
@@ -897,7 +1417,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> ACM集训队暑期集训 </tag>
             
@@ -924,7 +1444,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 区间问题 </tag>
             
@@ -953,7 +1473,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 区间问题 </tag>
             
@@ -980,36 +1500,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
-            
-            <tag> 区间问题 </tag>
-            
-            <tag> 贪心 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>【题解】区间选点</title>
-      <link href="/posts/d8c11c37.html"/>
-      <url>/posts/d8c11c37.html</url>
-      
-        <content type="html"><![CDATA[<h4 id="题目：-区间选点">题目： <a href="https://www.acwing.com/problem/content/907/">区间选点</a></h4><h4 id="题意：">题意：</h4><p>给定 N 个闭区间 [ai,bi]，请你在数轴上选择尽量少的点，使得每个区间内至少包含一个选出的点。</p><p>输出选择的点的最小数量。</p><p>位于区间端点上的点也算作区间内。</p><h4 id="输入格式">输入格式</h4><p>第一行包含整数 N，表示区间数。</p><p>接下来 N 行，每行包含两个整数 ai,bi，表示一个区间的两个端点。</p><h4 id="输出格式">输出格式</h4><p>输出一个整数，表示所需的点的最小数量。</p><h4 id="数据范围">数据范围</h4><p>1 ≤ N ≤ 10^5,<br>−10^9 ≤ ai ≤ bi ≤ 10^9</p><h4 id="输入样例：">输入样例：</h4><pre class="line-numbers language-none"><code class="language-none">3-1 12 43 5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><h4 id="输出样例：">输出样例：</h4><pre class="line-numbers language-none"><code class="language-none">2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h4 id="思路：">思路：</h4><ul><li>涉及区间的贪心题目一般都要先排序再逐个对区间进行操作，要么根据左端点排序，要么根据右端点排序，或者双关键字排序。</li><li>第一步：将每个区间按右端点从小到大排序。</li><li>第二步：从前向后依次枚举每个区间。如果当前区间中已经包含点（实际意义就是被维护的“右值”覆盖），就直接跳过。否则选择当前区间的右端点，更新所维护的“右值”。</li><li>这里的“右值”就是指某个点所能延伸到的最右端，在这个范围内的区间都将包含点。</li></ul><h4 id="代码">代码</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;algorithm&gt;</span></span><span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span><span class="token keyword">const</span> <span class="token keyword">int</span> N<span class="token operator">=</span><span class="token number">100010</span><span class="token punctuation">;</span><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">PII</span> <span class="token expression">pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">&gt;</span></span></span>PII p<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">int</span> n<span class="token punctuation">;</span><span class="token keyword">bool</span> <span class="token function">cmp1</span><span class="token punctuation">(</span>PII a<span class="token punctuation">,</span>PII b<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token keyword">return</span> a<span class="token punctuation">.</span>second<span class="token operator">&lt;</span>b<span class="token punctuation">.</span>second<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    cin<span class="token operator">&gt;&gt;</span>n<span class="token punctuation">;</span>    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span> cin<span class="token operator">&gt;&gt;</span>p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>first<span class="token operator">&gt;&gt;</span>p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>second<span class="token punctuation">;</span>    <span class="token function">sort</span><span class="token punctuation">(</span>p<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>p<span class="token operator">+</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>cmp1<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">int</span> res<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>r<span class="token operator">=</span>p<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>second<span class="token punctuation">;</span>    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span>    <span class="token punctuation">{</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>r<span class="token operator">&lt;</span>p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>first<span class="token punctuation">)</span>        <span class="token punctuation">{</span>            res<span class="token operator">++</span><span class="token punctuation">;</span>            r<span class="token operator">=</span>p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>second<span class="token punctuation">;</span>        <span class="token punctuation">}</span>    <span class="token punctuation">}</span>        cout<span class="token operator">&lt;&lt;</span>res<span class="token punctuation">;</span>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> 题解 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 区间问题 </tag>
             
@@ -1038,7 +1529,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 贪心 </tag>
             
@@ -1051,11 +1542,40 @@
     
     
     <entry>
+      <title>【题解】区间选点</title>
+      <link href="/posts/d8c11c37.html"/>
+      <url>/posts/d8c11c37.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="题目：-区间选点">题目： <a href="https://www.acwing.com/problem/content/907/">区间选点</a></h4><h4 id="题意：">题意：</h4><p>给定 N 个闭区间 [ai,bi]，请你在数轴上选择尽量少的点，使得每个区间内至少包含一个选出的点。</p><p>输出选择的点的最小数量。</p><p>位于区间端点上的点也算作区间内。</p><h4 id="输入格式">输入格式</h4><p>第一行包含整数 N，表示区间数。</p><p>接下来 N 行，每行包含两个整数 ai,bi，表示一个区间的两个端点。</p><h4 id="输出格式">输出格式</h4><p>输出一个整数，表示所需的点的最小数量。</p><h4 id="数据范围">数据范围</h4><p>1 ≤ N ≤ 10^5,<br>−10^9 ≤ ai ≤ bi ≤ 10^9</p><h4 id="输入样例：">输入样例：</h4><pre class="line-numbers language-none"><code class="language-none">3-1 12 43 5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><h4 id="输出样例：">输出样例：</h4><pre class="line-numbers language-none"><code class="language-none">2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h4 id="思路：">思路：</h4><ul><li>涉及区间的贪心题目一般都要先排序再逐个对区间进行操作，要么根据左端点排序，要么根据右端点排序，或者双关键字排序。</li><li>第一步：将每个区间按右端点从小到大排序。</li><li>第二步：从前向后依次枚举每个区间。如果当前区间中已经包含点（实际意义就是被维护的“右值”覆盖），就直接跳过。否则选择当前区间的右端点，更新所维护的“右值”。</li><li>这里的“右值”就是指某个点所能延伸到的最右端，在这个范围内的区间都将包含点。</li></ul><h4 id="代码">代码</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;algorithm&gt;</span></span><span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span><span class="token keyword">const</span> <span class="token keyword">int</span> N<span class="token operator">=</span><span class="token number">100010</span><span class="token punctuation">;</span><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">PII</span> <span class="token expression">pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">&gt;</span></span></span>PII p<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">int</span> n<span class="token punctuation">;</span><span class="token keyword">bool</span> <span class="token function">cmp1</span><span class="token punctuation">(</span>PII a<span class="token punctuation">,</span>PII b<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token keyword">return</span> a<span class="token punctuation">.</span>second<span class="token operator">&lt;</span>b<span class="token punctuation">.</span>second<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    cin<span class="token operator">&gt;&gt;</span>n<span class="token punctuation">;</span>    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span> cin<span class="token operator">&gt;&gt;</span>p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>first<span class="token operator">&gt;&gt;</span>p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>second<span class="token punctuation">;</span>    <span class="token function">sort</span><span class="token punctuation">(</span>p<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>p<span class="token operator">+</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>cmp1<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">int</span> res<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>r<span class="token operator">=</span>p<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>second<span class="token punctuation">;</span>    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span>    <span class="token punctuation">{</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>r<span class="token operator">&lt;</span>p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>first<span class="token punctuation">)</span>        <span class="token punctuation">{</span>            res<span class="token operator">++</span><span class="token punctuation">;</span>            r<span class="token operator">=</span>p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>second<span class="token punctuation">;</span>        <span class="token punctuation">}</span>    <span class="token punctuation">}</span>        cout<span class="token operator">&lt;&lt;</span>res<span class="token punctuation">;</span>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 区间问题 </tag>
+            
+            <tag> 贪心 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>【模板】归并排序</title>
       <link href="/posts/41540c62.html"/>
       <url>/posts/41540c62.html</url>
       
-        <content type="html"><![CDATA[<h3 id="归并排序代码模板">归并排序代码模板</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void merge_sort(int l, int r){    if(l &gt;= r)return ;    int mid = (l + r)&gt;&gt;1;    merge_sort(l, mid),merge_sort(mid + 1, r);        int k = 0, i = l, j = mid + 1;    while(i &lt;= mid&amp;&amp;j &lt;= r)    {        if(a[i] &lt; a[j])temp[k ++] = a[i ++];        else temp[k ++] = a[j ++]; //要求逆序对的话，在else的作用域中额外加 ans+=(mid-i+1)    }    while(i &lt;= mid) temp[k ++] = a[i ++];    while(j &lt;= r) temp[k ++] = a[j ++];        for(i = l, j = 0; i &lt;= r; ++ i, ++ j)a[i] = temp[j];}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="归并图示步骤：">归并图示步骤：</h3><p><img src="https://s2.loli.net/2022/07/11/ZfEq4P3UDMIAtJk.png" alt="归并排序图示"></p><ol><li>确定分界点：数列中点， <code>mid=(l+r)/2</code> 。</li><li>归并排序左半边和右半边。</li><li>将排序好的左右两边归并，合二为一。</li></ol><h3 id="归并细节">归并细节</h3><ul><li>确定递归终结条件 <code>l&gt;=r</code> 。</li><li>分别递归左右两边。</li><li>将排序好的两边合二为一，排序实际上就隐含在合并的过程中了。</li><li>合并排序是稳定O(n*log(n))的复杂度，而且是稳定的，但是相对于快排需要额外开辟一个数组。</li><li>归并排序的思想 - 基于分治。</li></ul><h3 id="用法：">用法：</h3><h4 id="题目：归并排序">题目：<a href="https://www.acwing.com/problem/content/789/">归并排序</a></h4><h4 id="题意：">题意：</h4><p>给定你一个长度为 n 的整数数列。</p><p>请你使用归并排序对这个数列按照从小到大进行排序。</p><p>并将排好序的数列按顺序输出。</p><h4 id="输入格式">输入格式</h4><p>输入共两行，第一行包含整数 n。</p><p>第二行包含 n 个整数（所有整数均在 1∼10<sup>9</sup> 范围内），表示整个数列。</p><h4 id="输出格式">输出格式</h4><p>输出共一行，包含 n 个整数，表示排好序的数列。</p><h4 id="数据范围">数据范围</h4><p>1 ≤ n ≤ 100000</p><h4 id="输入样例：">输入样例：</h4><pre class="line-numbers language-none"><code class="language-none">53 1 2 4 5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h4 id="输出样例：">输出样例：</h4><pre class="line-numbers language-none"><code class="language-none">1 2 3 4 5<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h4 id="排序代码">排序代码</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span><span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span><span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">1e5</span> <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">;</span><span class="token keyword">int</span> a<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span>temp<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">void</span> <span class="token function">merge_sort</span><span class="token punctuation">(</span><span class="token keyword">int</span> l<span class="token punctuation">,</span> <span class="token keyword">int</span> r<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token keyword">if</span><span class="token punctuation">(</span>l <span class="token operator">&gt;=</span> r<span class="token punctuation">)</span><span class="token keyword">return</span> <span class="token punctuation">;</span>    <span class="token keyword">int</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>l <span class="token operator">+</span> r<span class="token punctuation">)</span><span class="token operator">&gt;&gt;</span><span class="token number">1</span><span class="token punctuation">;</span><span class="token comment">//中点</span>    <span class="token function">merge_sort</span><span class="token punctuation">(</span>l<span class="token punctuation">,</span> mid<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">merge_sort</span><span class="token punctuation">(</span>mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//递归左右两半边</span>        <span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> i <span class="token operator">=</span> l<span class="token punctuation">,</span> j <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="token comment">//i和j分别作为左右两边的起点</span>    <span class="token keyword">while</span><span class="token punctuation">(</span>i <span class="token operator">&lt;=</span> mid<span class="token operator">&amp;&amp;</span>j <span class="token operator">&lt;=</span> r<span class="token punctuation">)</span>    <span class="token punctuation">{</span><span class="token comment">//两边都还有剩余</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> a<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>temp<span class="token punctuation">[</span>k <span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> a<span class="token punctuation">[</span>i <span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>        <span class="token keyword">else</span> temp<span class="token punctuation">[</span>k <span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> a<span class="token punctuation">[</span>j <span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token keyword">while</span><span class="token punctuation">(</span>i <span class="token operator">&lt;=</span> mid<span class="token punctuation">)</span> temp<span class="token punctuation">[</span>k <span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> a<span class="token punctuation">[</span>i <span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//左半边有剩余</span>    <span class="token keyword">while</span><span class="token punctuation">(</span>j <span class="token operator">&lt;=</span> r<span class="token punctuation">)</span> temp<span class="token punctuation">[</span>k <span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> a<span class="token punctuation">[</span>j <span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//右半边有剩余</span>        <span class="token keyword">for</span><span class="token punctuation">(</span>i <span class="token operator">=</span> l<span class="token punctuation">,</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> r<span class="token punctuation">;</span> <span class="token operator">++</span> i<span class="token punctuation">,</span> <span class="token operator">++</span> j<span class="token punctuation">)</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//合并好后返回给原数组</span><span class="token punctuation">}</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token keyword">int</span> n<span class="token punctuation">;</span>    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> <span class="token operator">++</span> i<span class="token punctuation">)</span> <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token function">merge_sort</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> <span class="token operator">++</span> i<span class="token punctuation">)</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="利用归并排序寻找给定数列的逆序对的数量">利用归并排序寻找给定数列的逆序对的数量</h4><h4 id="题目：逆序对的数量">题目：<a href="https://www.acwing.com/problem/content/790/">逆序对的数量</a></h4><h4 id="题意：-2">题意：</h4><p>给定一个长度为 n 的整数数列，请你计算数列中的逆序对的数量。</p><p>逆序对的定义如下：对于数列的第 i 个和第 j 个元素，如果满足 i&lt;j 且 a[i]&gt;a[j]，则其为一个逆序对；否则不是。</p><h4 id="输入格式-2">输入格式</h4><p>第一行包含整数 n，表示数列的长度。</p><p>第二行包含 n 个整数，表示整个数列。</p><h4 id="输出格式-2">输出格式</h4><p>输出一个整数，表示逆序对的个数。</p><h4 id="数据范围-2">数据范围</h4><p>1 ≤ n ≤ 100000，<br>数列中的元素的取值范围 [1,  10<sup>9</sup>]。</p><h4 id="输入样例：-2">输入样例：</h4><pre class="line-numbers language-none"><code class="language-none">62 3 4 5 6 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h4 id="输出样例：-2">输出样例：</h4><pre class="line-numbers language-none"><code class="language-none">5<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h4 id="思路：">思路：</h4><p><img src="https://s2.loli.net/2022/07/11/ZPVdxeqK8tDGr2E.png" alt="逆序对图示"></p><ul><li>根据上图我们可以发现，实际上所有的逆序对可以分为三种情况，我们重点分析第三种情况（后面会说原因）</li><li>分别在左右两侧的逆序对数量实际上在归并的过程中就可以得到，因为左右两侧都是有序数列</li><li>那么怎么去得到左边和右边的逆序对数量呢，我们会发现如果只看左边，问题回到了开始：求给定数列的逆序对</li><li>所以我们在不断向下递归的过程中就已经将情况1和情况2解决</li><li>注意：两个数字如果大小相同则不属于逆序对</li></ul><h4 id="逆序对代码">逆序对代码</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span><span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span><span class="token keyword">const</span> <span class="token keyword">int</span> N<span class="token operator">=</span> <span class="token number">1e5</span><span class="token operator">+</span><span class="token number">5</span><span class="token punctuation">;</span><span class="token keyword">int</span> a<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span>temp<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">long</span> <span class="token keyword">long</span> ans<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token keyword">void</span> <span class="token function">merge_sort</span><span class="token punctuation">(</span><span class="token keyword">int</span> l<span class="token punctuation">,</span><span class="token keyword">int</span> r<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token keyword">if</span><span class="token punctuation">(</span>l<span class="token operator">&gt;=</span>r<span class="token punctuation">)</span><span class="token keyword">return</span> <span class="token punctuation">;</span>        <span class="token keyword">int</span> mid<span class="token operator">=</span><span class="token punctuation">(</span>l<span class="token operator">+</span>r<span class="token punctuation">)</span><span class="token operator">&gt;&gt;</span><span class="token number">1</span><span class="token punctuation">;</span>    <span class="token function">merge_sort</span><span class="token punctuation">(</span>l<span class="token punctuation">,</span>mid<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">merge_sort</span><span class="token punctuation">(</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">int</span> k<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>i<span class="token operator">=</span>l<span class="token punctuation">,</span>j<span class="token operator">=</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>    <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">&lt;=</span>mid<span class="token operator">&amp;&amp;</span>j<span class="token operator">&lt;=</span>r<span class="token punctuation">)</span>    <span class="token punctuation">{</span>        <span class="token comment">//务必注意，两个数字相同时不属于逆序对，必须严格符合前大后小</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;=</span>a<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>temp<span class="token punctuation">[</span>k<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>a<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//条件必须是a[i] &lt;= a[j]</span>        <span class="token comment">//如果数列1中第i个数大于数列2中第j个数，那么数列1中i之后的所有均大于j，那么就会产生(mid-i+1)个逆序对</span>        <span class="token keyword">else</span> temp<span class="token punctuation">[</span>k<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>a<span class="token punctuation">[</span>j<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">,</span>ans<span class="token operator">+=</span><span class="token punctuation">(</span>mid<span class="token operator">-</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">&lt;=</span>mid<span class="token punctuation">)</span>temp<span class="token punctuation">[</span>k<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>a<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token keyword">while</span><span class="token punctuation">(</span>j<span class="token operator">&lt;=</span>r<span class="token punctuation">)</span>temp<span class="token punctuation">[</span>k<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>a<span class="token punctuation">[</span>j<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>        <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span>l<span class="token punctuation">,</span>j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>r<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">,</span>j<span class="token operator">++</span><span class="token punctuation">)</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>temp<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token keyword">int</span> n<span class="token punctuation">;</span>    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token function">merge_sort</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%lld"</span><span class="token punctuation">,</span>ans<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+        <content type="html"><![CDATA[<h3 id="归并排序代码模板">归并排序代码模板</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void merge_sort(int l, int r){    if(l &gt;= r)return ;    int mid = (l + r)&gt;&gt;1;    merge_sort(l, mid),merge_sort(mid + 1, r);        int k = 0, i = l, j = mid + 1;    while(i &lt;= mid&amp;&amp;j &lt;= r)    {        if(a[i] &lt; a[j])temp[k ++] = a[i ++];        else temp[k ++] = a[j ++]; //要求逆序对的话，在else的作用域中额外加 ans+=(mid-i+1)    }    while(i &lt;= mid) temp[k ++] = a[i ++];    while(j &lt;= r) temp[k ++] = a[j ++];        for(i = l, j = 0; i &lt;= r; ++ i, ++ j)a[i] = temp[j];}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="归并图示步骤：">归并图示步骤：</h3><p><img src="https://s2.loli.net/2022/07/11/ZfEq4P3UDMIAtJk.png" alt="归并排序图示"></p><ol><li>确定分界点：数列中点， <code>mid=(l+r)/2</code> 。</li><li>归并排序左半边和右半边。</li><li>将排序好的左右两边归并，合二为一。</li></ol><h3 id="归并细节">归并细节</h3><ul><li>确定递归终结条件 <code>l&gt;=r</code> 。</li><li>分别递归左右两边。</li><li>将排序好的两边合二为一，排序实际上就隐含在合并的过程中了。</li><li>合并排序是稳定O(n*log(n))的复杂度，而且是稳定的，但是相对于快排需要额外开辟一个数组。</li><li>归并排序的思想 - 基于分治。</li></ul><h3 id=""></h3><h4 id="题目：归并排序">题目：<a href="https://www.acwing.com/problem/content/789/">归并排序</a></h4><h4 id="题意：">题意：</h4><p>给定你一个长度为 n 的整数数列。</p><p>请你使用归并排序对这个数列按照从小到大进行排序。</p><p>并将排好序的数列按顺序输出。</p><h4 id="输入格式">输入格式</h4><p>输入共两行，第一行包含整数 n。</p><p>第二行包含 n 个整数（所有整数均在 1∼10<sup>9</sup> 范围内），表示整个数列。</p><h4 id="输出格式">输出格式</h4><p>输出共一行，包含 n 个整数，表示排好序的数列。</p><h4 id="数据范围">数据范围</h4><p>1 ≤ n ≤ 100000</p><h4 id="输入样例：">输入样例：</h4><pre class="line-numbers language-none"><code class="language-none">53 1 2 4 5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h4 id="输出样例：">输出样例：</h4><pre class="line-numbers language-none"><code class="language-none">1 2 3 4 5<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h4 id="排序代码">排序代码</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span><span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span><span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">1e5</span> <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">;</span><span class="token keyword">int</span> a<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span>temp<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">void</span> <span class="token function">merge_sort</span><span class="token punctuation">(</span><span class="token keyword">int</span> l<span class="token punctuation">,</span> <span class="token keyword">int</span> r<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token keyword">if</span><span class="token punctuation">(</span>l <span class="token operator">&gt;=</span> r<span class="token punctuation">)</span><span class="token keyword">return</span> <span class="token punctuation">;</span>    <span class="token keyword">int</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>l <span class="token operator">+</span> r<span class="token punctuation">)</span><span class="token operator">&gt;&gt;</span><span class="token number">1</span><span class="token punctuation">;</span><span class="token comment">//中点</span>    <span class="token function">merge_sort</span><span class="token punctuation">(</span>l<span class="token punctuation">,</span> mid<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">merge_sort</span><span class="token punctuation">(</span>mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//递归左右两半边</span>        <span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> i <span class="token operator">=</span> l<span class="token punctuation">,</span> j <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="token comment">//i和j分别作为左右两边的起点</span>    <span class="token keyword">while</span><span class="token punctuation">(</span>i <span class="token operator">&lt;=</span> mid<span class="token operator">&amp;&amp;</span>j <span class="token operator">&lt;=</span> r<span class="token punctuation">)</span>    <span class="token punctuation">{</span><span class="token comment">//两边都还有剩余</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> a<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>temp<span class="token punctuation">[</span>k <span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> a<span class="token punctuation">[</span>i <span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>        <span class="token keyword">else</span> temp<span class="token punctuation">[</span>k <span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> a<span class="token punctuation">[</span>j <span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token keyword">while</span><span class="token punctuation">(</span>i <span class="token operator">&lt;=</span> mid<span class="token punctuation">)</span> temp<span class="token punctuation">[</span>k <span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> a<span class="token punctuation">[</span>i <span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//左半边有剩余</span>    <span class="token keyword">while</span><span class="token punctuation">(</span>j <span class="token operator">&lt;=</span> r<span class="token punctuation">)</span> temp<span class="token punctuation">[</span>k <span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> a<span class="token punctuation">[</span>j <span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//右半边有剩余</span>        <span class="token keyword">for</span><span class="token punctuation">(</span>i <span class="token operator">=</span> l<span class="token punctuation">,</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> r<span class="token punctuation">;</span> <span class="token operator">++</span> i<span class="token punctuation">,</span> <span class="token operator">++</span> j<span class="token punctuation">)</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//合并好后返回给原数组</span><span class="token punctuation">}</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token keyword">int</span> n<span class="token punctuation">;</span>    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> <span class="token operator">++</span> i<span class="token punctuation">)</span> <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token function">merge_sort</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> <span class="token operator">++</span> i<span class="token punctuation">)</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="利用归并排序寻找给定数列的逆序对的数量">利用归并排序寻找给定数列的逆序对的数量</h4><h4 id="题目：逆序对的数量">题目：<a href="https://www.acwing.com/problem/content/790/">逆序对的数量</a></h4><h4 id="题意：-2">题意：</h4><p>给定一个长度为 n 的整数数列，请你计算数列中的逆序对的数量。</p><p>逆序对的定义如下：对于数列的第 i 个和第 j 个元素，如果满足 i&lt;j 且 a[i]&gt;a[j]，则其为一个逆序对；否则不是。</p><h4 id="输入格式-2">输入格式</h4><p>第一行包含整数 n，表示数列的长度。</p><p>第二行包含 n 个整数，表示整个数列。</p><h4 id="输出格式-2">输出格式</h4><p>输出一个整数，表示逆序对的个数。</p><h4 id="数据范围-2">数据范围</h4><p>1 ≤ n ≤ 100000，<br>数列中的元素的取值范围 [1,  10<sup>9</sup>]。</p><h4 id="输入样例：-2">输入样例：</h4><pre class="line-numbers language-none"><code class="language-none">62 3 4 5 6 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h4 id="输出样例：-2">输出样例：</h4><pre class="line-numbers language-none"><code class="language-none">5<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h4 id="思路：">思路：</h4><p><img src="https://s2.loli.net/2022/07/11/ZPVdxeqK8tDGr2E.png" alt="逆序对图示"></p><ul><li>根据上图我们可以发现，实际上所有的逆序对可以分为三种情况，我们重点分析第三种情况（后面会说原因）</li><li>分别在左右两侧的逆序对数量实际上在归并的过程中就可以得到，因为左右两侧都是有序数列</li><li>那么怎么去得到左边和右边的逆序对数量呢，我们会发现如果只看左边，问题回到了开始：求给定数列的逆序对</li><li>所以我们在不断向下递归的过程中就已经将情况1和情况2解决</li><li>注意：两个数字如果大小相同则不属于逆序对</li></ul><h4 id="逆序对代码">逆序对代码</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span><span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span><span class="token keyword">const</span> <span class="token keyword">int</span> N<span class="token operator">=</span> <span class="token number">1e5</span><span class="token operator">+</span><span class="token number">5</span><span class="token punctuation">;</span><span class="token keyword">int</span> a<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span>temp<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">long</span> <span class="token keyword">long</span> ans<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token keyword">void</span> <span class="token function">merge_sort</span><span class="token punctuation">(</span><span class="token keyword">int</span> l<span class="token punctuation">,</span><span class="token keyword">int</span> r<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token keyword">if</span><span class="token punctuation">(</span>l<span class="token operator">&gt;=</span>r<span class="token punctuation">)</span><span class="token keyword">return</span> <span class="token punctuation">;</span>        <span class="token keyword">int</span> mid<span class="token operator">=</span><span class="token punctuation">(</span>l<span class="token operator">+</span>r<span class="token punctuation">)</span><span class="token operator">&gt;&gt;</span><span class="token number">1</span><span class="token punctuation">;</span>    <span class="token function">merge_sort</span><span class="token punctuation">(</span>l<span class="token punctuation">,</span>mid<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">merge_sort</span><span class="token punctuation">(</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">int</span> k<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>i<span class="token operator">=</span>l<span class="token punctuation">,</span>j<span class="token operator">=</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>    <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">&lt;=</span>mid<span class="token operator">&amp;&amp;</span>j<span class="token operator">&lt;=</span>r<span class="token punctuation">)</span>    <span class="token punctuation">{</span>        <span class="token comment">//务必注意，两个数字相同时不属于逆序对，必须严格符合前大后小</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;=</span>a<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>temp<span class="token punctuation">[</span>k<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>a<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//条件必须是a[i] &lt;= a[j]</span>        <span class="token comment">//如果数列1中第i个数大于数列2中第j个数，那么数列1中i之后的所有均大于j，那么就会产生(mid-i+1)个逆序对</span>        <span class="token keyword">else</span> temp<span class="token punctuation">[</span>k<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>a<span class="token punctuation">[</span>j<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">,</span>ans<span class="token operator">+=</span><span class="token punctuation">(</span>mid<span class="token operator">-</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">&lt;=</span>mid<span class="token punctuation">)</span>temp<span class="token punctuation">[</span>k<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>a<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token keyword">while</span><span class="token punctuation">(</span>j<span class="token operator">&lt;=</span>r<span class="token punctuation">)</span>temp<span class="token punctuation">[</span>k<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>a<span class="token punctuation">[</span>j<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>        <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span>l<span class="token punctuation">,</span>j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>r<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">,</span>j<span class="token operator">++</span><span class="token punctuation">)</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>temp<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token keyword">int</span> n<span class="token punctuation">;</span>    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token function">merge_sort</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%lld"</span><span class="token punctuation">,</span>ans<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
       
       
       <categories>
@@ -1067,11 +1587,9 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 归并排序 </tag>
-            
-            <tag> 逆序对 </tag>
             
         </tags>
       
@@ -1096,7 +1614,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 区间问题 </tag>
             
@@ -1125,7 +1643,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 区间问题 </tag>
             
@@ -1154,7 +1672,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> ACM集训队暑期集训 </tag>
             
@@ -1181,7 +1699,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 动态规划 </tag>
             
@@ -1210,7 +1728,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 动态规划 </tag>
             
@@ -1239,7 +1757,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 背包 </tag>
             
@@ -1266,7 +1784,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 动态规划 </tag>
             
@@ -1295,7 +1813,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> ACM集训队暑期集训 </tag>
             
@@ -1322,7 +1840,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 动态规划 </tag>
             
@@ -1351,7 +1869,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 动态规划 </tag>
             
@@ -1405,7 +1923,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> ACM集训队暑期集训 </tag>
             
@@ -1432,7 +1950,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 动态规划 </tag>
             
@@ -1486,7 +2004,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 面向对象程序设计 </tag>
             
@@ -1513,7 +2031,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 面向对象程序设计 </tag>
             
@@ -1565,7 +2083,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 动态规划 </tag>
             
@@ -1617,7 +2135,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> BFS </tag>
             
@@ -1644,7 +2162,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> BFS </tag>
             
@@ -1698,7 +2216,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 动态规划 </tag>
             
@@ -1777,7 +2295,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> NFC </tag>
             
@@ -1829,7 +2347,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 动态规划 </tag>
             
@@ -1856,7 +2374,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 动态规划 </tag>
             
@@ -1960,7 +2478,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 图论 </tag>
             
@@ -1989,7 +2507,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 思维 </tag>
             
@@ -2016,7 +2534,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 并查集 </tag>
             
@@ -2076,7 +2594,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 母函数 </tag>
             
@@ -2103,7 +2621,7 @@
       
         <tags>
             
-            <tag> c </tag>
+            <tag> C </tag>
             
         </tags>
       
@@ -2128,7 +2646,7 @@
       
         <tags>
             
-            <tag> c </tag>
+            <tag> C </tag>
             
             <tag> hash表 </tag>
             
@@ -2155,7 +2673,7 @@
       
         <tags>
             
-            <tag> c </tag>
+            <tag> C </tag>
             
             <tag> Floyd </tag>
             
@@ -2184,7 +2702,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
         </tags>
       
@@ -2209,7 +2727,7 @@
       
         <tags>
             
-            <tag> c </tag>
+            <tag> C </tag>
             
         </tags>
       
@@ -2236,7 +2754,7 @@
             
             <tag> BFS </tag>
             
-            <tag> c </tag>
+            <tag> C </tag>
             
         </tags>
       
@@ -2261,7 +2779,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> BFS </tag>
             
@@ -2288,7 +2806,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> hexo-next </tag>
             
@@ -2315,7 +2833,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 贪心 </tag>
             
@@ -2342,7 +2860,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 贪心 </tag>
             
@@ -2369,7 +2887,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> BFS </tag>
             
@@ -2396,7 +2914,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 动态规划 </tag>
             
@@ -2423,7 +2941,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> KMP </tag>
             
@@ -2450,7 +2968,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 并查集 </tag>
             
@@ -2481,7 +2999,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 区间问题 </tag>
             
@@ -2508,7 +3026,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 思维 </tag>
             
@@ -2535,7 +3053,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 并查集 </tag>
             
@@ -2562,7 +3080,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 离散化 </tag>
             
@@ -2589,7 +3107,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 栈 </tag>
             
@@ -2616,9 +3134,63 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 数学知识 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【题解】判断子序列</title>
+      <link href="/posts/5dbc.html"/>
+      <url>/posts/5dbc.html</url>
+      
+        <content type="html"><![CDATA[<ul><li><p>本题提供两种写法，第二种写法更为优雅简洁。</p></li><li><p>当然为了避免“不严谨”，法一也可以在进入 while 循环前判断 j 是否大于 m，但是毕竟 j 不会超过 b 数组的范围，实际上是 <strong>绝对安全</strong> 的，而且如果额外判断则有代码重复的累赘感，所以姑且这样写。</p></li></ul><h4 id="写法一">写法一</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include &lt;iostream&gt;#include &lt;algorithm&gt;using namespace std;const int N = 1e5 + 10;int n, m;int a[N], b[N];int main(){    cin &gt;&gt; n &gt;&gt; m;    for (int i = 1; i &lt;= n; i ++) cin &gt;&gt; a[i];    for (int i = 1; i &lt;= m; i ++) cin &gt;&gt; b[i];        // 为什么需要j++？因为a[i-1]与a[j-1]匹配成功后，随着i往后移动一位，j也应该向后移动一位    for (int i = 1, j = 1; i &lt;= n; i ++, j ++)    {    // 其实不够严谨，当for(;;)中的j自增后，j有可能超过m，虽然b数组开的范围比m要大10，可以避免越界，但仍然有不严谨的嫌疑        while (b[j] != a[i])         {            j ++ ;            if (j &gt; m)             {                cout &lt;&lt; "No";                return 0;            }        }    }    cout &lt;&lt; "Yes";    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="写法二：">写法二：</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include &lt;iostream&gt;#include &lt;algorithm&gt;using namespace std;const int N = 1e5 + 10;int n, m;int a[N], b[N];int main(){    cin &gt;&gt; n &gt;&gt; m;    for (int i = 1; i &lt;= n; i ++) cin &gt;&gt; a[i];    for (int i = 1; i &lt;= m; i ++) cin &gt;&gt; b[i];        int i = 1, j = 1;    while (i &lt;= n &amp;&amp; j &lt;= m)    {        if (a[i] == b[j]) i ++;        j ++;    }        i == n + 1 ? cout &lt;&lt; "Yes" : cout &lt;&lt; "No";    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 双指针 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【题解】最长连续不重复子序列</title>
+      <link href="/posts/b4a0.html"/>
+      <url>/posts/b4a0.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="双指针">双指针</h4><ul><li><p>双指针其核心思想就是将 O(n^2) 的朴素算法优化到 O(n) 。</p></li><li><p>s[i] 表示 整数 i 在区间 [j,i] 中出现的次数。</p></li></ul><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;using namespace std;const int N = 1e5 + 10;int n;int a[N], s[N];int slove(int l, int r){    int ans = 0;    //找i,j满足的某种单调性规律，使得两个指针对于每个元素均只遍历一次    for (int i = 1, j = 1; i &lt;= n; i ++)    {        //当i++后表示i指向的元素出现次数增加一次        s[a[i]] ++;        //j++表示j指向的元素出现次数减少一次        while (s[a[i]] &gt; 1) s[a[j]] --, j ++;        ans = max(ans, i - j + 1);    }    return ans;}int main(){    cin &gt;&gt;n;    for (int i = 1; i &lt;= n; i ++) cin &gt;&gt; a[i];        int ans = slove(1, n);    cout &lt;&lt; ans;    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 双指针 </tag>
             
         </tags>
       
@@ -2643,9 +3215,144 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 动态规划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【题解】差分</title>
+      <link href="/posts/d672.html"/>
+      <url>/posts/d672.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="差分">差分</h4><ol><li>差分是前缀和的逆运算。前缀和中 <code>b[i]</code> 表示 <code>a[1]</code> 到 <code>a[i]</code> 元素之和，则差分中 <code>b[1]</code> 到 <code>b[i]</code> 元素之和表示 <code>a[i]</code> 。</li><li>由于 a 数组是 b 数组的前缀和，所以 <code>b[i]</code> 加 k ，则由 b 数组求出的 a 数组从 <code>a[i]</code> 之后所有元素均会加 k ，所以如果要将 a 数组 <code>[l, r]</code> 区间内每个元素加 k ，那么只需要将 <code>b[l] += k;</code> ，将 <code>b[r + 1] -= k;</code> 即可。</li></ol><h4 id="差分-c-165ms">差分 c++ 165ms</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;#include &lt;vector&gt;#include &lt;cstdio&gt;#include &lt;cmath&gt;#include &lt;unordered_map&gt;#include &lt;map&gt;using namespace std;typedef long long LL;typedef pair&lt;int, int&gt; PII;const int N = 1e5 + 5;int n, m;int a[N], b[N];void insert(int l, int r, int x){    b[l] += x; // a[l, n]均加x    b[r + 1] -= x; // a[r + 1, n]均减x}int main(){    cin &gt;&gt; n &gt;&gt; m;    for (int i = 1; i &lt;= n; i ++ )     {        scanf("%d", &amp;a[i]);        // 下面写法是从定义出发。也可以写作： insert(i, i, x);        b[i] = a[i] - a[i - 1];    }    while (m -- )    {        int l, r, x;        scanf("%d%d%d", &amp;l, &amp;r, &amp;x);        insert(l, r, x);    }    int ans = 0;    for (int i = 1; i &lt;= n; i ++ )     {        ans += b[i];        printf("%d ", ans);    }    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 差分 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【题解】子矩阵的和</title>
+      <link href="/posts/c56e.html"/>
+      <url>/posts/c56e.html</url>
+      
+        <content type="html"><![CDATA[<p>二维前缀和公式： <code>s[i][j]=s[i-1][j]+s[i][j-1]-s[i-1][j-1]+a[i][j];</code><br>求给定子矩阵的值： 起点 x1、y1，终点x2、y2 的矩阵之和： <code>sum=s[x2][y2]-s[x1-1][y2]-s[x2][y1-1]+s[x1-1][y1-1];</code></p><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;using namespace std;const int N = 1010;int n, m, k;int a[N][N];int s[N][N];int main(){    cin &gt;&gt; n &gt;&gt; m &gt;&gt; k;        //计算前缀可边读边算    for (int i = 1; i &lt;= n; i ++)    {        for (int j = 1; j&lt;= m; j ++)        {            cin &gt;&gt; s[i][j];            s[i][j] += s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1];        }    }        //询问给定左上角坐标和右下角坐标的子矩阵之和    while (k --)    {        int x1, y1, x2, y2;        cin &gt;&gt; x1 &gt;&gt; y1 &gt;&gt; x2 &gt;&gt; y2;        cout &lt;&lt; s[x2][y2] - s[x1 - 1][y2] - s[x2][y1 - 1] + s[x1 - 1][y1 - 1] &lt;&lt; endl;     }        return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 前缀和 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【题解】高精度乘法</title>
+      <link href="/posts/5344.html"/>
+      <url>/posts/5344.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="步骤">步骤</h4><ol><li>将b按位与A中每一位相乘，并将结果存在t中。</li><li>c是结果数组，每次b与A的某一位乘完加入到t中后，都将t的最后一位加入到c中。</li><li>b与A每一位乘完后，如果t还有剩余，将t从低位依次加入到c中。</li><li>去掉c中的前导零。</li></ol><h4 id="细节">细节</h4><ol><li><code>c.back()</code> ：返回vector数组最后一个元素的值。</li><li><code>c.pop_back()</code> ：将vector数组最后一个元素删除。</li></ol><h3 id="c">c++</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;string&gt;#include &lt;cstring&gt;#include &lt;cmath&gt;#include &lt;map&gt;#include &lt;vector&gt;const int N = 1e5 + 10;using namespace std;typedef vector&lt;int&gt; VT;string a;int b;VT mul(VT A, int b){    int t = 0;    VT C;    for (int i = 0; i &lt; A.size(); ++ i)     {        t += A[i] * b;        C.push_back(t % 10);        t /= 10;    }    // 若t不为0，将t依次加入C中    while (t)     {        C.push_back(t % 10);        t /= 10;    }    // 去除前导0    while (C.size() &gt; 1 &amp;&amp; C.back() == 0) C.pop_back();    return C;}int main(){    cin &gt;&gt; a &gt;&gt; b;    VT A;    for (int i = a.size() - 1; i &gt;= 0; i -- ) A.push_back(a[i] - '0');    VT C = mul(A, b);    for (int i = C.size() - 1; i &gt;= 0; i -- ) cout &lt;&lt; C[i];    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 高精度 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【题解】高精度减法</title>
+      <link href="/posts/f369.html"/>
+      <url>/posts/f369.html</url>
+      
+        <content type="html"><![CDATA[<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;string&gt;#include &lt;cstring&gt;#include &lt;cmath&gt;#include &lt;map&gt;#include &lt;vector&gt;const int N = 1e5 + 10;using namespace std;typedef vector&lt;int&gt; VT;string a, b;bool check(VT A, VT B){    // A和B位数不同，且A的位数大于B时为真    if (A.size() != B.size()) return A.size() &gt; B.size();    // 此时说明两者位数相同。从高位开始比较    for (int i = A.size() - 1; i  &gt;= 0; i -- )        if (A[i] != B[i]) return A[i] &gt; B[i];    //此时说明A和B位数相同，且每一位的数字也相同    return true;}// A &gt;= BVT sub(VT A, VT B){    int t = 0;    VT C;    for (int i = 0; i &lt; A.size(); i ++)     {        // t = A[i] - B[i] - t; //t为1说明需要A的上一位需要借位        t = A[i] - t;        if (i &lt; B.size()) t = t - B[i];        // 如果t为负数则需要向上借位，保证t一定大于零        C.push_back((t + 10) % 10);        if (t &lt; 0) t = 1;        else t = 0;    }    // 如果C只有一位，表示结果A- B= 0，此时需要保留0    while (C.size() &gt; 1 &amp;&amp; C.back() == 0) C.pop_back();    return C;}int main(){    cin &gt;&gt; a &gt;&gt; b;        VT A, B;    for (int i = a.size() - 1; i &gt;= 0 ; -- i) A.push_back(a[i] - '0');    for (int i = b.size() - 1; i &gt;= 0 ; -- i) B.push_back(b[i] - '0');    VT C;    // 用大的减小的    if (check(A, B)) C = sub(A, B);    else C = sub(B, A), printf("-");        for (int i = C.size() - 1; i &gt;= 0; i -- ) cout &lt;&lt; C[i];    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 高精度 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【题解】高精度加法</title>
+      <link href="/posts/e64c.html"/>
+      <url>/posts/e64c.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="基础算法">基础算法</h3><h4 id="步骤">步骤</h4><ol><li>将字符串按位逆序存入数组。</li><li>将数组按位依次相加，存入数组c中。</li><li>如果 t 有剩余，加入 c 中。</li></ol><h4 id="细节">细节</h4><ol><li>高精度加法不需要排除前导零。</li><li>t 如果有剩余可以直接加到 c 数组中，因为相加最多只会多出一位。</li></ol><h3 id="c">c++</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;using namespace std;string a, b;vector&lt;int&gt; add(vector&lt;int&gt; &amp;A, vector&lt;int&gt; &amp;B){    int t = 0;    vector&lt;int&gt; C;    for (int i = 0; i &lt; A.size() || i &lt; B.size(); i++)    {        if(i &lt; A.size()) t += A[i];        if(i &lt; B.size()) t += B[i];        C.push_back(t % 10);        t /= 10;    }    if(t) C.push_back(t);    return C;}int main(){    cin &gt;&gt; a &gt;&gt; b;        vector&lt;int&gt; A, B;    for (int i = a.size() - 1; i &gt;= 0; i--)         A.push_back(a[i] - '0');    for (int i = b.size() - 1; i &gt;= 0; i--)        B.push_back(b[i] - '0');        auto C = add(A, B);    for (int i = C.size() - 1; i &gt;= 0; i--)        cout &lt;&lt; C[i];    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 高精度 </tag>
             
         </tags>
       
@@ -2670,9 +3377,36 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 递归 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【题解】归并排序</title>
+      <link href="/posts/5121.html"/>
+      <url>/posts/5121.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="归并排序">归并排序</h4><ol><li>找分界点， <code>mid = l + r &gt;&gt; 1</code> 。</li><li>左右分别递归排序， <code>merge_sort(l, mid), merge_sort(mid + 1, r);</code>。</li><li>将排好序的左右两边合并在一起。</li></ol><h4 id="细节处理">细节处理</h4><ol><li>backup 数组只在过程中起辅助排序作用，每次都从 1 开始，包括 <strong>排序</strong> 与 <strong>合并</strong> 过程。</li><li>原数组要在对应的范围内（l, r）操作，包括 <strong>排序</strong> 与 <strong>合并</strong> 过程。</li></ol><h4 id="归并排序-c-82ms">归并排序 c++ 82ms</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;#include &lt;algorithm&gt;#include &lt;cstring&gt;#include &lt;vector&gt;#include &lt;cstdio&gt;#include &lt;cmath&gt;#include &lt;map&gt;using namespace std;typedef long long LL;const int N = 100000 + 5;int n;int num[N], backup[N];void merge_sort(int l, int r){    // 递归结束条件    if (l &gt;= r) return ;        int mid = l + r &gt;&gt; 1;    merge_sort(l, mid);    merge_sort(mid + 1, r);        // 备份数组只在过程中起辅助排序作用，每次都从1开始    int i = l, j = mid + 1, k = 1;    while (i &lt;= mid &amp;&amp; j &lt;= r)     {        if (num[i] &lt; num[j]) backup[k ++ ] = num[i ++ ];        else backup[k ++ ] = num[j ++ ];     }    while (i &lt;= mid) backup[k ++ ] = num[i ++ ];    while (j &lt;= r) backup[k ++ ] = num[j ++ ];        // 注意此处将备份的数组复制回原数组时，要复制到对应位置    for (i = l, j = 1; i &lt;= r; i ++, j ++ ) num[i] = backup[j];    return ;}int main(){    cin &gt;&gt; n;    for (int i = 1; i &lt;= n; i ++ ) scanf("%d", &amp;num[i]);    merge_sort(1, n);    for (int i = 1; i &lt;= n; i ++ ) printf("%d ", num[i]);    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 模板 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 归并排序 </tag>
             
         </tags>
       
@@ -2697,7 +3431,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 数学知识 </tag>
             
@@ -2724,7 +3458,7 @@
       
         <tags>
             
-            <tag> c++ </tag>
+            <tag> C++ </tag>
             
             <tag> 图论 </tag>
             
@@ -2755,7 +3489,7 @@
             
             <tag> Turbo C 2.0 </tag>
             
-            <tag> c </tag>
+            <tag> C </tag>
             
         </tags>
       

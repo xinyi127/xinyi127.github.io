@@ -6,7 +6,7 @@
   <link href="http://xinyi127.cn/atom.xml" rel="self"/>
   
   <link href="http://xinyi127.cn/"/>
-  <updated>2023-02-19T12:00:34.151Z</updated>
+  <updated>2023-04-21T06:15:27.830Z</updated>
   <id>http://xinyi127.cn/</id>
   
   <author>
@@ -15,6 +15,500 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【题解】等差数列</title>
+    <link href="http://xinyi127.cn/posts/bb9e.html"/>
+    <id>http://xinyi127.cn/posts/bb9e.html</id>
+    <published>2023-03-31T13:32:24.000Z</published>
+    <updated>2023-04-21T06:15:27.830Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;欧几里得算法-——-辗转相除法&quot;&gt;欧几里得算法 —— 辗转相除法&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;a 和 b 的最大公约数等于 a 和 a % b 的最大公约数。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;证明&lt;/strong&gt; ：设 a = k * b + r ，则 a</summary>
+        
+      
+    
+    
+    
+    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
+    
+    <category term="最大公约数" scheme="http://xinyi127.cn/tags/%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0/"/>
+    
+    <category term="数论" scheme="http://xinyi127.cn/tags/%E6%95%B0%E8%AE%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【题解】灵能传输</title>
+    <link href="http://xinyi127.cn/posts/196d.html"/>
+    <id>http://xinyi127.cn/posts/196d.html</id>
+    <published>2023-03-30T13:21:37.000Z</published>
+    <updated>2023-04-21T06:21:28.376Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;前缀和&quot;&gt;前缀和&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;对于序列 a，计算其前缀和序列 s。对序列 a 进行如下操作时，a[i−1] += a[i]，a[i+1] += a[i]，a[i] −= 2a[i]，我们可以发现对于其前缀和序列 s 而言，等价于 s[i-1] 和</summary>
+        
+      
+    
+    
+    
+    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
+    
+    <category term="贪心" scheme="http://xinyi127.cn/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【题解】后缀表达式</title>
+    <link href="http://xinyi127.cn/posts/892d.html"/>
+    <id>http://xinyi127.cn/posts/892d.html</id>
+    <published>2023-03-29T09:04:59.000Z</published>
+    <updated>2023-04-21T06:23:45.888Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4</summary>
+        
+      
+    
+    
+    
+    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
+    
+    <category term="贪心" scheme="http://xinyi127.cn/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【题解】乘积最大</title>
+    <link href="http://xinyi127.cn/posts/664c.html"/>
+    <id>http://xinyi127.cn/posts/664c.html</id>
+    <published>2023-03-21T04:49:13.000Z</published>
+    <updated>2023-04-21T06:26:13.814Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;贪心&quot;&gt;贪心&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;如果 k == n ，只需要给出所有元素的乘积并取模。&lt;/li&gt;
+&lt;li&gt;如果 k &amp;lt; n ，需要考虑 k 为奇数还是偶数。如果 k 为偶数，那么结果必然为非负。如果 k</summary>
+        
+      
+    
+    
+    
+    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
+    
+    <category term="贪心" scheme="http://xinyi127.cn/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【题解】付账问题</title>
+    <link href="http://xinyi127.cn/posts/92f1.html"/>
+    <id>http://xinyi127.cn/posts/92f1.html</id>
+    <published>2023-02-15T09:04:21.000Z</published>
+    <updated>2023-04-21T06:28:39.395Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;账单计算&quot;&gt;账单计算&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;初始时总账单除以人数即为每人应付钱数。&lt;/li&gt;
+&lt;li&gt;但由于有人没有带够钱，无法支付自己应付的钱数，所以需要后续的人为其额外支付一部分钱。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4</summary>
+        
+      
+    
+    
+    
+    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
+    
+    <category term="贪心" scheme="http://xinyi127.cn/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+    <category term="均值不等式" scheme="http://xinyi127.cn/tags/%E5%9D%87%E5%80%BC%E4%B8%8D%E7%AD%89%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【题解】雷达设备</title>
+    <link href="http://xinyi127.cn/posts/da85.html"/>
+    <id>http://xinyi127.cn/posts/da85.html</id>
+    <published>2023-02-15T04:48:11.000Z</published>
+    <updated>2023-04-21T06:30:58.882Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;贪心思路&quot;&gt;贪心思路&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;本题模型：&lt;a href=&quot;https://www.acwing.com/problem/content/907/&quot;&gt;区间选点&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
+    
+    <category term="贪心" scheme="http://xinyi127.cn/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【题解】糖果传递</title>
+    <link href="http://xinyi127.cn/posts/5355.html"/>
+    <id>http://xinyi127.cn/posts/5355.html</id>
+    <published>2023-02-14T08:00:15.000Z</published>
+    <updated>2023-04-21T06:45:05.517Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;关于本题&quot;&gt;关于本题&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;本题前身：&lt;a href=&quot;https://www.acwing.com/problem/content/106/&quot;&gt;仓库选址&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
+    
+    <category term="贪心" scheme="http://xinyi127.cn/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+    <category term="排序" scheme="http://xinyi127.cn/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+    <category term="推公式" scheme="http://xinyi127.cn/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/"/>
+    
+    <category term="中位数" scheme="http://xinyi127.cn/tags/%E4%B8%AD%E4%BD%8D%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【题解】大臣的旅费</title>
+    <link href="http://xinyi127.cn/posts/cdec.html"/>
+    <id>http://xinyi127.cn/posts/cdec.html</id>
+    <published>2023-02-13T18:10:56.000Z</published>
+    <updated>2023-04-21T07:00:05.116Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;题目链接：大臣的旅费&quot;&gt;题目链接：&lt;a href=&quot;https://www.acwing.com/activity/content/problem/content/1751/&quot;&gt;大臣的旅费&lt;/a&gt;&lt;/h4&gt;
+&lt;h4</summary>
+        
+      
+    
+    
+    
+    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
+    
+    <category term="BFS" scheme="http://xinyi127.cn/tags/BFS/"/>
+    
+    <category term="DFS" scheme="http://xinyi127.cn/tags/DFS/"/>
+    
+    <category term="树的直径" scheme="http://xinyi127.cn/tags/%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/"/>
+    
+    <category term="树形DP" scheme="http://xinyi127.cn/tags/%E6%A0%91%E5%BD%A2DP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【题解】单链表</title>
+    <link href="http://xinyi127.cn/posts/6766.html"/>
+    <id>http://xinyi127.cn/posts/6766.html</id>
+    <published>2023-02-12T15:42:12.000Z</published>
+    <updated>2023-04-21T07:02:13.143Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;题目链接：单链表&quot;&gt;题目链接：&lt;a href=&quot;https://www.acwing.com/problem/content/828/&quot;&gt;单链表&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;链表&quot;&gt;链表&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;h</summary>
+        
+      
+    
+    
+    
+    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
+    
+    <category term="链表" scheme="http://xinyi127.cn/tags/%E9%93%BE%E8%A1%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【题解】全球变暖</title>
+    <link href="http://xinyi127.cn/posts/de7c.html"/>
+    <id>http://xinyi127.cn/posts/de7c.html</id>
+    <published>2023-02-12T13:51:37.000Z</published>
+    <updated>2023-04-21T07:04:42.250Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;题目链接：全球变暖&quot;&gt;题目链接：&lt;a href=&quot;https://www.acwing.com/activity/content/problem/content/1750/&quot;&gt;全球变暖&lt;/a&gt;&lt;/h4&gt;
+&lt;h4</summary>
+        
+      
+    
+    
+    
+    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
+    
+    <category term="BFS" scheme="http://xinyi127.cn/tags/BFS/"/>
+    
+    <category term="Flood fill" scheme="http://xinyi127.cn/tags/Flood-fill/"/>
+    
+    <category term="DFS" scheme="http://xinyi127.cn/tags/DFS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【题解】地牢大师</title>
+    <link href="http://xinyi127.cn/posts/2336.html"/>
+    <id>http://xinyi127.cn/posts/2336.html</id>
+    <published>2023-02-12T13:06:12.000Z</published>
+    <updated>2023-04-21T07:06:29.564Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;题目链接：地牢大师&quot;&gt;题目链接：&lt;a href=&quot;https://www.acwing.com/problem/content/1098/&quot;&gt;地牢大师&lt;/a&gt;&lt;/h4&gt;
+&lt;h4</summary>
+        
+      
+    
+    
+    
+    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
+    
+    <category term="BFS" scheme="http://xinyi127.cn/tags/BFS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【题解】完全二叉树的权值</title>
+    <link href="http://xinyi127.cn/posts/acf9.html"/>
+    <id>http://xinyi127.cn/posts/acf9.html</id>
+    <published>2023-02-12T11:43:16.000Z</published>
+    <updated>2023-04-21T07:11:19.562Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;题目链接：完全二叉树的权值&quot;&gt;题目链接：&lt;a href=&quot;https://www.acwing.com/activity/content/problem/content/1748/&quot;&gt;完全二叉树的权值&lt;/a&gt;&lt;/h4&gt;
+&lt;h4</summary>
+        
+      
+    
+    
+    
+    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
+    
+    <category term="双指针" scheme="http://xinyi127.cn/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
+    
+    <category term="二叉树" scheme="http://xinyi127.cn/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【题解】交换瓶子</title>
+    <link href="http://xinyi127.cn/posts/bcd.html"/>
+    <id>http://xinyi127.cn/posts/bcd.html</id>
+    <published>2023-02-12T08:57:31.000Z</published>
+    <updated>2023-04-21T07:13:47.410Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;题目链接：交换瓶子&quot;&gt;题目链接：&lt;a href=&quot;https://www.acwing.com/activity/content/problem/content/1747/&quot;&gt;交换瓶子&lt;/a&gt;&lt;/h4&gt;
+&lt;h4</summary>
+        
+      
+    
+    
+    
+    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
+    
+    <category term="图论" scheme="http://xinyi127.cn/tags/%E5%9B%BE%E8%AE%BA/"/>
+    
+    <category term="贪心" scheme="http://xinyi127.cn/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+    <category term="环" scheme="http://xinyi127.cn/tags/%E7%8E%AF/"/>
+    
+    <category term="置换群" scheme="http://xinyi127.cn/tags/%E7%BD%AE%E6%8D%A2%E7%BE%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【题解】红与黑</title>
+    <link href="http://xinyi127.cn/posts/9fcb.html"/>
+    <id>http://xinyi127.cn/posts/9fcb.html</id>
+    <published>2023-02-12T07:46:03.000Z</published>
+    <updated>2023-04-21T07:15:50.717Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;题目链接：红与黑&quot;&gt;题目链接：&lt;a href=&quot;https://www.acwing.com/activity/content/problem/content/1746/&quot;&gt;红与黑&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;DFS-关键点&quot;&gt;DFS</summary>
+        
+      
+    
+    
+    
+    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
+    
+    <category term="DFS" scheme="http://xinyi127.cn/tags/DFS/"/>
+    
+    <category term="Flood Fill" scheme="http://xinyi127.cn/tags/Flood-Fill/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【题解】献给阿尔吉侬的花束</title>
+    <link href="http://xinyi127.cn/posts/cd8a.html"/>
+    <id>http://xinyi127.cn/posts/cd8a.html</id>
+    <published>2023-02-12T06:26:31.000Z</published>
+    <updated>2023-04-21T07:17:52.401Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;题目链接：献给阿尔吉侬的花束&quot;&gt;题目链接：&lt;a href=&quot;https://www.acwing.com/activity/content/problem/content/1745/&quot;&gt;献给阿尔吉侬的花束&lt;/a&gt;&lt;/h4&gt;
+&lt;h4</summary>
+        
+      
+    
+    
+    
+    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
+    
+    <category term="BFS" scheme="http://xinyi127.cn/tags/BFS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【题解】日志统计</title>
+    <link href="http://xinyi127.cn/posts/e63e.html"/>
+    <id>http://xinyi127.cn/posts/e63e.html</id>
+    <published>2023-02-11T17:25:47.000Z</published>
+    <updated>2023-04-21T07:20:41.081Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;题目链接：日志统计&quot;&gt;题目链接：&lt;a href=&quot;https://www.acwing.com/activity/content/problem/content/1744/&quot;&gt;日志统计&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;算法一&quot;&gt;算法一&lt;/h4&gt;
+&lt;h5</summary>
+        
+      
+    
+    
+    
+    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
+    
+    <category term="双指针" scheme="http://xinyi127.cn/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
+    
+    <category term="队列" scheme="http://xinyi127.cn/tags/%E9%98%9F%E5%88%97/"/>
+    
+  </entry>
   
   <entry>
     <title>Visual Studio项目配置SDL库</title>
@@ -43,6 +537,64 @@
     
     
     <category term="SDL" scheme="http://xinyi127.cn/tags/SDL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【题解】最大数</title>
+    <link href="http://xinyi127.cn/posts/cb73.html"/>
+    <id>http://xinyi127.cn/posts/cb73.html</id>
+    <published>2023-02-06T15:31:35.000Z</published>
+    <updated>2023-04-21T07:23:20.508Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;线段树&quot;&gt;&lt;code&gt;线段树&lt;/code&gt;&lt;/h3&gt;
+&lt;h4</summary>
+        
+      
+    
+    
+    
+    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
+    
+    <category term="线段树" scheme="http://xinyi127.cn/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【题解】航班时间</title>
+    <link href="http://xinyi127.cn/posts/b619.html"/>
+    <id>http://xinyi127.cn/posts/b619.html</id>
+    <published>2023-02-06T09:30:33.000Z</published>
+    <updated>2023-04-21T07:27:40.807Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;题目链接：航班时间&quot;&gt;题目链接：&lt;a href=&quot;https://www.acwing.com/activity/content/problem/content/1604/&quot;&gt;航班时间&lt;/a&gt;&lt;/h4&gt;
+&lt;h4</summary>
+        
+      
+    
+    
+    
+    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
+    
+    <category term="模拟" scheme="http://xinyi127.cn/tags/%E6%A8%A1%E6%8B%9F/"/>
+    
+    <category term="数学" scheme="http://xinyi127.cn/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
@@ -78,558 +630,6 @@
     <category term="Derby" scheme="http://xinyi127.cn/tags/Derby/"/>
     
     <category term="数据库" scheme="http://xinyi127.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《Java程序设计》实验十-输入输出流</title>
-    <link href="http://xinyi127.cn/posts/e48d.html"/>
-    <id>http://xinyi127.cn/posts/e48d.html</id>
-    <published>2022-10-23T11:15:20.000Z</published>
-    <updated>2022-12-05T16:42:26.755Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;前言&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;记录一下做过的题目，虽然作为入门题目很简单，不过还是可以学到东西的hh。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;程序设计一-上机实践&quot;&gt;程序设计一 上机实践&lt;/h3&gt;
-&lt;h4</summary>
-        
-      
-    
-    
-    
-    <category term="大学作业" scheme="http://xinyi127.cn/categories/%E5%A4%A7%E5%AD%A6%E4%BD%9C%E4%B8%9A/"/>
-    
-    
-    <category term="Java" scheme="http://xinyi127.cn/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SDTBU-ACM集训队20级&amp;&amp;21级---个人赛 4</title>
-    <link href="http://xinyi127.cn/posts/4e5f.html"/>
-    <id>http://xinyi127.cn/posts/4e5f.html</id>
-    <published>2022-10-22T12:42:43.000Z</published>
-    <updated>2022-10-22T14:40:20.919Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;h3 id=&quot;前言&quot;&gt;前言&lt;/h3&gt;
-&lt;p&gt;很多题只是换了个问法，做法是共通的。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;题目-A-Two-Rabbits&quot;&gt;题目 A - Two Rabbits&lt;/h3&gt;
-&lt;h4</summary>
-        
-      
-    
-    
-    
-    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
-    
-    
-    <category term="c++" scheme="http://xinyi127.cn/tags/c/"/>
-    
-    <category term="ACM集训队个人赛" scheme="http://xinyi127.cn/tags/ACM%E9%9B%86%E8%AE%AD%E9%98%9F%E4%B8%AA%E4%BA%BA%E8%B5%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git笔记</title>
-    <link href="http://xinyi127.cn/posts/a9b3.html"/>
-    <id>http://xinyi127.cn/posts/a9b3.html</id>
-    <published>2022-10-20T02:06:58.000Z</published>
-    <updated>2022-12-05T14:22:50.440Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Git笔记&quot;&gt;Git笔记&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;实践出真知。如果觉得某个命令很难理解，最好上手亲自执行该命令几次，看看究竟发生了什么变化。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3</summary>
-        
-      
-    
-    
-    
-    <category term="模板" scheme="http://xinyi127.cn/categories/%E6%A8%A1%E6%9D%BF/"/>
-    
-    
-    <category term="Git" scheme="http://xinyi127.cn/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SDTBU-ACM集训队20级---组队赛 3</title>
-    <link href="http://xinyi127.cn/posts/3313.html"/>
-    <id>http://xinyi127.cn/posts/3313.html</id>
-    <published>2022-10-16T11:52:02.000Z</published>
-    <updated>2022-10-16T13:19:50.645Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;h3 id=&quot;前言&quot;&gt;前言&lt;/h3&gt;
-&lt;p&gt;胜不在罚时，在题数也。&lt;/p&gt;
-&lt;p&gt;组队赛小C一把，很是怡情~&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;题目：A-Mocha-上小班啦&quot;&gt;题目：A. Mocha 上小班啦&lt;/h3&gt;
-&lt;h4</summary>
-        
-      
-    
-    
-    
-    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
-    
-    
-    <category term="c++" scheme="http://xinyi127.cn/tags/c/"/>
-    
-    <category term="ACM集训队组队赛" scheme="http://xinyi127.cn/tags/ACM%E9%9B%86%E8%AE%AD%E9%98%9F%E7%BB%84%E9%98%9F%E8%B5%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SDTBU-ACM集训队20级&amp;&amp;21级---个人赛 3</title>
-    <link href="http://xinyi127.cn/posts/8c1e.html"/>
-    <id>http://xinyi127.cn/posts/8c1e.html</id>
-    <published>2022-10-15T11:23:39.000Z</published>
-    <updated>2022-10-22T13:49:34.972Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;h3 id=&quot;前言&quot;&gt;前言&lt;/h3&gt;
-&lt;p&gt;21世纪的长城真让人无可奈何。&lt;/p&gt;
-&lt;p&gt;前两个题很水，第三题略微有点麻烦。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;题目-A-Non-zero&quot;&gt;题目 A -</summary>
-        
-      
-    
-    
-    
-    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
-    
-    
-    <category term="c++" scheme="http://xinyi127.cn/tags/c/"/>
-    
-    <category term="ACM集训队个人赛" scheme="http://xinyi127.cn/tags/ACM%E9%9B%86%E8%AE%AD%E9%98%9F%E4%B8%AA%E4%BA%BA%E8%B5%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《Java程序设计》试验九-内部类和异常类</title>
-    <link href="http://xinyi127.cn/posts/9930.html"/>
-    <id>http://xinyi127.cn/posts/9930.html</id>
-    <published>2022-10-14T09:36:47.000Z</published>
-    <updated>2022-10-14T10:05:20.486Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;前言&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;记录一下做过的题目，虽然作为入门题目很简单，不过还是可以学到东西的hh。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;程序设计一-内部类和异常类：&quot;&gt;程序设计一 内部类和异常类：&lt;/h3&gt;
-&lt;h4</summary>
-        
-      
-    
-    
-    
-    <category term="大学作业" scheme="http://xinyi127.cn/categories/%E5%A4%A7%E5%AD%A6%E4%BD%9C%E4%B8%9A/"/>
-    
-    
-    <category term="Java" scheme="http://xinyi127.cn/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SDTBU-ACM集训队20级---个人赛 7</title>
-    <link href="http://xinyi127.cn/posts/b4fc.html"/>
-    <id>http://xinyi127.cn/posts/b4fc.html</id>
-    <published>2022-10-13T02:50:48.000Z</published>
-    <updated>2022-10-15T12:34:18.893Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;h3 id=&quot;前言&quot;&gt;前言&lt;/h3&gt;
-&lt;p&gt;简单写一下题解。&lt;/p&gt;
-&lt;p&gt;最近科学研究表明：锻炼身体可以有效增加脑容量。而且不是线性增长，也就是说哪怕是抽空散步走走也可以让大脑变得更聪明。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3</summary>
-        
-      
-    
-    
-    
-    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
-    
-    
-    <category term="c++" scheme="http://xinyi127.cn/tags/c/"/>
-    
-    <category term="ACM集训队个人赛" scheme="http://xinyi127.cn/tags/ACM%E9%9B%86%E8%AE%AD%E9%98%9F%E4%B8%AA%E4%BA%BA%E8%B5%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>阿里云备案域名与内地节点服务器</title>
-    <link href="http://xinyi127.cn/posts/3039.html"/>
-    <id>http://xinyi127.cn/posts/3039.html</id>
-    <published>2022-10-10T03:16:24.000Z</published>
-    <updated>2022-10-10T03:49:38.467Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3</summary>
-        
-      
-    
-    
-    
-    <category term="博客" scheme="http://xinyi127.cn/categories/%E5%8D%9A%E5%AE%A2/"/>
-    
-    
-    <category term="hexo" scheme="http://xinyi127.cn/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>算法分析与设计-算法实验（二）</title>
-    <link href="http://xinyi127.cn/posts/bde0.html"/>
-    <id>http://xinyi127.cn/posts/bde0.html</id>
-    <published>2022-10-09T14:21:40.000Z</published>
-    <updated>2023-02-19T12:00:24.378Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;h3 id=&quot;前言&quot;&gt;前言&lt;/h3&gt;
-&lt;p&gt;尝试用最朴素的语言，将问题阐释清楚。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;算法实验6：最大子段和（四种做法）&quot;&gt;算法实验6：最大子段和（四种做法）&lt;/h3&gt;
-&lt;h4</summary>
-        
-      
-    
-    
-    
-    <category term="大学作业" scheme="http://xinyi127.cn/categories/%E5%A4%A7%E5%AD%A6%E4%BD%9C%E4%B8%9A/"/>
-    
-    
-    <category term="c++" scheme="http://xinyi127.cn/tags/c/"/>
-    
-    <category term="算法分析与设计" scheme="http://xinyi127.cn/tags/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《Java程序设计》实验八-接口和实现</title>
-    <link href="http://xinyi127.cn/posts/2567.html"/>
-    <id>http://xinyi127.cn/posts/2567.html</id>
-    <published>2022-10-09T13:08:17.000Z</published>
-    <updated>2022-10-09T14:24:21.115Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;前言&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;记录一下做过的题目，虽然作为入门题目很简单，不过还是可以学到一些东西的hh。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;程序设计一-接口：&quot;&gt;程序设计一 接口：&lt;/h3&gt;
-&lt;h4</summary>
-        
-      
-    
-    
-    
-    <category term="大学作业" scheme="http://xinyi127.cn/categories/%E5%A4%A7%E5%AD%A6%E4%BD%9C%E4%B8%9A/"/>
-    
-    
-    <category term="Java" scheme="http://xinyi127.cn/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《Java程序设计》试验七-继承和多态</title>
-    <link href="http://xinyi127.cn/posts/25b9.html"/>
-    <id>http://xinyi127.cn/posts/25b9.html</id>
-    <published>2022-10-09T11:59:37.000Z</published>
-    <updated>2022-10-09T14:25:06.992Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;前言&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;记录一下做过的题目，虽然作为入门题目很简单，不过还是可以学到东西的hh。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;程序设计一-继承：&quot;&gt;程序设计一 继承：&lt;/h3&gt;
-&lt;h4</summary>
-        
-      
-    
-    
-    
-    <category term="大学作业" scheme="http://xinyi127.cn/categories/%E5%A4%A7%E5%AD%A6%E4%BD%9C%E4%B8%9A/"/>
-    
-    
-    <category term="Java" scheme="http://xinyi127.cn/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo-Matery主题优化笔记</title>
-    <link href="http://xinyi127.cn/posts/93b3.html"/>
-    <id>http://xinyi127.cn/posts/93b3.html</id>
-    <published>2022-10-08T03:22:12.000Z</published>
-    <updated>2022-10-20T13:37:07.401Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;1-给博客添加动态标签&quot;&gt;1. 给博客添加动态标签&lt;/h3&gt;
-&lt;h4 id=&quot;效果如图：&quot;&gt;&lt;strong&gt;效果如图：&lt;/strong&gt;&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;离开博客页面时：&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="博客" scheme="http://xinyi127.cn/categories/%E5%8D%9A%E5%AE%A2/"/>
-    
-    
-    <category term="hexo-Matery" scheme="http://xinyi127.cn/tags/hexo-Matery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo-Matery主题的一些问题</title>
-    <link href="http://xinyi127.cn/posts/7546.html"/>
-    <id>http://xinyi127.cn/posts/7546.html</id>
-    <published>2022-10-05T08:11:37.000Z</published>
-    <updated>2022-10-10T02:03:41.865Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;前言&quot;&gt;前言&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p&gt;简单写了一下解决过程，以防之后再遇到类似问题束手无策，后续有时间就把详细过程补上。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4</summary>
-        
-      
-    
-    
-    
-    <category term="博客" scheme="http://xinyi127.cn/categories/%E5%8D%9A%E5%AE%A2/"/>
-    
-    
-    <category term="hexo-Matery" scheme="http://xinyi127.cn/tags/hexo-Matery/"/>
-    
-    <category term="Artitalk" scheme="http://xinyi127.cn/tags/Artitalk/"/>
-    
-    <category term="Markdown" scheme="http://xinyi127.cn/tags/Markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>算法分析与设计-算法实验（一）</title>
-    <link href="http://xinyi127.cn/posts/4998.html"/>
-    <id>http://xinyi127.cn/posts/4998.html</id>
-    <published>2022-10-01T16:00:00.000Z</published>
-    <updated>2022-10-23T11:45:00.394Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;h3 id=&quot;前言&quot;&gt;前言&lt;/h3&gt;
-&lt;p&gt;尝试用最朴素的语言，将问题阐释清楚。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;算法实验1：4800-x-n-mod-1003&quot;&gt;算法实验1：4800 x^n mod 1003&lt;/h3&gt;
-&lt;h4</summary>
-        
-      
-    
-    
-    
-    <category term="大学作业" scheme="http://xinyi127.cn/categories/%E5%A4%A7%E5%AD%A6%E4%BD%9C%E4%B8%9A/"/>
-    
-    
-    <category term="c++" scheme="http://xinyi127.cn/tags/c/"/>
-    
-    <category term="算法分析与设计" scheme="http://xinyi127.cn/tags/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>牛客练习赛102 A-C</title>
-    <link href="http://xinyi127.cn/posts/42b93b72.html"/>
-    <id>http://xinyi127.cn/posts/42b93b72.html</id>
-    <published>2022-09-02T16:00:00.000Z</published>
-    <updated>2022-10-21T10:07:26.365Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;h3 id=&quot;前言&quot;&gt;前言&lt;/h3&gt;
-&lt;p&gt;读题仔细再仔细。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;A&quot;&gt;A&lt;/h3&gt;
-&lt;h4 id=&quot;题目：-清楚姐姐的学术群&quot;&gt;题目： &lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
-    
-    
-    <category term="c++" scheme="http://xinyi127.cn/tags/c/"/>
-    
-    <category term="牛客练习赛" scheme="http://xinyi127.cn/tags/%E7%89%9B%E5%AE%A2%E7%BB%83%E4%B9%A0%E8%B5%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SDTBU-ACM集训队20级---个人赛 1</title>
-    <link href="http://xinyi127.cn/posts/b6d2cbb5.html"/>
-    <id>http://xinyi127.cn/posts/b6d2cbb5.html</id>
-    <published>2022-08-31T16:00:00.000Z</published>
-    <updated>2022-10-13T02:53:15.158Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;h3 id=&quot;前言&quot;&gt;前言&lt;/h3&gt;
-&lt;p&gt;强身健体带来的好处太多了，肉体的强壮也会增加灵魂的韧性。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;第一题&quot;&gt;第一题&lt;/h3&gt;
-&lt;h4</summary>
-        
-      
-    
-    
-    
-    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
-    
-    
-    <category term="c++" scheme="http://xinyi127.cn/tags/c/"/>
-    
-    <category term="ACM集训队个人赛" scheme="http://xinyi127.cn/tags/ACM%E9%9B%86%E8%AE%AD%E9%98%9F%E4%B8%AA%E4%BA%BA%E8%B5%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SDTBU-ACM集训队暑期集训---个人赛 14</title>
-    <link href="http://xinyi127.cn/posts/1c6846ea.html"/>
-    <id>http://xinyi127.cn/posts/1c6846ea.html</id>
-    <published>2022-08-04T16:00:00.000Z</published>
-    <updated>2022-10-05T04:09:34.004Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;h3</summary>
-        
-      
-    
-    
-    
-    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
-    
-    
-    <category term="c++" scheme="http://xinyi127.cn/tags/c/"/>
-    
-    <category term="ACM集训队暑期集训" scheme="http://xinyi127.cn/tags/ACM%E9%9B%86%E8%AE%AD%E9%98%9F%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SDTBU-ACM集训队暑期集训---个人赛 15</title>
-    <link href="http://xinyi127.cn/posts/6b6f767c.html"/>
-    <id>http://xinyi127.cn/posts/6b6f767c.html</id>
-    <published>2022-08-04T16:00:00.000Z</published>
-    <updated>2022-10-21T09:59:00.157Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;h3 id=&quot;前言&quot;&gt;前言&lt;/h3&gt;
-&lt;p&gt;读题仔细再仔细。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;第一题&quot;&gt;第一题&lt;/h3&gt;
-&lt;h4 id=&quot;题目：-Beautiful-String&quot;&gt;题目： &lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
-    
-    
-    <category term="c++" scheme="http://xinyi127.cn/tags/c/"/>
-    
-    <category term="ACM集训队暑期集训" scheme="http://xinyi127.cn/tags/ACM%E9%9B%86%E8%AE%AD%E9%98%9F%E6%9A%91%E6%9C%9F%E9%9B%86%E8%AE%AD/"/>
     
   </entry>
   
