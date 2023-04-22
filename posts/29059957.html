@@ -480,14 +480,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    463
+                    592
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -518,18 +518,25 @@
 属性全部设为默认就好。<br>
 2.在本地仓库（所谓本地仓库就是一个用来存放文档的文件夹）处打开Git bash here 。<br>
 例如：<img src="https://img-blog.csdnimg.cn/1b68a14dee4d42928720172f8d9abf5f.png" alt="在这里插入图片描述"><br>
-3.输入<code>git init</code>将仓库初始化。</p>
-<p>4.输入<code>git add .</code> 代表添加所有文件。</p>
-<p>5.输入<code>git commit -m ‘注释’</code>     注意：<code>'注释'</code>  里面的信息可以随便写，只起补充说明用。</p>
-<p>6.将自己在github上<strong>库的地址</strong>（所谓库的地址就是url）复制过来，然后在Git bash中输入<code>git remote add origin 库的地址</code>。<br>
-第六步可能会出错，那么就输入<code>git remote rm origin</code>，然后再重复执行第六步（通常来讲<code>git remote rm origin</code>对于同一个库，这个命令只需要执行一次）。图中的链接就是地址。</p>
+3.输入 <code>git init</code> 将仓库初始化。</p>
+<p>4.输入 <code>git add .</code> 代表添加所有文件。</p>
+<p>5.输入 <code>git commit -m ‘注释’</code>     注意：<code>'注释'</code>  里面的信息可以随便写，只起补充说明用。</p>
+<p>6.将自己在github上<strong>库的地址</strong>（所谓库的地址就是url）复制过来，然后在Git bash中输入 <code>git remote add origin 库的地址</code>。<br>
+第六步可能会出错，那么就输入 <code>git remote rm origin</code> ，然后再重复执行第六步（通常来讲 <code>git remote rm origin</code> 对于同一个库，这个命令只需要执行一次）。图中的链接就是地址。</p>
 <img src="C:\Users\杨新艺\AppData\Roaming\Typora\typora-user-images\image-20221005102443913.png" alt="image-20221005102443913" style="zoom:50%;">
-<p>7.第七步是重点。我们先输入<code>git push -u origin master</code>，然后会有一个弹窗，不要选择账号密码那项，在2021年已经被禁用了，去自己的github上创建一个自己的个人访问令牌，具体可以参考这个帖子：<a target="_blank" rel="noopener" href="https://helloai.blog.csdn.net/article/details/119696726?spm=1001.2014.3001.5506">超链接</a> 。<br>
+<p>7.第七步是重点。我们先输入 <code>git push -u origin master</code> ，然后会有一个弹窗，不要选择账号密码那项，在2021年已经被禁用了，去自己的github上创建一个自己的个人访问令牌，具体可以参考这个帖子：<a target="_blank" rel="noopener" href="https://helloai.blog.csdn.net/article/details/119696726?spm=1001.2014.3001.5506">超链接</a> 。<br>
 创建好之后我们选择令牌那项，等待一小会儿。<br>
 如果仍然提示出错，那么参考这里：<a target="_blank" rel="noopener" href="https://blog.csdn.net/good_good_xiu/article/details/118567249?spm=1001.2014.3001.5506">超链接</a>。</p>
 <p>这些都做完应该就可以正常上传代码了，如果有遇到，可以在评论区留言。</p>
 <h4 id="2023-4-21">2023/4/21</h4>
-<p>简单更新一下，上面的做法适用于 Windows 下的普通文件夹，如果是自己的 Linux 服务器，则应该去看我的另一篇 git 相关文章。</p>
+<p>简单更新一下，上面的做法适用于 <code>Windows</code> 下的普通文件夹，并且第七步已经没有这么麻烦（不知道是不是我以前已经搞好了 token），直接 git push 就可以了。</p>
+<ul>
+<li>之所以会更新该文章是因为今天不小心把以前的仓库删了（git：我已经尽力不让你删除了），所以重新上传了一个仓库，第七步我意外的顺利。</li>
+</ul>
+<p>另外如果是自己购买的 Linux 服务器，则应该去看我的另一篇 git 相关文章：<a href="https://xinyi127.cn/posts/a9b3.html#Git%E6%9C%AC%E5%9C%B0%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%EF%BC%9A">git 命令</a> 。</p>
+<ul>
+<li>需要注意的是”git 命令“这篇文章中使用的 ssh ，而不是 https ，主要注意甄别。</li>
+</ul>
 
                 
             </div>
@@ -1215,7 +1222,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">136.1k</span>
+                        class="white-color">136.4k</span>
             
             
             

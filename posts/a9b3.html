@@ -473,14 +473,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-21
+                    2023-04-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.9k
+                    4.1k
                 </div>
                 
 
@@ -650,10 +650,15 @@
 <ul>
 <li>此处以及后续所提到的 <code>密钥</code> 都将特指 <code>ssh公钥</code> 。每个服务器还有自己的ssh私钥，请妥善保存。</li>
 </ul>
-<p>获取服务器ssh公钥：首先查看服务器家目录下是否有 <code>.ssh</code> 隐藏文件夹，如果没有，执行 <code>ssh-keygen</code> 命令创建密钥。然后执行如下命令：</p>
+<p>获取服务器ssh公钥：首先查看服务器家目录下是否有 <code>.ssh</code> 隐藏文件夹，如果没有，执行 <code>ssh-keygen</code> 命令 <strong>创建密钥</strong> 。然后执行如下命令：</p>
 <ul>
 <li>在家目录下进入 <code>.ssh文件夹</code> 。</li>
-<li>执行 <code>cat id_rsa.pub</code> 命令。将该命令展示的信息复制出来（鼠标左键选中文本，按下 <code>ctrl+insert</code> ）。</li>
+<li>执行 <code>cat id_rsa.pub</code> 命令。将该命令展示的信息复制出来（鼠标左键选中文本，按下 <code>ctrl+insert</code> ）。
+<ul>
+<li>注意，执行完 <code>ssh-keygen</code> 命令后，本地的 <code>.ssh</code> 文件夹下（如果是在 <code>.ssh</code> 文件夹下执行的该命令）会出现两个文件，分别是 <code>id_rsa</code> 和 <code>id_rsa.pub</code> ，从名字中可以很容易的看出前者是私钥，后者是公钥。后续每次执行 git push 操作都需要输入一次自己设置的公钥，如果想要避免如此，则将公钥中的内容，复制到 <code>~/.ssh/authorized_keys</code> 文件里即可。</li>
+<li>注意，在执行 <code>ssh-keygen</code> 命令 <strong>创建密钥</strong> 时，系统会提示 <strong>设置密码</strong> ，<strong>非常建议</strong> 连续按下回车表示不主动设置密码，否则如果主动设置了例如 <code>123456</code> 这样的密码，那么后续每次 <code>git push</code> 时都需要手动输入这里设置的密码。</li>
+</ul>
+</li>
 </ul>
 <p>在云端添加密钥：将复制的文本粘贴到云端 <code>添加ssh密钥</code> 处。通常在用户设置中可以找到。</p>
 <ul>
@@ -1455,7 +1460,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">136.1k</span>
+                        class="white-color">136.4k</span>
             
             
             
