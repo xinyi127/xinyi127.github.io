@@ -6,7 +6,7 @@
   <link href="http://xinyi127.cn/atom.xml" rel="self"/>
   
   <link href="http://xinyi127.cn/"/>
-  <updated>2023-04-21T07:40:41.669Z</updated>
+  <updated>2023-04-26T02:54:25.957Z</updated>
   <id>http://xinyi127.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>校园网认证时显示”网络连接代理服务器出现问题“的解决办法</title>
+    <link href="http://xinyi127.cn/posts/75d8.html"/>
+    <id>http://xinyi127.cn/posts/75d8.html</id>
+    <published>2023-04-26T02:37:00.000Z</published>
+    <updated>2023-04-26T02:54:25.957Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;问题：&quot;&gt;问题：&lt;/h4&gt;
+&lt;p&gt;连接校园网后去浏览器认证时显示“网络连接代理服务器出现问题”。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2023/04/26/EnStYiA5rJosjle.png&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="杂谈" scheme="http://xinyi127.cn/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+    <category term="网络" scheme="http://xinyi127.cn/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>【题解】等差数列</title>
@@ -411,9 +438,9 @@
     
     <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
     
-    <category term="贪心" scheme="http://xinyi127.cn/tags/%E8%B4%AA%E5%BF%83/"/>
-    
     <category term="图论" scheme="http://xinyi127.cn/tags/%E5%9B%BE%E8%AE%BA/"/>
+    
+    <category term="贪心" scheme="http://xinyi127.cn/tags/%E8%B4%AA%E5%BF%83/"/>
     
     <category term="环" scheme="http://xinyi127.cn/tags/%E7%8E%AF/"/>
     
@@ -595,41 +622,6 @@
     <category term="模拟" scheme="http://xinyi127.cn/tags/%E6%A8%A1%E6%8B%9F/"/>
     
     <category term="数学" scheme="http://xinyi127.cn/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Derby数据库安装与使用</title>
-    <link href="http://xinyi127.cn/posts/9ae9.html"/>
-    <id>http://xinyi127.cn/posts/9ae9.html</id>
-    <published>2022-12-05T01:45:43.000Z</published>
-    <updated>2023-03-05T08:48:28.943Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;h3 id=&quot;前言&quot;&gt;前言&lt;/h3&gt;
-&lt;p&gt;环境配置只是开始，代码上的创作才是灵魂。&lt;/p&gt;
-&lt;p&gt;JDK版本：1.8.0_341&lt;/p&gt;
-&lt;p&gt;Derby版本：10.14.2.0&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3</summary>
-        
-      
-    
-    
-    
-    <category term="软件安装与环境配置" scheme="http://xinyi127.cn/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E4%B8%8E%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
-    
-    
-    <category term="Java" scheme="http://xinyi127.cn/tags/Java/"/>
-    
-    <category term="Derby" scheme="http://xinyi127.cn/tags/Derby/"/>
-    
-    <category term="数据库" scheme="http://xinyi127.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   
