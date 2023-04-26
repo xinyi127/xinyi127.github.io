@@ -470,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-04-26
+                    2023-04-26
                 </div>
                 
 
@@ -484,14 +484,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    3.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    14 分
                 </div>
                 
 
@@ -524,6 +524,31 @@
 <p>为什么要创建套接字 clnt_sockfd，而不是继续使用 sockfd？</p>
 <ul>
 <li>服务器端接受到一个客户端的连接请求时，会创建一个新的套接字（clnt_sockfd）来处理这个连接，而原先的监听套接字（sockfd）仍然在阻塞模式下监听其他客户端的连接请求。新的套接字可以独立地进行数据传输，不影响服务器端对其他客户端的连接请求的处理，从而实现了并发处理多个客户端的连接请求和数据传输。</li>
+</ul>
+<p>read 函数和 write 函数是用于在 socket 通信中进行数据读写的函数，具体的作用和用法如下：</p>
+<ul>
+<li>read函数的作用是从已连接的套接字中读取数据，其函数原型为：</li>
+</ul>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">ssize_t <span class="token function">read</span><span class="token punctuation">(</span><span class="token keyword">int</span> fd<span class="token punctuation">,</span> <span class="token keyword">void</span> <span class="token operator">*</span>buf<span class="token punctuation">,</span> size_t count<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>​		其中，fd表示需要读取数据的文件描述符，buf表示接收数据的缓冲区，count表示需要读取的数据长度。</p>
+<p>​		read 函数的返回值表示实际读取到的数据长度，如果返回值为 0，则表示连接已关闭；如果返回值为 -1，则表示出现错误，错误码		存	储在 errno 变量中。</p>
+<ul>
+<li>write函数的作用是向已连接的套接字中写入数据，其函数原型为：</li>
+</ul>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">ssize_t <span class="token function">write</span><span class="token punctuation">(</span><span class="token keyword">int</span> fd<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">void</span> <span class="token operator">*</span>buf<span class="token punctuation">,</span> size_t count<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>​		其中，fd 表示写入数据的文件描述符，buf 表示待写入数据的缓冲区，count 表示需要写入的数据长度。</p>
+<p>​		write 函数的返回值表示实际成功写入的数据长度，如果返回值为 -1，则表示出现错误，错误码存储在 errno 变量中。</p>
+<p>read 函数和 write 函数是否会阻塞？</p>
+<ul>
+<li>
+<p>在默认情况下，read 函数和 write 函数都是阻塞函数，当调用它们时，如果没有数据可读或无法写入数据，系统将自动阻塞等待，直到有数据可读或者可以写入数据为止。例如，当接收缓冲区没有数据可供读取时，read 函数会一直阻塞等待，直到有数据可读或者对端关闭连接为止。</p>
+</li>
+<li>
+<p>如果需要使用非阻塞 IO 模式，可以使用 fcntl 函数的 F_SETFL 命令将文件描述符设置为非阻塞模式。此时，read 函数和 write 函数将不再阻塞，如果没有数据可读或无法写入数据，read 函数和 write 函数将立即返回，并设置 errno 变量为 EAGAIN（操作继续进行的条件不满足）。</p>
+</li>
+<li>
+<p>另外，也可以使用 <strong>多路复用技术</strong> （如select、poll、epoll等）来避免 read 函数和 write 函数的阻塞问题，这样可以 <strong>同时监视多个文件描述符</strong> ，以便在任何一个文件描述符就绪时进行操作。</p>
+</li>
 </ul>
 <h4 id="代码：">代码：</h4>
 <p>注释版</p>
@@ -652,6 +677,8 @@
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="client-cpp">client.cpp</h3>
+<p>客户端的逻辑与服务器端相同，想要读取对方发来的数据时，用 read 函数，想要向对方发送数据时，用 write 函数。这里的发送与读取都是使用 <strong>系统调用</strong> 在套接字上完成的。简单说套接字就是 IP 地址和端口号；准确说套接字是一种用于网络通信的编程接口和抽象概念。</p>
+<p>套接字是一种 <strong>特殊类型的文件描述符</strong> 。在 Linux/Unix 系统中，所有的 I/O（包括文件、套接字、管道等）都用文件描述符来进行表示和操作，因此套接字实际上也属于文件描述符的一种。但是套接字并不是一个真正的文件，而是一个通信端点，并提供了专门的系统调用用于在程序和远程主机之间进行数据传输。</p>
 <h4 id="代码：-2">代码：</h4>
 <p>注释版</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"util.h"</span></span>
@@ -758,6 +785,65 @@
     <span class="token function">close</span><span class="token punctuation">(</span>sockfd<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="util-cpp">util.cpp</h3>
+<p>网络编程中的错误处理非常重要，可以帮助我们快速诊断和解决网络问题，保证程序的高可靠性和稳定性。</p>
+<p>常见的错误处理方法：</p>
+<ul>
+<li>检查函数返回值：在网络编程中，绝大多数的函数都会返回一个整数值，通常为 -1 表示出错，而其他值则表示成功执行。</li>
+<li>程序退出处理：当程序遇到严重的错误时，可能无法通过修复进行恢复，此时应该尽早退出程序，以避免程序导致更严重的后果。在退出程序之前，应尽量释放程序占用的资源， <strong>关闭已经打开的文件</strong> 、 <strong>套接字</strong> 等资源。</li>
+<li>异常处理：网络编程中可能会遇到各种意外情况，如断网、超时等异常。在遇到这些异常时，应该采取相应的措施，如重试、重新连接或优雅退出等。</li>
+</ul>
+<h4 id="代码">代码</h4>
+<p>注释版</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"util.h"</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span> <span class="token comment">// perror 函数</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h&gt;</span> <span class="token comment">// exit 函数和 宏 EXIT_FAILURE</span></span>
+
+<span class="token keyword">void</span> <span class="token function">errif</span><span class="token punctuation">(</span><span class="token keyword">bool</span> condition<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>errmsg<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>condition<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">// void  preeor(const char*) 把一个描述性错误消息输出到标准错误 stderr。</span>
+        <span class="token function">perror</span><span class="token punctuation">(</span>errmsg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// void exit(int) 使程序在 main 以外的函数中终止。实参是程序返回到计算机操作系统的退出代码。</span>
+        <span class="token comment">// 参数为 0 或 EXIT_SUCCESS 表示程序正常终止，否则表示因异常程序终止。EXIT_FAILURE 是 &lt;stdilb.h&gt; 中定义的宏，值为 1。表示程序不成功执行。</span>
+        <span class="token function">exit</span><span class="token punctuation">(</span>EXIT_FAILURE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>无注释版</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"util.h"</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span> </span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h&gt;</span> </span>
+
+<span class="token keyword">void</span> <span class="token function">errif</span><span class="token punctuation">(</span><span class="token keyword">bool</span> condition<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>errmsg<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>condition<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">perror</span><span class="token punctuation">(</span>errmsg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">exit</span><span class="token punctuation">(</span>EXIT_FAILURE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="util-h">util.h</h3>
+<h4 id="代码-2">代码</h4>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">UTIL_H</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">UTIL_H</span></span>
+
+<span class="token keyword">void</span> <span class="token function">errif</span><span class="token punctuation">(</span><span class="token keyword">bool</span><span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="Makefile">Makefile</h3>
+<p>Makefile 是一个文本文件，用于描述一个或多个源代码文件之间的依赖关系以及如何编译和链接这些源代码文件。Makefile 的主要作用是用于自动化地构建和管理源代码文件的编译和部署，可以极大地提高程序员的工作效率。</p>
+<h4 id="代码-3">代码</h4>
+<p>注释版</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile"><span class="token target symbol">server</span><span class="token punctuation">:</span>
+<span class="token comment"># 反斜线表示换行，便于阅读</span>
+	g++ util.cpp client.cpp -o client &amp;&amp; \
+		g++ util.cpp server.cpp -o server
+<span class="token comment"># clean 清除上次的 make 命令产生的目标文件。为了避免称为 make 的默认目标，不成文的规矩是 clean 放在文件最后。</span>
+<span class="token target symbol">clean</span><span class="token punctuation">:</span>
+	rm server &amp;&amp; rm client<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>无注释版</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile"><span class="token target symbol">server</span><span class="token punctuation">:</span>
+	g++ util.cpp client.cpp -o client &amp;&amp; \
+		g++ util.cpp server.cpp -o server
+<span class="token target symbol">clean</span><span class="token punctuation">:</span>
+	rm server &amp;&amp; rm client<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -1117,41 +1203,43 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/a27a48c6.html">
+                <a href="/posts/da6c.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="教训&amp;心得&amp;疑惑">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="【C++服务器】day02笔记">
                         
-                        <span class="card-title">教训&amp;心得&amp;疑惑</span>
+                        <span class="card-title">【C++服务器】day02笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            写代码过程中遇到的一点问题。
+                            简单记录。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%94%99%E9%A2%98%E6%9C%AC/" class="post-category">
-                                    错题本
+                            <a href="/categories/%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                    项目
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1159,8 +1247,8 @@
                         <span class="chip bg-color">C++</span>
                     </a>
                     
-                    <a href="/tags/hexo-next/">
-                        <span class="chip bg-color">hexo-next</span>
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>
@@ -1191,7 +1279,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-26
                             </span>
                         <span class="publish-author">
                             
@@ -1447,7 +1535,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">141.1k</span>
+                        class="white-color">142.8k</span>
             
             
             

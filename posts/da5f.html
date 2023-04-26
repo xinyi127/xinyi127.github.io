@@ -470,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-04-26
+                    2023-04-26
                 </div>
                 
 
@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
+                    2.5k
                 </div>
                 
 
@@ -625,6 +625,15 @@
 <p>关于客户端不需要 bind 函数来为创建的 sockfd 绑定特定 IP 地址和端口号。</p>
 <ul>
 <li>客户端调用 socket 函数创建套接字，然后调用 connect 函数连接到远程服务器的IP地址和端口号。<strong>在执行</strong> <strong>connect</strong> <strong>函数时</strong> ，<strong>操作系统会自动分配</strong> 一个 <strong>临时的本地</strong> <strong>IP</strong> <strong>地址和本地端口号</strong> ，并将该套接字绑定到这个地址和端口上。这个本地 IP 地址通常是操作系统中可用的任意IP地址，而本地端口号是操作系统中未被占用的任意端口号。此时，客户端就可以使用这个新创建的套接字与服务器进行数据传输了。</li>
+</ul>
+<p>connect 函数作用和用法？</p>
+<ul>
+<li>
+<p>作用：connect 函数是用于向远程服务器建立连接的函数，它的作用是在客户端套接字中建立与服务端的连接。需要注意的是，connect 函数会 <strong>阻塞等待</strong> 直到连接建立完成或出错。因此，在客户端程序中，通常需要将套接字设置为非阻塞模式或者使用多路复用技术来提高程序的效率。connect 函数还可以用于非阻塞套接字，当套接字设置为非阻塞模式时，connect 函数会立即返回，而不会阻塞等待。此时需要使用 select、poll、epoll 等函数来等待套接字变为可写状态，表示连接建立完成或出错。</p>
+</li>
+<li>
+<p>用法： <code>int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen);</code> sockfd 表示 <strong>客户端</strong> 套接字的文件描述符，addr 和 addrlen 参数表示指向 <strong>服务端</strong> 地址信息结构体（struct sockaddr）和长度的指针。</p>
+</li>
 </ul>
 <h4 id="代码：-2">代码：</h4>
 <p>注释版：</p>
@@ -1057,7 +1066,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-26
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-26
                         </span>
                         <span class="publish-author">
                             
@@ -1093,31 +1102,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/665e1b29.html">
+                <a href="/posts/75d8.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="【题解】FatMouse‘ Trade">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="校园网认证时显示”网络连接代理服务器出现问题“的解决办法">
                         
-                        <span class="card-title">【题解】FatMouse‘ Trade</span>
+                        <span class="card-title">校园网认证时显示”网络连接代理服务器出现问题“的解决办法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            水题，但做一次错一次，很生气。
+                            第二次出现这个问题了，记录一下。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-26
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%A2%98%E8%A7%A3/" class="post-category">
-                                    题解
+                            <a href="/categories/%E6%9D%82%E8%B0%88/" class="post-category">
+                                    杂谈
                                 </a>
                             
                             
@@ -1127,12 +1136,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%B4%AA%E5%BF%83/">
-                        <span class="chip bg-color">贪心</span>
+                    <a href="/tags/%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">网络</span>
                     </a>
                     
                 </div>
@@ -1366,7 +1371,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">141.1k</span>
+                        class="white-color">142.8k</span>
             
             
             

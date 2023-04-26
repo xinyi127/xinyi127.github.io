@@ -6,7 +6,7 @@
   <link href="http://xinyi127.cn/atom.xml" rel="self"/>
   
   <link href="http://xinyi127.cn/"/>
-  <updated>2023-04-26T02:55:25.643Z</updated>
+  <updated>2023-04-26T13:48:32.863Z</updated>
   <id>http://xinyi127.cn/</id>
   
   <author>
@@ -15,6 +15,64 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【C++服务器】day02笔记</title>
+    <link href="http://xinyi127.cn/posts/da6c.html"/>
+    <id>http://xinyi127.cn/posts/da6c.html</id>
+    <published>2023-04-26T09:48:00.000Z</published>
+    <updated>2023-04-26T13:48:32.863Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;server-cpp&quot;&gt;server.cpp&lt;/h3&gt;
+&lt;p&gt;客户端与服务器建立连接之后，如何实现数据的读写操作？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;read 和 write 函数：这是标准的文件 I/O 函数，在网络编程中也可以用来进行数据的读写操作。read</summary>
+        
+      
+    
+    
+    
+    <category term="项目" scheme="http://xinyi127.cn/categories/%E9%A1%B9%E7%9B%AE/"/>
+    
+    
+    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
+    
+    <category term="Linux" scheme="http://xinyi127.cn/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【C++服务器】day01笔记</title>
+    <link href="http://xinyi127.cn/posts/da5f.html"/>
+    <id>http://xinyi127.cn/posts/da5f.html</id>
+    <published>2023-04-26T06:50:00.000Z</published>
+    <updated>2023-04-26T12:30:19.250Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;server-cpp&quot;&gt;server.cpp&lt;/h3&gt;
+&lt;pre class=&quot;line-numbers language-cpp&quot; data-language=&quot;cpp&quot;&gt;&lt;code class=&quot;language-cpp&quot;&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="项目" scheme="http://xinyi127.cn/categories/%E9%A1%B9%E7%9B%AE/"/>
+    
+    
+    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
+    
+    <category term="Linux" scheme="http://xinyi127.cn/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>校园网认证时显示”网络连接代理服务器出现问题“的解决办法</title>
@@ -438,9 +496,9 @@
     
     <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
     
-    <category term="图论" scheme="http://xinyi127.cn/tags/%E5%9B%BE%E8%AE%BA/"/>
-    
     <category term="贪心" scheme="http://xinyi127.cn/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+    <category term="图论" scheme="http://xinyi127.cn/tags/%E5%9B%BE%E8%AE%BA/"/>
     
     <category term="环" scheme="http://xinyi127.cn/tags/%E7%8E%AF/"/>
     
@@ -564,64 +622,6 @@
     
     
     <category term="SDL" scheme="http://xinyi127.cn/tags/SDL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【题解】最大数</title>
-    <link href="http://xinyi127.cn/posts/cb73.html"/>
-    <id>http://xinyi127.cn/posts/cb73.html</id>
-    <published>2023-02-06T15:31:35.000Z</published>
-    <updated>2023-04-21T07:40:41.662Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;线段树&quot;&gt;&lt;code&gt;线段树&lt;/code&gt;&lt;/h3&gt;
-&lt;h4</summary>
-        
-      
-    
-    
-    
-    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
-    
-    
-    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
-    
-    <category term="线段树" scheme="http://xinyi127.cn/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【题解】航班时间</title>
-    <link href="http://xinyi127.cn/posts/b619.html"/>
-    <id>http://xinyi127.cn/posts/b619.html</id>
-    <published>2023-02-06T09:30:33.000Z</published>
-    <updated>2023-04-21T07:40:41.674Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;题目链接：航班时间&quot;&gt;题目链接：&lt;a href=&quot;https://www.acwing.com/activity/content/problem/content/1604/&quot;&gt;航班时间&lt;/a&gt;&lt;/h4&gt;
-&lt;h4</summary>
-        
-      
-    
-    
-    
-    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
-    
-    
-    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
-    
-    <category term="模拟" scheme="http://xinyi127.cn/tags/%E6%A8%A1%E6%8B%9F/"/>
-    
-    <category term="数学" scheme="http://xinyi127.cn/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
