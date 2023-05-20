@@ -6,7 +6,7 @@
   <link href="http://xinyi127.cn/atom.xml" rel="self"/>
   
   <link href="http://xinyi127.cn/"/>
-  <updated>2023-04-26T13:48:32.863Z</updated>
+  <updated>2023-05-20T04:32:47.976Z</updated>
   <id>http://xinyi127.cn/</id>
   
   <author>
@@ -15,6 +15,51 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【模板】Linux编程常用命令</title>
+    <link href="http://xinyi127.cn/posts/15e3.html"/>
+    <id>http://xinyi127.cn/posts/15e3.html</id>
+    <published>2023-05-20T03:30:05.000Z</published>
+    <updated>2023-05-20T04:32:47.976Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;TMUX&quot;&gt;TMUX&lt;/h4&gt;
+&lt;p&gt;​	&lt;code&gt;tmux&lt;/code&gt; 是一款终端复用工具，可以在一个终端窗口中创建多个“窗格”（ &lt;code&gt;pane&lt;/code&gt; ）或“窗口”（ &lt;code&gt;window&lt;/code&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="模板" scheme="http://xinyi127.cn/categories/%E6%A8%A1%E6%9D%BF/"/>
+    
+    
+    <category term="Linux" scheme="http://xinyi127.cn/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【C++服务器】day03笔记</title>
+    <link href="http://xinyi127.cn/posts/1a7c.html"/>
+    <id>http://xinyi127.cn/posts/1a7c.html</id>
+    <published>2023-04-26T13:49:00.000Z</published>
+    <updated>2023-04-26T13:49:54.949Z</updated>
+    
+    
+    
+    
+    <category term="项目" scheme="http://xinyi127.cn/categories/%E9%A1%B9%E7%9B%AE/"/>
+    
+    
+    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
+    
+    <category term="Linux" scheme="http://xinyi127.cn/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>【C++服务器】day02笔记</title>
@@ -496,9 +541,9 @@
     
     <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
     
-    <category term="贪心" scheme="http://xinyi127.cn/tags/%E8%B4%AA%E5%BF%83/"/>
-    
     <category term="图论" scheme="http://xinyi127.cn/tags/%E5%9B%BE%E8%AE%BA/"/>
+    
+    <category term="贪心" scheme="http://xinyi127.cn/tags/%E8%B4%AA%E5%BF%83/"/>
     
     <category term="环" scheme="http://xinyi127.cn/tags/%E7%8E%AF/"/>
     
@@ -561,67 +606,6 @@
     <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
     
     <category term="BFS" scheme="http://xinyi127.cn/tags/BFS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【题解】日志统计</title>
-    <link href="http://xinyi127.cn/posts/e63e.html"/>
-    <id>http://xinyi127.cn/posts/e63e.html</id>
-    <published>2023-02-11T17:25:47.000Z</published>
-    <updated>2023-04-21T07:40:41.661Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;题目链接：日志统计&quot;&gt;题目链接：&lt;a href=&quot;https://www.acwing.com/activity/content/problem/content/1744/&quot;&gt;日志统计&lt;/a&gt;&lt;/h4&gt;
-&lt;h4 id=&quot;算法一&quot;&gt;算法一&lt;/h4&gt;
-&lt;h5</summary>
-        
-      
-    
-    
-    
-    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
-    
-    
-    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
-    
-    <category term="双指针" scheme="http://xinyi127.cn/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
-    
-    <category term="队列" scheme="http://xinyi127.cn/tags/%E9%98%9F%E5%88%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Visual Studio项目配置SDL库</title>
-    <link href="http://xinyi127.cn/posts/377b.html"/>
-    <id>http://xinyi127.cn/posts/377b.html</id>
-    <published>2023-02-11T09:41:31.000Z</published>
-    <updated>2023-02-19T12:00:34.151Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;h3 id=&quot;前言&quot;&gt;前言&lt;/h3&gt;
-&lt;p&gt;Visual Studio版本：2022&lt;/p&gt;
-&lt;p&gt;SDL版本：SDL2-2.24.0&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3</summary>
-        
-      
-    
-    
-    
-    <category term="软件安装与环境配置" scheme="http://xinyi127.cn/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E4%B8%8E%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
-    
-    
-    <category term="SDL" scheme="http://xinyi127.cn/tags/SDL/"/>
     
   </entry>
   
