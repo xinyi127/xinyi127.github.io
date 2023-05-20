@@ -55,9 +55,9 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="❤梧桐苑" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="❤梧桐苑" type="application/atom+xml">
 </head>
 
 
@@ -473,7 +473,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-21
+                    2023-05-20
                 </div>
                 
 
@@ -514,16 +514,16 @@
 <p>感受：一点很简单的东西在完全不熟悉之前，也会让人一筹莫展，看着杂乱的文字满头雾水，感觉无从下手。</p>
 <h4 id="步骤">步骤</h4>
 <p>1.首先我们在自己的github上新建一个库，用来存放我们的代码。<br>
-例如：<img src="https://img-blog.csdnimg.cn/6391aa11795f4303bc148196d1cb1926.png" alt="在这里插入图片描述"><br>
+例如：<img src="https://s2.loli.net/2023/05/20/5ih2KSLCowzncxG.png" alt="图1"><br>
 属性全部设为默认就好。<br>
 2.在本地仓库（所谓本地仓库就是一个用来存放文档的文件夹）处打开Git bash here 。<br>
-例如：<img src="https://img-blog.csdnimg.cn/1b68a14dee4d42928720172f8d9abf5f.png" alt="在这里插入图片描述"><br>
+例如：<img src="https://s2.loli.net/2023/05/20/ZO28qQEbKmGR6Wv.png" alt="图2"><br>
 3.输入 <code>git init</code> 将仓库初始化。</p>
 <p>4.输入 <code>git add .</code> 代表添加所有文件。</p>
 <p>5.输入 <code>git commit -m ‘注释’</code>     注意：<code>'注释'</code>  里面的信息可以随便写，只起补充说明用。</p>
 <p>6.将自己在github上<strong>库的地址</strong>（所谓库的地址就是url）复制过来，然后在Git bash中输入 <code>git remote add origin 库的地址</code>。<br>
 第六步可能会出错，那么就输入 <code>git remote rm origin</code> ，然后再重复执行第六步（通常来讲 <code>git remote rm origin</code> 对于同一个库，这个命令只需要执行一次）。图中的链接就是地址。</p>
-<img src="C:\Users\杨新艺\AppData\Roaming\Typora\typora-user-images\image-20221005102443913.png" alt="image-20221005102443913" style="zoom:50%;">
+<img src="https://s2.loli.net/2023/05/20/C7AyUTxN9jkh6RL.png" alt="图3" style="zoom:67%;">
 <p>7.第七步是重点。我们先输入 <code>git push -u origin master</code> ，然后会有一个弹窗，不要选择账号密码那项，在2021年已经被禁用了，去自己的github上创建一个自己的个人访问令牌，具体可以参考这个帖子：<a target="_blank" rel="noopener" href="https://helloai.blog.csdn.net/article/details/119696726?spm=1001.2014.3001.5506">超链接</a> 。<br>
 创建好之后我们选择令牌那项，等待一小会儿。<br>
 如果仍然提示出错，那么参考这里：<a target="_blank" rel="noopener" href="https://blog.csdn.net/good_good_xiu/article/details/118567249?spm=1001.2014.3001.5506">超链接</a>。</p>
