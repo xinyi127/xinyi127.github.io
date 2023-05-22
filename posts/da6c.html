@@ -477,7 +477,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-26
+                    2023-05-22
                 </div>
                 
 
@@ -520,7 +520,7 @@
 <li>read 和 write 函数：这是标准的文件 I/O 函数，在网络编程中也可以用来进行数据的读写操作。read 函数从文件描述符中读取指定字节数的数据，而 write 函数向文件描述符中写入指定字节数的数据。这些函数适用于面向流（Stream）的协议，如 TCP，但不适用于面向消息（Message）的协议，如 UDP。</li>
 <li>通过下图可以非常清晰的看到，服务器与客户端通过 read 函数读对方发送的数据，通过 write 函数向对方发送数据。</li>
 </ul>
-<img src="https://img-blog.csdn.net/20150510153905472" alt="图1" style="zoom: 67%;">
+<img src="https://s2.loli.net/2023/05/22/3K5qEIzJF4npu6l.png" alt="图 1" style="zoom:80%;">
 <p>为什么要创建套接字 clnt_sockfd，而不是继续使用 sockfd？</p>
 <ul>
 <li>服务器端接受到一个客户端的连接请求时，会创建一个新的套接字（clnt_sockfd）来处理这个连接，而原先的监听套接字（sockfd）仍然在阻塞模式下监听其他客户端的连接请求。新的套接字可以独立地进行数据传输，不影响服务器端对其他客户端的连接请求的处理，从而实现了并发处理多个客户端的连接请求和数据传输。</li>
