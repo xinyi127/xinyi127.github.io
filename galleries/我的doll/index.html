@@ -1,0 +1,891 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <!--   引入加载动画   -->
+    <link rel="stylesheet" type="text/css" href="/css/loading.css">
+    
+    <meta charset="utf-8">
+    <meta name="keywords" content="我的doll, ❤梧桐苑">
+    <meta name="description" content="❤梧桐苑">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>我的doll | ❤梧桐苑</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="❤梧桐苑" type="application/atom+xml">
+</head>
+
+
+
+<body>
+    <!-- 引入加载动画 -->
+    
+  <div id="loading-box">
+    <div class="loading-left-bg"></div>
+    <div class="loading-right-bg"></div>
+    <div class="spinner-box">
+      <div class="configure-border-1">
+        <div class="configure-core"></div>
+      </div>
+      <div class="configure-border-2">
+        <div class="configure-core"></div>
+      </div>
+      <div class="loading-word">加载中...</div>
+    </div>
+  </div>
+  <!-- 页面加载动画 -->
+  <script>
+    $(document).ready(function () {
+      document.body.style.overflow = 'auto';
+      document.getElementById('loading-box').classList.add("loaded")
+    })
+  </script>
+
+
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">❤梧桐苑</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>相册</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/artitalk">
+          
+          <i class="fas fa-comment" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>随笔</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">❤梧桐苑</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>相册</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/artitalk " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-comment" style="position: absolute;left:50px" ></i>
+			      
+		          <span>随笔</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xinyi127" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xinyi127" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    <link rel="stylesheet" href="/css/gallery.css">
+<link type="text/css" href="/libs/fancybox/jquery.fancybox.css" rel="stylesheet">
+<link type="text/css" href="/libs/justifiedGallery/justifiedGallery.min.css" rel="stylesheet">
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">我的doll</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+<div class="container">
+    <div class="photo-wrapper">
+        
+
+            <script src="/js/crypto-js.js"></script>
+            <script src="/js/gallery-encrypt.js"></script>
+            <div id="hbe-security">
+                <div class="hbe-input-container">
+                    <input type="password" class="hbe-form-control" id="pass"  placeholder="请输入密码查看内容"/>
+                    <a href="javascript:;" class="btn-decrypt" id="btn_decrypt">解密</a>
+                </div>
+            </div>
+            <div  id="mygallery">
+                <div class="waterfall" id="encrypt-blog" style="display:none">
+                    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
+                </div>
+            </div>
+        
+    </div>
+</div>
+
+<script src="/libs/fancybox/fancybox.js"></script>
+<script src="/libs/justifiedGallery/justifiedGallery.min.js"></script>
+<script>
+
+  $("a[rel=example_group]").fancybox();
+  // $("#encrypt-blog").justifiedGallery({margins: 5, rowHeight: 150});
+
+</script>
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2022-2023</span>
+            
+            <a href="/about" target="_blank">心意</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">146.8k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2022";
+                        var startMonth = "5";
+                        var startDate = "23";
+                        var startHour = "21";
+                        var startMinute = "38";
+                        var startSecond = "13";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">鲁ICP备2022018291号-1</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xinyi127" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1224179212" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1224179212" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1224179212" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+        <script src="//code.tidio.co/ondsdwrvnlmxms4i4ncrgo71ffe58cqm.js"></script>
+        <script>
+            $(document).ready(function () {
+                setInterval(change_Tidio, 50);
+                function change_Tidio() {
+                    var tidio=$("#tidio-chat iframe");
+                    if(tidio.css("display")=="block"&& $(window).width()>977 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"85px":"20px";
+                        document.getElementById("tidio-chat-iframe").style.right="-15px";
+                        document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;
+                        document.getElementById("tidio-chat-iframe").style.right="-15px";
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
+                        document.getElementById("tidio-chat-iframe").style.zIndex="998";
+                    }
+                }
+            });
+        </script>
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
+
+
+
+<!-- 动态标签 -->
+<script type="text/javascript"> var OriginTitile = document.title, st; 
+document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ诶，页面崩溃了嘛？", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) }) </script>
+
