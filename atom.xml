@@ -6,7 +6,7 @@
   <link href="http://xinyi127.cn/atom.xml" rel="self"/>
   
   <link href="http://xinyi127.cn/"/>
-  <updated>2023-06-12T13:19:23.773Z</updated>
+  <updated>2023-06-19T15:04:25.297Z</updated>
   <id>http://xinyi127.cn/</id>
   
   <author>
@@ -15,6 +15,61 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>图解笔记01</title>
+    <link href="http://xinyi127.cn/posts/a619.html"/>
+    <id>http://xinyi127.cn/posts/a619.html</id>
+    <published>2023-06-19T14:26:13.000Z</published>
+    <updated>2023-06-19T15:04:25.297Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;前言&quot;&gt;前言&lt;/h4&gt;
+&lt;p&gt;打算每天记录学习进度，每周一次总结与规划，坚持总会有收获。千里之行，始于今日。&lt;/p&gt;
+&lt;p&gt;为了不在笔记上花费太多时间，通常只会记录重点，或者只记录当天的思考与心得。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4</summary>
+        
+      
+    
+    
+    
+    <category term="校招基础知识" scheme="http://xinyi127.cn/categories/%E6%A0%A1%E6%8B%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    
+    <category term="操作系统" scheme="http://xinyi127.cn/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>编译原理期末复习</title>
+    <link href="http://xinyi127.cn/posts/4516.html"/>
+    <id>http://xinyi127.cn/posts/4516.html</id>
+    <published>2023-06-16T03:04:23.000Z</published>
+    <updated>2023-06-16T03:30:03.920Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;第一章：概述、文法和语言&quot;&gt;第一章：概述、文法和语言&lt;/h4&gt;
+&lt;p&gt;对于 X = abc，空串并不是 X</summary>
+        
+      
+    
+    
+    
+    <category term="期末复习" scheme="http://xinyi127.cn/categories/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"/>
+    
+    
+    <category term="编译原理" scheme="http://xinyi127.cn/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>【模板】Linux编程常用命令</title>
@@ -548,64 +603,6 @@
     <category term="环" scheme="http://xinyi127.cn/tags/%E7%8E%AF/"/>
     
     <category term="置换群" scheme="http://xinyi127.cn/tags/%E7%BD%AE%E6%8D%A2%E7%BE%A4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【题解】红与黑</title>
-    <link href="http://xinyi127.cn/posts/9fcb.html"/>
-    <id>http://xinyi127.cn/posts/9fcb.html</id>
-    <published>2023-02-12T07:46:03.000Z</published>
-    <updated>2023-04-21T07:40:41.672Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;题目链接：红与黑&quot;&gt;题目链接：&lt;a href=&quot;https://www.acwing.com/activity/content/problem/content/1746/&quot;&gt;红与黑&lt;/a&gt;&lt;/h4&gt;
-&lt;h4 id=&quot;DFS-关键点&quot;&gt;DFS</summary>
-        
-      
-    
-    
-    
-    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
-    
-    
-    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
-    
-    <category term="DFS" scheme="http://xinyi127.cn/tags/DFS/"/>
-    
-    <category term="Flood Fill" scheme="http://xinyi127.cn/tags/Flood-Fill/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【题解】献给阿尔吉侬的花束</title>
-    <link href="http://xinyi127.cn/posts/cd8a.html"/>
-    <id>http://xinyi127.cn/posts/cd8a.html</id>
-    <published>2023-02-12T06:26:31.000Z</published>
-    <updated>2023-04-21T07:40:41.667Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;题目链接：献给阿尔吉侬的花束&quot;&gt;题目链接：&lt;a href=&quot;https://www.acwing.com/activity/content/problem/content/1745/&quot;&gt;献给阿尔吉侬的花束&lt;/a&gt;&lt;/h4&gt;
-&lt;h4</summary>
-        
-      
-    
-    
-    
-    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
-    
-    
-    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
-    
-    <category term="BFS" scheme="http://xinyi127.cn/tags/BFS/"/>
     
   </entry>
   
