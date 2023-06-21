@@ -7,8 +7,8 @@
     <link rel="stylesheet" type="text/css" href="/css/loading.css">
     
     <meta charset="utf-8">
-    <meta name="keywords" content="编译原理期末复习, ❤梧桐苑">
-    <meta name="description" content="临近期末，简单梳理一下知识点。">
+    <meta name="keywords" content="CentOS7 通过shell 脚本切换目录, ❤梧桐苑">
+    <meta name="description" content="shell 脚本">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>编译原理期末复习 | ❤梧桐苑</title>
+    <title>CentOS7 通过shell 脚本切换目录 | ❤梧桐苑</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -412,12 +412,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">编译原理期末复习</h1>
+                    <h1 class="description center-align post-title">CentOS7 通过shell 脚本切换目录</h1>
                 </div>
             </div>
         </div>
@@ -441,8 +441,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
-                                <span class="chip bg-color">编译原理</span>
+                            <a href="/tags/shell/">
+                                <span class="chip bg-color">shell</span>
+                            </a>
+                        
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
                             </a>
                         
                     </div>
@@ -453,8 +457,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" class="post-category">
-                                期末复习
+                            <a href="/categories/%E6%9D%82%E8%B0%88/" class="post-category">
+                                杂谈
                             </a>
                         
                     </div>
@@ -466,21 +470,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-06-16
+                    2023-06-22
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-06-21
+                    2023-06-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    70
+                    302
                 </div>
                 
 
@@ -510,10 +514,28 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="第一章：概述、文法和语言">第一章：概述、文法和语言</h4>
-<p>对于 X = abc，空串并不是 X 的子串。</p>
-<p>空串也是一种元素，空集表示不含任何元素，所以空集中不含空串。</p>
-<p>集合的乘积和符号串的连接写法相同，注意区分。</p>
+                <h4 id="环境">环境</h4>
+<blockquote>
+<p>Linux CentOS7</p>
+</blockquote>
+<h4 id="问题">问题</h4>
+<p>每次切换所处的目录时，总是要输入很多字符，非常繁琐，希望通过脚本之类的方式快速切换到指定目录。</p>
+<h4 id="方案">方案</h4>
+<p><strong>失败方案</strong></p>
+<p>思路：希望通过 shell 脚本实现，代码如下：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#! /bin/bash</span>
+<span class="token function">sudo</span> <span class="token builtin class-name">cd</span> ~/XXX/YYY<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>结果：实践发现这样无法解决，为脚本添加可执行权限并执行脚本后发现，当前所处的目录没有任何变化。</p>
+<p>原因：在 shell 脚本中，不能直接更改用户所处的文件夹，因为 shell 脚本是在子进程中运行的，该子进程无法影响父进程（即启动该脚本的 shell 环境）的状态。在 shell 脚本中更改所处的文件夹只对该脚本程序有效，对于启动该脚本程序的 shell 环境并没有影响。</p>
+<ul>
+<li>例如，如果在 脚本的 cd 命令后添加 <code>mkdir CCC</code> 命令，会发现在 <code>~/XXX/YYY</code> 目录下出现了 CCC 文件夹。</li>
+</ul>
+<p><strong>成功方案</strong></p>
+<p>在 <code>~/.bashrc</code> 中定义一个名为 cduser 的函数，代码如下：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">function</span> <span class="token function-name function">cduser</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token builtin class-name">cd</span> ~/XXX/YYY
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>执行 <code>source ~/.bashrc</code> 命令，之后直接输入 cduser 就可以跳转到 <code>~/XXX/YYY</code> 目录下。</p>
 
                 
             </div>
@@ -540,7 +562,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://xinyi127.cn/posts/4516.html">http://xinyi127.cn/posts/4516.html</a>
+                    <a href="http://xinyi127.cn/posts/7d41.html">http://xinyi127.cn/posts/7d41.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -578,8 +600,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
-                                    <span class="chip bg-color">编译原理</span>
+                                <a href="/tags/shell/">
+                                    <span class="chip bg-color">shell</span>
+                                </a>
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
                                 </a>
                             
                         </div>
@@ -869,46 +895,52 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/a619.html">
+                <a href="/posts/7d41.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="图解笔记01">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="CentOS7 通过shell 脚本切换目录">
                         
-                        <span class="card-title">图解笔记01</span>
+                        <span class="card-title">CentOS7 通过shell 脚本切换目录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            简单记录看图解系列时的笔记。
+                            shell 脚本
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-06-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%A0%A1%E6%8B%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="post-category">
-                                    校招基础知识
+                            <a href="/categories/%E6%9D%82%E8%B0%88/" class="post-category">
+                                    杂谈
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                        <span class="chip bg-color">操作系统</span>
+                    <a href="/tags/shell/">
+                        <span class="chip bg-color">shell</span>
+                    </a>
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>
@@ -1191,7 +1223,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">147.5k</span>
+                        class="white-color">147.1k</span>
             
             
             
