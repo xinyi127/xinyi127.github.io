@@ -7,8 +7,8 @@
     <link rel="stylesheet" type="text/css" href="/css/loading.css">
     
     <meta charset="utf-8">
-    <meta name="keywords" content="【题解】最长连续不重复子序列, ❤梧桐苑">
-    <meta name="description" content="双指针写法简洁优雅，让人爱不释手。">
+    <meta name="keywords" content="Datagrip 提示 No database select, ❤梧桐苑">
+    <meta name="description" content="简单记录一下数据库的坑">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>【题解】最长连续不重复子序列 | ❤梧桐苑</title>
+    <title>Datagrip 提示 No database select | ❤梧桐苑</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -412,12 +412,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">【题解】最长连续不重复子序列</h1>
+                    <h1 class="description center-align post-title">Datagrip 提示 No database select</h1>
                 </div>
             </div>
         </div>
@@ -441,12 +441,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/C/">
-                                <span class="chip bg-color">C++</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
-                                <span class="chip bg-color">双指针</span>
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
                             </a>
                         
                     </div>
@@ -457,8 +453,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E9%A2%98%E8%A7%A3/" class="post-category">
-                                题解
+                            <a href="/categories/%E6%9D%82%E8%B0%88/" class="post-category">
+                                杂谈
                             </a>
                         
                     </div>
@@ -470,21 +466,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-04-15
+                    2023-06-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-21
+                    2023-06-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    205
+                    71
                 </div>
                 
 
@@ -514,49 +510,15 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="双指针">双指针</h4>
-<ul>
-<li>
-<p>双指针其核心思想就是将 O(n^2) 的朴素算法优化到 O(n) 。</p>
-</li>
-<li>
-<p>s[i] 表示 整数 i 在区间 [j,i] 中出现的次数。</p>
-</li>
-</ul>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-
-using namespace std;
-
-const int N = 1e5 + 10;
-
-int n;
-int a[N], s[N];
-
-int slove(int l, int r)
-{
-    int ans = 0;
-    //找i,j满足的某种单调性规律，使得两个指针对于每个元素均只遍历一次
-    for (int i = 1, j = 1; i &lt;= n; i ++)
-    {
-        //当i++后表示i指向的元素出现次数增加一次
-        s[a[i]] ++;
-        //j++表示j指向的元素出现次数减少一次
-        while (s[a[i]] &gt; 1) s[a[j]] --, j ++;
-        ans = max(ans, i - j + 1);
-    }
-    return ans;
-}
-
-int main()
-{
-    cin &gt;&gt;n;
-    for (int i = 1; i &lt;= n; i ++) cin &gt;&gt; a[i];
-    
-    int ans = slove(1, n);
-    cout &lt;&lt; ans;
-    return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h4 id="环境">环境</h4>
+<blockquote>
+<p>Datagrip 2023.1.2</p>
+<p>MySQL 8.0.32</p>
+</blockquote>
+<h4 id="问题">问题</h4>
+<p>打开 Datagrip 执行 SELECT 语句时，Datagrip 提示 <code>No database select</code> ，这很奇怪，因为我已经使用了当前查询控制台（console）好多天。</p>
+<h4 id="解决">解决</h4>
+<p>执行 <code>USE XXX;</code> 语句， <code>XXX</code> 即为用户所用架构（Schema）的名字。</p>
 
                 
             </div>
@@ -583,7 +545,7 @@ int main()
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://xinyi127.cn/posts/b4a0.html">http://xinyi127.cn/posts/b4a0.html</a>
+                    <a href="http://xinyi127.cn/posts/7c2d.html">http://xinyi127.cn/posts/7c2d.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -621,12 +583,8 @@ int main()
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/C/">
-                                    <span class="chip bg-color">C++</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
-                                    <span class="chip bg-color">双指针</span>
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
                                 </a>
                             
                         </div>
@@ -916,50 +874,48 @@ int main()
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/5dbc.html">
+                <a href="/posts/7c2d.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="【题解】判断子序列">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Datagrip 提示 No database select">
                         
-                        <span class="card-title">【题解】判断子序列</span>
+                        <span class="card-title">Datagrip 提示 No database select</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            双指针的又一妙用。
+                            简单记录一下数据库的坑
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%A2%98%E8%A7%A3/" class="post-category">
-                                    题解
+                            <a href="/categories/%E6%9D%82%E8%B0%88/" class="post-category">
+                                    杂谈
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
-                        <span class="chip bg-color">双指针</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
                     </a>
                     
                 </div>
@@ -973,31 +929,31 @@ int main()
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/77351317.html">
+                <a href="/posts/7d41.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="【题解】牛客练习赛70-B拼凑">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="CentOS7 通过shell 脚本切换目录">
                         
-                        <span class="card-title">【题解】牛客练习赛70-B拼凑</span>
+                        <span class="card-title">CentOS7 通过shell 脚本切换目录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            三句话，让ACMer为我头疼180分钟。我说这是动态规划入门，他又是一份意想不到的狂喜...
+                            shell 脚本
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-22
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%A2%98%E8%A7%A3/" class="post-category">
-                                    题解
+                            <a href="/categories/%E6%9D%82%E8%B0%88/" class="post-category">
+                                    杂谈
                                 </a>
                             
                             
@@ -1007,12 +963,12 @@ int main()
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
+                    <a href="/tags/shell/">
+                        <span class="chip bg-color">shell</span>
                     </a>
                     
-                    <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-                        <span class="chip bg-color">动态规划</span>
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>

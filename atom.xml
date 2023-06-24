@@ -6,7 +6,7 @@
   <link href="http://xinyi127.cn/atom.xml" rel="self"/>
   
   <link href="http://xinyi127.cn/"/>
-  <updated>2023-06-21T16:11:20.459Z</updated>
+  <updated>2023-06-23T01:43:19.350Z</updated>
   <id>http://xinyi127.cn/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Datagrip 提示 No database select</title>
+    <link href="http://xinyi127.cn/posts/7c2d.html"/>
+    <id>http://xinyi127.cn/posts/7c2d.html</id>
+    <published>2023-06-23T01:25:06.000Z</published>
+    <updated>2023-06-23T01:43:19.350Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;环境&quot;&gt;环境&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Datagrip 2023.1.2&lt;/p&gt;
+&lt;p&gt;MySQL 8.0.32&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;问题&quot;&gt;问题&lt;/h4&gt;
+&lt;p&gt;打开 Datagrip 执行 SELECT</summary>
+        
+      
+    
+    
+    
+    <category term="杂谈" scheme="http://xinyi127.cn/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+    <category term="数据库" scheme="http://xinyi127.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CentOS7 通过shell 脚本切换目录</title>
     <link href="http://xinyi127.cn/posts/7d41.html"/>
     <id>http://xinyi127.cn/posts/7d41.html</id>
     <published>2023-06-21T16:00:00.000Z</published>
-    <updated>2023-06-21T16:11:20.459Z</updated>
+    <updated>2023-06-21T16:12:04.901Z</updated>
     
     
       
@@ -52,7 +83,7 @@
     <link href="http://xinyi127.cn/posts/15e3.html"/>
     <id>http://xinyi127.cn/posts/15e3.html</id>
     <published>2023-05-20T03:30:05.000Z</published>
-    <updated>2023-06-12T13:19:23.773Z</updated>
+    <updated>2023-06-24T07:23:50.076Z</updated>
     
     
       
@@ -579,36 +610,6 @@
     <category term="环" scheme="http://xinyi127.cn/tags/%E7%8E%AF/"/>
     
     <category term="置换群" scheme="http://xinyi127.cn/tags/%E7%BD%AE%E6%8D%A2%E7%BE%A4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【题解】红与黑</title>
-    <link href="http://xinyi127.cn/posts/9fcb.html"/>
-    <id>http://xinyi127.cn/posts/9fcb.html</id>
-    <published>2023-02-12T07:46:03.000Z</published>
-    <updated>2023-04-21T07:40:41.672Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;题目链接：红与黑&quot;&gt;题目链接：&lt;a href=&quot;https://www.acwing.com/activity/content/problem/content/1746/&quot;&gt;红与黑&lt;/a&gt;&lt;/h4&gt;
-&lt;h4 id=&quot;DFS-关键点&quot;&gt;DFS</summary>
-        
-      
-    
-    
-    
-    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
-    
-    
-    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
-    
-    <category term="DFS" scheme="http://xinyi127.cn/tags/DFS/"/>
-    
-    <category term="Flood Fill" scheme="http://xinyi127.cn/tags/Flood-Fill/"/>
     
   </entry>
   
