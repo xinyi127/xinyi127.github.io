@@ -7,8 +7,8 @@
     <link rel="stylesheet" type="text/css" href="/css/loading.css">
     
     <meta charset="utf-8">
-    <meta name="keywords" content="【题解】合并果子, 渔火">
-    <meta name="description" content="发现优先队列用处蛮广泛的，初学时没有很重视的容器，原来好多题都可以用优先队列来做。">
+    <meta name="keywords" content="编译原理第二章作业, 渔火">
+    <meta name="description" content="梳理一下第二章作业~">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>【题解】合并果子 | 渔火</title>
+    <title>编译原理第二章作业 | 渔火</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -412,12 +412,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">【题解】合并果子</h1>
+                    <h1 class="description center-align post-title">编译原理第二章作业</h1>
                 </div>
             </div>
         </div>
@@ -441,16 +441,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/C/">
-                                <span class="chip bg-color">C++</span>
-                            </a>
-                        
-                            <a href="/tags/%E8%B4%AA%E5%BF%83/">
-                                <span class="chip bg-color">贪心</span>
-                            </a>
-                        
-                            <a href="/tags/Huffman%E6%A0%91/">
-                                <span class="chip bg-color">Huffman树</span>
+                            <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                                <span class="chip bg-color">编译原理</span>
                             </a>
                         
                     </div>
@@ -461,8 +453,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E9%A2%98%E8%A7%A3/" class="post-category">
-                                题解
+                            <a href="/categories/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" class="post-category">
+                                期末复习
                             </a>
                         
                     </div>
@@ -474,28 +466,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-07-11
+                    2023-06-28
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-21
+                    2023-06-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    846
+                    615
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    2 分
                 </div>
                 
 
@@ -518,86 +510,37 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="题目：合并果子">题目：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/150/">合并果子</a></h4>
-<h4 id="题意：">题意：</h4>
-<p>在一个果园里，达达已经将所有的果子打了下来，而且按果子的不同种类分成了不同的堆。</p>
-<p>达达决定把所有的果子合成一堆。</p>
-<p>每一次合并，达达可以把两堆果子合并到一起，消耗的体力等于两堆果子的重量之和。</p>
-<p>可以看出，所有的果子经过 n−1 次合并之后，就只剩下一堆了。</p>
-<p>达达在合并果子时总共消耗的体力等于每次合并所耗体力之和。</p>
-<p>因为还要花大力气把这些果子搬回家，所以达达在合并果子时要尽可能地节省体力。</p>
-<p>假定每个果子重量都为 1，并且已知果子的种类数和每种果子的数目，你的任务是设计出合并的次序方案，使达达耗费的体力最少，并输出这个最小的体力耗费值。</p>
-<p>例如有 3 种果子，数目依次为 1，2，9。</p>
-<p>可以先将 1、2 堆合并，新堆数目为 3，耗费体力为 3。</p>
-<p>接着，将新堆与原先的第三堆合并，又得到新的堆，数目为 12，耗费体力为 12。</p>
-<p>所以达达总共耗费体力=3+12=15。</p>
-<p>可以证明 15 为最小的体力耗费值。</p>
-<h4 id="输入格式">输入格式</h4>
-<p>输入包括两行，第一行是一个整数 n，表示果子的种类数。</p>
-<p>第二行包含 n 个整数，用空格分隔，第 i 个整数 ai 是第 i 种果子的数目。</p>
-<h4 id="输出格式">输出格式</h4>
-<p>输出包括一行，这一行只包含一个整数，也就是最小的体力耗费值。</p>
-<p>输入数据保证这个值小于 2<sup>31</sup>。</p>
-<h4 id="数据范围">数据范围</h4>
-<p>1 ≤ n ≤ 10000,<br>
-1 ≤ ai ≤ 20000</p>
-<h4 id="输入样例：">输入样例：</h4>
-<pre class="line-numbers language-none"><code class="language-none">3 
-1 2 9 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h4 id="输出样例：">输出样例：</h4>
-<pre class="line-numbers language-none"><code class="language-none">15<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="思路：">思路：</h4>
+                <h3 id="第二章">第二章</h3>
+<hr>
+<h4 id="前缀知识">前缀知识</h4>
+<blockquote>
+<p>DFA（Deterministic Finite Automaton）和NFA（Nondeterministic Finite Automaton）都是有限自动机模型，用于描述和识别形式语言。</p>
+<p>DFA 是一种确定性有限自动机，它在给定输入字符和当前状态的情况下，根据提前定义好的状态转移函数，唯一地确定下一个状态。换句话说，从每个状态出发，对于给定的输入字符，只能到达一个特定的下一个状态。DFA 拥有确定性，因为它的状态转移是确定的。</p>
+<p>NFA 是一种非确定性有限自动机，相比于 DFA，它在给定输入字符和当前状态的情况下，可以有多个可能的下一个状态。这意味着在某个状态下，对于给定的输入字符，可以选择多个转移路径。NFA 的状态转移是非确定的，因此它可以同时处于多个状态。</p>
+</blockquote>
+<h4 id="2-3题">2.3题</h4>
+<p>题目：叙述由下列正规式描述的语言</p>
+<p>找没有闭包符号的字符</p>
+<h4 id="2-7题">2.7题</h4>
+<p>题目：用算法 2.4 为下列正规式构造 NFA，并给出处理 ababbab 的状态转换序列</p>
+<p><a target="_blank" rel="noopener" href="https://blog.nowcoder.net/n/de7fe22f22db49b5bebb9c259dd5d5df?from=nowcoder_improve">打开链接，看链接内作业一</a></p>
+<p>注意基本符号 NFA 的构造</p>
+<h4 id="2-11题">2.11题</h4>
+<p>题目：可以通过正规式的最简 DFA 同构来证明正规式等价。证明下列正规式等价</p>
+<p><a target="_blank" rel="noopener" href="https://blog.nowcoder.net/n/de7fe22f22db49b5bebb9c259dd5d5df?from=nowcoder_improve">打开链接，看链接内作业二</a></p>
+<p><a target="_blank" rel="noopener" href="http://wdata.nongyekx.cn/pdgpath/pdgpath.dll?d=4f5d49806e3dea521feb28aa2d00a56e1d5ec0983ea9538d821c6521541d73876e8d53606dbcb7292beb2ae1e64f71bc&amp;n=%A1%B6%B1%E0%D2%EB%D4%AD%C0%ED%A1%B7%CF%B0%CC%E2%B2%CE%BF%BC%B4%F0%B0%B8(%D2%BB)">下载PDF，看第二章2.7、2.8、2.11</a></p>
 <ul>
-<li>考虑对于当前步骤最优的行动，显然是取当前的两个最小值相加。</li>
-<li>而通过合并的哈夫曼树可以证明将较小值从浅层交换到深层一定会导致哈夫曼树的代权路径长度变小，这就说明了每次选最小的两个是全局最优。</li>
-<li>所以最优解就是每次将两个最小值从集合中取出相加，并将新的数加入到集合中，直到集合中只剩下一个数时，就是所求值。</li>
-<li>可能有同学会觉得这道题和 <a href="http://xinyi127.cn/2022/07/11/%E7%9F%B3%E5%AD%90%E5%90%88%E5%B9%B6/">石子合并</a> 这道题很像，但其实不一样。
-<ul>
-<li>1.<em>石子合并</em> 只允许合并两个相邻的石子。而本题则允许合并任意两堆。</li>
-<li>2.<em>石子合并</em> 的数据范围 <code>n</code> 不大于300，而这道题 <code>n</code> 的范围是不大于10<sup>4</sup>。</li>
+<li>注意，PDF 的 2.8 题仅供参考，重点是理解思想，做法不一，以自己老师说的为准。</li>
 </ul>
-</li>
-</ul>
-<h4 id="代码">代码</h4>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;algorithm&gt;</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;cstring&gt;</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;string.h&gt;</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;queue&gt;</span></span>
-
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> <span class="token keyword">int</span> N<span class="token operator">=</span><span class="token number">10010</span><span class="token punctuation">;</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">ll</span> <span class="token expression"><span class="token keyword">long</span> <span class="token keyword">long</span></span></span>
-
-<span class="token keyword">int</span> n<span class="token punctuation">;</span>
-<span class="token comment">//优先队列相当于自己实现了一个哈夫曼树</span>
-priority_queue<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token punctuation">,</span>greater<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span>q<span class="token punctuation">;</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    cin<span class="token operator">&gt;&gt;</span>n<span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">int</span> x<span class="token punctuation">;</span>
-        cin<span class="token operator">&gt;&gt;</span>x<span class="token punctuation">;</span>
-        q<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    ll sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span>q<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span>n<span class="token operator">&gt;</span><span class="token number">1</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">int</span> x<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>y<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>q<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>x<span class="token operator">=</span>q<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>q<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>q<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>y<span class="token operator">=</span>q<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>q<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        sum<span class="token operator">+=</span>x<span class="token operator">+</span>y<span class="token punctuation">;</span>
-        <span class="token comment">//提前判断队列是否为空，否则会一直循环</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>q<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token keyword">break</span><span class="token punctuation">;</span>
-        q<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>x<span class="token operator">+</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span> 
-    <span class="token punctuation">}</span>
-    cout<span class="token operator">&lt;&lt;</span>sum<span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>ε-closure(δ(A, a))</code> ：表示从 A 集合中任何一个点出发，在输入 a 的前提下可以走到的点的集合。</p>
+<p>对于给定的 DFA，如果状态集合中的某个状态无法通过任何输入字符转移到其他状态集合中的状态，那么这个状态就是不可细分的，也就不需要进一步划分。状态集合 F 中的每个状态都可以相互转移，没有办法将其进一步划分为不可细分的子集。因此，F 不需要进一步划分。</p>
+<h4 id="2-13题">2.13题</h4>
+<p>题目：构造表示 0，1 个数都是偶数的01字符串的 DFA</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42689684/article/details/82763075">增进理解</a></p>
+<img src="https://s2.loli.net/2023/06/28/Q21m8proLeMzdjw.png" alt="image-20230628115220255.png" style="zoom:50%;">
+<h4 id="2-14题">2.14题</h4>
+<p>题目：构造 DFA，识别 <code>{0,1}</code> 上能被 5 整除的二进制数</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Jacky_chenjp/article/details/52555427">题目解析</a></p>
 
                 
             </div>
@@ -624,7 +567,7 @@ priority_queue<span class="token operator">&lt;</span><span class="token keyword
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://xinyi127.cn/posts/9717c293.html">http://xinyi127.cn/posts/9717c293.html</a>
+                    <a href="http://xinyi127.cn/posts/8671.html">http://xinyi127.cn/posts/8671.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -662,16 +605,8 @@ priority_queue<span class="token operator">&lt;</span><span class="token keyword
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/C/">
-                                    <span class="chip bg-color">C++</span>
-                                </a>
-                            
-                                <a href="/tags/%E8%B4%AA%E5%BF%83/">
-                                    <span class="chip bg-color">贪心</span>
-                                </a>
-                            
-                                <a href="/tags/Huffman%E6%A0%91/">
-                                    <span class="chip bg-color">Huffman树</span>
+                                <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                                    <span class="chip bg-color">编译原理</span>
                                 </a>
                             
                         </div>
@@ -961,54 +896,48 @@ priority_queue<span class="token operator">&lt;</span><span class="token keyword
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/d8c11c37.html">
+                <a href="/posts/8671.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="【题解】区间选点">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="编译原理第二章作业">
                         
-                        <span class="card-title">【题解】区间选点</span>
+                        <span class="card-title">编译原理第二章作业</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            贪心问题入门。
+                            梳理一下第二章作业~
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%A2%98%E8%A7%A3/" class="post-category">
-                                    题解
+                            <a href="/categories/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" class="post-category">
+                                    期末复习
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%8C%BA%E9%97%B4%E9%97%AE%E9%A2%98/">
-                        <span class="chip bg-color">区间问题</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%B4%AA%E5%BF%83/">
-                        <span class="chip bg-color">贪心</span>
+                    <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                        <span class="chip bg-color">编译原理</span>
                     </a>
                     
                 </div>
@@ -1022,31 +951,31 @@ priority_queue<span class="token operator">&lt;</span><span class="token keyword
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/41540c62.html">
+                <a href="/posts/7c2d.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="【模板】归并排序">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Datagrip 提示 No database select">
                         
-                        <span class="card-title">【模板】归并排序</span>
+                        <span class="card-title">Datagrip 提示 No database select</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            明明名字里带排序，结果现在通常用来求数列逆序对hhh。
+                            简单记录一下数据库的坑
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-23
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%A8%A1%E6%9D%BF/" class="post-category">
-                                    模板
+                            <a href="/categories/%E6%9D%82%E8%B0%88/" class="post-category">
+                                    杂谈
                                 </a>
                             
                             
@@ -1056,12 +985,8 @@ priority_queue<span class="token operator">&lt;</span><span class="token keyword
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/">
-                        <span class="chip bg-color">归并排序</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
                     </a>
                     
                 </div>
