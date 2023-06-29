@@ -6,7 +6,7 @@
   <link href="http://xinyi127.cn/atom.xml" rel="self"/>
   
   <link href="http://xinyi127.cn/"/>
-  <updated>2023-06-28T04:08:11.663Z</updated>
+  <updated>2023-06-29T12:55:31.361Z</updated>
   <id>http://xinyi127.cn/</id>
   
   <author>
@@ -17,22 +17,20 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>编译原理第二章作业</title>
+    <title>编译原理期末复习</title>
     <link href="http://xinyi127.cn/posts/8671.html"/>
     <id>http://xinyi127.cn/posts/8671.html</id>
     <published>2023-06-28T04:06:36.000Z</published>
-    <updated>2023-06-28T04:08:11.663Z</updated>
+    <updated>2023-06-29T12:55:31.361Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;第二章&quot;&gt;第二章&lt;/h3&gt;
-&lt;hr&gt;
-&lt;h4 id=&quot;前缀知识&quot;&gt;前缀知识&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p&gt;DFA（Deterministic Finite Automaton）和NFA（Nondeterministic Finite</summary>
+    <summary type="html">&lt;h3 id=&quot;写在前面&quot;&gt;写在前面&lt;/h3&gt;
+&lt;p&gt;很诚恳的说，本文并非详实的“答案”，仅为笔者在复习题目（预习）时的体会和心得，当然也会给出对笔者有帮助的资料以供读者参阅。&lt;/p&gt;
+&lt;p&gt;另外，本文需要配合老师所给出的 PTT</summary>
         
       
     
@@ -112,7 +110,7 @@
     <link href="http://xinyi127.cn/posts/15e3.html"/>
     <id>http://xinyi127.cn/posts/15e3.html</id>
     <published>2023-05-20T03:30:05.000Z</published>
-    <updated>2023-06-24T07:23:50.076Z</updated>
+    <updated>2023-06-27T02:37:53.996Z</updated>
     
     
       
