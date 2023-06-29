@@ -576,9 +576,9 @@
             
             <tag> C++ </tag>
             
-            <tag> 图论 </tag>
-            
             <tag> 贪心 </tag>
+            
+            <tag> 图论 </tag>
             
             <tag> 环 </tag>
             
@@ -773,11 +773,11 @@
       
         <tags>
             
-            <tag> 数据库 </tag>
-            
             <tag> Java </tag>
             
             <tag> Derby </tag>
+            
+            <tag> 数据库 </tag>
             
         </tags>
       
@@ -1436,9 +1436,9 @@
       
         <tags>
             
-            <tag> AcWing周赛 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> AcWing周赛 </tag>
             
         </tags>
       
@@ -1721,35 +1721,6 @@
     
     
     <entry>
-      <title>【题解】合并果子</title>
-      <link href="/posts/9717c293.html"/>
-      <url>/posts/9717c293.html</url>
-      
-        <content type="html"><![CDATA[<h4 id="题目：合并果子">题目：<a href="https://www.acwing.com/problem/content/150/">合并果子</a></h4><h4 id="题意：">题意：</h4><p>在一个果园里，达达已经将所有的果子打了下来，而且按果子的不同种类分成了不同的堆。</p><p>达达决定把所有的果子合成一堆。</p><p>每一次合并，达达可以把两堆果子合并到一起，消耗的体力等于两堆果子的重量之和。</p><p>可以看出，所有的果子经过 n−1 次合并之后，就只剩下一堆了。</p><p>达达在合并果子时总共消耗的体力等于每次合并所耗体力之和。</p><p>因为还要花大力气把这些果子搬回家，所以达达在合并果子时要尽可能地节省体力。</p><p>假定每个果子重量都为 1，并且已知果子的种类数和每种果子的数目，你的任务是设计出合并的次序方案，使达达耗费的体力最少，并输出这个最小的体力耗费值。</p><p>例如有 3 种果子，数目依次为 1，2，9。</p><p>可以先将 1、2 堆合并，新堆数目为 3，耗费体力为 3。</p><p>接着，将新堆与原先的第三堆合并，又得到新的堆，数目为 12，耗费体力为 12。</p><p>所以达达总共耗费体力=3+12=15。</p><p>可以证明 15 为最小的体力耗费值。</p><h4 id="输入格式">输入格式</h4><p>输入包括两行，第一行是一个整数 n，表示果子的种类数。</p><p>第二行包含 n 个整数，用空格分隔，第 i 个整数 ai 是第 i 种果子的数目。</p><h4 id="输出格式">输出格式</h4><p>输出包括一行，这一行只包含一个整数，也就是最小的体力耗费值。</p><p>输入数据保证这个值小于 2<sup>31</sup>。</p><h4 id="数据范围">数据范围</h4><p>1 ≤ n ≤ 10000,<br>1 ≤ ai ≤ 20000</p><h4 id="输入样例：">输入样例：</h4><pre class="line-numbers language-none"><code class="language-none">3 1 2 9 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h4 id="输出样例：">输出样例：</h4><pre class="line-numbers language-none"><code class="language-none">15<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h4 id="思路：">思路：</h4><ul><li>考虑对于当前步骤最优的行动，显然是取当前的两个最小值相加。</li><li>而通过合并的哈夫曼树可以证明将较小值从浅层交换到深层一定会导致哈夫曼树的代权路径长度变小，这就说明了每次选最小的两个是全局最优。</li><li>所以最优解就是每次将两个最小值从集合中取出相加，并将新的数加入到集合中，直到集合中只剩下一个数时，就是所求值。</li><li>可能有同学会觉得这道题和 <a href="http://xinyi127.cn/2022/07/11/%E7%9F%B3%E5%AD%90%E5%90%88%E5%B9%B6/">石子合并</a> 这道题很像，但其实不一样。<ul><li>1.<em>石子合并</em> 只允许合并两个相邻的石子。而本题则允许合并任意两堆。</li><li>2.<em>石子合并</em> 的数据范围 <code>n</code> 不大于300，而这道题 <code>n</code> 的范围是不大于10<sup>4</sup>。</li></ul></li></ul><h4 id="代码">代码</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;algorithm&gt;</span></span><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;cstring&gt;</span></span><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;string.h&gt;</span></span><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;queue&gt;</span></span><span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span><span class="token keyword">const</span> <span class="token keyword">int</span> N<span class="token operator">=</span><span class="token number">10010</span><span class="token punctuation">;</span><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">ll</span> <span class="token expression"><span class="token keyword">long</span> <span class="token keyword">long</span></span></span><span class="token keyword">int</span> n<span class="token punctuation">;</span><span class="token comment">//优先队列相当于自己实现了一个哈夫曼树</span>priority_queue<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token punctuation">,</span>greater<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span>q<span class="token punctuation">;</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    cin<span class="token operator">&gt;&gt;</span>n<span class="token punctuation">;</span>    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span>    <span class="token punctuation">{</span>        <span class="token keyword">int</span> x<span class="token punctuation">;</span>        cin<span class="token operator">&gt;&gt;</span>x<span class="token punctuation">;</span>        q<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    ll sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>    <span class="token keyword">while</span><span class="token punctuation">(</span>q<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span>n<span class="token operator">&gt;</span><span class="token number">1</span><span class="token punctuation">)</span>    <span class="token punctuation">{</span>        <span class="token keyword">int</span> x<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>y<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>q<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>x<span class="token operator">=</span>q<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>q<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>q<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>y<span class="token operator">=</span>q<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>q<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        sum<span class="token operator">+=</span>x<span class="token operator">+</span>y<span class="token punctuation">;</span>        <span class="token comment">//提前判断队列是否为空，否则会一直循环</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>q<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token keyword">break</span><span class="token punctuation">;</span>        q<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>x<span class="token operator">+</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>    cout<span class="token operator">&lt;&lt;</span>sum<span class="token punctuation">;</span>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> 题解 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> C++ </tag>
-            
-            <tag> 贪心 </tag>
-            
-            <tag> Huffman树 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>【题解】区间选点</title>
       <link href="/posts/d8c11c37.html"/>
       <url>/posts/d8c11c37.html</url>
@@ -1771,6 +1742,35 @@
             <tag> 区间问题 </tag>
             
             <tag> 贪心 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【题解】合并果子</title>
+      <link href="/posts/9717c293.html"/>
+      <url>/posts/9717c293.html</url>
+      
+        <content type="html"><![CDATA[<h4 id="题目：合并果子">题目：<a href="https://www.acwing.com/problem/content/150/">合并果子</a></h4><h4 id="题意：">题意：</h4><p>在一个果园里，达达已经将所有的果子打了下来，而且按果子的不同种类分成了不同的堆。</p><p>达达决定把所有的果子合成一堆。</p><p>每一次合并，达达可以把两堆果子合并到一起，消耗的体力等于两堆果子的重量之和。</p><p>可以看出，所有的果子经过 n−1 次合并之后，就只剩下一堆了。</p><p>达达在合并果子时总共消耗的体力等于每次合并所耗体力之和。</p><p>因为还要花大力气把这些果子搬回家，所以达达在合并果子时要尽可能地节省体力。</p><p>假定每个果子重量都为 1，并且已知果子的种类数和每种果子的数目，你的任务是设计出合并的次序方案，使达达耗费的体力最少，并输出这个最小的体力耗费值。</p><p>例如有 3 种果子，数目依次为 1，2，9。</p><p>可以先将 1、2 堆合并，新堆数目为 3，耗费体力为 3。</p><p>接着，将新堆与原先的第三堆合并，又得到新的堆，数目为 12，耗费体力为 12。</p><p>所以达达总共耗费体力=3+12=15。</p><p>可以证明 15 为最小的体力耗费值。</p><h4 id="输入格式">输入格式</h4><p>输入包括两行，第一行是一个整数 n，表示果子的种类数。</p><p>第二行包含 n 个整数，用空格分隔，第 i 个整数 ai 是第 i 种果子的数目。</p><h4 id="输出格式">输出格式</h4><p>输出包括一行，这一行只包含一个整数，也就是最小的体力耗费值。</p><p>输入数据保证这个值小于 2<sup>31</sup>。</p><h4 id="数据范围">数据范围</h4><p>1 ≤ n ≤ 10000,<br>1 ≤ ai ≤ 20000</p><h4 id="输入样例：">输入样例：</h4><pre class="line-numbers language-none"><code class="language-none">3 1 2 9 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h4 id="输出样例：">输出样例：</h4><pre class="line-numbers language-none"><code class="language-none">15<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h4 id="思路：">思路：</h4><ul><li>考虑对于当前步骤最优的行动，显然是取当前的两个最小值相加。</li><li>而通过合并的哈夫曼树可以证明将较小值从浅层交换到深层一定会导致哈夫曼树的代权路径长度变小，这就说明了每次选最小的两个是全局最优。</li><li>所以最优解就是每次将两个最小值从集合中取出相加，并将新的数加入到集合中，直到集合中只剩下一个数时，就是所求值。</li><li>可能有同学会觉得这道题和 <a href="http://xinyi127.cn/2022/07/11/%E7%9F%B3%E5%AD%90%E5%90%88%E5%B9%B6/">石子合并</a> 这道题很像，但其实不一样。<ul><li>1.<em>石子合并</em> 只允许合并两个相邻的石子。而本题则允许合并任意两堆。</li><li>2.<em>石子合并</em> 的数据范围 <code>n</code> 不大于300，而这道题 <code>n</code> 的范围是不大于10<sup>4</sup>。</li></ul></li></ul><h4 id="代码">代码</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;algorithm&gt;</span></span><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;cstring&gt;</span></span><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;string.h&gt;</span></span><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;queue&gt;</span></span><span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span><span class="token keyword">const</span> <span class="token keyword">int</span> N<span class="token operator">=</span><span class="token number">10010</span><span class="token punctuation">;</span><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">ll</span> <span class="token expression"><span class="token keyword">long</span> <span class="token keyword">long</span></span></span><span class="token keyword">int</span> n<span class="token punctuation">;</span><span class="token comment">//优先队列相当于自己实现了一个哈夫曼树</span>priority_queue<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token punctuation">,</span>greater<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span>q<span class="token punctuation">;</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    cin<span class="token operator">&gt;&gt;</span>n<span class="token punctuation">;</span>    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span>    <span class="token punctuation">{</span>        <span class="token keyword">int</span> x<span class="token punctuation">;</span>        cin<span class="token operator">&gt;&gt;</span>x<span class="token punctuation">;</span>        q<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    ll sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>    <span class="token keyword">while</span><span class="token punctuation">(</span>q<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span>n<span class="token operator">&gt;</span><span class="token number">1</span><span class="token punctuation">)</span>    <span class="token punctuation">{</span>        <span class="token keyword">int</span> x<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>y<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>q<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>x<span class="token operator">=</span>q<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>q<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>q<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>y<span class="token operator">=</span>q<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>q<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        sum<span class="token operator">+=</span>x<span class="token operator">+</span>y<span class="token punctuation">;</span>        <span class="token comment">//提前判断队列是否为空，否则会一直循环</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>q<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token keyword">break</span><span class="token punctuation">;</span>        q<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>x<span class="token operator">+</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>    cout<span class="token operator">&lt;&lt;</span>sum<span class="token punctuation">;</span>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 贪心 </tag>
+            
+            <tag> Huffman树 </tag>
             
         </tags>
       
