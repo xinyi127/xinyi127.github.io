@@ -473,7 +473,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-09
+                    2023-06-30
                 </div>
                 
 
@@ -518,7 +518,7 @@
 <h2 id="题目总结">题目总结:</h2>
 <h3 id="三-应用题">三 应用题:</h3>
 <h4 id="1-CPU与存储器的连接">1.CPU与存储器的连接</h4>
-<p><img src="https://img-blog.csdnimg.cn/20a93fd2806f4a0bbad019ad99ba767e.png" alt=""></p>
+<p><img src="https://s2.loli.net/2023/06/30/jQRfeoTlF74GmEs.png" alt="图1"></p>
 <ul>
 <li>
 <p>根据题目确定<strong>系统程序区</strong>和<strong>用户程序区</strong>的容量</p>
@@ -532,7 +532,7 @@
 <ul>
 <li>注意, 题目不会直接给我们正好合适的芯片, 需要我们自己去扩展, 有字扩展和位扩展两种. 两个2k × 8位可以合成一个4k × 8位, 这就是字扩展. 两个4k × 4位可以合成一个4k × 8位, 这就是位扩展. 字扩展和位扩展的区别体现在画图上, <strong>位扩展则芯片连接CPU对应的数据线</strong>, 比如两个4k的芯片合成一个8k的芯片, 那么这两个4k芯片分别连接CPU的D0、D3端口和D4、D7端口. <strong>字扩展则对应74138译码器的输出端</strong>(不必知道74138译码器是什么, 只要记住怎么画和分清输入端输出端即可).</li>
 <li>如图:<br>
-<img src="https://img-blog.csdnimg.cn/b4166294029a4943804aeed076aff802.png" alt="在这里插入图片描述"></li>
+<img src="https://s2.loli.net/2023/06/30/SY2uyb7DH4wBWGp.png" alt="图2"></li>
 </ul>
 </li>
 <li>
@@ -543,7 +543,7 @@
 </li>
 <li>
 <p>注意两片ROM对应1个4k容量. 三个RAM对应12k容量, 也就是1个RAM对应1个4k容量, 写成二进制:</p>
-<p><img src="https://img-blog.csdnimg.cn/906e49ed0c244d8b9cc4ffe25e4e0deb.png" alt=""></p>
+<p><img src="https://s2.loli.net/2023/06/30/E8r4eLoOXsCWKNz.png" alt="图3"></p>
 </li>
 </ul>
 </li>
@@ -561,7 +561,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="https://img-blog.csdnimg.cn/f8d225f209bd4df1a9f3964380eb105a.png" alt=""></p>
+<p><img src="https://s2.loli.net/2023/06/30/NpWQqx5vBfITjob.png" alt="图4"></p>
 <p><strong>参考连接：</strong> <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41913072/article/details/85137196"> 存储器与CPU的连接_yrdelft的博客-CSDN博客_存储器与cpu的连接</a></p>
 <h4 id="2-设计主存地址">2.设计主存地址</h4>
 <p>统一块长, Cache容量, 主存容量三者的单位, 最好都换算成B的单位(1B代表1个字节, 1B = 8b. 1b代表1位).</p>
@@ -883,7 +883,7 @@
 <li>CRC码很简单, 先看被传输的信息是否满足n位(也即CRC码的位数), 如果不满足就在后面补零. 然后用得到的n位CRC码 (这里是1000 000) 去除所确定的多项式, 这里是1011, 最后所得的余数取n - m (m是被传输的信息的位数) 位补在被传输的信息后面即可. 注意, 这里的<strong>除</strong>其实是逐位异或的意思, 只是形式上很像除法.</li>
 <li>本题中: 被传输的信息C(x) = 1000, CRC码为7位, 可暂得CRC码1000000, 然后如图所示可得余数101, 最终所得CRC码即为: 1000101</li>
 </ul>
-<p><img src="https://img-blog.csdnimg.cn/1acc1ebdc0d449a7bb8794ff18324117.png" alt=""></p>
+<p><img src="https://s2.loli.net/2023/06/30/rOaF3vEuhJxiskb.png" alt="图5"></p>
 <h4 id="4-海明码">4.海明码</h4>
 <p><strong>参考链接:</strong></p>
 <p>看明白什么是海明码: <a target="_blank" rel="noopener" href="https://blog.csdn.net/konley233/article/details/108134466">可能是最详细的海明校验码（汉明码）解法_1橘猫的博客-CSDN博客_海明校验码例题</a></p>
@@ -892,7 +892,7 @@
 <p><strong>例题: 已知八位数据11001100采用4位校验位, 偶校验方式, 求出海明校验码. (总结海明校验码具体步骤).</strong></p>
 <ul>
 <li>做法在上方链接, 讲的很好, 这里只给出答案.<br>
-<img src="https://img-blog.csdnimg.cn/64a7c6ce7d9140e2aa7d0982c3dfd795.png" alt=""></li>
+<img src="https://s2.loli.net/2023/06/30/US7alX2NDuwpi4I.png" alt="图6"></li>
 </ul>
 <h4 id="5-IEEE754浮点数">5.IEEE754浮点数</h4>
 <p>知识点涉及面比较广, 但是只要求会做题的话很简单.</p>
@@ -1756,7 +1756,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">149.6k</span>
+                        class="white-color">150.4k</span>
             
             
             

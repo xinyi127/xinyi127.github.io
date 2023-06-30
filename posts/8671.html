@@ -473,21 +473,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-06-29
+                    2023-06-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    11 分
                 </div>
                 
 
@@ -544,7 +544,7 @@
 <h4 id="2-13题">2.13题</h4>
 <p>题目：构造表示 0，1 个数都是偶数的01字符串的 DFA</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42689684/article/details/82763075">增进理解</a></p>
-<img src="https://s2.loli.net/2023/06/28/Q21m8proLeMzdjw.png" alt="image-20230628115220255.png" style="zoom:50%;">
+<img src="https://s2.loli.net/2023/06/28/Q21m8proLeMzdjw.png" alt="题 2.13" style="zoom:50%;">
 <h4 id="2-14题">2.14题</h4>
 <p>题目：构造 DFA，识别 <code>{0,1}</code> 上能被 5 整除的二进制数</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Jacky_chenjp/article/details/52555427">题目解析</a></p>
@@ -645,7 +645,56 @@
 </ol>
 <hr>
 <h3 id="第四章">第四章</h3>
-<p>在努力复习了，敬请期待~</p>
+<h4 id="前缀知识-3">前缀知识</h4>
+<p>以下仅用通俗语言描述，只需要有个印象，否则直接做题短时间内很难接受陌生的知识。</p>
+<blockquote>
+<p>综合属性：自下往上传</p>
+<p>继承属性：兄弟或自上往下传</p>
+<p>注释分析树：可视为给分析树添加注释。</p>
+<p>语法制导定义：可视为解释产生式的动作。</p>
+<p>翻译方案：复杂化的语法制导定义</p>
+</blockquote>
+<h4 id="4-1-题">4.1 题</h4>
+<p><strong>题目</strong> ：根据表 4.1 的语法制导定义，为输入表达式 <code>5*（4*3+2）</code> 构造注释分析树。</p>
+<p><img src="https://s2.loli.net/2023/06/30/Eoc5ApgHSrwmvCe.png" alt="题 4.1"></p>
+<p><strong>解析</strong> ：</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1yt4y1t7HC/?spm_id_from=333.337.search-card.all.click&amp;vd_source=4c641295e18917e9d2cad4d846182614">注释分析树视频版</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46202073/article/details/109823818?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168804625316800226544296%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=168804625316800226544296&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-109823818-null-null.142%5Ev88%5Econtrol_2,239%5Ev2%5Einsert_chatgpt&amp;utm_term=%E6%B3%A8%E9%87%8A%E5%88%86%E6%9E%90%E6%95%B0&amp;spm=1018.2226.3001.4187">注释分析树文字版</a></p>
+<p>注释分析树：</p>
+<ol>
+<li>先从上往下根据产生式画出分析树。</li>
+<li>再从下往上根据语义规则补全注释。</li>
+</ol>
+<h4 id="4-2-题">4.2 题</h4>
+<p><strong>题目</strong> ：为文法 <code>S → (L)|a</code> 、<code>L → L,S|S</code></p>
+<p>( a ) 写一个语法制导定义，它输出括号的对数。</p>
+<p>( b ) 写一个语法制导定义，它输出括号的最大深度。</p>
+<p><strong>解析</strong> ：</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Hatfield/p/12993788.html">打开链接，第5题(1)。重点看图以加深理解</a></p>
+<p>用 <strong>递归的回溯过程</strong> 视角从下往上看分析树，就会发现很好理解，记得语法制导定义的开头 <code>S'-&gt;Sn</code> 用于输出结果。</p>
+<h4 id="4-10-题">4.10 题</h4>
+<p><strong>题目</strong> ：文法如下： <code>S → (L)|a</code> 、<code>L → L,S|S</code></p>
+<p>( a )写一个翻译方案，它输出每个 a 的嵌套深度。例如，对于句子 ( a ,( a , a ) )，输出的结果是 1 2 2。</p>
+<p>( b )写一个翻译方案，它打印出每个 a 在句子中是第几个字符。例如，当句子是 ( a , ( a , ( a , a ) , ( a ) ) ) 时，打印的结果是 2 5 8 10 14。</p>
+<p><strong>解析</strong> ：</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1FQ4y1r7ub?p=13&amp;vd_source=4c641295e18917e9d2cad4d846182614">关于翻译模式：p13 、23:14</a></p>
+<p>明确了什么是翻译模式后，这道题以自上往下看的视角就很容易理解了。依然是拆解文法的候选式，注意由 <code>{}</code> 括起来的语义动作在新产生式右部的位置就可以了。类似复杂一点的语法制导定义。</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1yt4y1t7HC/?spm_id_from=333.788&amp;vd_source=4c641295e18917e9d2cad4d846182614">关于综合属性和继承属性：13:20</a></p>
+<p>个人推荐不必细究其明确的学术定义，如果只是希望会做题，那么不需要知道为什么。</p>
+<p><a target="_blank" rel="noopener" href="http://staff.ustc.edu.cn/~yuzhang/compiler/2018f/lectures/TA3-H7Midterm.pdf">关于第二问：前五页</a></p>
+<p>第二问的重点在于理解什么时候需要加 1，例如 <code>S-&gt;(L)</code> ，S 推导出的 <code>(L)</code> 前多了字符 <code>(</code> ，所以需要加 1。</p>
+<h4 id="4-13-题">4.13 题</h4>
+<p><strong>题目</strong> ：下面是构造语法树的一个 S 属性定义。将这里的语义规则翻译成 LR 翻译器的栈操作代码段。</p>
+<p><img src="https://s2.loli.net/2023/06/30/3ik6aHlUgOypAFt.png" alt="题 4.13"></p>
+<p><strong>解析</strong> ：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_56462041/article/details/128025461">打开链接，通过目录找到第4部分：S-属性定义的自底向上计算</a></p>
+<p>个人理解：</p>
+<ol>
+<li>将产生式左部全部用 <code>var[ntop]</code> 替换。</li>
+<li>将产生式右部从左向右依次加入栈，然后按照每个符号距离栈顶的位置替换其在语义规则中的位置。例如 <code>E-&gt;E1+T</code> ，入栈顺序依次是 <code>E1</code>、<code>+</code>、<code>T</code> ，其中 <code>T</code> 在栈顶，<code>E1</code> 位置是栈顶向下 2 个位置，所以 <code>E1</code> 用 <code>var[ntop-2]</code> 替换。</li>
+<li>终结符和函数名照抄。</li>
+<li>如果产生式右部只有一个非终结符且位于栈顶，则可以省略。</li>
+</ol>
 
                 
             </div>
@@ -1325,7 +1374,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">149.6k</span>
+                        class="white-color">150.4k</span>
             
             
             
