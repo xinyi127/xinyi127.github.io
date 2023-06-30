@@ -525,15 +525,17 @@
 <p>DFA 是一种确定性有限自动机，它在给定输入字符和当前状态的情况下，根据提前定义好的状态转移函数，唯一地确定下一个状态。换句话说，从每个状态出发，对于给定的输入字符，只能到达一个特定的下一个状态。DFA 拥有确定性，因为它的状态转移是确定的。</p>
 <p>NFA 是一种非确定性有限自动机，相比于 DFA，它在给定输入字符和当前状态的情况下，可以有多个可能的下一个状态。这意味着在某个状态下，对于给定的输入字符，可以选择多个转移路径。NFA 的状态转移是非确定的，因此它可以同时处于多个状态。</p>
 </blockquote>
-<h4 id="2-3题">2.3题</h4>
-<p>题目：叙述由下列正规式描述的语言</p>
-<p>找没有闭包符号的字符</p>
-<h4 id="2-7题">2.7题</h4>
-<p>题目：用算法 2.4 为下列正规式构造 NFA，并给出处理 ababbab 的状态转换序列</p>
+<h4 id="2-3-题">2.3 题</h4>
+<p><strong>题目</strong> ：叙述由下列正规式描述的语言</p>
+<p><strong>解析</strong> ：找没有闭包符号（ <code>*</code> ）的字符</p>
+<h4 id="2-7-题">2.7 题</h4>
+<p><strong>题目</strong> ：用算法 2.4 为下列正规式构造 NFA，并给出处理 ababbab 的状态转换序列</p>
+<p><strong>解析</strong> ：</p>
 <p><a target="_blank" rel="noopener" href="https://blog.nowcoder.net/n/de7fe22f22db49b5bebb9c259dd5d5df?from=nowcoder_improve">打开链接，看链接内作业一</a></p>
 <p>注意基本符号 NFA 的构造</p>
-<h4 id="2-11题">2.11题</h4>
-<p>题目：可以通过正规式的最简 DFA 同构来证明正规式等价。证明下列正规式等价</p>
+<h4 id="2-11-题">2.11 题</h4>
+<p><strong>题目</strong> ：可以通过正规式的最简 DFA 同构来证明正规式等价。证明下列正规式等价</p>
+<p><strong>解析</strong> ：</p>
 <p><a target="_blank" rel="noopener" href="https://blog.nowcoder.net/n/de7fe22f22db49b5bebb9c259dd5d5df?from=nowcoder_improve">打开链接，看链接内作业二</a></p>
 <p><a target="_blank" rel="noopener" href="http://wdata.nongyekx.cn/pdgpath/pdgpath.dll?d=4f5d49806e3dea521feb28aa2d00a56e1d5ec0983ea9538d821c6521541d73876e8d53606dbcb7292beb2ae1e64f71bc&amp;n=%A1%B6%B1%E0%D2%EB%D4%AD%C0%ED%A1%B7%CF%B0%CC%E2%B2%CE%BF%BC%B4%F0%B0%B8(%D2%BB)">下载PDF，看第二章2.7、2.8、2.11</a></p>
 <ul>
@@ -541,12 +543,14 @@
 </ul>
 <p><code>ε-closure(δ(A, a))</code> ：表示从 A 集合中任何一个点出发，在输入 a 的前提下可以走到的点的集合。</p>
 <p>对于给定的 DFA，如果状态集合中的某个状态无法通过任何输入字符转移到其他状态集合中的状态，那么这个状态就是不可细分的，也就不需要进一步划分。状态集合 F 中的每个状态都可以相互转移，没有办法将其进一步划分为不可细分的子集。因此，F 不需要进一步划分。</p>
-<h4 id="2-13题">2.13题</h4>
-<p>题目：构造表示 0，1 个数都是偶数的01字符串的 DFA</p>
+<h4 id="2-13-题">2.13 题</h4>
+<p><strong>题目</strong> ：构造表示 0，1 个数都是偶数的01字符串的 DFA</p>
+<p><strong>解析</strong> ：</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42689684/article/details/82763075">增进理解</a></p>
-<img src="https://s2.loli.net/2023/06/28/Q21m8proLeMzdjw.png" alt="题 2.13" style="zoom:50%;">
-<h4 id="2-14题">2.14题</h4>
-<p>题目：构造 DFA，识别 <code>{0,1}</code> 上能被 5 整除的二进制数</p>
+<img src="https://s2.loli.net/2023/06/28/Q21m8proLeMzdjw.png" alt="image-20230628115220255.png" style="zoom:50%;">
+<h4 id="2-14-题">2.14 题</h4>
+<p><strong>题目</strong> ：构造 DFA，识别 <code>{0,1}</code> 上能被 5 整除的二进制数</p>
+<p><strong>解析</strong> ：</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Jacky_chenjp/article/details/52555427">题目解析</a></p>
 <hr>
 <h3 id="第三章">第三章</h3>
