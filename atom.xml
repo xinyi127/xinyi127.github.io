@@ -6,7 +6,7 @@
   <link href="http://xinyi127.cn/atom.xml" rel="self"/>
   
   <link href="http://xinyi127.cn/"/>
-  <updated>2023-07-01T02:41:16.094Z</updated>
+  <updated>2023-07-01T16:25:56.611Z</updated>
   <id>http://xinyi127.cn/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>计算机网络期末复习</title>
+    <link href="http://xinyi127.cn/posts/2892.html"/>
+    <id>http://xinyi127.cn/posts/2892.html</id>
+    <published>2023-07-01T15:50:37.000Z</published>
+    <updated>2023-07-01T16:25:56.611Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;前言&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文 &lt;strong&gt;题型部分&lt;/strong&gt; 为笔者的计网老师在答疑课上所提及的。 &lt;strong&gt;计算题部分&lt;/strong&gt; 根据 bilibili &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="期末复习" scheme="http://xinyi127.cn/categories/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"/>
+    
+    
+    <category term="计算机网络" scheme="http://xinyi127.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>编译原理期末复习</title>
     <link href="http://xinyi127.cn/posts/8671.html"/>
     <id>http://xinyi127.cn/posts/8671.html</id>
     <published>2023-06-28T04:06:36.000Z</published>
-    <updated>2023-07-01T02:41:16.094Z</updated>
+    <updated>2023-07-01T16:18:19.121Z</updated>
     
     
       
@@ -29,6 +56,7 @@
         
         
     <summary type="html">&lt;h3 id=&quot;写在前面&quot;&gt;写在前面&lt;/h3&gt;
+&lt;blockquote&gt;
 &lt;p&gt;很诚恳的说，本文 &lt;strong&gt;并非详实&lt;/strong&gt;</summary>
         
       
@@ -572,36 +600,6 @@
     <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
     
     <category term="BFS" scheme="http://xinyi127.cn/tags/BFS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【题解】完全二叉树的权值</title>
-    <link href="http://xinyi127.cn/posts/acf9.html"/>
-    <id>http://xinyi127.cn/posts/acf9.html</id>
-    <published>2023-02-12T11:43:16.000Z</published>
-    <updated>2023-04-21T07:40:41.655Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;题目链接：完全二叉树的权值&quot;&gt;题目链接：&lt;a href=&quot;https://www.acwing.com/activity/content/problem/content/1748/&quot;&gt;完全二叉树的权值&lt;/a&gt;&lt;/h4&gt;
-&lt;h4</summary>
-        
-      
-    
-    
-    
-    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
-    
-    
-    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
-    
-    <category term="双指针" scheme="http://xinyi127.cn/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
-    
-    <category term="二叉树" scheme="http://xinyi127.cn/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
   </entry>
   
