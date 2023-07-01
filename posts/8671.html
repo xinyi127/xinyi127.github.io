@@ -473,21 +473,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-06-30
+                    2023-07-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    3.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    14 分
                 </div>
                 
 
@@ -511,9 +511,10 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="写在前面">写在前面</h3>
-<p>很诚恳的说，本文并非详实的“答案”，仅为笔者在复习题目（预习）时的体会和心得，当然也会给出对笔者有帮助的资料以供读者参阅。</p>
+<p>很诚恳的说，本文 <strong>并非详实</strong> （这可能意味着需要读者亲自思考）的“答案”，仅为笔者在复习题目（预习）时的体会和心得，当然也会给出对笔者有帮助的资料以供读者参阅。</p>
+<p>随着考试临近，本文将随着笔者的不断复习题目而同步更新，若有问题可在评论区留言，下一次更新或将修改相关描述。</p>
 <p>另外，本文需要配合老师所给出的 PTT 作为资料（如果你已经有了一定基础，也可以只看本文，因为相应题目笔者已经给出）。</p>
-<p>下面是链接：</p>
+<p>下面是 PPT 下载链接：</p>
 <p><a target="_blank" rel="noopener" href="https://wwbo.lanzoup.com/iJovJ10s96yj">点我下载第二章</a></p>
 <p><a target="_blank" rel="noopener" href="https://wwbo.lanzoup.com/i1UQW10s9aod">点我下载第三章</a></p>
 <p><a target="_blank" rel="noopener" href="https://wwbo.lanzoup.com/ijlQA10sbn5e">点我下载第四章</a></p>
@@ -521,18 +522,22 @@
 <h3 id="第二章">第二章</h3>
 <h4 id="前缀知识">前缀知识</h4>
 <blockquote>
-<p>DFA（Deterministic Finite Automaton）和NFA（Nondeterministic Finite Automaton）都是有限自动机模型，用于描述和识别形式语言。</p>
+<p>DFA（Deterministic Finite Automaton）和 NFA（Nondeterministic Finite Automaton）都是有限自动机模型，用于描述和识别形式语言。</p>
 <p>DFA 是一种确定性有限自动机，它在给定输入字符和当前状态的情况下，根据提前定义好的状态转移函数，唯一地确定下一个状态。换句话说，从每个状态出发，对于给定的输入字符，只能到达一个特定的下一个状态。DFA 拥有确定性，因为它的状态转移是确定的。</p>
 <p>NFA 是一种非确定性有限自动机，相比于 DFA，它在给定输入字符和当前状态的情况下，可以有多个可能的下一个状态。这意味着在某个状态下，对于给定的输入字符，可以选择多个转移路径。NFA 的状态转移是非确定的，因此它可以同时处于多个状态。</p>
 </blockquote>
 <h4 id="2-3-题">2.3 题</h4>
 <p><strong>题目</strong> ：叙述由下列正规式描述的语言</p>
-<p><strong>解析</strong> ：找没有闭包符号（ <code>*</code> ）的字符</p>
+<p><strong>解析</strong> ：找没有闭包符号 <code>*</code> 的字符，描述这些字符的 <strong>个数</strong> 和 <strong>数量</strong> 。</p>
 <h4 id="2-7-题">2.7 题</h4>
 <p><strong>题目</strong> ：用算法 2.4 为下列正规式构造 NFA，并给出处理 ababbab 的状态转换序列</p>
 <p><strong>解析</strong> ：</p>
 <p><a target="_blank" rel="noopener" href="https://blog.nowcoder.net/n/de7fe22f22db49b5bebb9c259dd5d5df?from=nowcoder_improve">打开链接，看链接内作业一</a></p>
-<p>注意基本符号 NFA 的构造</p>
+<p>注意基本符号 NFA 的构造，比如想要推导出 <code>(a|b)</code> 那么就需要画出如下的图：</p>
+<p><img src="https://s2.loli.net/2023/07/01/j92ZFGTXyB4aA8r.png" alt="(a|b) 的 NFA 构造)"></p>
+<p>以小见大，就很容易理解 <code>(a|b)*a</code> 的构造了，因为 <code>*</code> （闭包）表示可以选任意次，当选 0 次时就需要有一条线从结点 0 指向 7，当选任意次时需要有一条从 6 指向 1 的线。如下所示：</p>
+<p><img src="https://s2.loli.net/2023/07/01/lhq2R5e69NQPSO1.png" alt="(a|b)*a) 的 NFA"></p>
+<p><strong>Tip</strong> ：虽然 0 和 7 结点貌似可以分别由 1 和 6 代替，但仔细观察就可以发现如果替换将与原来的意思不同，替换之后由 1 直接到 6，6 仍然可以回到 1，而现在由 0 到 7 则不能再回到 0，也即失去 <strong>反悔</strong> 的机会。</p>
 <h4 id="2-11-题">2.11 题</h4>
 <p><strong>题目</strong> ：可以通过正规式的最简 DFA 同构来证明正规式等价。证明下列正规式等价</p>
 <p><strong>解析</strong> ：</p>
@@ -547,11 +552,16 @@
 <p><strong>题目</strong> ：构造表示 0，1 个数都是偶数的01字符串的 DFA</p>
 <p><strong>解析</strong> ：</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42689684/article/details/82763075">增进理解</a></p>
-<img src="https://s2.loli.net/2023/06/28/Q21m8proLeMzdjw.png" alt="image-20230628115220255.png" style="zoom:50%;">
+<img src="https://s2.loli.net/2023/06/28/Q21m8proLeMzdjw.png" alt="01 串的 DFA" style="zoom:50%;">
 <h4 id="2-14-题">2.14 题</h4>
 <p><strong>题目</strong> ：构造 DFA，识别 <code>{0,1}</code> 上能被 5 整除的二进制数</p>
 <p><strong>解析</strong> ：</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Jacky_chenjp/article/details/52555427">题目解析</a></p>
+<p>注意 DFA 和 NFA 的最大区别：</p>
+<ol>
+<li>DFA 从每个状态出发，对于给定的输入字符，只能到达一个特定的下一个状态。</li>
+<li>NFA 在给定输入字符和当前状态的情况下，可以有多个可能的下一个状态。例如 2.7 题中从 1 号结点出发，给定 <code>ε</code> 可以走到 2 和 4 号结点。</li>
+</ol>
 <hr>
 <h3 id="第三章">第三章</h3>
 <h4 id="前缀知识-2">前缀知识</h4>
@@ -660,14 +670,14 @@
 </blockquote>
 <h4 id="4-1-题">4.1 题</h4>
 <p><strong>题目</strong> ：根据表 4.1 的语法制导定义，为输入表达式 <code>5*（4*3+2）</code> 构造注释分析树。</p>
-<p><img src="https://s2.loli.net/2023/06/30/Eoc5ApgHSrwmvCe.png" alt="题 4.1"></p>
+<img src="D:\Typora图片\image-20230629215134052.png" alt="表 4.1" style="zoom: 33%;">
 <p><strong>解析</strong> ：</p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1yt4y1t7HC/?spm_id_from=333.337.search-card.all.click&amp;vd_source=4c641295e18917e9d2cad4d846182614">注释分析树视频版</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46202073/article/details/109823818?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168804625316800226544296%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=168804625316800226544296&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-109823818-null-null.142%5Ev88%5Econtrol_2,239%5Ev2%5Einsert_chatgpt&amp;utm_term=%E6%B3%A8%E9%87%8A%E5%88%86%E6%9E%90%E6%95%B0&amp;spm=1018.2226.3001.4187">注释分析树文字版</a></p>
 <p>注释分析树：</p>
 <ol>
-<li>先从上往下根据产生式画出分析树。</li>
-<li>再从下往上根据语义规则补全注释。</li>
+<li>先 <strong>从上往下</strong> 根据产生式 <strong>画出分析树</strong>。</li>
+<li>再 <strong>从下往上</strong> 根据语义规则 <strong>补全注释</strong>。</li>
 </ol>
 <h4 id="4-2-题">4.2 题</h4>
 <p><strong>题目</strong> ：为文法 <code>S → (L)|a</code> 、<code>L → L,S|S</code></p>
@@ -675,21 +685,44 @@
 <p>( b ) 写一个语法制导定义，它输出括号的最大深度。</p>
 <p><strong>解析</strong> ：</p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Hatfield/p/12993788.html">打开链接，第5题(1)。重点看图以加深理解</a></p>
-<p>用 <strong>递归的回溯过程</strong> 视角从下往上看分析树，就会发现很好理解，记得语法制导定义的开头 <code>S'-&gt;Sn</code> 用于输出结果。</p>
+<p>用 <strong>递归的回溯过程</strong> 视角 <strong>从下往上</strong> 看分析树，就会发现很好理解，记得语法制导定义的开头 <code>S'-&gt;Sn</code> 用于输出结果。虽然这道题看起来和 4.1 不同，但其实很相似，画分析树的过程就是向下递归的过程，由非终结符终止递归；补全注释的过程就是向上递归回溯的过程。</p>
 <h4 id="4-10-题">4.10 题</h4>
 <p><strong>题目</strong> ：文法如下： <code>S → (L)|a</code> 、<code>L → L,S|S</code></p>
 <p>( a )写一个翻译方案，它输出每个 a 的嵌套深度。例如，对于句子 ( a ,( a , a ) )，输出的结果是 1 2 2。</p>
 <p>( b )写一个翻译方案，它打印出每个 a 在句子中是第几个字符。例如，当句子是 ( a , ( a , ( a , a ) , ( a ) ) ) 时，打印的结果是 2 5 8 10 14。</p>
 <p><strong>解析</strong> ：</p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1FQ4y1r7ub?p=13&amp;vd_source=4c641295e18917e9d2cad4d846182614">关于翻译模式：p13 、23:14</a></p>
-<p>明确了什么是翻译模式后，这道题以自上往下看的视角就很容易理解了。依然是拆解文法的候选式，注意由 <code>{}</code> 括起来的语义动作在新产生式右部的位置就可以了。类似复杂一点的语法制导定义。</p>
+<p>明确了什么是翻译模式后，这道题以 <strong>自上往下看</strong> 的视角就很容易理解了。依然是拆解文法的候选式，注意由 <code>{}</code> 括起来的语义动作在新产生式右部的位置就可以了。类似复杂一点的语法制导定义。</p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1yt4y1t7HC/?spm_id_from=333.788&amp;vd_source=4c641295e18917e9d2cad4d846182614">关于综合属性和继承属性：13:20</a></p>
 <p>个人推荐不必细究其明确的学术定义，如果只是希望会做题，那么不需要知道为什么。</p>
 <p><a target="_blank" rel="noopener" href="http://staff.ustc.edu.cn/~yuzhang/compiler/2018f/lectures/TA3-H7Midterm.pdf">关于第二问：前五页</a></p>
+<p>关于第二问：</p>
+<ol>
+<li>
 <p>第二问的重点在于理解什么时候需要加 1，例如 <code>S-&gt;(L)</code> ，S 推导出的 <code>(L)</code> 前多了字符 <code>(</code> ，所以需要加 1。</p>
+</li>
+<li>
+<p>关于 in 和 out，可以简单视为在某个非终结符之前就是 in，在某个非终结符之后就是 out。或者说在非终结符 <strong>之前计算其自身</strong> in 属性的值，在非终结符 <strong>之后计算产生式左部</strong> 的 out 属性值。因为翻译模式重点在于明确计算顺序。</p>
+<ol>
+<li>
+<p>例如 <code>S → { L.in = S.in + 1 } ( L ) { S.out = L.out + 1 }</code> ，右部的 <code>(L)</code> 之前计算 <code>L.in = S.in + 1</code> 是因为 L 由 S 转化过来后前面多了 <code>(</code> 。</p>
+</li>
+<li>
+<p>之后计算 <code>S.out = L.out + 1 </code> 是因为 <code>(L)</code> 后面的 <code>)</code> 。要明确，不是必须 <code>L</code> 后有字符才计算 out，注意 out 属性的含义：</p>
+<blockquote>
+<p>out 表示句子中该文法符号推出的字符序列的最后一个字符在句子中是第几个字符。</p>
+</blockquote>
+<p>例如：<code>S → a { S.out = S.in + 1 ; print ( S.out ) }</code> ，也计算了 S 的out 属性，因为 a 就是最后一个字符。个人感觉将 out 含义描述中的 <strong>字符</strong> 改为 <strong>非终结符</strong> 更容易理解。</p>
+</li>
+</ol>
+</li>
+<li>
+<p>是否必须要用两个属性（<code>in</code> 和 <code>out</code>）？首先答案肯定是 <code>TRUE</code> ，因为答案就这样写的，如果能用一个属性没理由写复杂。然后就要想为什么，个人理解是因为</p>
+</li>
+</ol>
 <h4 id="4-13-题">4.13 题</h4>
 <p><strong>题目</strong> ：下面是构造语法树的一个 S 属性定义。将这里的语义规则翻译成 LR 翻译器的栈操作代码段。</p>
-<p><img src="https://s2.loli.net/2023/06/30/3ik6aHlUgOypAFt.png" alt="题 4.13"></p>
+<p><img src="D:%5CTypora%E5%9B%BE%E7%89%87%5Cimage-20230630105423044.png" alt="S 属性定义"></p>
 <p><strong>解析</strong> ：</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_56462041/article/details/128025461">打开链接，通过目录找到第4部分：S-属性定义的自底向上计算</a></p>
 <p>个人理解：</p>
@@ -699,6 +732,15 @@
 <li>终结符和函数名照抄。</li>
 <li>如果产生式右部只有一个非终结符且位于栈顶，则可以省略。</li>
 </ol>
+<hr>
+<p><strong>以下为例题补充</strong> ：</p>
+<h4 id="4-4-题">4.4 题</h4>
+<p><img src="https://s2.loli.net/2023/07/01/8nRmurohX6US2zE.png" alt="陈意云张昱《编译原理习题精选与解析》第 4.7 题"></p>
+<p><strong>解析</strong> ：</p>
+<p>重点在于看出什么时候打印出错信息：当 ab 的数量和 c 的数量不同时表示出错。还是以 <strong>从下往上</strong> 看的视角，如果 <strong>递归回溯</strong> 到起始节点，发现 ab 和 c 的信息不同，则表示出错。</p>
+<h4 id="4-12-题">4.12 题</h4>
+<p><img src="https://s2.loli.net/2023/07/01/e4ckxwiJOnZurhg.png" alt="陈意云张昱《编译原理习题精选与解析》第 4.12 题"></p>
+<p><strong>解析</strong> ：<s>只因</s>扫了这题一眼就困了，下午再看 : )</p>
 
                 
             </div>
@@ -1378,7 +1420,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">150.4k</span>
+                        class="white-color">151.3k</span>
             
             
             
