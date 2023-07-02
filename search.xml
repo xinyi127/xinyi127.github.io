@@ -452,9 +452,9 @@
       
         <tags>
             
-            <tag> BFS </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> BFS </tag>
             
             <tag> DFS </tag>
             
@@ -512,9 +512,9 @@
       
         <tags>
             
-            <tag> BFS </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> BFS </tag>
             
             <tag> Flood fill </tag>
             
@@ -543,9 +543,9 @@
       
         <tags>
             
-            <tag> BFS </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> BFS </tag>
             
         </tags>
       
@@ -601,9 +601,9 @@
             
             <tag> C++ </tag>
             
-            <tag> 图论 </tag>
-            
             <tag> 贪心 </tag>
+            
+            <tag> 图论 </tag>
             
             <tag> 环 </tag>
             
@@ -661,9 +661,9 @@
       
         <tags>
             
-            <tag> BFS </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> BFS </tag>
             
         </tags>
       
@@ -1661,6 +1661,33 @@
     
     
     <entry>
+      <title>【题解】区间合并</title>
+      <link href="/posts/d8d60a6c.html"/>
+      <url>/posts/d8d60a6c.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="区间合并代码模板">区间合并代码模板</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">merge</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>PII<span class="token operator">&gt;</span> <span class="token operator">&amp;</span>segs<span class="token punctuation">)</span><span class="token punctuation">{</span>    vector<span class="token operator">&lt;</span>PII<span class="token operator">&gt;</span> res<span class="token punctuation">;</span>        <span class="token function">sort</span><span class="token punctuation">(</span>segs<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>segs<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">int</span> st<span class="token operator">=</span><span class="token operator">-</span><span class="token number">2e9</span><span class="token punctuation">,</span>ed<span class="token operator">=</span><span class="token operator">-</span><span class="token number">2e9</span><span class="token punctuation">;</span>        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> seg<span class="token operator">:</span>segs<span class="token punctuation">)</span>    <span class="token punctuation">{</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>seg<span class="token punctuation">.</span>first <span class="token operator">&gt;</span> ed<span class="token punctuation">)</span>        <span class="token punctuation">{</span>            <span class="token keyword">if</span><span class="token punctuation">(</span>st<span class="token operator">!=</span><span class="token operator">-</span><span class="token number">2e9</span><span class="token punctuation">)</span>res<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token punctuation">{</span>st<span class="token punctuation">,</span>ed<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>            st<span class="token operator">=</span>seg<span class="token punctuation">.</span>first<span class="token punctuation">,</span> ed<span class="token operator">=</span>seg<span class="token punctuation">.</span>second<span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token keyword">else</span> ed<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>ed<span class="token punctuation">,</span>seg<span class="token punctuation">.</span>second<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>st<span class="token operator">!=</span><span class="token operator">-</span><span class="token number">2e9</span><span class="token punctuation">)</span>res<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token punctuation">{</span>st<span class="token punctuation">,</span>ed<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        segs<span class="token operator">=</span>res<span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="区间合并思想：">区间合并思想：</h3><ul><li>维护一个区间，如果无法继续维护，就更新为新的区间</li></ul><h3 id="区间合并图示：">区间合并图示：</h3><p><img src="https://s2.loli.net/2022/07/11/G1s9RF4CNM3p8mx.png" alt="区间合并步骤"></p><h3 id="区间合并细节">区间合并细节</h3><ul><li>通常我们用pair来存每个区间</li><li>首先对vector进行排序，sort默认对pair第一个元素进行排序</li><li>然后进行区间合并，需要注意我们开始维护的区间要设为极小值</li></ul><h3 id="用法：">用法：</h3><h4 id="题目链接：区间合并">题目链接：<a href="https://www.acwing.com/problem/content/805/">区间合并</a></h4><h4 id="题意：">题意：</h4><p>给定 n 个区间 [li,ri]，要求合并所有有交集的区间。</p><p>注意如果在端点处相交，也算有交集。</p><p>输出合并完成后的区间个数。</p><p>例如：[1,3] 和 [2,6] 可以合并为一个区间 [1,6]。</p><h4 id="输入格式">输入格式</h4><p>第一行包含整数 n。</p><p>接下来 n 行，每行包含两个整数 l 和 r。</p><h4 id="输出格式">输出格式</h4><p>共一行，包含一个整数，表示合并区间完成后的区间个数。</p><h4 id="数据范围">数据范围</h4><p>1≤n≤100000<br>−10<sup>9</sup> ≤ li ≤ ri ≤ 10<sup>9</sup></p><h4 id="输入样例：">输入样例：</h4><pre class="line-numbers language-none"><code class="language-none">51 22 45 67 87 9<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="输出样例：">输出样例：</h4><pre class="line-numbers language-none"><code class="language-none">3<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h4 id="代码">代码</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;vector&gt;</span></span><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;algorithm&gt;</span></span><span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span><span class="token keyword">typedef</span> pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">&gt;</span> PII<span class="token punctuation">;</span><span class="token keyword">int</span> n<span class="token punctuation">;</span>vector<span class="token operator">&lt;</span>PII<span class="token operator">&gt;</span> segs<span class="token punctuation">;</span><span class="token keyword">void</span> <span class="token function">merge</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>PII<span class="token operator">&gt;</span> <span class="token operator">&amp;</span>segs<span class="token punctuation">)</span><span class="token punctuation">{</span>    vector<span class="token operator">&lt;</span>PII<span class="token operator">&gt;</span> res<span class="token punctuation">;</span>        <span class="token function">sort</span><span class="token punctuation">(</span>segs<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>segs<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//一定要排序，sort对pair排序时默认先对first排序</span>    <span class="token keyword">int</span> st<span class="token operator">=</span><span class="token operator">-</span><span class="token number">2e9</span><span class="token punctuation">,</span>ed<span class="token operator">=</span><span class="token operator">-</span><span class="token number">2e9</span><span class="token punctuation">;</span><span class="token comment">//开始时一定要将左右区间设为极小值</span>        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> seg<span class="token operator">:</span>segs<span class="token punctuation">)</span>    <span class="token punctuation">{</span>        <span class="token comment">//如果新的区间严格大于我们所维护区间，更新所维护区间</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>seg<span class="token punctuation">.</span>first <span class="token operator">&gt;</span> ed<span class="token punctuation">)</span>        <span class="token punctuation">{</span><span class="token comment">//如果一个区间已经维护完毕，将其加入到seg，//特判第一个区间，注意是st是否为-2e9，</span>            <span class="token keyword">if</span><span class="token punctuation">(</span>st<span class="token operator">!=</span><span class="token operator">-</span><span class="token number">2e9</span><span class="token punctuation">)</span>res<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token punctuation">{</span>st<span class="token punctuation">,</span>ed<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>            st<span class="token operator">=</span>seg<span class="token punctuation">.</span>first<span class="token punctuation">,</span> ed<span class="token operator">=</span>seg<span class="token punctuation">.</span>second<span class="token punctuation">;</span>        <span class="token punctuation">}</span><span class="token comment">//否则我们就更新所维护区间的右端点</span>        <span class="token keyword">else</span> ed<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>ed<span class="token punctuation">,</span>seg<span class="token punctuation">.</span>second<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>        <span class="token comment">//特判最后一个区间，防止一个区间也没有的情况</span>    <span class="token keyword">if</span><span class="token punctuation">(</span>st<span class="token operator">!=</span><span class="token operator">-</span><span class="token number">2e9</span><span class="token punctuation">)</span>res<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token punctuation">{</span>st<span class="token punctuation">,</span>ed<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        segs<span class="token operator">=</span>res<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    cin<span class="token operator">&gt;&gt;</span>n<span class="token punctuation">;</span>    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span>    <span class="token punctuation">{</span>        <span class="token keyword">int</span> l<span class="token punctuation">,</span>r<span class="token punctuation">;</span>        cin<span class="token operator">&gt;&gt;</span>l<span class="token operator">&gt;&gt;</span>r<span class="token punctuation">;</span>        segs<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token punctuation">{</span>l<span class="token punctuation">,</span>r<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>        <span class="token comment">//区间和并</span>    <span class="token function">merge</span><span class="token punctuation">(</span>segs<span class="token punctuation">)</span><span class="token punctuation">;</span>        cout<span class="token operator">&lt;&lt;</span>segs<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">return</span>  <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 模板 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 区间问题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>【题解】区间分组</title>
       <link href="/posts/91fc4670.html"/>
       <url>/posts/91fc4670.html</url>
@@ -1711,33 +1738,6 @@
             <tag> 区间问题 </tag>
             
             <tag> 贪心 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>【题解】区间合并</title>
-      <link href="/posts/d8d60a6c.html"/>
-      <url>/posts/d8d60a6c.html</url>
-      
-        <content type="html"><![CDATA[<h3 id="区间合并代码模板">区间合并代码模板</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">merge</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>PII<span class="token operator">&gt;</span> <span class="token operator">&amp;</span>segs<span class="token punctuation">)</span><span class="token punctuation">{</span>    vector<span class="token operator">&lt;</span>PII<span class="token operator">&gt;</span> res<span class="token punctuation">;</span>        <span class="token function">sort</span><span class="token punctuation">(</span>segs<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>segs<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">int</span> st<span class="token operator">=</span><span class="token operator">-</span><span class="token number">2e9</span><span class="token punctuation">,</span>ed<span class="token operator">=</span><span class="token operator">-</span><span class="token number">2e9</span><span class="token punctuation">;</span>        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> seg<span class="token operator">:</span>segs<span class="token punctuation">)</span>    <span class="token punctuation">{</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>seg<span class="token punctuation">.</span>first <span class="token operator">&gt;</span> ed<span class="token punctuation">)</span>        <span class="token punctuation">{</span>            <span class="token keyword">if</span><span class="token punctuation">(</span>st<span class="token operator">!=</span><span class="token operator">-</span><span class="token number">2e9</span><span class="token punctuation">)</span>res<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token punctuation">{</span>st<span class="token punctuation">,</span>ed<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>            st<span class="token operator">=</span>seg<span class="token punctuation">.</span>first<span class="token punctuation">,</span> ed<span class="token operator">=</span>seg<span class="token punctuation">.</span>second<span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token keyword">else</span> ed<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>ed<span class="token punctuation">,</span>seg<span class="token punctuation">.</span>second<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>st<span class="token operator">!=</span><span class="token operator">-</span><span class="token number">2e9</span><span class="token punctuation">)</span>res<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token punctuation">{</span>st<span class="token punctuation">,</span>ed<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        segs<span class="token operator">=</span>res<span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="区间合并思想：">区间合并思想：</h3><ul><li>维护一个区间，如果无法继续维护，就更新为新的区间</li></ul><h3 id="区间合并图示：">区间合并图示：</h3><p><img src="https://s2.loli.net/2022/07/11/G1s9RF4CNM3p8mx.png" alt="区间合并步骤"></p><h3 id="区间合并细节">区间合并细节</h3><ul><li>通常我们用pair来存每个区间</li><li>首先对vector进行排序，sort默认对pair第一个元素进行排序</li><li>然后进行区间合并，需要注意我们开始维护的区间要设为极小值</li></ul><h3 id="用法：">用法：</h3><h4 id="题目链接：区间合并">题目链接：<a href="https://www.acwing.com/problem/content/805/">区间合并</a></h4><h4 id="题意：">题意：</h4><p>给定 n 个区间 [li,ri]，要求合并所有有交集的区间。</p><p>注意如果在端点处相交，也算有交集。</p><p>输出合并完成后的区间个数。</p><p>例如：[1,3] 和 [2,6] 可以合并为一个区间 [1,6]。</p><h4 id="输入格式">输入格式</h4><p>第一行包含整数 n。</p><p>接下来 n 行，每行包含两个整数 l 和 r。</p><h4 id="输出格式">输出格式</h4><p>共一行，包含一个整数，表示合并区间完成后的区间个数。</p><h4 id="数据范围">数据范围</h4><p>1≤n≤100000<br>−10<sup>9</sup> ≤ li ≤ ri ≤ 10<sup>9</sup></p><h4 id="输入样例：">输入样例：</h4><pre class="line-numbers language-none"><code class="language-none">51 22 45 67 87 9<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="输出样例：">输出样例：</h4><pre class="line-numbers language-none"><code class="language-none">3<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h4 id="代码">代码</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;vector&gt;</span></span><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;algorithm&gt;</span></span><span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span><span class="token keyword">typedef</span> pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">&gt;</span> PII<span class="token punctuation">;</span><span class="token keyword">int</span> n<span class="token punctuation">;</span>vector<span class="token operator">&lt;</span>PII<span class="token operator">&gt;</span> segs<span class="token punctuation">;</span><span class="token keyword">void</span> <span class="token function">merge</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>PII<span class="token operator">&gt;</span> <span class="token operator">&amp;</span>segs<span class="token punctuation">)</span><span class="token punctuation">{</span>    vector<span class="token operator">&lt;</span>PII<span class="token operator">&gt;</span> res<span class="token punctuation">;</span>        <span class="token function">sort</span><span class="token punctuation">(</span>segs<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>segs<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//一定要排序，sort对pair排序时默认先对first排序</span>    <span class="token keyword">int</span> st<span class="token operator">=</span><span class="token operator">-</span><span class="token number">2e9</span><span class="token punctuation">,</span>ed<span class="token operator">=</span><span class="token operator">-</span><span class="token number">2e9</span><span class="token punctuation">;</span><span class="token comment">//开始时一定要将左右区间设为极小值</span>        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> seg<span class="token operator">:</span>segs<span class="token punctuation">)</span>    <span class="token punctuation">{</span>        <span class="token comment">//如果新的区间严格大于我们所维护区间，更新所维护区间</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>seg<span class="token punctuation">.</span>first <span class="token operator">&gt;</span> ed<span class="token punctuation">)</span>        <span class="token punctuation">{</span><span class="token comment">//如果一个区间已经维护完毕，将其加入到seg，//特判第一个区间，注意是st是否为-2e9，</span>            <span class="token keyword">if</span><span class="token punctuation">(</span>st<span class="token operator">!=</span><span class="token operator">-</span><span class="token number">2e9</span><span class="token punctuation">)</span>res<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token punctuation">{</span>st<span class="token punctuation">,</span>ed<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>            st<span class="token operator">=</span>seg<span class="token punctuation">.</span>first<span class="token punctuation">,</span> ed<span class="token operator">=</span>seg<span class="token punctuation">.</span>second<span class="token punctuation">;</span>        <span class="token punctuation">}</span><span class="token comment">//否则我们就更新所维护区间的右端点</span>        <span class="token keyword">else</span> ed<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>ed<span class="token punctuation">,</span>seg<span class="token punctuation">.</span>second<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>        <span class="token comment">//特判最后一个区间，防止一个区间也没有的情况</span>    <span class="token keyword">if</span><span class="token punctuation">(</span>st<span class="token operator">!=</span><span class="token operator">-</span><span class="token number">2e9</span><span class="token punctuation">)</span>res<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token punctuation">{</span>st<span class="token punctuation">,</span>ed<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        segs<span class="token operator">=</span>res<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    cin<span class="token operator">&gt;&gt;</span>n<span class="token punctuation">;</span>    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span>    <span class="token punctuation">{</span>        <span class="token keyword">int</span> l<span class="token punctuation">,</span>r<span class="token punctuation">;</span>        cin<span class="token operator">&gt;&gt;</span>l<span class="token operator">&gt;&gt;</span>r<span class="token punctuation">;</span>        segs<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token punctuation">{</span>l<span class="token punctuation">,</span>r<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>        <span class="token comment">//区间和并</span>    <span class="token function">merge</span><span class="token punctuation">(</span>segs<span class="token punctuation">)</span><span class="token punctuation">;</span>        cout<span class="token operator">&lt;&lt;</span>segs<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">return</span>  <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> 模板 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> C++ </tag>
-            
-            <tag> 区间问题 </tag>
             
         </tags>
       
@@ -2368,9 +2368,9 @@
       
         <tags>
             
-            <tag> BFS </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> BFS </tag>
             
         </tags>
       
@@ -2395,9 +2395,9 @@
       
         <tags>
             
-            <tag> BFS </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> BFS </tag>
             
         </tags>
       
@@ -3037,9 +3037,9 @@
       
         <tags>
             
-            <tag> BFS </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> BFS </tag>
             
         </tags>
       
@@ -3145,9 +3145,9 @@
       
         <tags>
             
-            <tag> BFS </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> BFS </tag>
             
         </tags>
       
