@@ -55,9 +55,9 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="渔火" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="渔火" type="application/atom+xml">
 </head>
 
 
@@ -546,7 +546,7 @@
 <ul>
 <li>注意，PDF 的 2.8 题仅供参考，重点是理解思想，做法不一，以自己老师说的为准。</li>
 </ul>
-<p><code>ε-closure(δ(A, a))</code> ：表示从 A 集合中任何一个点出发，在输入 a 的前提下 <strong>可以走到的点的集合</strong> ，例如点 2 在输入 a （隐含  <code>ε</code>）的前提下，可以推导出的集合为 <code>{4, 6, 7, 1, 2, 3}</code> 。注意通过 <code>∈</code> 转移到的点也是为符合条件。</p>
+<p><code>ε-closure(δ(A, a))</code> ：表示从 A 集合中任何一个点出发，在输入 a 的前提下 <strong>可以走到的点的集合</strong> ，例如点 2 在输入 a （隐含  <code>ε</code>）的前提下，可以推导出的集合为 <code>{4, 6, 7, 1, 2, 3}</code> 。注意通过 <code>∈</code> 转移到的点也视为符合条件。</p>
 <p>对于给定的 DFA，如果状态集合中的某个状态无法通过任何输入字符转移到其他状态集合中的状态，那么这个状态就是不可细分的，也就不需要进一步划分。状态集合 F 中的每个状态都可以相互转移，没有办法将其进一步划分为不可细分的子集。因此，F 不需要进一步划分。</p>
 <h4 id="2-13-题">2.13 题</h4>
 <p><strong>题目</strong> ：构造表示 0，1 个数都是偶数的01字符串的 DFA</p>
@@ -712,7 +712,7 @@
 <blockquote>
 <p>out 表示句子中该文法符号推出的字符序列的最后一个字符在句子中是第几个字符。</p>
 </blockquote>
-<p>例如：<code>S → a { S.out = S.in + 1 ; print ( S.out ) }</code> ，也计算了 S 的out 属性，因为 a 就是最后一个字符。个人感觉将 out 含义描述中的 <strong>字符</strong> 改为 <strong>非终结符</strong> 更容易理解。</p>
+<p>例如：<code>S → a { S.out = S.in + 1 ; print ( S.out ) }</code> ，也计算了 S 的out 属性，因为 a 就是最后一个字符。个人感觉将 out 含义描述中的 <strong>字符</strong> 改为 <strong>终结符</strong> 更容易理解。</p>
 </li>
 </ol>
 </li>
