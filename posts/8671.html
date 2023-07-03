@@ -473,21 +473,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-07-02
+                    2023-07-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.9k
+                    4.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    15 分
                 </div>
                 
 
@@ -547,7 +547,8 @@
 <li>注意，PDF 的 2.8 题仅供参考，重点是理解思想，做法不一，以自己老师说的为准。</li>
 </ul>
 <p><code>ε-closure(δ(A, a))</code> ：表示从 A 集合中任何一个点出发，在输入 a 的前提下 <strong>可以走到的点的集合</strong> ，例如点 2 在输入 a （隐含  <code>ε</code>）的前提下，可以推导出的集合为 <code>{4, 6, 7, 1, 2, 3}</code> 。注意通过 <code>∈</code> 转移到的点也视为符合条件。</p>
-<p>对于给定的 DFA，如果状态集合中的某个状态无法通过任何输入字符转移到其他状态集合中的状态，那么这个状态就是不可细分的，也就不需要进一步划分。状态集合 F 中的每个状态都可以相互转移，没有办法将其进一步划分为不可细分的子集。因此，F 不需要进一步划分。</p>
+<p>对于最简 DFA，可以视为划分为包含 f 的状态所构成的集合和不包含 f 的状态所构成的集合。具体可看：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1P94y1m7bM/?spm_id_from=333.999.0.0&amp;vd_source=4c641295e18917e9d2cad4d846182614">最简DFA 7:20</a></p>
+<p>对于给定的 DFA，如果状态集合中的某个状态无法通过任何输入字符转移到其他状态集合中的状态，那么这个状态就是不可细分的，也就不需要进一步划分。状态集合 F 中的每个状态都只能在集合 F 内部相互转移，没有办法将其进一步划分为不可细分的子集。因此，F 不需要进一步划分。</p>
 <h4 id="2-13-题">2.13 题</h4>
 <p><strong>题目</strong> ：构造表示 0，1 个数都是偶数的01字符串的 DFA</p>
 <p><strong>解析</strong> ：</p>
@@ -615,9 +616,10 @@
 <p>FIRST 集：所有候选式的串首终结符。</p>
 <p>FOLLOW 集：针对非终结符，找出其后可能跟随的所有终结符。FOLLOW 集比较难以理解，下面简单说一下求法：</p>
 <ul>
-<li>将 <code>$</code> 加入到识别符号的 FOLLOW 集中。</li>
-<li>若存在 <code>U-&gt;xWy</code> ，则将 <code>FIRST(y) - {ε}</code> 加入到 W 的 FOLLOW 集合中。</li>
-<li>若存在 <code>U-&gt;xW</code> 或 <code>U-&gt;xWy</code> ，其中 y 可以推导出 ε，则将 U 的 FOLLOW 集合加入到 W 的 FOLLOW 集合中。</li>
+<li>将 <code>$</code> 加入到 <strong>识别符号</strong> （也即 S）的 FOLLOW 集中。</li>
+<li>若存在 <code>U-&gt;xWY</code> ，则将 <code>FIRST(Y) - {ε}</code> 加入到 W 的 FOLLOW 集合中。</li>
+<li>若存在 <code>U-&gt;xW</code> 或 <code>U-&gt;xWY</code> ，后者需要 Y 可以推导出 ε，则将 U 的 FOLLOW 集合加入到 W 的 FOLLOW 集合中。</li>
+<li>以上两点的 x 都可以为任意值。</li>
 </ul>
 </li>
 <li>
@@ -628,6 +630,12 @@
 </ul>
 </li>
 </ol>
+<p><strong>总结</strong> 来讲，找 W 的 FOLLOW 时，就看右部哪里出现了 W：</p>
+<ul>
+<li>如果 W 后面直接跟着 <strong>终结符</strong> ，就将终结符加入 W 的 FOLLOW 集；</li>
+<li>如果 W 后面跟着 <strong>非终结符</strong> Y，将如果 Y 的 FIRST 集减去 ε （因为此时需要 Y 不为 ε）后加入 W 的 FOLLOW 集合；</li>
+<li>如果 W 后面没有任何东西，或者 W 后跟的 <strong>非终结符</strong> 可以推导出 ε，则将左部的 FOLLOW 集合加入 W 的 FOLLOW 集合中。</li>
+</ul>
 <h4 id="3-10-题">3.10 题</h4>
 <p>参考 3.8 题</p>
 <h4 id="3-15-题">3.15 题</h4>
@@ -1418,7 +1426,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">154k</span>
+                        class="white-color">154.2k</span>
             
             
             
