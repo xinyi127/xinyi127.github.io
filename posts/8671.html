@@ -480,7 +480,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.4k
+                    4.6k
                 </div>
                 
 
@@ -687,20 +687,23 @@
 <li>先 <strong>从上往下</strong> 根据产生式 <strong>画出分析树</strong>。</li>
 <li>再 <strong>从下往上</strong> 根据语义规则 <strong>补全注释</strong>。</li>
 </ol>
-<h4 id="4-2-题">4.2 题</h4>
+<h4 id="4-3-题">4.3 题</h4>
 <p><strong>题目</strong> ：为文法 <code>S → (L)|a</code> 、<code>L → L,S|S</code></p>
 <p>( a ) 写一个语法制导定义，它输出括号的对数。</p>
 <p>( b ) 写一个语法制导定义，它输出括号的最大深度。</p>
 <p><strong>解析</strong> ：</p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Hatfield/p/12993788.html">打开链接，第5题(1)。重点看图以加深理解</a></p>
-<p>用 <strong>递归的回溯过程</strong> 视角 <strong>从下往上</strong> 看分析树，就会发现很好理解，记得语法制导定义的开头 <code>S'-&gt;Sn</code> 用于输出结果。虽然这道题看起来和 4.1 不同，但其实很相似，画分析树的过程就是向下递归的过程，由非终结符终止递归；补全注释的过程就是向上递归回溯的过程。</p>
+<p>将文法的每个候选式拆开，并以 <code>S'-&gt;Sn</code> 输出结果。在文法制导定义的每条后面写具体计算。</p>
+<p>如果拆候选式时，右部出现了左部的符号，例如 <code>S -&gt;AS</code> ，那么要将右部的 S 改为 S1 用以和左部区分。</p>
+<p>用 <strong>递归的回溯过程</strong> 视角 <strong>从下往上</strong> 看分析树，就会发现很好理解。虽然这道题看起来和 4.1 不同，但其实很相似，画分析树的过程就是向下递归的过程，由非终结符终止递归；补全注释的过程就是向上递归回溯的过程。</p>
 <h4 id="4-10-题">4.10 题</h4>
 <p><strong>题目</strong> ：文法如下： <code>S → (L)|a</code> 、<code>L → L,S|S</code></p>
 <p>( a )写一个翻译方案，它输出每个 a 的嵌套深度。例如，对于句子 ( a ,( a , a ) )，输出的结果是 1 2 2。</p>
 <p>( b )写一个翻译方案，它打印出每个 a 在句子中是第几个字符。例如，当句子是 ( a , ( a , ( a , a ) , ( a ) ) ) 时，打印的结果是 2 5 8 10 14。</p>
 <p><strong>解析</strong> ：</p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1FQ4y1r7ub?p=13&amp;vd_source=4c641295e18917e9d2cad4d846182614">关于翻译模式：p13 、23:14</a></p>
-<p>明确了什么是翻译模式后，这道题以 <strong>自上往下看</strong> 的视角就很容易理解了。依然是拆解文法的候选式，注意由 <code>{}</code> 括起来的语义动作在新产生式右部的位置就可以了。类似复杂一点的语法制导定义。</p>
+<p>明确了什么是翻译模式后，这道题以 <strong>自上往下看</strong> 的视角就很容易理解了。依然是拆解文法的候选式，注意由 <code>{}</code> 括起来的语义动作在新产生式右部的位置就可以了。</p>
+<p>简单一句话概括就是：所谓翻译模式，就是在语法制导定义中 <strong>明确计算顺序</strong> 。在某个 <strong>字符前计算该字符的值</strong>（例如 <code>S.depth = 0</code> 或 <code>L.depth = S.depth + 1</code> ），在该字 <strong>符后使用该字符的值</strong>（例如 <code>print ( S.depth)</code>）。</p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1yt4y1t7HC/?spm_id_from=333.788&amp;vd_source=4c641295e18917e9d2cad4d846182614">关于综合属性和继承属性：13:20</a></p>
 <p>个人推荐不必细究其明确的学术定义，如果只是希望会做题，那么不需要知道为什么。</p>
 <p><a target="_blank" rel="noopener" href="http://staff.ustc.edu.cn/~yuzhang/compiler/2018f/lectures/TA3-H7Midterm.pdf">关于第二问：前五页</a></p>
@@ -725,7 +728,12 @@
 </ol>
 </li>
 <li>
-<p>是否必须要用两个属性（<code>in</code> 和 <code>out</code>）？首先答案肯定是 <code>TRUE</code> ，因为答案就这样写的，如果能用一个属性没理由写复杂。然后就要想为什么，个人理解是因为</p>
+<p>是否必须要用两个属性（<code>in</code> 和 <code>out</code>）？首先答案肯定是 <code>TRUE</code> ，因为答案就这样写的，如果能用一个属性没理由写复杂。然后就要想为什么，个人理解是因为：</p>
+<ol>
+<li><strong>综合属性</strong> 是向上综和的，所以综合属性只能计算当前子树的值（也即从叶子结点回溯到子树根节点得到的值）。</li>
+<li><strong>继承属性</strong> 是向下继承的，所以通过继承属性可以得到之前子树的值。</li>
+<li>而我们在计算每个字符的位置时，不仅需要当前子树的值，还需要之前子树的值。大概这么个意思。</li>
+</ol>
 </li>
 </ol>
 <h4 id="4-13-题">4.13 题</h4>
@@ -1438,7 +1446,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">154.5k</span>
+                        class="white-color">154.7k</span>
             
             
             
