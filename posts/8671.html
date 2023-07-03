@@ -480,7 +480,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.6k
+                    4.5k
                 </div>
                 
 
@@ -713,19 +713,11 @@
 <p>第二问的重点在于理解什么时候需要加 1，例如 <code>S-&gt;(L)</code> ，S 推导出的 <code>(L)</code> 前多了字符 <code>(</code> ，所以需要加 1。</p>
 </li>
 <li>
-<p>关于 in 和 out，可以简单视为在某个非终结符之前就是 in，在某个非终结符之后就是 out。或者说在非终结符 <strong>之前计算其自身</strong> in 属性的值，在非终结符 <strong>之后计算产生式左部</strong> 的 out 属性值。因为翻译模式重点在于明确计算顺序。</p>
-<ol>
-<li>
-<p>例如 <code>S → { L.in = S.in + 1 } ( L ) { S.out = L.out + 1 }</code> ，右部的 <code>(L)</code> 之前计算 <code>L.in = S.in + 1</code> 是因为 L 由 S 转化过来后前面多了 <code>(</code> 。</p>
-</li>
-<li>
-<p>之后计算 <code>S.out = L.out + 1 </code> 是因为 <code>(L)</code> 后面的 <code>)</code> 。要明确，不是必须 <code>L</code> 后有字符才计算 out，注意 out 属性的含义：</p>
+<p>关于 in 和 out。在右部 <strong>每个非终结符之前计算其自身</strong> in （继承）属性的值，在 <strong>式子最后计算产生式左部</strong> 的 out （综合）属性值。翻译模式重点在于明确计算顺序。</p>
 <blockquote>
 <p>out 表示句子中该文法符号推出的字符序列的最后一个字符在句子中是第几个字符。</p>
 </blockquote>
-<p>例如：<code>S → a { S.out = S.in + 1 ; print ( S.out ) }</code> ，也计算了 S 的out 属性，因为 a 就是最后一个字符。个人感觉将 out 含义描述中的 <strong>字符</strong> 改为 <strong>终结符</strong> 更容易理解。</p>
-</li>
-</ol>
+<p>个人感觉将 out 含义描述中的 <strong>字符</strong> 改为 <strong>终结符</strong> 更容易理解。</p>
 </li>
 <li>
 <p>是否必须要用两个属性（<code>in</code> 和 <code>out</code>）？首先答案肯定是 <code>TRUE</code> ，因为答案就这样写的，如果能用一个属性没理由写复杂。然后就要想为什么，个人理解是因为：</p>
@@ -769,6 +761,12 @@
 <p>画 LL(1) 分析表时，如果 FIRST 集中包含 <code>ε</code> ，则再去看 FOLLOW 集。并且 LL(1) 第一行要在最后补上 <code>$</code> 。</p>
 <p>画移进 - 规约表时，栈的第一个字符和输入的最后一个字符都是 <code>$</code> 。当栈中只剩开始状态时，动作为接受。</p>
 <h4 id="第四章-2">第四章</h4>
+<p>语法制导定义和翻译模式：</p>
+<ol>
+<li>要有 <code>S'-&gt;S</code> 。</li>
+<li>明确看的顺序：从上往下看，就计算右部非终结符（的继承属性）；从下往上看，计算左部非终结符（的综合属性）。</li>
+<li>两个属性的题都计算，在右部非终结符前计算（右部非终结符的）继承属性，在式子的最后计算（左部非终结符的）综合属性。</li>
+</ol>
 
                 
             </div>
@@ -1446,7 +1444,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">154.7k</span>
+                        class="white-color">154.6k</span>
             
             
             
