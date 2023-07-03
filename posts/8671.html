@@ -480,14 +480,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.1k
+                    4.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    15 分
+                    16 分
                 </div>
                 
 
@@ -749,6 +749,18 @@
 <h4 id="4-12-题">4.12 题</h4>
 <p><img src="https://s2.loli.net/2023/07/01/e4ckxwiJOnZurhg.png" alt="陈意云张昱《编译原理习题精选与解析》第 4.12 题"></p>
 <p><strong>解析</strong> ：这题扫了一眼就困了，下午再看 : )</p>
+<hr>
+<h3 id="注意点">注意点</h3>
+<h4 id="第二章-2">第二章</h4>
+<p>NFA 和 DFA 的终结状态用两个圈表示。第一个状态前的输入是 <code>start</code> 。</p>
+<p>DFA 包含 NFA 终结状态的集也要用两个圈表示。</p>
+<h4 id="第三章-2">第三章</h4>
+<p>描述文法产生的语言时，依然找数量和位置关系。</p>
+<p>消除左递归： <code>S-&gt;Sa|b</code> 的左递归可通过 <code>S-&gt;bS'</code> 和 <code>S'-&gt;aS'|ε</code> 消除。</p>
+<p>求 FOLLOW 集时，要在开始状态中加入 <code>$</code> ，如果后续某个状态的 FOLLOW 集包含开始状态的 FOLLOW 集，则也应该将 <code>$</code> 一并加入。</p>
+<p>画 LL(1) 分析表时，如果 FIRST 集中包含 <code>ε</code> ，则再去看 FOLLOW 集。并且 LL(1) 第一行要在最后补上 <code>$</code> 。</p>
+<p>画移进 - 规约表时，栈的第一个字符和输入的最后一个字符都是 <code>$</code> 。当栈中只剩开始状态时，动作为接受。</p>
+<h4 id="第四章-2">第四章</h4>
 
                 
             </div>
@@ -1426,7 +1438,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">154.2k</span>
+                        class="white-color">154.5k</span>
             
             
             
