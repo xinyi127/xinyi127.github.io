@@ -55,9 +55,9 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="渔火" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="渔火" type="application/atom+xml">
 </head>
 
 
@@ -533,7 +533,7 @@
 <li>观察最高次幂，假设为 n 位，则冗余码长度为 n。</li>
 <li>求除数：将 CRC 码生成的多项式补全（缺的 X 次幂系数为 0，例如图中 G(x) = X<sup>6</sup> + X<sup>5</sup> + X + 1，缺少 X<sup>4</sup> ，X<sup>3</sup> ，X<sup>2</sup> ），图中的多项式 G(x) 补全后为 X<sup>6</sup> * 1+ X<sup>5</sup> * 1+ X<sup>4</sup> * 0 + X<sup>3</sup> * 0 + X<sup>2</sup> * 0 + X<sup>1</sup> * 1+ X<sup>0</sup> * 1，除数即为多项式每一项的系数：1100011。</li>
 <li>求被除数：信息位后补 n 位 0 即为被除数。例如本题信息位是 1101110010001，补全 n 位 0 后是  1101110010001000000。</li>
-<li>被除数和除数做摩尔运算，若余数不足 n 位则在余数前补 0，结果即为冗余码。例如本题 1101110010001000000 和 1100011 做摩尔运算结果为 10110，不足 6 位，补全后得到冗余码：010110。</li>
+<li>被除数和除数逐位做 <strong>异或</strong> 操作（相同得 0，不同得 1），若余数不足 n 位则在余数前补 0，结果即为冗余码。例如本题 1101110010001000000 和 1100011 做摩尔运算结果为 10110，不足 6 位，补全后得到冗余码：010110。</li>
 </ol>
 <p><strong>冗余码别名</strong> ：</p>
 <ul>
