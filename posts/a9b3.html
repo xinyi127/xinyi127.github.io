@@ -55,9 +55,9 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="渔火" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="渔火" type="application/atom+xml">
 </head>
 
 
@@ -473,7 +473,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-06-26
+                    2023-07-10
                 </div>
                 
 
@@ -606,7 +606,7 @@ git add -A # 添加新文件、被修改文件、已删除文件
 <ul>
 <li><strong>如果暂存区没有内容，就回滚到 HEAD 指向的版本</strong> ，常用来将写错的文件恢复到上次保存的版本。</li>
 </ul>
-<p><code>git rm –cached XX</code> ：会把暂存区的文件撤回到工作区，但工作区的文件不会被修改。</p>
+<p><code>git rm --cached XX</code> ：会把暂存区的文件撤回到工作区，但工作区的文件不会被修改。</p>
 <ul>
 <li>可以理解为只是撤回了暂存区的文件。</li>
 <li>这个操作其实很有用处，比如在本地和云端都有一个文件 <code>xx.md</code> ，现在我想要在云端删除这个文件，本地保留，就可以用该命令。
