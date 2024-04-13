@@ -137,7 +137,7 @@
     <link href="http://xinyi127.cn/posts/15e3.html"/>
     <id>http://xinyi127.cn/posts/15e3.html</id>
     <published>2023-05-20T03:30:05.000Z</published>
-    <updated>2023-06-27T02:37:53.996Z</updated>
+    <updated>2023-08-06T04:48:50.889Z</updated>
     
     
       
@@ -153,25 +153,6 @@
     
     <category term="模板" scheme="http://xinyi127.cn/categories/%E6%A8%A1%E6%9D%BF/"/>
     
-    
-    <category term="Linux" scheme="http://xinyi127.cn/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【C++服务器】day03笔记</title>
-    <link href="http://xinyi127.cn/posts/1a7c.html"/>
-    <id>http://xinyi127.cn/posts/1a7c.html</id>
-    <published>2023-04-26T13:49:00.000Z</published>
-    <updated>2023-05-20T04:33:35.237Z</updated>
-    
-    
-    
-    
-    <category term="项目" scheme="http://xinyi127.cn/categories/%E9%A1%B9%E7%9B%AE/"/>
-    
-    
-    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
     
     <category term="Linux" scheme="http://xinyi127.cn/tags/Linux/"/>
     
@@ -600,6 +581,36 @@
     <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
     
     <category term="BFS" scheme="http://xinyi127.cn/tags/BFS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【题解】完全二叉树的权值</title>
+    <link href="http://xinyi127.cn/posts/acf9.html"/>
+    <id>http://xinyi127.cn/posts/acf9.html</id>
+    <published>2023-02-12T11:43:16.000Z</published>
+    <updated>2023-04-21T07:40:41.655Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;题目链接：完全二叉树的权值&quot;&gt;题目链接：&lt;a href=&quot;https://www.acwing.com/activity/content/problem/content/1748/&quot;&gt;完全二叉树的权值&lt;/a&gt;&lt;/h4&gt;
+&lt;h4</summary>
+        
+      
+    
+    
+    
+    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
+    
+    <category term="双指针" scheme="http://xinyi127.cn/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
+    
+    <category term="二叉树" scheme="http://xinyi127.cn/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
   </entry>
   

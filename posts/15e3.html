@@ -473,14 +473,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-06-27
+                    2023-08-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    983
+                    1.1k
                 </div>
                 
 
@@ -577,6 +577,7 @@
 <li><code>Ctrl + q</code> 当 <code>vim</code> 卡死时，可以取消当前正在执行的命令。</li>
 <li><code>u</code> 撤回上一步操作。</li>
 <li><code>Ctrl + v</code> 进入列模式，用方向键选择需要选中的部分，按 <code>I</code> （大写的 <code>i</code> ）进入插入模式，按下 <code>//</code> 后按两下 <code>ESC</code> 。可完成批量注释。</li>
+<li><code>Ctrl + v</code> 进入列模式，用方向键选择需要选中的部分，通过 <code>&lt;</code> 或 <code>&gt;</code> 实现多行向前或向后缩进。</li>
 </ul>
 </li>
 <li>插入模式（ <code>Insert mode</code> ）：在这个模式下，用户可以直接输入文本，并且可以通过向左或向右移动光标来编辑已经输入的文本。可以通过按 <code>Esc</code> 键返回到命令模式。
@@ -594,12 +595,12 @@
 </li>
 </ol>
 <p><strong>异常处理</strong> ：</p>
-<p>​	每次用vim编辑文件时，会自动创建一个 <code>.filename.swp</code> 的临时文件。<br>
-​    如果打开某个文件时，该文件的 <code>swp</code> 文件已存在，则会报错。此时解决办法有两种：</p>
+<p>​	每次用vim编辑文件时，会自动创建一个 <code>.filename.swp</code> 的临时文件。如果打开某个文件时，该文件的 <code>swp</code> 文件已存在，则会报错。此时解决办法有两种：</p>
 <ol>
 <li>找到正在打开该文件的程序，并退出。</li>
 <li>直接删掉该 <code>swp</code> 文件即可。</li>
 </ol>
+<p>​    另外如果在未保存文件的情况意外退出，且没有开 <code>tmux</code> ，那么可以通过 <code>vim -r filename</code> 命令恢复文件，前提是 <code>.filename.swp</code> 文件没有被删除。</p>
 <hr>
 <h4 id="G-编译器">G++ 编译器</h4>
 <p>​	在 <code>Linux</code> 操作系统中， <code>G++</code> 是一个常用的 <code>C++</code> 编译器，被广泛使用来编译、链接和生成可执行程序。</p>
@@ -1026,13 +1027,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/1a7c.html">
+                <a href="/posts/da6c.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="【C++服务器】day03笔记">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="【C++服务器】day02笔记">
                         
-                        <span class="card-title">【C++服务器】day03笔记</span>
+                        <span class="card-title">【C++服务器】day02笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1291,7 +1292,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2022-2023</span>
+                <span id="year">2022-2024</span>
             
             <a href="/about" target="_blank">心意</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
@@ -1299,7 +1300,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">154.7k</span>
+                        class="white-color">154.8k</span>
             
             
             
