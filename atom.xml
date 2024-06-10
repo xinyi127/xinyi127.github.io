@@ -6,7 +6,7 @@
   <link href="http://xinyi127.cn/atom.xml" rel="self"/>
   
   <link href="http://xinyi127.cn/"/>
-  <updated>2023-07-04T08:48:53.302Z</updated>
+  <updated>2024-04-20T14:09:18.357Z</updated>
   <id>http://xinyi127.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《爱、性与蚀》</title>
+    <link href="http://xinyi127.cn/posts/57de.html"/>
+    <id>http://xinyi127.cn/posts/57de.html</id>
+    <published>2024-04-20T13:58:52.000Z</published>
+    <updated>2024-04-20T14:09:18.357Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;一个人能为成长支付多少代价呢？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;之前大学谈的恋爱把自己谈成疯子，莫名其妙的自卑，觉得自己不够优秀想分开，焦虑到不像个正常人，又在分手后纠缠不清，这就给别人带来很大的困扰，当时确实是昏了头了，犯这种贱真的不应</summary>
+        
+      
+    
+    
+    
+    <category term="杂谈" scheme="http://xinyi127.cn/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+    <category term="生活" scheme="http://xinyi127.cn/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>计算机网络期末复习</title>
@@ -581,36 +609,6 @@
     <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
     
     <category term="BFS" scheme="http://xinyi127.cn/tags/BFS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【题解】完全二叉树的权值</title>
-    <link href="http://xinyi127.cn/posts/acf9.html"/>
-    <id>http://xinyi127.cn/posts/acf9.html</id>
-    <published>2023-02-12T11:43:16.000Z</published>
-    <updated>2023-04-21T07:40:41.655Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;题目链接：完全二叉树的权值&quot;&gt;题目链接：&lt;a href=&quot;https://www.acwing.com/activity/content/problem/content/1748/&quot;&gt;完全二叉树的权值&lt;/a&gt;&lt;/h4&gt;
-&lt;h4</summary>
-        
-      
-    
-    
-    
-    <category term="题解" scheme="http://xinyi127.cn/categories/%E9%A2%98%E8%A7%A3/"/>
-    
-    
-    <category term="C++" scheme="http://xinyi127.cn/tags/C/"/>
-    
-    <category term="双指针" scheme="http://xinyi127.cn/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
-    
-    <category term="二叉树" scheme="http://xinyi127.cn/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
   </entry>
   
