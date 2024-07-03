@@ -481,7 +481,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-21
+                    2024-07-04
                 </div>
                 
 
@@ -531,54 +531,54 @@
 <li><strong>若遇到的非空白字符与格式化字符串不匹配，则结束此次读取</strong> ，并将该非空白字符回存到缓存中，在下一次读取函数被调用时读取（如 <code>scanf</code> 、 <code>getchar</code> 等）。</li>
 </ol>
 <h4 id="模拟24ms">模拟24ms</h4>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-#include &lt;cstring&gt;
-#include &lt;vector&gt;
-#include &lt;cstdio&gt;
-#include &lt;cmath&gt;
-#include &lt;unordered_map&gt;
-#include &lt;map&gt;
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;vector&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstdio&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cmath&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;unordered_map&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;map&gt;</span></span>
 
-using namespace std;
-typedef long long LL;
-typedef pair&lt;int, int&gt; PII;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> LL<span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">&gt;</span> PII<span class="token punctuation">;</span>
 
-const int N = 1e5 + 5;
+<span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">1e5</span> <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">;</span>
 
-// 返回第一次起降所用秒数
-int readtime()
-{
-    int a1, b1, c1, a2, b2, c2, d = 0;
-    // 如果读完c2后发现没有形如(+2)这样的字符串，则结束本次读入
-    scanf("%d:%d:%d %d:%d:%d (+%d)", &amp;a1, &amp;b1, &amp;c1, &amp;a2, &amp;b2, &amp;c2, &amp;d);
+<span class="token comment">// 返回第一次起降所用秒数</span>
+<span class="token keyword">int</span> <span class="token function">readtime</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> a1<span class="token punctuation">,</span> b1<span class="token punctuation">,</span> c1<span class="token punctuation">,</span> a2<span class="token punctuation">,</span> b2<span class="token punctuation">,</span> c2<span class="token punctuation">,</span> d <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token comment">// 如果读完c2后发现没有形如(+2)这样的字符串，则结束本次读入</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d:%d:%d %d:%d:%d (+%d)"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>a1<span class="token punctuation">,</span> <span class="token operator">&amp;</span>b1<span class="token punctuation">,</span> <span class="token operator">&amp;</span>c1<span class="token punctuation">,</span> <span class="token operator">&amp;</span>a2<span class="token punctuation">,</span> <span class="token operator">&amp;</span>b2<span class="token punctuation">,</span> <span class="token operator">&amp;</span>c2<span class="token punctuation">,</span> <span class="token operator">&amp;</span>d<span class="token punctuation">)</span><span class="token punctuation">;</span>
     
-    int sum = (a2 + d * 24) * 3600 + b2 * 60 + c2 - (a1 * 3600 + b1 * 60 + c1);
-    return sum;
-}
+    <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token punctuation">(</span>a2 <span class="token operator">+</span> d <span class="token operator">*</span> <span class="token number">24</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">3600</span> <span class="token operator">+</span> b2 <span class="token operator">*</span> <span class="token number">60</span> <span class="token operator">+</span> c2 <span class="token operator">-</span> <span class="token punctuation">(</span>a1 <span class="token operator">*</span> <span class="token number">3600</span> <span class="token operator">+</span> b1 <span class="token operator">*</span> <span class="token number">60</span> <span class="token operator">+</span> c1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-void myprint(int a, int b)
-{
-    int c = a + b &gt;&gt; 1;
-    int x = c /60 / 60, y = c / 60 % 60, z = c % 60;
-    printf("%02d:%02d:%02d\n", x, y, z);
-    return ;
-}
+<span class="token keyword">void</span> <span class="token function">myprint</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> c <span class="token operator">=</span> a <span class="token operator">+</span> b <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> x <span class="token operator">=</span> c <span class="token operator">/</span><span class="token number">60</span> <span class="token operator">/</span> <span class="token number">60</span><span class="token punctuation">,</span> y <span class="token operator">=</span> c <span class="token operator">/</span> <span class="token number">60</span> <span class="token operator">%</span> <span class="token number">60</span><span class="token punctuation">,</span> z <span class="token operator">=</span> c <span class="token operator">%</span> <span class="token number">60</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%02d:%02d:%02d\n"</span><span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-int main()
-{
-    int T;
-    cin &gt;&gt; T;
-    while (T -- )
-    {
-        // 设x为时差，A为第一次起降时间差，B为第二次起降时间差
-        // A+x=B-x，可得 (A+B)/2=A+x
-        int a = readtime();
-        int b = readtime();
-        myprint(a, b);
-    }
-    return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> T<span class="token punctuation">;</span>
+    cin <span class="token operator">&gt;&gt;</span> T<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>T <span class="token operator">--</span> <span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// 设x为时差，A为第一次起降时间差，B为第二次起降时间差</span>
+        <span class="token comment">// A+x=B-x，可得 (A+B)/2=A+x</span>
+        <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token function">readtime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token function">readtime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">myprint</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -1032,16 +1032,16 @@ int main()
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
-                    </a>
-                    
                     <a href="/tags/Java/">
                         <span class="chip bg-color">Java</span>
                     </a>
                     
                     <a href="/tags/Derby/">
                         <span class="chip bg-color">Derby</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
                     </a>
                     
                 </div>
@@ -1275,7 +1275,7 @@ int main()
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">156.2k</span>
+                        class="white-color">156.6k</span>
             
             
             

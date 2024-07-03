@@ -477,7 +477,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-21
+                    2024-07-04
                 </div>
                 
 
@@ -537,102 +537,102 @@
 <li>插入新的数据时，需要提前转为 <code>long long</code> 类型。</li>
 </ol>
 <h4 id="线段树-c-705ms">线段树 c++ 705ms</h4>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-#include &lt;cstring&gt;
-#include &lt;vector&gt;
-#include &lt;cstdio&gt;
-#include &lt;cmath&gt;
-#include &lt;unordered_map&gt;
-#include &lt;map&gt;
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;vector&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstdio&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cmath&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;unordered_map&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;map&gt;</span></span>
 
-using namespace std;
-typedef long long LL;
-typedef pair&lt;int, int&gt; PII;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> LL<span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">&gt;</span> PII<span class="token punctuation">;</span>
 
-const int N = 2e5 + 5;
+<span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">2e5</span> <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">;</span>
 
-int m, p;
-struct Node
-{
-    int l, r;
-    int v; // 区间[l, r]中的最大值
-}tr[N * 4];
+<span class="token keyword">int</span> m<span class="token punctuation">,</span> p<span class="token punctuation">;</span>
+<span class="token keyword">struct</span> <span class="token class-name">Node</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> l<span class="token punctuation">,</span> r<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> v<span class="token punctuation">;</span> <span class="token comment">// 区间[l, r]中的最大值</span>
+<span class="token punctuation">}</span>tr<span class="token punctuation">[</span>N <span class="token operator">*</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-// 由子节点的信息，来计算父节点的信息
-void pushup(int u)
-{
-    tr[u].v = max(tr[u &lt;&lt; 1].v, tr[u &lt;&lt; 1 | 1].v);
-}
+<span class="token comment">// 由子节点的信息，来计算父节点的信息</span>
+<span class="token keyword">void</span> <span class="token function">pushup</span><span class="token punctuation">(</span><span class="token keyword">int</span> u<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    tr<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">.</span>v <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>tr<span class="token punctuation">[</span>u <span class="token operator">&lt;&lt;</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>v<span class="token punctuation">,</span> tr<span class="token punctuation">[</span>u <span class="token operator">&lt;&lt;</span> <span class="token number">1</span> <span class="token operator">|</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-// u是线段树每个节点在一维数组中的映射
-// l和r表示该节点所包含原序列的区间左右端点
-void build(int u, int l, int r)
-{
-    tr[u] = {l, r};
-    if (l == r) return ;
-    int mid = l + r &gt;&gt; 1;
-    build(u &lt;&lt; 1, l, mid), build(u &lt;&lt; 1 | 1, mid + 1, r);
-}
+<span class="token comment">// u是线段树每个节点在一维数组中的映射</span>
+<span class="token comment">// l和r表示该节点所包含原序列的区间左右端点</span>
+<span class="token keyword">void</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token keyword">int</span> u<span class="token punctuation">,</span> <span class="token keyword">int</span> l<span class="token punctuation">,</span> <span class="token keyword">int</span> r<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    tr<span class="token punctuation">[</span>u<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>l<span class="token punctuation">,</span> r<span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>l <span class="token operator">==</span> r<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token punctuation">;</span>
+    <span class="token keyword">int</span> mid <span class="token operator">=</span> l <span class="token operator">+</span> r <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token function">build</span><span class="token punctuation">(</span>u <span class="token operator">&lt;&lt;</span> <span class="token number">1</span><span class="token punctuation">,</span> l<span class="token punctuation">,</span> mid<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">build</span><span class="token punctuation">(</span>u <span class="token operator">&lt;&lt;</span> <span class="token number">1</span> <span class="token operator">|</span> <span class="token number">1</span><span class="token punctuation">,</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-// u是线段树每个节点在一维数组中的映射
-// l和r表示所要查询的目标区间
-int query(int u, int l, int r)
-{
-    // 如果当前节点的左右端点在目标区间内部，则直接返回
-    if (l &lt;= tr[u].l &amp;&amp; r &gt;= tr[u].r) return tr[u].v;
-    else 
-    {
-        // 注意mid由tr[u].l和tr[u].r计算得到
-        int mid = tr[u].l + tr[u].r &gt;&gt; 1;
-        int v = 0;
-        if (l &lt;= mid) v = query(u &lt;&lt; 1, l, r);
-        if (r &gt; mid) v = max(v, query(u &lt;&lt; 1 | 1, l, r));
-        return v;
-    }
-}
+<span class="token comment">// u是线段树每个节点在一维数组中的映射</span>
+<span class="token comment">// l和r表示所要查询的目标区间</span>
+<span class="token keyword">int</span> <span class="token function">query</span><span class="token punctuation">(</span><span class="token keyword">int</span> u<span class="token punctuation">,</span> <span class="token keyword">int</span> l<span class="token punctuation">,</span> <span class="token keyword">int</span> r<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// 如果当前节点的左右端点在目标区间内部，则直接返回</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>l <span class="token operator">&lt;=</span> tr<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">.</span>l <span class="token operator">&amp;&amp;</span> r <span class="token operator">&gt;=</span> tr<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">.</span>r<span class="token punctuation">)</span> <span class="token keyword">return</span> tr<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">.</span>v<span class="token punctuation">;</span>
+    <span class="token keyword">else</span> 
+    <span class="token punctuation">{</span>
+        <span class="token comment">// 注意mid由tr[u].l和tr[u].r计算得到</span>
+        <span class="token keyword">int</span> mid <span class="token operator">=</span> tr<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">.</span>l <span class="token operator">+</span> tr<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">.</span>r <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> v <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>l <span class="token operator">&lt;=</span> mid<span class="token punctuation">)</span> v <span class="token operator">=</span> <span class="token function">query</span><span class="token punctuation">(</span>u <span class="token operator">&lt;&lt;</span> <span class="token number">1</span><span class="token punctuation">,</span> l<span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>r <span class="token operator">&gt;</span> mid<span class="token punctuation">)</span> v <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>v<span class="token punctuation">,</span> <span class="token function">query</span><span class="token punctuation">(</span>u <span class="token operator">&lt;&lt;</span> <span class="token number">1</span> <span class="token operator">|</span> <span class="token number">1</span><span class="token punctuation">,</span> l<span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> v<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-// 单点修改，将原序列下标为x的点的值修改为y
-void modify(int u, int x, int y)
-{
-    // 首先确保遍历到叶节点，其次该叶节点要对应修改点的下标
-    if (tr[u].l == tr[u].r &amp;&amp; tr[u].l == x) tr[u].v = y;
-    else 
-    {
-        int mid = tr[u].l + tr[u].r &gt;&gt; 1;
-        if (x &gt; mid) modify(u &lt;&lt; 1 | 1, x, y);
-        else modify(u &lt;&lt; 1, x, y);
-        // 修改完叶节点的值后要回溯修改父节点
-        pushup(u);
-    }
-}
+<span class="token comment">// 单点修改，将原序列下标为x的点的值修改为y</span>
+<span class="token keyword">void</span> <span class="token function">modify</span><span class="token punctuation">(</span><span class="token keyword">int</span> u<span class="token punctuation">,</span> <span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// 首先确保遍历到叶节点，其次该叶节点要对应修改点的下标</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>tr<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">.</span>l <span class="token operator">==</span> tr<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">.</span>r <span class="token operator">&amp;&amp;</span> tr<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">.</span>l <span class="token operator">==</span> x<span class="token punctuation">)</span> tr<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">.</span>v <span class="token operator">=</span> y<span class="token punctuation">;</span>
+    <span class="token keyword">else</span> 
+    <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> mid <span class="token operator">=</span> tr<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">.</span>l <span class="token operator">+</span> tr<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">.</span>r <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&gt;</span> mid<span class="token punctuation">)</span> <span class="token function">modify</span><span class="token punctuation">(</span>u <span class="token operator">&lt;&lt;</span> <span class="token number">1</span> <span class="token operator">|</span> <span class="token number">1</span><span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token function">modify</span><span class="token punctuation">(</span>u <span class="token operator">&lt;&lt;</span> <span class="token number">1</span><span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 修改完叶节点的值后要回溯修改父节点</span>
+        <span class="token function">pushup</span><span class="token punctuation">(</span>u<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-int main()
-{
-    cin &gt;&gt; m &gt;&gt; p;
-    build(1, 1, m);
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cin <span class="token operator">&gt;&gt;</span> m <span class="token operator">&gt;&gt;</span> p<span class="token punctuation">;</span>
+    <span class="token function">build</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> m<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    int n = 0, a = 0;
-    while (m -- )
-    {
-        char op[2];
-        int t;
-        scanf("%s%d", op, &amp;t);
-        if (*op == 'Q')
-        {
-            a = query(1, n - t + 1, n);
-            printf("%d\n", a);
-        }
-        else 
-        {
-            t = ((LL)a + t) % p;
-            modify(1, n + 1, t);
-            // 务必记得n+1
-            n ++ ;
-        }
-    }
-    return 0;
-}
+    <span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> a <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>m <span class="token operator">--</span> <span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">char</span> op<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> t<span class="token punctuation">;</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%s%d"</span><span class="token punctuation">,</span> op<span class="token punctuation">,</span> <span class="token operator">&amp;</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">*</span>op <span class="token operator">==</span> <span class="token char">'Q'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            a <span class="token operator">=</span> <span class="token function">query</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> n <span class="token operator">-</span> t <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> 
+        <span class="token punctuation">{</span>
+            t <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>LL<span class="token punctuation">)</span>a <span class="token operator">+</span> t<span class="token punctuation">)</span> <span class="token operator">%</span> p<span class="token punctuation">;</span>
+            <span class="token function">modify</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 务必记得n+1</span>
+            n <span class="token operator">++</span> <span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
@@ -1322,7 +1322,7 @@ int main()
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">156.2k</span>
+                        class="white-color">156.6k</span>
             
             
             

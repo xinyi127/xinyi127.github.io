@@ -477,7 +477,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-21
+                    2024-07-04
                 </div>
                 
 
@@ -531,60 +531,60 @@
 <li>用两个指针指向序列首尾两端，每次从首尾两端各取出两个数，比较两个数的大小，取更大的那一端的两个数。这里的更大要区分正数和负数，正数是乘积绝对值最大，负数是乘积绝对值最小。</li>
 </ol>
 <h4 id="贪心-双指针-261ms">贪心 + 双指针 261ms</h4>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-#include &lt;cstring&gt;
-#include &lt;string&gt;
-#include &lt;map&gt;
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;map&gt;</span></span>
 
-using namespace std;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
-typedef long long LL;
+<span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> LL<span class="token punctuation">;</span>
 
-const int N = 1e5 + 10, mod = 1000000009;
+<span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">1e5</span> <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">,</span> mod <span class="token operator">=</span> <span class="token number">1000000009</span><span class="token punctuation">;</span>
 
-int n, k;
-int a[N];
+<span class="token keyword">int</span> n<span class="token punctuation">,</span> k<span class="token punctuation">;</span>
+<span class="token keyword">int</span> a<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-int main()
-{
-    cin &gt;&gt; n &gt;&gt; k;
-    for (int i = 0; i &lt; n; i ++ ) cin &gt;&gt; a[i];
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cin <span class="token operator">&gt;&gt;</span> n <span class="token operator">&gt;&gt;</span> k<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span> cin <span class="token operator">&gt;&gt;</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-    sort(a, a + n);
+    <span class="token function">sort</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> a <span class="token operator">+</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    // 双指针，l 和 r 分别表示两端选择的位置。
-    // sign 用于区分结果最终为负数的情况（k为奇数，且 a 数组全部为负）。
-    int l = 0, r = n - 1, sign = 1;
-    // // k 为奇数
-    int res = 1;
-    if (k % 2) 
-    {
-        res = a[r --];
-        k --;
-        if (res &lt; 0) sign = -1;
-    }
+    <span class="token comment">// 双指针，l 和 r 分别表示两端选择的位置。</span>
+    <span class="token comment">// sign 用于区分结果最终为负数的情况（k为奇数，且 a 数组全部为负）。</span>
+    <span class="token keyword">int</span> l <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> r <span class="token operator">=</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> sign <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token comment">// // k 为奇数</span>
+    <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>k <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">)</span> 
+    <span class="token punctuation">{</span>
+        res <span class="token operator">=</span> a<span class="token punctuation">[</span>r <span class="token operator">--</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        k <span class="token operator">--</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>res <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> sign <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    while (k)
-    {
-        // 注意，x 和 y 的值可以超过 int 
-        LL x = (LL)a[l] * a[l + 1], y = (LL)a[r] * a[r - 1];
-        if (x * sign &gt; y * sign) 
-        {
-            res = (LL)x % mod * res % mod;
-            l += 2;
-        }
-        else 
-        {
-            res = (LL)y % mod * res % mod;
-            r -= 2;
-        }
-        k -= 2;
-    }
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>k<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// 注意，x 和 y 的值可以超过 int </span>
+        LL x <span class="token operator">=</span> <span class="token punctuation">(</span>LL<span class="token punctuation">)</span>a<span class="token punctuation">[</span>l<span class="token punctuation">]</span> <span class="token operator">*</span> a<span class="token punctuation">[</span>l <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token punctuation">(</span>LL<span class="token punctuation">)</span>a<span class="token punctuation">[</span>r<span class="token punctuation">]</span> <span class="token operator">*</span> a<span class="token punctuation">[</span>r <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">*</span> sign <span class="token operator">&gt;</span> y <span class="token operator">*</span> sign<span class="token punctuation">)</span> 
+        <span class="token punctuation">{</span>
+            res <span class="token operator">=</span> <span class="token punctuation">(</span>LL<span class="token punctuation">)</span>x <span class="token operator">%</span> mod <span class="token operator">*</span> res <span class="token operator">%</span> mod<span class="token punctuation">;</span>
+            l <span class="token operator">+=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> 
+        <span class="token punctuation">{</span>
+            res <span class="token operator">=</span> <span class="token punctuation">(</span>LL<span class="token punctuation">)</span>y <span class="token operator">%</span> mod <span class="token operator">*</span> res <span class="token operator">%</span> mod<span class="token punctuation">;</span>
+            r <span class="token operator">-=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        k <span class="token operator">-=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    cout &lt;&lt; res;
-    return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    cout <span class="token operator">&lt;&lt;</span> res<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -1277,7 +1277,7 @@ int main()
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">156.2k</span>
+                        class="white-color">156.6k</span>
             
             
             
